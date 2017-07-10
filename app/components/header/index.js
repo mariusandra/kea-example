@@ -32,11 +32,14 @@ class Header extends Component {
     return (
       <header className='body-header'>
         <nav>
-          <a href='/' onClick={load('/')} className={path === '/' ? 'active' : ''}>Kea example</a>
+          <a href='/' onClick={load('/')} className={path === '/' ? 'active' : ''}>Homepage</a>
+          <a href='/counter-singleton' onClick={load('/counter-singleton')} className={path === '/counter-singleton' ? 'active' : ''}>Counter</a>
+          <a href='/counter-dynamic' onClick={load('/counter-dynamic')} className={path === '/counter-dynamic' ? 'active' : ''}>Counter Dynamic</a>
+          <a href='/sliders' onClick={load('/sliders')} className={path === '/sliders' ? 'active' : ''}>Sliders</a>
+          <a href='/connected' onClick={load('/connected')} className={path === '/connected' ? 'active' : ''}>Connected</a>
           <a href='/todos' onClick={load('/todos')} className={path.indexOf('/todos') === 0 ? 'active' : ''}>Todos</a>
 
           <a className='right' href='https://www.github.com/mariusandra/kea-example' target='_blank'>Fork on Github</a>
-          <a href='https://gomix.com/#!/project/kea-example' target='_blank'>Mix in Gomix</a>
         </nav>
       </header>
     )
