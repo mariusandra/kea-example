@@ -1,0 +1,11 @@
+selectors: ({ selectors }) => ({
+  // add as many as you want
+  nameOfSelector: [
+    // input selectors
+    () => [selectors.firstOtherSelector, selectors.secondOtherSelector],
+    // calculate the result
+    (firstOther, secondOther) => firstOther + secondOther,
+    // type of the result
+    PropTypes.number
+  ]
+})

@@ -1,0 +1,8 @@
+function increment (amount) {
+  if (typeof amount === 'undefined') {
+    amount = 1
+  }
+
+  const object = { amount: amount }
+  return object
+}

@@ -1,0 +1,12 @@
+reducers: ({ actions }) => {
+  reducerName: [defaultValue, propType, {
+    [actions.firstAction]: function (state, payload) {
+      // state - the current value of the reducer, for example: state = 0
+      // payload - the payload of the action, for example: payload = { amount: 1 }
+      // return the new state, e.g. return state + payload.amount
+    },
+    [actions.anotherAction]: function (state, payload) {
+      // it's the same story here
+    }
+  }]
+}

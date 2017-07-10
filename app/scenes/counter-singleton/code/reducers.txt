@@ -1,0 +1,38 @@
+import React, { Component, PropTypes } from 'react'
+import { kea } from 'kea'
+
+@kea({
+  actions: () => ({
+    increment: (amount = 1) => ({ amount }),
+    decrement: (amount = 1) => ({ amount })
+  }),
+
+  reducers: ({ actions }) => ({
+    counter: [0, PropTypes.number, {
+      [actions.increment]: (state, payload) => state + payload.amount,
+      [actions.decrement]: (state, payload) => state - payload.amount
+    }]
+  }),
+
+  // TODO: more code here?
+})
+export default class Counter extends Component {
+  render () {
+    const { counter } = this.props
+    const { increment, decrement } = this.actions
+
+    // TODO: make this be double counter
+    const doubleCounter = 0
+
+    return (
+      <div className='kea-counter'>
+        Count: {counter}
+        <br />
+        Doublecount: {doubleCounter}
+        <br />
+        <button onClick={() => increment(1)}>Increment</button>
+        <button onClick={() => decrement(1)}>Decrement</button>
+      </div>
+    )
+  }
+}
