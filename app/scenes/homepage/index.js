@@ -28,6 +28,9 @@ export default class HomepageScene extends Component {
           <br />
           <br />
           <a href='/counter-singleton' onClick={this.handleRoute}>Or click here to begin</a>
+          <br />
+          <br />
+          <a href='https://www.github.com/mariusandra/kea'>Fork on GitHub</a>
         </div>
       </div>
     )
