@@ -9,7 +9,11 @@ import sceneLogic from './logic'
 import Highlight from 'react-highlight'
 import 'highlight.js/styles/railscasts.css'
 
-import connectedCode from 'raw-loader!./source.txt'
+const code = {
+  index: require('raw-loader!./code/index.txt'),
+  logic: require('raw-loader!./code/logic.txt'),
+  saga: require('raw-loader!./code/saga.txt')
+}
 
 @connect({
   actions: [
@@ -44,18 +48,27 @@ export default class HomepageScene extends Component {
 
     return (
       <div className='homepage-scene'>
-        <div style={{margin: 20}}>
+        <div className='description'>
+          <h2>Example #4 - Connected components</h2>
           This example demonstrates connected components.
           <br /><br />
-          As your application grows in size you may want to separate kea() calls into separate
-          files. You may then use the @connect helper (or connect: {}) to attach actions and properties
+          As your application grows in size you may want to separate <code>kea({})</code> calls into separate
+          files. You may then use the <code>@connect</code> helper (or <code>{'connect: {}'}</code>) to attach actions and properties
           from the connected logic.
+          <div className='demo'>
+            <h1>
+              Hello, I'm <em onClick={this.updateName}>{capitalizedName}</em> the Kea
+            </h1>
+          </div>
         </div>
-        <h1>
-          Hello, I'm <em onClick={this.updateName}>{capitalizedName}</em> the Kea
-        </h1>
         <div className='code'>
-          <Highlight className='javascript'>{connectedCode}</Highlight>
+          <Highlight className='javascript'>{code.logic}</Highlight>
+        </div>
+        <div className='code'>
+          <Highlight className='javascript'>{code.saga}</Highlight>
+        </div>
+        <div className='code'>
+          <Highlight className='javascript'>{code.index}</Highlight>
         </div>
       </div>
     )

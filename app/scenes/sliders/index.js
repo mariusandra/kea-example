@@ -13,10 +13,14 @@ export default class SlidersScene extends Component {
   render () {
     return (
       <div className='sliders-scene'>
-        <div style={{ margin: 20 }}>
+        <div className='description'>
+          <h2>Example #3 - Sliders</h2>
+
           This example demonstrates two components dynamically connected to redux.
           <br />
           Each have their own sagas that indepentenly update the image in the slider.
+          <br /><br />
+          Read the documentation for <a href='https://redux-saga.js.org/'>redux-saga</a> to fully understand this example.
         </div>
         <div className='slider-container'>
           <Slider id={1} initialSlide={0} />

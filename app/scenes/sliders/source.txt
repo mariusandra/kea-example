@@ -36,6 +36,9 @@ import images from './images'
     ]
   }),
 
+  // This saga is run when the component is mounted.
+  // The function is a regular redux-saga, but with access to:
+  // 1) this.actions, 2) this.key and 3) this.props
   start: function * () {
     const { updateSlide } = this.actions
 
@@ -43,6 +46,8 @@ import images from './images'
     // console.log(this, this.actions, this.props)
 
     while (true) {
+      // wait until the updateSlide() action is triggered or a 5sec timeout occurs
+      // to ignore actions from other components we must also match the key
       const { timeout } = yield race({
         change: take(action => action.type === updateSlide.toString() &&
                                action.payload.key === this.key),
@@ -50,22 +55,32 @@ import images from './images'
       })
 
       if (timeout) {
+        // use this.get(..) to select the latest data from redux
         const currentSlide = yield this.get('currentSlide')
+
+        // actions are not automatically bound to dispatch, so
+        // you must use redux-saga's put() with them
         yield put(updateSlide(currentSlide + 1))
       }
     }
   },
 
+  // this saga is run when the component is unmounted
   stop: function * () {
     console.log('Stopping homepage slider saga')
   },
 
+  // The redux-saga takeEvery function.
+  // It waits for actions and runs the relevant functions.
+  // Also available: takeLatest
   takeEvery: ({ actions, workers }) => ({
     [actions.updateSlide]: workers.updateSlide
   }),
 
+  // it's recommended to group all the logic under the workers: {} object.
   workers: {
     updateSlide: function * (action) {
+      // check if it was this component that triggered the action
       if (action.payload.key === this.key) {
         console.log('slide update triggered', action.payload.key, this.key, this.props.id)
         // console.log(action, this)

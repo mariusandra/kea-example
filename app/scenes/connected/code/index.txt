@@ -1,0 +1,77 @@
+// index.js
+import React, { Component } from 'react'
+import { kea, connect } from 'kea'
+
+import sceneSaga from './saga'
+import sceneLogic from './logic'
+
+// option 1
+@connect({
+  actions: [
+    sceneLogic, [ // pull these actions from logic.js
+      'updateName'
+    ]
+  ],
+  props: [
+    sceneLogic, [ // pull these props from logic.js
+      'name',
+      'capitalizedName'
+    ]
+  ],
+  sagas: [ // start/stop this saga when mounting/unmounting the component
+    sceneSaga
+  ]
+})
+
+// option 2
+// in case we define some internal actions/reducers
+@kea({
+  connect: {
+    actions: [
+      sceneLogic, [
+        'updateName'
+      ]
+    ],
+    props: [
+      sceneLogic, [
+        'name',
+        'capitalizedName'
+      ]
+    ]
+  },
+  sagas: [
+    sceneSaga
+  ],
+  actions: ... // some internal actions
+  reducers: ... // some internal reducers
+})
+
+// option 3
+@sceneLogic // Binds the entire logic to this component, just from a different file.
+            // We can still @connect to it from other source files.
+            // In this case we need to also add sagas: [ sceneSaga ] in logic.js.
+
+export default class HomepageScene extends Component {
+  updateName = () => {
+    const { name } = this.props
+    const { updateName } = this.props.actions
+
+    const newName = window.prompt('Please enter the name', name)
+
+    if (newName) {
+      updateName(newName)
+    }
+  }
+
+  render () {
+    const { capitalizedName } = this.props
+
+    return (
+      <div className='homepage-scene'>
+        <h1>
+          Hello, I'm <em onClick={this.updateName}>{capitalizedName}</em> the Kea
+        </h1>
+      </div>
+    )
+  }
+}
