@@ -24,7 +24,7 @@ import sceneLogic from './logic'
 })
 
 // option 2
-// in case we define some internal actions/reducers
+// in case we define some local actions/reducers
 @kea({
   connect: {
     actions: [
@@ -42,8 +42,8 @@ import sceneLogic from './logic'
   sagas: [
     sceneSaga
   ],
-  actions: ... // some internal actions
-  reducers: ... // some internal reducers
+  actions: ..., // some local actions
+  reducers: ... // some local reducers
 })
 
 // option 3

@@ -37,8 +37,11 @@ import images from './images'
   }),
 
   // This saga is run when the component is mounted.
-  // The function is a regular redux-saga, but with access to:
+  // The function is a regular redux-saga worker that has access to:
   // 1) this.actions, 2) this.key and 3) this.props
+  //
+  // Read the redux-saga documentation to understand the different
+  // functions like: race(), put(), take(), etc
   start: function * () {
     const { updateSlide } = this.actions
 
@@ -47,7 +50,7 @@ import images from './images'
 
     while (true) {
       // wait until the updateSlide() action is triggered or a 5sec timeout occurs
-      // to ignore actions from other components we must also match the key
+      // to ignore actions from other slider instances we must also match the key
       const { timeout } = yield race({
         change: take(action => action.type === updateSlide.toString() &&
                                action.payload.key === this.key),

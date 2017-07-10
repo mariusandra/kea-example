@@ -16,17 +16,25 @@ export default class SlidersScene extends Component {
         <div className='description'>
           <h2>Example #3 - Sliders</h2>
 
-          This example demonstrates two components dynamically connected to redux.
-          <br />
-          Each have their own sagas that indepentenly update the image in the slider.
+          This example demonstrates side effects through sagas.
+          <br /><br />
+          You will see one component with two instances that dynamically receive separate props.
+          Each instance has its own saga that indepentenly updates the image after a delay.
           <br /><br />
           Read the documentation for <a href='https://redux-saga.js.org/'>redux-saga</a> to fully understand this example.
-        </div>
-        <div className='slider-container'>
-          <Slider id={1} initialSlide={0} />
-          <Slider id={2} initialSlide={1} />
+
+          <h2>Final result</h2>
+          <div className='demo'>
+            <div className='slider-container'>
+              <Slider id={1} initialSlide={0} />
+              <Slider id={2} initialSlide={1} />
+            </div>
+          </div>
         </div>
         <div className='code'>
+          <h2>Full source</h2>
+          Better documentation is coming soon. Until then, read the comments in the code
+          and the <a href='https://redux-saga.js.org/'>redux-saga</a> documentation.
           <Highlight className='javascript'>{sliderCode}</Highlight>
         </div>
       </div>

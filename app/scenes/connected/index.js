@@ -53,8 +53,9 @@ export default class HomepageScene extends Component {
           This example demonstrates connected components.
           <br /><br />
           As your application grows in size you may want to separate <code>kea({})</code> calls into separate
-          files. You may then use the <code>@connect</code> helper (or <code>{'connect: {}'}</code>) to attach actions and properties
-          from the connected logic.
+          files. You may then use the <code>@connect</code> helper (or <code>{'@kea({ connect: {} })'}</code>) to pull in actions
+          and properties from the connected logic.
+          <h2>Final result</h2>
           <div className='demo'>
             <h1>
               Hello, I'm <em onClick={this.updateName}>{capitalizedName}</em> the Kea
@@ -62,12 +63,16 @@ export default class HomepageScene extends Component {
           </div>
         </div>
         <div className='code'>
+          <h2>The code</h2>
+          <h3>1. logic.js</h3>
           <Highlight className='javascript'>{code.logic}</Highlight>
         </div>
         <div className='code'>
+          <h3>2. saga.js</h3>
           <Highlight className='javascript'>{code.saga}</Highlight>
         </div>
         <div className='code'>
+          <h3>3. index.js</h3>
           <Highlight className='javascript'>{code.index}</Highlight>
         </div>
       </div>
