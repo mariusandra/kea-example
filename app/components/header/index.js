@@ -39,7 +39,7 @@ class Header extends Component {
           <a href='/connected' onClick={load('/connected')} className={path === '/connected' ? 'active' : ''}>Connected</a>
           <a href='/todos' onClick={load('/todos')} className={path.indexOf('/todos') === 0 ? 'active' : ''}>Todos</a>
 
-          <a className='right' href='https://www.github.com/mariusandra/kea-example' target='_blank'>Fork on Github</a>
+          <a className='right' href='https://www.github.com/mariusandra/kea' target='_blank'>Fork on Github</a>
         </nav>
       </header>
     )
