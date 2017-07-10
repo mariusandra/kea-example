@@ -1,0 +1,29 @@
+import React, { Component, PropTypes } from 'react'
+import { kea } from 'kea'
+
+const keaOptions = {
+  // ... code here
+}
+
+class Counter extends Component {
+  render () {
+    // TODO: make these work
+    const counter = 0
+    const doubleCounter = 0
+    const increment = () => {}
+    const decrement = () => {}
+
+    return (
+      <div className='kea-counter'>
+        Count: {counter}
+        <br />
+        Doublecount: {doubleCounter}
+        <br />
+        <button onClick={() => increment(1)}>Increment</button>
+        <button onClick={() => decrement(1)}>Decrement</button>
+      </div>
+    )
+  }
+}
+
+export default kea(keaOptions)(Component)

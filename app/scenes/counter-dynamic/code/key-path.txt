@@ -3,6 +3,7 @@ import { kea } from 'kea'
 
 @kea({
   key: (props) => props.id,
+
   path: (key) => ['scenes', 'counterDynamic', 'counter', key],
 
   // ...

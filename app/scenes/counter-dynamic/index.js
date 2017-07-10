@@ -32,6 +32,8 @@ export default class CounterDynamicScene extends Component {
         <div className='description'>
           <h2>Example #2 - Dynamic Counter</h2>
           This example demonstrates dynamically created actions and reducers.
+          <br /><br />
+          Dynamically in this context means <em>on mount</em>. In short, this allows you to create multiple instances of the component with separate state.
 
           <div className='demo'>
             <Counter id={1} />
@@ -40,38 +42,42 @@ export default class CounterDynamicScene extends Component {
           </div>
 
           <h2>1. Key and path</h2>
-          The code for this example is almost the same as for the simple counter. The main thing that's different is that we
-          have to specify a path in redux where our reducers will store their data:
+          The code for this example is almost the same as for the <a href='/counter-singleton' onClick={this.handleRoute}>singleton counter</a>.
+          <br /><br />
+          The big difference is that we must manually tell our component instances where to store their data:
 
           <Highlight className='javascript'>{code.keyPath}</Highlight>
 
           The <code>key</code> function receives your component's props as input and must return a key that's unique for the
-          life of the component. Usually it's something like <code>key = (props) => props.id</code>
+          life of the component. Usually it's something like <code>key = (props) => props.id</code> if your component is rendered as <code>{'<Component id=\'somethingUnique\' />'}</code>
           <br />
           <br />
           The <code>path</code> specifies where the data for your component lives in redux. It takes just one argument,
           the <code>key</code> from the previous step.
           <br />
           <br />
-          Note! You may also use <code>path</code> with static components (like in the <a href='/counter-singleton' onClick={this.handleRoute}>previous example</a>) if you wish to specify
-          where they will store their data. It greatly helps with debugging. In this case however you must omit the <code>key</code>.
+          Note! You may also use <code>path</code> with singleton components (like the <a href='/counter-singleton' onClick={this.handleRoute}>previous example</a>) if you wish to specify
+          where they will store their data.
+          <br /><br />
+          It makes your redux tree more readable and helps with debugging. In that case you must skip the <code>key</code> line.
 
           <h2>2. Limiting the reducers</h2>
-          There's one last thing you need to do:
+          There's one last thing you need to do.
+          <br /><br />
+          No matter which instance of your component triggers the action, all the reducers will receive it.
+          So if counter #1 dispatches the <code>increment</code> action, counter #2 will also receive it.
+          <br /><br />
+          In order to prevent this, you must check for the key in your reducers, like so:
+
           <Highlight className='javascript'>{code.reducers}</Highlight>
 
-          No matter which component triggers the action, all the reducers will receive it. So if counter #1 dispatches the <code>increment</code>
-          action, counter #2 will also hear it.
-          <br /><br />
-          In order to prevent this, you must specifically take this into account in your reducers, like in the example above.
-          <br /><br />
-          And that's it!
+          And we're done!
         </div>
 
         <div className='description'>
           <h2>Final Example</h2>
 
-          While the counters are separate, they are still connected to the counters in the example on top of this page:
+          While the following counters have separate data, they are still connected to the counters on top of this page, as they share the same <code>id</code>s. You can mix and match!
 
           <div className='demo'>
             <Counter id={1} />
