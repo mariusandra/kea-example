@@ -116,6 +116,7 @@ export default class CounterSingletonScene extends Component {
 
           <h2>Full source</h2>
           <Highlight className='javascript'>{code.full}</Highlight>
+          <a href='/counter-dynamic' onClick={this.handleRoute}>Next demo</a>
         </div>
       </div>
     )

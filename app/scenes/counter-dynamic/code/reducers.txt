@@ -1,0 +1,18 @@
+@kea({
+  key: (props) => props.id,
+  path: (key) => ['scenes', 'counterDynamic', 'counter', key],
+
+  actions: () => ({
+    increment: (amount = 1) => ({ amount }),
+    decrement: (amount = 1) => ({ amount })
+  }),
+
+  reducers: ({ actions, key, props }) => ({
+    counter: [0, PropTypes.number, {
+      [actions.increment]: (state, payload) => payload.key === key ? state + payload.amount : state,
+      [actions.decrement]: (state, payload) => payload.key === key ? state - payload.amount : state
+    }]
+  }),
+
+  // selectors: ...
+})

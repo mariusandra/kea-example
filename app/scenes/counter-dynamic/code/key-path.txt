@@ -1,0 +1,12 @@
+import React, { Component, PropTypes } from 'react'
+import { kea } from 'kea'
+
+@kea({
+  key: (props) => props.id,
+  path: (key) => ['scenes', 'counterDynamic', 'counter', key],
+
+  // ...
+})
+export default class Counter extends Component {
+  // ...
+}
