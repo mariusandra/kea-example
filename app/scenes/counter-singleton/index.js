@@ -157,7 +157,7 @@ export default class CounterSingletonScene extends Component {
           <Highlight className='javascript'>{code.selectors}</Highlight>
           The selectors are defined like this:
           <Highlight className='javascript'>{code.selectors2}</Highlight>
-          Note that kea automatically creates selectors for all the reducers that you have defined, so you can use them immediately as input.
+          Note that kea automatically creates selectors for all the reducers that you have defined, so you can use <code>selectors.reducerName</code> immediately as input.
         </div>
 
         <div className='description'>
