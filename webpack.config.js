@@ -9,7 +9,7 @@ var config = {
   context: path.join(__dirname, './app'),
   entry: {
     common: [
-      'babel-polyfill', 'react', 'react-highlight'
+      'babel-polyfill', 'react', 'react-highlight',
       './index.js'
     ],
     homepage: [
