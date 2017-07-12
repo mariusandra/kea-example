@@ -9,7 +9,6 @@ import StaticSlider from './slider/static'
 import SliderWithSaga from './slider/with-saga'
 
 import Highlight from 'react-highlight'
-import 'highlight.js/styles/railscasts.css'
 
 const code = {
   full: require('raw-loader!./code/full.txt'),

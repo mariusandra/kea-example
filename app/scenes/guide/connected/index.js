@@ -7,7 +7,6 @@ import sceneSaga from './saga'
 import sceneLogic from './logic'
 
 import Highlight from 'react-highlight'
-import 'highlight.js/styles/railscasts.css'
 
 const code = {
   index: require('raw-loader!./code/index.txt'),
@@ -47,7 +46,7 @@ export default class HomepageScene extends Component {
     const { capitalizedName } = this.props
 
     return (
-      <div className='homepage-scene'>
+      <div className='connected-scene'>
         <div className='description'>
           <h2>Example #4 - Connected components</h2>
           This example demonstrates connected components.

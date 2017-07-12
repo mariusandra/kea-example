@@ -10,7 +10,7 @@ import logo from './logo.svg'
 const menu = {
   homepage: {
     url: '/',
-    title: 'Homepage'
+    title: 'Kea'
   },
   guide: {
     url: '/guide/counter',

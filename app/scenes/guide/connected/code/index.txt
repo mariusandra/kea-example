@@ -67,7 +67,7 @@ export default class HomepageScene extends Component {
     const { capitalizedName } = this.props
 
     return (
-      <div className='homepage-scene'>
+      <div>
         <h1>
           Hello, I'm <em onClick={this.updateName}>{capitalizedName}</em> the Kea
         </h1>

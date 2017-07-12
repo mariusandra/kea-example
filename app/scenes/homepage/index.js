@@ -4,7 +4,15 @@ import React, { Component } from 'react'
 import { kea } from 'kea'
 import { push } from 'react-router-redux'
 
+import Highlight from 'react-highlight'
+
 import Slider from '../guide/sliders/slider'
+import Counter from '../guide/counter/counter'
+
+const code = {
+  counter: require('raw-loader!../guide/counter/code/selectors.txt'),
+  slider: require('raw-loader!../guide/sliders/code/just-enough.txt')
+}
 
 @kea({})
 export default class HomepageScene extends Component {
@@ -20,14 +28,40 @@ export default class HomepageScene extends Component {
   render () {
     return (
       <div className='homepage-scene'>
-        <div style={{ margin: 20 }}>
-          <Slider id={0} />
-        </div>
+
         <div style={{ margin: 20 }}>
           <a href='/guide/counter' onClick={this.handleRoute}>Read the guide</a>
           <br />
           <br />
           <a href='https://www.github.com/mariusandra/kea'>Fork on GitHub</a>
+        </div>
+
+        <h2>Simple counter</h2>
+        <div className='split'>
+          <div className='code'>
+            <Highlight className='javascript'>{code.counter}</Highlight>
+          </div>
+          <div className='description'>
+            <div className='demo'>
+              <Counter />
+            </div>
+            <br />
+            Read the guide: <a href='/guide/counter' onClick={this.handleRoute}>Counter</a>
+          </div>
+        </div>
+
+        <h2>Slider</h2>
+        <div className='split'>
+          <div className='code'>
+            <Highlight className='javascript'>{code.slider}</Highlight>
+          </div>
+          <div className='description'>
+            <div className='demo'>
+              <Slider id={999} />
+            </div>
+            <br />
+            Read the guide: <a href='/guide/sliders' onClick={this.handleRoute}>Sliders</a>
+          </div>
         </div>
       </div>
     )

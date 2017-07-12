@@ -1,6 +1,5 @@
 .homepage-scene {
   font-family: 'Helvetica Neue', 'Arial', sans-serif;
-  text-align: center;
 
   h1 em {
     border-bottom: 1px dashed #888;
@@ -12,13 +11,37 @@
     margin: 0 auto;
   }
 
-  @media (min-width: 960px) {
-    .kea-slider {
-      height: 600px;
-      overflow: hidden;
+  h2 {
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 0;
+  }
 
-      img {
-        position: absolute;
+  .split {
+    display: flex;
+    width: 100%;
+    .description {
+      flex: 1 auto;
+      margin-left: 0;
+      .demo {
+        margin: 0;
+      }
+    }
+    .code {
+      width: 650px;
+      min-width: 650px;
+      pre {
+        margin: 0;
+      }
+    }
+    @media (max-width: 959px) {
+      display: block;
+      .description {
+        margin-left: 20px;
+      }
+      .code {
+        width: auto;
+        min-width: auto;
       }
     }
   }

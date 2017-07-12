@@ -5,7 +5,6 @@ import { kea } from 'kea'
 import { push } from 'react-router-redux'
 
 import Highlight from 'react-highlight'
-import 'highlight.js/styles/railscasts.css'
 
 import Counter from './counter'
 

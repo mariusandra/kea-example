@@ -1,4 +1,5 @@
 import './styles.scss'
+import 'highlight.js/styles/railscasts.css'
 
 import React, { Component } from 'react'
 
