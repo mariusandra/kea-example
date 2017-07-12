@@ -45,4 +45,55 @@
       }
     }
   }
+
+  .landing {
+    border-bottom: 1px solid #ccc;
+    background: #e9f3e9;
+    padding: 120px 40px 120px 40px;
+
+    .intro {
+      margin: 0 auto;
+      max-width: 600px;
+      min-height: 150px;
+
+      img {
+        float: left;
+        margin-right: 20px;
+        height: 150px;
+        width: 150px;
+      }
+
+      .text {
+        margin-left: 170px;
+        h1 {
+          margin-top: 0;
+          padding-top: 10px;
+          margin-bottom: 0;
+          font-weight: 400;
+          font-size: 44px;
+        }
+        strong {
+          display: block;
+          font-weight: 300;
+          font-size: 24px;
+          margin-bottom: 20px;
+          margin-top: 10px;
+        }
+      }
+    }
+    @media (max-width: 520px) {
+      padding: 80px 40px 80px 40px;
+
+      .intro {
+        text-align: center;
+        img {
+          float: none;
+          margin-right: 0;
+        }
+        .text {
+          margin-left: 0;
+        }
+      }
+    }
+  }
 }

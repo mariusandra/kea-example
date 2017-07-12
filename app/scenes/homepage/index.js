@@ -6,6 +6,8 @@ import { push } from 'react-router-redux'
 
 import Highlight from 'react-highlight'
 
+import logo from '~/assets/logo.svg'
+
 import Slider from '../guide/sliders/slider'
 import Counter from '../guide/counter/counter'
 
@@ -29,11 +31,18 @@ export default class HomepageScene extends Component {
     return (
       <div className='homepage-scene'>
 
-        <div style={{ margin: 20 }}>
-          <a href='/guide/counter' onClick={this.handleRoute}>Read the guide</a>
-          <br />
-          <br />
-          <a href='https://www.github.com/mariusandra/kea'>Fork on GitHub</a>
+        <div className='landing'>
+          <div className='intro'>
+            <img src={logo} alt='' />
+            <div className='text'>
+              <h1>Kea</h1>
+              <strong>High Level Architecture for React Apps</strong>
+
+              <a href='/guide/counter' onClick={this.handleRoute}>Get started</a>
+              {' - '}
+              <a href='https://www.github.com/mariusandra/kea'>Fork on GitHub</a>
+            </div>
+          </div>
         </div>
 
         <h2>Simple counter</h2>

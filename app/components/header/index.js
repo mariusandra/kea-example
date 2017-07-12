@@ -5,7 +5,7 @@ import { connect } from 'kea'
 
 import { push } from 'react-router-redux'
 
-import logo from './logo.svg'
+import logo from '~/assets/logo.svg'
 
 const menu = {
   homepage: {
@@ -66,13 +66,10 @@ export default class Header extends Component {
     return (
       <header className='body-header'>
         <nav className='first-level'>
-          <a href='/' className='logo' onClick={this.handleLoad}>
-            <img src={logo} height={40} alt='' />
-          </a>
           {Object.keys(menu).map(key => (
             <a href={menu[key].url} key={key} onClick={this.handleLoad} className={selectedMenuKey === key ? 'active' : ''}>{menu[key].title}</a>
           ))}
-          <a className='right' href='https://www.github.com/mariusandra/kea' target='_blank'>Fork on Github</a>
+          <a className='right' href='https://www.github.com/mariusandra/kea' target='_blank'>Github</a>
         </nav>
         {menu[selectedMenuKey].children ? (
           <nav className='second-level'>
@@ -83,12 +80,5 @@ export default class Header extends Component {
         ) : null}
       </header>
     )
-
-    // <a href='/' onClick={this.load} className={path === '/' ? 'active' : ''}>Homepage</a>
-    // <a href='/guide/counter-singleton' onClick={this.load} className={path === '/guide/counter-singleton' ? 'active' : ''}>Counter</a>
-    // <a href='/guide/counter-dynamic' onClick={this.load} className={path === '/guide/counter-dynamic' ? 'active' : ''}>Dynamic Counter</a>
-    // <a href='/guide/sliders' onClick={this.load} className={path === '/guide/sliders' ? 'active' : ''}>Sliders</a>
-    // <a href='/guide/connected' onClick={this.load} className={path === '/guide/connected' ? 'active' : ''}>Connected</a>
-    // <a href='/examples/todos' onClick={this.load} className={path.indexOf('/examples/todos') === 0 ? 'active' : ''}>Todos</a>
   }
 }
