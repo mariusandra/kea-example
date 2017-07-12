@@ -42,7 +42,7 @@ export default class CounterDynamicScene extends Component {
           </div>
 
           <h2>1. Key and path</h2>
-          The code for this example is almost the same as for the <a href='/counter-singleton' onClick={this.handleRoute}>singleton counter</a>.
+          The code for this example is almost the same as for the <a href='/guide/counter' onClick={this.handleRoute}>singleton counter</a>.
           <br /><br />
           The big difference is that we must manually tell our component instances where to store their data:
 
@@ -56,7 +56,7 @@ export default class CounterDynamicScene extends Component {
           the <code>key</code> from the previous step.
           <br />
           <br />
-          Note! You may also use <code>path</code> with singleton components (like the <a href='/counter-singleton' onClick={this.handleRoute}>previous example</a>) if you wish to specify
+          Note! You may also use <code>path</code> with singleton components (like the <a href='/guide/counter' onClick={this.handleRoute}>previous example</a>) if you wish to specify
           where they will store their data.
           <br /><br />
           It makes your redux tree more readable and helps with debugging. In that case you must skip the <code>key</code> line.
@@ -85,13 +85,13 @@ export default class CounterDynamicScene extends Component {
             <Counter id={2} />
           </div>
 
-          Next, check out the <a href='/sliders' onClick={this.handleRoute}>sliders</a> demo to see how to add side effects to your code.
+          Next, check out the <a href='/guide/sliders' onClick={this.handleRoute}>sliders</a> demo to see how to add side effects to your code.
 
           <h2>Full source</h2>
 
           <Highlight className='javascript'>{code.full}</Highlight>
 
-           <a href='/sliders' onClick={this.handleRoute}>Next demo</a>
+          <a href='/guide/sliders' onClick={this.handleRoute}>Next demo</a>
         </div>
       </div>
     )

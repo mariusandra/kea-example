@@ -173,11 +173,11 @@ export default class CounterSingletonScene extends Component {
           Is there something we can do about this?
           <br />
           <br />
-          Yes. That's what the next example is all about: <a href='/counter-dynamic' onClick={this.handleRoute}>Dynamic counters</a>
+          Yes. That's what the next example is all about: <a href='/guide/counter-dynamic' onClick={this.handleRoute}>Dynamic counters</a>
 
           <h2>Full source</h2>
           <Highlight className='javascript'>{code.full}</Highlight>
-          <a href='/counter-dynamic' onClick={this.handleRoute}>Next demo</a>
+          <a href='/guide/counter-dynamic' onClick={this.handleRoute}>Next demo</a>
         </div>
       </div>
     )
