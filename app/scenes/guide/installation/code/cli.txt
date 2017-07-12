@@ -1,0 +1,5 @@
+npm install kea -g
+kea new my-project
+cd my-project
+npm install # or yarn
+npm start   # or yarn start

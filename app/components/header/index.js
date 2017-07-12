@@ -14,6 +14,7 @@ const menu = {
     url: '/guide/counter',
     title: 'Guide',
     children: [
+      { url: '/guide/installation', title: 'Installation' },
       { url: '/guide/counter', title: 'Counter' },
       { url: '/guide/counter-dynamic', title: 'Dynamic Counter' },
       { url: '/guide/sliders', title: 'Sliders' },

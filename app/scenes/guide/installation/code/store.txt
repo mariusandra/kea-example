@@ -1,0 +1,16 @@
+import { keaSaga, keaReducer } from 'kea' // add this
+
+const reducers = combineReducers({
+  routing: routerReducer,
+  scenes: keaReducer('scenes') // add this
+})
+
+const sagaMiddleware = createSagaMiddleware()
+const finalCreateStore = compose(
+  applyMiddleware(sagaMiddleware),
+  applyMiddleware(routerMiddleware(browserHistory))
+)(createStore)
+
+const store = finalCreateStore(reducers)
+
+sagaMiddleware.run(keaSaga) // add this

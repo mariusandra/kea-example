@@ -3,6 +3,7 @@ import { combineScenesAndRoutes } from 'kea/scene'
 const scenes = {
   homepage: require('bundle-loader?lazy&name=homepage!./homepage/scene.js'),
 
+  guideInstallation: require('bundle-loader?lazy&name=guide!./guide/installation/scene.js'),
   guideCounter: require('bundle-loader?lazy&name=guide!./guide/counter/scene.js'),
   guideCounterDynamic: require('bundle-loader?lazy&name=guide!./guide/counter-dynamic/scene.js'),
   guideSliders: require('bundle-loader?lazy&name=guide!./guide/sliders/scene.js'),
@@ -14,7 +15,8 @@ const scenes = {
 const routes = {
   '/': 'homepage',
 
-  '/guide': 'guideCounter',
+  '/guide': 'guideInstallation',
+  '/guide/installation': 'guideInstallation',
   '/guide/counter': 'guideCounter',
   '/guide/counter-dynamic': 'guideCounterDynamic',
   '/guide/sliders': 'guideSliders',

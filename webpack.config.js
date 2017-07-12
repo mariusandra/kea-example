@@ -16,6 +16,7 @@ var config = {
       './scenes/homepage/scene.js'
     ],
     guide: [
+      './scenes/guide/installation/scene.js',
       './scenes/guide/counter/scene.js',
       './scenes/guide/counter-dynamic/scene.js',
       './scenes/guide/sliders/scene.js',
