@@ -15,20 +15,14 @@ var config = {
     homepage: [
       './scenes/homepage/scene.js'
     ],
-    counterDynamic: [
-      './scenes/counter-dynamic/scene.js'
+    guide: [
+      './scenes/guide/counter/scene.js',
+      './scenes/guide/counter-dynamic/scene.js',
+      './scenes/guide/sliders/scene.js',
+      './scenes/guide/connected/scene.js'
     ],
-    counterSingleton: [
-      './scenes/counter-singleton/scene.js'
-    ],
-    sliders: [
-      './scenes/sliders/scene.js'
-    ],
-    connected: [
-      './scenes/connected/scene.js'
-    ],
-    todos: [
-      './scenes/todos/scene.js'
+    exampleTodos: [
+      './scenes/examples/todos/scene.js'
     ]
   },
   output: {

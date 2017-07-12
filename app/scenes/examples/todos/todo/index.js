@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'kea'
 
-import sceneLogic from '~/scenes/todos/logic'
+import sceneLogic from '~/scenes/examples/todos/logic'
 
 const ESCAPE = 27
 const ENTER = 13

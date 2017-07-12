@@ -1,16 +1,42 @@
 import './styles.scss'
 
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
+import { connect } from 'kea'
 
 import { push } from 'react-router-redux'
-import { createStructuredSelector } from 'reselect'
 
-const selector = createStructuredSelector({
-  path: (state) => state.routing.locationBeforeTransitions.pathname
+const menu = {
+  homepage: {
+    url: '/',
+    title: 'Homepage'
+  },
+  guide: {
+    url: '/guide/counter',
+    title: 'Guide',
+    children: [
+      { url: '/guide/counter', title: 'Counter' },
+      { url: '/guide/counter-dynamic', title: 'Dynamic Counter' },
+      { url: '/guide/sliders', title: 'Sliders' },
+      { url: '/guide/connected', title: 'Connected' }
+    ]
+  },
+  examples: {
+    url: '/examples/todos',
+    title: 'Examples',
+    children: [
+      { url: '/examples/todos', title: 'TodoMVC' }
+    ]
+  }
+}
+
+@connect({
+  props: [
+    (state) => state.routing.locationBeforeTransitions, [
+      'pathname as path'
+    ]
+  ]
 })
-
-class Header extends Component {
+export default class Header extends Component {
   static propTypes = {
     // libs
     dispatch: React.PropTypes.func.isRequired,
@@ -19,31 +45,41 @@ class Header extends Component {
     path: React.PropTypes.string.isRequired
   }
 
-  static defaultProps = {
+  load = (event) => {
+    const { dispatch } = this.props
+
+    event.preventDefault()
+    dispatch(push(event.target.attributes.href.value))
   }
 
   render () {
-    const { dispatch, path } = this.props
+    const { path } = this.props
 
-    function load (url) {
-      return (event) => { event.preventDefault(); dispatch(push(url)) }
-    }
+    const selectedMenuKey = path.split('/')[1] || 'homepage'
 
     return (
       <header className='body-header'>
-        <nav>
-          <a href='/' onClick={load('/')} className={path === '/' ? 'active' : ''}>Homepage</a>
-          <a href='/counter-singleton' onClick={load('/counter-singleton')} className={path === '/counter-singleton' ? 'active' : ''}>Counter</a>
-          <a href='/counter-dynamic' onClick={load('/counter-dynamic')} className={path === '/counter-dynamic' ? 'active' : ''}>Dynamic Counter</a>
-          <a href='/sliders' onClick={load('/sliders')} className={path === '/sliders' ? 'active' : ''}>Sliders</a>
-          <a href='/connected' onClick={load('/connected')} className={path === '/connected' ? 'active' : ''}>Connected</a>
-          <a href='/todos' onClick={load('/todos')} className={path.indexOf('/todos') === 0 ? 'active' : ''}>Todos</a>
-
+        <nav className='first-level'>
+          {Object.keys(menu).map(key => (
+            <a href={menu[key].url} key={key} onClick={this.load} className={selectedMenuKey === key ? 'active' : ''}>{menu[key].title}</a>
+          ))}
           <a className='right' href='https://www.github.com/mariusandra/kea' target='_blank'>Fork on Github</a>
         </nav>
+        {menu[selectedMenuKey].children ? (
+          <nav className='second-level'>
+            {menu[selectedMenuKey].children.map(child => (
+              <a href={child.url} key={child.url} onClick={this.load} className={path === child.url ? 'active' : ''}>{child.title}</a>
+            ))}
+          </nav>
+        ) : null}
       </header>
     )
+
+    // <a href='/' onClick={this.load} className={path === '/' ? 'active' : ''}>Homepage</a>
+    // <a href='/guide/counter-singleton' onClick={this.load} className={path === '/guide/counter-singleton' ? 'active' : ''}>Counter</a>
+    // <a href='/guide/counter-dynamic' onClick={this.load} className={path === '/guide/counter-dynamic' ? 'active' : ''}>Dynamic Counter</a>
+    // <a href='/guide/sliders' onClick={this.load} className={path === '/guide/sliders' ? 'active' : ''}>Sliders</a>
+    // <a href='/guide/connected' onClick={this.load} className={path === '/guide/connected' ? 'active' : ''}>Connected</a>
+    // <a href='/examples/todos' onClick={this.load} className={path.indexOf('/examples/todos') === 0 ? 'active' : ''}>Todos</a>
   }
 }
-
-export default connect(selector)(Header)

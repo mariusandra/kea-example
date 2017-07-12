@@ -1,8 +1,8 @@
 import { createScene } from 'kea/scene'
 
-import sceneComponent from '~/scenes/connected/index'
+import sceneComponent from './index'
 
 export default createScene({
-  name: 'connected',
+  name: 'counter',
   component: sceneComponent
 })

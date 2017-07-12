@@ -1,0 +1,8 @@
+import api from './api'
+
+function doSomething () {
+  api.fetchUsers().then(result => {
+    console.log('api returned', result)
+    // do something with "result"
+  })
+}

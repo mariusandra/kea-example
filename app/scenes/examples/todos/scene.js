@@ -1,8 +1,8 @@
 import { createScene } from 'kea/scene'
 
-import sceneComponent from '~/scenes/sliders/index'
+import sceneComponent from './index'
 
 export default createScene({
-  name: 'sliders',
+  name: 'todos',
   component: sceneComponent
 })

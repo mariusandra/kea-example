@@ -1,8 +1,8 @@
 import { createScene } from 'kea/scene'
 
-import sceneComponent from '~/scenes/counter-singleton/index'
+import sceneComponent from './index'
 
 export default createScene({
-  name: 'counterSingleton',
+  name: 'connected',
   component: sceneComponent
 })

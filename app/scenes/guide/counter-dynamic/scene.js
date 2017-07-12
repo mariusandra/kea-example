@@ -1,8 +1,8 @@
 import { createScene } from 'kea/scene'
 
-import sceneComponent from '~/scenes/todos/index'
+import sceneComponent from './index'
 
 export default createScene({
-  name: 'todos',
+  name: 'counter-dynamic',
   component: sceneComponent
 })

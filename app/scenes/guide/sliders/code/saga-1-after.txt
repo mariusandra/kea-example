@@ -1,0 +1,7 @@
+import api from './api'
+
+function * doSomething () {
+  const result = yield api.fetchUsers()
+  console.log('api returned', result)
+  // do something with "result"
+}

@@ -2,21 +2,26 @@ import { combineScenesAndRoutes } from 'kea/scene'
 
 const scenes = {
   homepage: require('bundle-loader?lazy&name=homepage!./homepage/scene.js'),
-  connected: require('bundle-loader?lazy&name=connected!./connected/scene.js'),
-  counterDynamic: require('bundle-loader?lazy&name=counterDynamic!./counter-dynamic/scene.js'),
-  counterSingleton: require('bundle-loader?lazy&name=counterSingleton!./counter-singleton/scene.js'),
-  sliders: require('bundle-loader?lazy&name=sliders!./sliders/scene.js'),
-  todos: require('bundle-loader?lazy&name=todos!./todos/scene.js')
+
+  guideCounter: require('bundle-loader?lazy&name=guide!./guide/counter/scene.js'),
+  guideCounterDynamic: require('bundle-loader?lazy&name=guide!./guide/counter-dynamic/scene.js'),
+  guideSliders: require('bundle-loader?lazy&name=guide!./guide/sliders/scene.js'),
+  guideConnected: require('bundle-loader?lazy&name=guide!./guide/connected/scene.js'),
+
+  exampleTodos: require('bundle-loader?lazy&name=exampleTodos!./examples/todos/scene.js')
 }
 
 const routes = {
   '/': 'homepage',
-  '/sliders': 'sliders',
-  '/counter-dynamic': 'counterDynamic',
-  '/counter-singleton': 'counterSingleton',
-  '/connected': 'connected',
-  '/todos': 'todos',
-  '/todos/:visible': 'todos'
+
+  '/guide': 'guideCounter',
+  '/guide/counter': 'guideCounter',
+  '/guide/counter-dynamic': 'guideCounterDynamic',
+  '/guide/sliders': 'guideSliders',
+  '/guide/connected': 'guideConnected',
+
+  '/examples/todos': 'exampleTodos',
+  '/examples/todos/:visible': 'exampleTodos'
 }
 
 export default combineScenesAndRoutes(scenes, routes)

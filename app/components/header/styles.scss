@@ -1,10 +1,11 @@
 header.body-header {
-  width: 100%;
-  background: #fff;
-  height: 50px;
-  line-height: 50px;
-
   nav {
+    box-sizing: border-box;
+    width: 100%;
+    background: #fff;
+    height: 50px;
+    line-height: 50px;
+
     padding-left: 10px;
     padding-right: 10px;
     display: flex;

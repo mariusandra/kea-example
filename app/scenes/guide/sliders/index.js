@@ -14,7 +14,10 @@ const code = {
   full: require('raw-loader!./code/full.txt'),
   static: require('raw-loader!./code/static.txt'),
   addSagaImports: require('raw-loader!./code/add-saga-imports.txt'),
-  addSagaStart: require('raw-loader!./code/add-saga-start.txt')
+  addSagaStart: require('raw-loader!./code/add-saga-start.txt'),
+  saga1Before: require('raw-loader!./code/saga-1-before.txt'),
+  saga1After: require('raw-loader!./code/saga-1-after.txt'),
+  saga2Effects: require('raw-loader!./code/saga-2-effects.txt')
 }
 
 @kea({
@@ -80,13 +83,38 @@ export default class SlidersScene extends Component {
           know them, you'll wonder how you ever wrote your frontend code without them.
           <br /><br />
 
-          <button onClick={() => toggleFeature('decorators')}>I need to brush up on my Sagas</button>
+          <button onClick={() => toggleFeature('sagas')}>I need to brush up on my Sagas</button>
           <br />
 
-          {features.decorators ? (
+          {features.sagas ? (
             <div className='extra-help'>
-              Coming soon! For now, please read the documentation for <a href='https://redux-saga.js.org/'>redux-saga</a>.
+              Here is a quick refresher on sagas. Please read <a href='https://redux-saga.js.org/'>the redux-saga documentation</a> for more details.
               <br /><br />
+              The cool thing with sagas is that they let you write async code in a sequential manner.
+              <br /><br />
+              When before you would write:
+              <Highlight className='javascript'>{code.saga1Before}</Highlight>
+              With sagas you can write the same code like this:
+              <Highlight className='javascript'>{code.saga1After}</Highlight>
+
+              <button onClick={() => toggleFeature('sagasGenerators')}>What the ...?</button>
+              <br />
+
+              {features.sagasGenerators ? (
+                <div className='extra-help'>
+                  Notice the <code>*</code> between <code>function * doSomething()</code> and the <code>yield</code> before <code>yield api.fetchUsers()</code>.
+                  <br /><br />
+                  The <code>*</code> indicates that youre creating a <a href='https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Statements/function*'><em>generator function</em></a>.
+                  From MDN: <em>Generators are functions which can be exited and later re-entered. Their context (variable bindings) will be saved across re-entrances.</em>
+                  <br /><br />
+                  It's a bit like using the new ES <code>async</code> and <code>await</code> features.
+                </div>
+              ) : null}
+              <br />
+              There are a few special effects you can use to control your sagas:
+
+              <Highlight className='javascript'>{code.saga2Effects}</Highlight>
+
               For this example it's important that you understand how the <code>put</code>, <code>take</code> and <code>race</code> effects work. <code>takeEvery</code> is nice to know as well!
             </div>
           ) : null}

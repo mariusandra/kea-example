@@ -4,7 +4,7 @@ import React, { Component } from 'react'
 import { kea } from 'kea'
 import { push } from 'react-router-redux'
 
-import Slider from '../sliders/slider'
+import Slider from '../guide/sliders/slider'
 
 @kea({})
 export default class HomepageScene extends Component {
