@@ -76,7 +76,7 @@ var config = {
         }
       },
       {
-        test: /\.(png|jpg)$/,
+        test: /\.(png|jpg|svg|gif)$/,
         // inline base64 URLs for <=8k images, direct URLs for the rest
         loader: 'url-loader?limit=8192'
       }

@@ -31,6 +31,19 @@ header.body-header {
       &.right {
         margin-left: auto;
       }
+      &.logo {
+        padding: 5px;
+      }
+    }
+
+    &.second-level {
+      background: #888;
+      a {
+        color: #fff;
+        &.active {
+          border-bottom-color: #fff;
+        }
+      }
     }
   }
 }

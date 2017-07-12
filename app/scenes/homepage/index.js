@@ -24,10 +24,7 @@ export default class HomepageScene extends Component {
           <Slider id={0} />
         </div>
         <div style={{ margin: 20 }}>
-          Please check out the examples from the menu above!
-          <br />
-          <br />
-          <a href='/counter-singleton' onClick={this.handleRoute}>Or click here to begin</a>
+          <a href='/guide/counter' onClick={this.handleRoute}>Read the guide</a>
           <br />
           <br />
           <a href='https://www.github.com/mariusandra/kea'>Fork on GitHub</a>

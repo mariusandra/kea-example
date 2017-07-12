@@ -8,7 +8,7 @@ cd ../gh-pages/kea
 mkdir -p guide
 mkdir -p examples
 cp index.html guide/index.html
-cp index.html guide/counter-singleton.html
+cp index.html guide/counter.html
 cp index.html guide/counter-dynamic.html
 cp index.html guide/connected.html
 cp index.html guide/sliders.html

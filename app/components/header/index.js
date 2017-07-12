@@ -5,6 +5,8 @@ import { connect } from 'kea'
 
 import { push } from 'react-router-redux'
 
+import logo from './logo.svg'
+
 const menu = {
   homepage: {
     url: '/',
@@ -45,11 +47,15 @@ export default class Header extends Component {
     path: React.PropTypes.string.isRequired
   }
 
-  load = (event) => {
+  handleLoad = (event) => {
     const { dispatch } = this.props
 
     event.preventDefault()
-    dispatch(push(event.target.attributes.href.value))
+    if (event.target.attributes.href) {
+      dispatch(push(event.target.attributes.href.value))
+    } else {
+      dispatch(push(event.target.parentElement.attributes.href.value))
+    }
   }
 
   render () {
@@ -60,15 +66,18 @@ export default class Header extends Component {
     return (
       <header className='body-header'>
         <nav className='first-level'>
+          <a href='/' className='logo' onClick={this.handleLoad}>
+            <img src={logo} height={40} alt='' />
+          </a>
           {Object.keys(menu).map(key => (
-            <a href={menu[key].url} key={key} onClick={this.load} className={selectedMenuKey === key ? 'active' : ''}>{menu[key].title}</a>
+            <a href={menu[key].url} key={key} onClick={this.handleLoad} className={selectedMenuKey === key ? 'active' : ''}>{menu[key].title}</a>
           ))}
           <a className='right' href='https://www.github.com/mariusandra/kea' target='_blank'>Fork on Github</a>
         </nav>
         {menu[selectedMenuKey].children ? (
           <nav className='second-level'>
             {menu[selectedMenuKey].children.map(child => (
-              <a href={child.url} key={child.url} onClick={this.load} className={path === child.url ? 'active' : ''}>{child.title}</a>
+              <a href={child.url} key={child.url} onClick={this.handleLoad} className={path === child.url ? 'active' : ''}>{child.title}</a>
             ))}
           </nav>
         ) : null}
