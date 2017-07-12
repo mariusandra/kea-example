@@ -5,8 +5,6 @@ import { connect } from 'kea'
 
 import { push } from 'react-router-redux'
 
-import logo from '~/assets/logo.svg'
-
 const menu = {
   homepage: {
     url: '/',
