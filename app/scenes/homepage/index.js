@@ -10,10 +10,12 @@ import logo from '~/assets/logo.svg'
 
 import Slider from '../guide/sliders/slider'
 import Counter from '../guide/counter/counter'
+import Countdown from '../guide/countdown/countdown'
 
 const code = {
   counter: require('raw-loader!../guide/counter/code/selectors.txt'),
-  slider: require('raw-loader!../guide/sliders/code/just-enough.txt')
+  slider: require('raw-loader!../guide/sliders/code/just-enough.txt'),
+  countdown: require('raw-loader!../guide/countdown/countdown/code.txt')
 }
 
 @kea({})
@@ -72,6 +74,20 @@ export default class HomepageScene extends Component {
             Read the guide: <a href='/guide/sliders' onClick={this.handleRoute}>Sliders</a>
           </div>
         </div>
+
+        <h2>Debounced countdown</h2>
+        <div className='split'>
+          <div className='code'>
+            <Highlight className='javascript'>{code.countdown}</Highlight>
+          </div>
+          <div className='description'>
+            <div className='demo'>
+              <Countdown />
+            </div>
+            <br />
+          </div>
+        </div>
+
       </div>
     )
   }
