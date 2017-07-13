@@ -38,7 +38,7 @@ export default class HomepageScene extends Component {
               <h1>Kea</h1>
               <strong>High Level Architecture for React Apps</strong>
 
-              <a href='/guide' onClick={this.handleRoute}>Get started</a>
+              <a href='/guide/installation' onClick={this.handleRoute}>Get started</a>
               {' - '}
               <a href='https://www.github.com/mariusandra/kea'>Fork on GitHub</a>
             </div>

@@ -1,0 +1,40 @@
+// index.js
+import React, { Component, PropTypes } from 'react'
+import { kea } from 'kea'
+
+@kea({
+  actions: () => ({
+    toggleFeature: (feature) => ({ feature })
+  }),
+  reducers: ({ actions }) => ({
+    features: [{}, PropTypes.object, {
+      [actions.toggleFeature]: (state, payload) => {
+        const { feature } = payload
+        return {
+          ...state,
+          [feature]: !state[feature]
+        }
+      }
+    }]
+  })
+})
+export default class CounterSingletonScene extends Component {
+  // ...
+
+  render () {
+    const { features } = this.props
+    const { toggleFeature } = this.actions
+
+    return (
+      <div>
+        <button onClick={() => toggleFeature('reducerDetails')}>{'Tell me more!'}</button>
+
+        {features.reducerDetails ? (
+          <div className='extra-help'>
+            extra help comes here
+          </div>
+        ) : null}
+      </div>
+    )
+  }
+}

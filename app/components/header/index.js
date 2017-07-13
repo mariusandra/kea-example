@@ -11,7 +11,7 @@ const menu = {
     title: 'Kea'
   },
   guide: {
-    url: '/guide/counter',
+    url: '/guide/installation',
     title: 'Guide',
     children: [
       { url: '/guide/installation', title: 'Installation' },

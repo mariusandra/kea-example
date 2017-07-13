@@ -1,0 +1,26 @@
+import React, { Component } from 'react'
+import { connect } from 'kea'
+
+import featuresLogic from '../features-logic'
+
+@kea({
+  connect: {
+    actions: [
+      featuresLogic, [
+        'toggleFeature'
+      ]
+    ],
+    props: [
+      featuresLogic, [
+        'features'
+      ]
+    ]
+  },
+  actions: {
+    doSomething: (id) => ({ id })
+  },
+  // ...
+})
+export default class CounterSingletonScene extends Component {
+  // no change here
+}

@@ -1,7 +1,7 @@
 import './styles.scss'
 
-import React, { Component, PropTypes } from 'react'
-import { kea } from 'kea'
+import React, { Component } from 'react'
+import { connect } from 'kea'
 import { push } from 'react-router-redux'
 
 import Slider from './slider'
@@ -9,6 +9,8 @@ import StaticSlider from './slider/static'
 import SliderWithSaga from './slider/with-saga'
 
 import Highlight from 'react-highlight'
+
+import featuresLogic from '../features-logic'
 
 const code = {
   full: require('raw-loader!./code/full.txt'),
@@ -20,21 +22,17 @@ const code = {
   saga2Effects: require('raw-loader!./code/saga-2-effects.txt')
 }
 
-@kea({
-  actions: () => ({
-    toggleFeature: (feature) => ({ feature })
-  }),
-  reducers: ({ actions }) => ({
-    features: [{}, PropTypes.object, {
-      [actions.toggleFeature]: (state, payload) => {
-        const { feature } = payload
-        return {
-          ...state,
-          [feature]: !state[feature]
-        }
-      }
-    }]
-  })
+@connect({
+  actions: [
+    featuresLogic, [
+      'toggleFeature'
+    ]
+  ],
+  props: [
+    featuresLogic, [
+      'features'
+    ]
+  ]
 })
 export default class SlidersScene extends Component {
   handleRoute = (e) => {

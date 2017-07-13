@@ -1,0 +1,31 @@
+import React, { Component } from 'react'
+import { connect } from 'kea'
+
+import featuresLogic from '../features-logic'
+import someOtherLogic from '../some-other-logic'
+
+@connect({
+  actions: [
+    featuresLogic, [
+      'toggleFeature'
+    ]
+  ],
+  props: [
+    featuresLogic, [
+      'features'
+    ],
+    someOtherLogic, [
+      'isMenuOpen',
+      'isPageLoading',
+      'highlightTheme'
+    ]
+  ]
+})
+export default class CounterSingletonScene extends Component {
+  // as we were...
+  render () {
+    const { features, isMenuOpen, isPageLoading, highlightTheme } = this.props
+    const { toggleFeature } = this.actions
+    // ...
+  }
+}

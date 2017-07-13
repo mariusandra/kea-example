@@ -1,8 +1,10 @@
-import React, { Component, PropTypes } from 'react'
-import { kea } from 'kea'
+import React, { Component } from 'react'
 import { push } from 'react-router-redux'
+import { connect } from 'kea'
 
 import Highlight from 'react-highlight'
+
+import featuresLogic from '../features-logic'
 
 const code = {
   package: require('raw-loader!./code/package.txt'),
@@ -10,21 +12,17 @@ const code = {
   cli: require('raw-loader!./code/cli.txt')
 }
 
-@kea({
-  actions: () => ({
-    toggleFeature: (feature) => ({ feature })
-  }),
-  reducers: ({ actions }) => ({
-    features: [{}, PropTypes.object, {
-      [actions.toggleFeature]: (state, payload) => {
-        const { feature } = payload
-        return {
-          ...state,
-          [feature]: !state[feature]
-        }
-      }
-    }]
-  })
+@connect({
+  actions: [
+    featuresLogic, [
+      'toggleFeature'
+    ]
+  ],
+  props: [
+    featuresLogic, [
+      'features'
+    ]
+  ]
 })
 export default class InstallationScene extends Component {
   handleRoute = (e) => {
