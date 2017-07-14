@@ -1,6 +1,7 @@
 import './styles.scss'
 
-import React, { Component, PropTypes } from 'react'
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { kea } from 'kea'
 
 import { take, race, put } from 'redux-saga/effects'
