@@ -10,19 +10,19 @@ export default class API extends Component {
         <code>{"import { kea, connect, keaReducer, keaSaga } from 'kea'"}</code>
         <h2><code>kea(options)</code></h2>
         <p>
-          Initiate a kea instance.
+          Create a new kea instance and connect it to redux.
         </p>
         <h3>Options</h3>
-        <h4>path: <code>(obj) => []</code></h4>
-        <h4>constants: <code>(obj) => []</code></h4>
-        <h4>actions: <code>(obj) => ({'{}'})</code></h4>
-        <h4>reducers: <code>(obj) => ({'{}'})</code></h4>
-        <h4>selectors: <code>(obj) => ({'{}'})</code></h4>
+        <h4>path: <code>() => []</code></h4>
+        <h4>constants: <code>() => []</code></h4>
+        <h4>actions: <code>{'({ path, constants }) => ({})'}</code></h4>
+        <h4>reducers: <code>{'({ path, constants, actions }) => ({})'}</code></h4>
+        <h4>selectors: <code>{'({ path, constants, actions, selectors }) => ({})'}</code></h4>
         <h4>connect: <code>{'{}'}</code></h4>
         <h4>start: <code>function * () {'{}'}</code></h4>
         <h4>stop: <code>function * () {'{}'}</code></h4>
-        <h4>takeEvery: <code>(obj) => ({'{}'})</code></h4>
-        <h4>takeLatest: <code>(obj) => ({'{}'})</code></h4>
+        <h4>takeEvery: <code>{'({ actions }) => ({})'}</code></h4>
+        <h4>takeLatest: <code>{'({ actions }) => ({})'}</code></h4>
         <h4>workers: <code>{'{}'}</code></h4>
 
         <h2><code>kea(options)(Component)</code></h2>
