@@ -1,3 +1,5 @@
+import './styles.scss'
+
 import React, { Component } from 'react'
 import { kea } from 'kea'
 
