@@ -21,7 +21,7 @@
   "dependencies": {
     "babel-runtime": "6.22.0",
     "es6-promise": "4.0.5",
-    "kea": "^0.19.3-0",
+    "kea": "^0.19.4-0",
     "prop-types": "^15.5.10",
     "raw-loader": "^0.5.1",
     "react": "15.6.1",
