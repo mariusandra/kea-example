@@ -70,7 +70,7 @@ export default class Header extends Component {
           ))}
           <a className='right' href='https://www.github.com/mariusandra/kea' target='_blank'>Github</a>
         </nav>
-        {menu[selectedMenuKey].children ? (
+        {menu[selectedMenuKey] && menu[selectedMenuKey].children ? (
           <nav className='second-level'>
             {menu[selectedMenuKey].children.map(child => (
               <a href={child.url} key={child.url} onClick={this.handleLoad} className={path === child.url ? 'active' : ''}>{child.title}</a>

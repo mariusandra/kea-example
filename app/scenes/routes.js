@@ -2,6 +2,7 @@ import { combineScenesAndRoutes } from 'kea/scene'
 
 const scenes = {
   homepage: require('bundle-loader?lazy&name=homepage!./homepage/scene.js'),
+  playground: require('bundle-loader?lazy&name=playground!./playground/scene.js'),
 
   guideInstallation: require('bundle-loader?lazy&name=guide!./guide/installation/scene.js'),
   guideCounter: require('bundle-loader?lazy&name=guide!./guide/counter/scene.js'),
@@ -14,6 +15,8 @@ const scenes = {
 
 const routes = {
   '/': 'homepage',
+
+  '/playground': 'playground',
 
   '/guide': 'guideInstallation',
   '/guide/installation': 'guideInstallation',
