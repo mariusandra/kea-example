@@ -15,6 +15,9 @@ var config = {
     homepage: [
       './scenes/homepage/scene.js'
     ],
+    api: [
+      './scenes/api/scene.js'
+    ],
     playground: [
       './scenes/playground/scene.js'
     ],

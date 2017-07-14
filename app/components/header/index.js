@@ -27,6 +27,10 @@ const menu = {
     children: [
       { url: '/examples/todos', title: 'TodoMVC' }
     ]
+  },
+  api: {
+    url: '/api',
+    title: 'API'
   }
 }
 
