@@ -1,0 +1,27 @@
+// Input
+reducers: ({ actions, path, constants }) => ({
+  reducerKey: [defaultValue, propType, {
+    // operations
+    [actions.simpleAction]: (state, payload) => state + payload // return the new state,
+    [actions.complexAction]: (state, payload) => {
+      // do more things in the block
+      return state + payload
+    },
+    [actions.noStateUsed]: (_, payload) => payload.value,
+    [actions.setToTrue]: () => true,
+    [actions.clearSomething]: () => false
+  }, /* optional options: */ { persist: true }],
+
+  constantDefault: [constants.OTHER_STRING, PropTypes.string, {
+    [actions.clearSomething]: () => constants.STRING,
+    [actions.someOtherAction]: (_, payload) => payload.value
+  }]
+
+})
+
+// Output
+reducers == {
+  reducerKey: (initialState = defaultValue, action) => /* ... */,
+  constantDefault: (initialState = constants.OTHER_STRING, action) => /* ... */,
+}
+reducer == combineReducers(reducers)

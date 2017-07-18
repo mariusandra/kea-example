@@ -1,0 +1,5 @@
+// Input
+constants: () => ['STRING', 'OTHER_STRING']
+
+// Output
+constants == { STRING: 'STRING', OTHER_STRING: 'OTHER_STRING' }

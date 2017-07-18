@@ -1,0 +1,5 @@
+// Input
+path: () => ['scenes', 'myRandomScene', 'logicMountPoint']
+
+// Output
+path == ['scenes', 'myRandomScene', 'logicMountPoint']
