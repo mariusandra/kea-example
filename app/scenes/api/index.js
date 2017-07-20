@@ -18,7 +18,7 @@ export default class API extends Component {
     return (
       <div className='api-scene'>
         <h1>API</h1>
-        <code>{"import { kea, connect, keaReducer, keaSaga } from 'kea'"}</code>
+        <code>{"import { kea, connect, keaReducer, keaSaga, createAction } from 'kea'"}</code>
         <h2><code>kea(options)</code></h2>
         <p>
           Create a new kea logic store and connect it to redux.

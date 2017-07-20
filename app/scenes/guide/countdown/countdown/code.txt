@@ -7,9 +7,9 @@ import { put, cancelled } from 'redux-saga/effects'
 
 @kea({
   actions: () => ({
-    setCounter: (counter) => ({ counter }),
     start: true,
-    finish: true
+    finish: true,
+    setCounter: (counter) => ({ counter })
   }),
 
   reducers: ({ actions, key, props }) => ({
@@ -23,11 +23,7 @@ import { put, cancelled } from 'redux-saga/effects'
   }),
 
   takeLatest: ({ actions, workers }) => ({
-    [actions.start]: workers.countdown
-  }),
-
-  workers: {
-    countdown: function * () {
+    [actions.start]: function * () {
       try {
         const { setCounter, finish } = this.actions
 
@@ -42,7 +38,7 @@ import { put, cancelled } from 'redux-saga/effects'
         }
       }
     }
-  }
+  })
 })
 export default class Counter extends Component {
   render () {
