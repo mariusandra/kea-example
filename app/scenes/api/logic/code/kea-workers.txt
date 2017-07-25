@@ -1,0 +1,22 @@
+// Input
+workers: {
+  * dynamicWorker (action) {
+    const { id, message } = action.payload // if from takeEvery/takeLatest
+    // reference with workers.dynamicWorker
+  },
+  longerWayToDefine: function * () {
+    // another worker
+  }
+}
+
+// Output
+myRandomSceneLogic.workers == {
+  dynamicWorker: function (action) *
+    const { id, message } = action.payload // if from takeEvery/takeLatest
+    // reference with workers.dynamicWorker
+  }.bind(myRandomSceneLogic),
+
+  longerWayToDefine: function () * {
+    // another worker
+  }.bind(myRandomSceneLogic)
+}

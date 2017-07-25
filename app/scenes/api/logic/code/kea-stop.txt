@@ -1,0 +1,15 @@
+// Input
+stop: function * () {
+  // saga cancelled or component unmounted
+}
+
+// Output
+myRandomSceneLogic.saga == function * () {
+  try {
+    // start()
+  } finally {
+    if (cancelled()) {
+      // saga cancelled or component unmounted
+    }
+  }
+}

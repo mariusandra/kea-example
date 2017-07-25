@@ -1,0 +1,14 @@
+import React, { Component } from 'react'
+import { kea } from 'kea'
+
+// with decorators
+@kea({ /* options */ })
+export default class MyComponent extends Component {
+  // ...
+}
+
+// without decorators
+class MyComponent extends Component {
+  // ...
+}
+export default kea({ /* options */ })(MyComponent)

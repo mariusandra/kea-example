@@ -15,8 +15,6 @@ export default class API extends Component {
         </p>
         <h3>Usage</h3>
         <Highlight className='javascript'>{code.usage}</Highlight>
-
-        <h3>Options</h3>
       </div>
     )
   }

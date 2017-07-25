@@ -1,0 +1,31 @@
+import React, { Component } from 'react'
+import { kea } from 'kea'
+
+@kea({
+  key: (props) => props.id,
+  path: (key) => ['scenes', 'something', key],
+
+  actions: () => ({
+    someAction: (id) => ({ id })
+  }),
+
+  reducers: ({ actions }) => ({
+    myValue: [0, PropTypes.number, {
+      [actions.someAction]: (state, payload): payload.id
+    }]
+  })
+
+  // other options, see the api docs for kea(options):
+  // - constants, selectors, connect
+  // - start, stop, takeEvery, takeLatest, workers, sagas
+})
+export default class MyComponent extends Component {
+  render () {
+    const { myValue } = this.props
+    const { someAction } = this.actions
+
+    return (
+      <button onClick={() => someAction(12)}>{myValue}</button>
+    )
+  }
+}

@@ -1,0 +1,10 @@
+import { keaReducer } from 'kea'
+import { combineReducerse, createStore } from 'redux'
+
+const reducers = combineReducers({
+  kea: keaReducer('kea'),
+  scenes: keaReducer('scenes'),
+  // ... other reducers you might have
+})
+
+const store = createStore(reducers)

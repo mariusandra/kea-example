@@ -1,0 +1,20 @@
+// Input
+takeEvery: ({ actions, workers }) => ({
+  [actions.simpleAction]: function * () {
+    // inline worker
+  },
+  [actions.actionWithDynamicPayload]: workers.dynamicWorker
+})
+
+// Output
+myRandomSceneLogic.saga == function * () {
+  // pseudocode
+  yield fork(function * () {
+    yield [
+      takeEvery(actions.simpleAction.toString(), function * () {
+        // inline worker
+      }.bind(this)),
+      takeEvery(actions.actionWithDynamicPayload.toString(), workers.dynamicWorker.bind(this))
+    ]
+  })
+}

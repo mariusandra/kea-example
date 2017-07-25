@@ -1,0 +1,12 @@
+// Input
+start: function * () {
+  // saga started or component mounted
+  console.log(this)
+}
+
+// Output
+myRandomSceneLogic.saga == function * () {
+  // saga started or component mounted
+  console.log(this)
+  // => { actions, workers, path, key, get: function * (), fetch: function * () }
+}

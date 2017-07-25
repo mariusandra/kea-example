@@ -1,0 +1,10 @@
+// Input
+sagas: [saga1, saga2]
+
+// Output
+myRandomSceneLogic.saga == function * () {
+  yield fork(saga1)
+  yield fork(saga2)
+
+  // start() ...
+}

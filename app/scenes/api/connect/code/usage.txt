@@ -1,0 +1,29 @@
+import React, { Component } from 'react'
+import { connect } from 'kea'
+
+import menuLogic from '../menu/logic'
+
+@connect({
+  actions: [
+    menuLogic, [
+      'openMenu',
+      'closeMenu'
+    ]
+  ],
+  props: [
+    menuLogic, [
+      'isOpen as isMenuOpen'
+    ]
+  ]
+
+})
+export default class MyComponent extends Component {
+  render () {
+    const { isMenuOpen } = this.props
+    const { openMenu, closeMenu } = this.actions
+
+    return (
+      <button onClick={isMenuOpen ? closeMenu : openMenu}>Toggle menu</button>
+    )
+  }
+}

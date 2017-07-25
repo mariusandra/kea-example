@@ -11,12 +11,10 @@ export default class API extends Component {
       <div className='api-scene'>
         <h2><code>createAction</code></h2>
         <p>
-
+          Create actions which you can use in your kea reducers.
         </p>
         <h3>Usage</h3>
         <Highlight className='javascript'>{code.usage}</Highlight>
-
-        <h3>Options</h3>
       </div>
     )
   }

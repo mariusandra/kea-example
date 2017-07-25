@@ -11,12 +11,10 @@ export default class API extends Component {
       <div className='api-scene'>
         <h2><code>keaSaga</code></h2>
         <p>
-
+          You must run this saga in order to use the saga functionality in kea (<code>start</code>, <code>stop</code>, <code>takeEvery</code>, <code>takeLatest</code>, ...)
         </p>
         <h3>Usage</h3>
         <Highlight className='javascript'>{code.usage}</Highlight>
-
-        <h3>Options</h3>
       </div>
     )
   }
