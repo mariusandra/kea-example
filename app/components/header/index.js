@@ -30,7 +30,15 @@ const menu = {
   },
   api: {
     url: '/api',
-    title: 'API'
+    title: 'API',
+    children: [
+      { url: '/api#kea', title: 'Kea Logic' },
+      { url: '/api#component', title: 'Kea + Component' },
+      { url: '/api#connect', title: 'Connect' },
+      { url: '/api#reducer', title: 'Reducer' },
+      { url: '/api#saga', title: 'Saga' },
+      { url: '/api#createaction', title: 'Create Action' }
+    ]
   }
 }
 

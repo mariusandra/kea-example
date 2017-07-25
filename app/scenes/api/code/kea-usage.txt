@@ -1,5 +1,75 @@
+// scenes/my-random-scene/logic.js
 import { kea } from 'kea'
 
+import otherLogic from './other-logic.js'
+
 export default kea({
-  // opions come here
+  connect: {
+    actions: [
+      otherLogic, [
+        'firstAction',
+        'secondAction as renamedAction'
+      ]
+    ],
+
+    props: [
+      otherLogic, [
+        'firstProp',
+        'secondProp as renamedProp',
+        '* as allProps'
+      ]
+    ]
+  },
+
+  path: () => ['scenes', 'myRandomScene', 'index'],
+
+  constants: () => ['STRING', 'OTHER_STRING'],
+
+  actions: ({ path, constants }) => ({
+    actionWithStaticPayload: 'payload value',
+    anotherActionWithAStaticPayload: { thisIs: 'that' },
+    simpleAction: true,
+
+    actionWithDynamicPayload: (id) => ({ id }),
+    actionWithManyParameters: (id, message) => ({ id, message }),
+    actionWithObjectInput: ({ id, message }) => ({ id, message })
+  }),
+
+  reducers: ({ actions, path, constants }) => ({
+    reducerKey: [defaultValue, propType, {
+      // operations
+      [actions.simpleAction]: (state, payload) => state + payload // return the new state,
+      [actions.complexAction]: (state, payload) => {
+        // do more things in the block
+        return state + payload
+      },
+      [actions.noStateUsed]: (_, payload) => payload.value,
+      [actions.setToTrue]: () => true,
+      [actions.clearSomething]: () => false
+    }, /* optional options: */ { persist: true }],
+
+    constantDefault: [constants.OTHER_STRING, PropTypes.string, {
+      [actions.clearSomething]: () => constants.STRING,
+      [actions.someOtherAction]: (_, payload) => payload.value
+    }]
+  }),
+
+  selectors: ({ path, constants, actions, selectors }) => ({
+    selectorName: [
+      () => [selectors.inputSelector1, selectors.inputSelector2],
+      (input1, input2) => createOutput(input),
+      returnPropType
+    ],
+
+    computedValue: [
+      () => [selectors.reducerKey, selectors.constantDefault],
+      (reducerKey, constantDefault) => {
+        return complicatedOperation(reducerKey, constantDefault)
+      },
+      PropTypes.object
+    ]
+  })
 })
+
+// index.js
+import myRandomSceneLogic from 'scenes/my-random-scene/logic'

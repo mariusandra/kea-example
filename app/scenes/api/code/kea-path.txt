@@ -2,4 +2,4 @@
 path: () => ['scenes', 'myRandomScene', 'logicMountPoint']
 
 // Output
-path == ['scenes', 'myRandomScene', 'logicMountPoint']
+myRandomSceneLogic.path == ['scenes', 'myRandomScene', 'logicMountPoint']

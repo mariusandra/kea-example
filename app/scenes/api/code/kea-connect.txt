@@ -1,0 +1,29 @@
+// Input
+connect: {
+  actions: [
+    otherLogic, [
+      'firstAction',
+      'secondAction as renamedAction'
+    ]
+  ],
+
+  props: [
+    otherLogic, [
+      'firstProp',
+      'secondProp as renamedProp',
+      '* as allProps'
+    ]
+  ]
+}
+
+// Output
+myRandomSceneLogic.actions == {
+  firstAction: otherLogic.actions.firstAction,
+  renamedAction: otherLogic.actions.secondAction
+}
+
+myRandomSceneLogic.selectors == {
+  firstProp: otherLogic.selectors.firstProp,
+  renamedProp: otherLogic.selectors.secondProp,
+  allProps: otherLogic.selector
+}

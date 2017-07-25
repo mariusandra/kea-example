@@ -1,5 +1,6 @@
 import './styles.scss'
-import 'highlight.js/styles/railscasts.css'
+// import 'highlight.js/styles/atelier-savanna-light.css'
+import 'highlight.js/styles/github.css'
 
 import React, { Component } from 'react'
 
