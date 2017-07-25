@@ -47,12 +47,16 @@ const menu = {
       {
         title: 'Examples',
         children: [
-          { url: '/examples/todos', title: 'TodoMVC' }
+          { url: '/examples/todos', title: 'TodoMVC', className: 'darker' }
         ]
       }
     ]
   }
 }
+
+const darker = [
+  '/examples/todos'
+]
 
 @connect({
   props: [
@@ -119,7 +123,7 @@ export default class Header extends Component {
                 </nav>
               </aside>
             ) : null}
-            <div className={hasSidebar ? 'content with-sidebar' : 'content without-sidebar'}>
+            <div className={`content ${hasSidebar ? 'with-sidebar' : 'without-sidebar'}${darker.indexOf(path) >= 0 ? ' darker' : ''}`}>
               {this.props.children}
             </div>
           </section>

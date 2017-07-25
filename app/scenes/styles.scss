@@ -27,7 +27,16 @@ code {
 	margin: 20px;
 }
 
-h2 {
+h1, h2 {
+	font-weight: 400;
+}
+
+h1, h2 {
+	border-bottom: 1px solid #ccc;
+	padding-bottom: 10px;
+}
+
+h2, h3 {
 	margin-top: 40px;
 }
 
