@@ -38,7 +38,7 @@ export default class HomepageScene extends Component {
             <img src={logo} alt='' />
             <div className='text'>
               <h1>Kea</h1>
-              <strong>High Level Architecture for React Apps</strong>
+              <strong>High level abstraction between <nobr>React and Redux</nobr></strong>
 
               <a href='/guide/installation' onClick={this.handleRoute}>Get started</a>
               {' - '}

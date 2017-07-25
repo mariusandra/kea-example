@@ -48,12 +48,17 @@
 
   .landing {
     border-bottom: 1px solid #ccc;
-    background: #e9f3e9;
+    background: #388e3c;
     padding: 120px 40px 120px 40px;
+    color: #fff;
+
+    a {
+      color: #fff;
+    }
 
     .intro {
       margin: 0 auto;
-      max-width: 600px;
+      max-width: 700px;
       min-height: 150px;
 
       img {
@@ -82,7 +87,7 @@
       }
     }
     @media (max-width: 520px) {
-      padding: 80px 40px 80px 40px;
+      padding: 80px 20px 80px 20px;
 
       .intro {
         text-align: center;
