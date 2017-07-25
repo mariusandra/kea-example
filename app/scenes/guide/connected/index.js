@@ -177,7 +177,7 @@ export default class ConnectedScene extends Component {
             That's it for the guide!
           </p>
           <p>
-            Check out the <a href='/examples/todos' onClick={this.handleRoute}>example applications</a> or read the <a href='/api' onClick={this.handleRoute}>API docs</a>.
+            Check out the <a href='/examples/todos' onClick={this.handleRoute}>example applications</a> or read the <a href='/api/logic' onClick={this.handleRoute}>API docs</a>.
           </p>
         </div>
       </div>

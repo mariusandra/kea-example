@@ -16,7 +16,12 @@ var config = {
       './scenes/homepage/scene.js'
     ],
     api: [
-      './scenes/api/scene.js'
+      './scenes/api/logic/scene.js',
+      './scenes/api/component/scene.js',
+      './scenes/api/connect/scene.js',
+      './scenes/api/reducer/scene.js',
+      './scenes/api/saga/scene.js',
+      './scenes/api/action/scene.js'
     ],
     playground: [
       './scenes/playground/scene.js'

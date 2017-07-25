@@ -1,8 +1,8 @@
 import { createScene } from 'kea/scene'
 
-import sceneComponent from '~/scenes/api/index'
+import sceneComponent from '~/scenes/api/saga/index'
 
 export default createScene({
-  name: 'api',
+  name: 'apiSaga',
   component: sceneComponent
 })

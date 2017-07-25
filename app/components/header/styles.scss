@@ -1,10 +1,15 @@
+$border-color: #e0e0e0;
+$active-link-color: #388e3c;
+$sidebar-width: 240px;
+$header-height: 50px;
+
 header.body-header {
   nav {
     box-sizing: border-box;
     width: 100%;
     background: #fff;
-    height: 50px;
-    line-height: 50px;
+    height: $header-height;
+    line-height: $header-height;
 
     padding-left: 10px;
     padding-right: 10px;
@@ -12,7 +17,7 @@ header.body-header {
 
     a {
       text-decoration: none;
-      color: #666666;
+      color: #333333;
       text-transform: uppercase;
       font-family: 'Helvetica Neue', 'Arial', sans-serif;
       padding-left: 10px;
@@ -21,12 +26,12 @@ header.body-header {
 
       &.active {
         font-weight: bold;
-        color: #000;
-        border-bottom: 2px solid #000;
+        color: $active-link-color;
+        border-bottom: 2px solid $active-link-color;
         height: 48px;
       }
       &:hover {
-        color: #000;
+        color: $active-link-color;
       }
       &.right {
         margin-left: auto;
@@ -35,13 +40,76 @@ header.body-header {
         padding: 5px;
       }
     }
+  }
+}
 
-    &.second-level {
-      background: #388e3c;
-      a {
-        color: #fff;
-        &.active {
-          border-bottom-color: #fff;
+main {
+  section.with-sidebar {
+    border-top: 1px solid $border-color;
+
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    min-height: calc(100vh - $header-height - 1px);
+
+    aside.kea-sidebar {
+      display: block;
+      width: $sidebar-width;
+      border-right: 1px solid $border-color;
+      box-sizing: border-box;
+      padding: 10px;
+      float: left;
+    }
+
+    .content.with-sidebar {
+      display: block;
+      flex-grow: 2;
+      max-width: calc(100% - $sidebar-width);
+    }
+
+    @media (max-width: 767px) {
+      display: block;
+
+      aside.kea-sidebar {
+        width: 100%;
+        border-right: none;
+      }
+      .content.with-sidebar {
+        max-width: 100%;
+        padding-top: 20px;
+      }
+    }
+  }
+}
+
+
+aside.kea-sidebar {
+  nav {
+    .section-title {
+      font-weight: strong;
+      display: block;
+      padding-left: 10px;
+      margin-top: 20px;
+    }
+
+    ul {
+      list-style: none;
+      padding-left: 10px;
+      padding-bottom: 10px;
+
+      li {
+        display: block;
+        margin-bottom: 10px;
+        a {
+          color: #333;
+          text-decoration: none;
+          &.active {
+            color: $active-link-color;
+            text-decoration: underline;
+          }
+          &:hover {
+            text-decoration: underline;
+          }
         }
       }
     }

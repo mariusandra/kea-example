@@ -8,6 +8,11 @@ a {
 	color: green;
 }
 
+code {
+	background: #f8f8f8;
+	padding: 2px;
+}
+
 .code {
 	text-align: left;
 	margin: 20px;
@@ -42,4 +47,8 @@ h2 {
 
 .hljs {
 	// box-shadow: 2px 2px 4px rgba(0,0,0,0.25);
+}
+
+.api-scene {
+  margin: 20px;
 }
