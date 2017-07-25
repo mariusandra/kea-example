@@ -21,7 +21,7 @@ import someOtherLogic from '../some-other-logic'
     ]
   ]
 })
-export default class CounterSingletonScene extends Component {
+export default class CounterExampleScene extends Component {
   // as we were...
   render () {
     const { features, isMenuOpen, isPageLoading, highlightTheme } = this.props

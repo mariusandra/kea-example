@@ -14,7 +14,7 @@ import Countdown from '../guide/countdown/countdown'
 
 const code = {
   counter: require('raw-loader!../guide/counter/code/selectors.txt'),
-  slider: require('raw-loader!../guide/sliders/code/just-enough.txt'),
+  slider: require('raw-loader!../guide/sliders/code/homepage.txt'),
   countdown: require('raw-loader!../guide/countdown/countdown/code.txt')
 }
 

@@ -21,6 +21,6 @@ import featuresLogic from '../features-logic'
   },
   // ...
 })
-export default class CounterSingletonScene extends Component {
+export default class CounterExampleScene extends Component {
   // no change here
 }

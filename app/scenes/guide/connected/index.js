@@ -45,7 +45,7 @@ export default class ConnectedScene extends Component {
     return (
       <div className='connected-scene'>
         <div className='description'>
-          <h2>Example #4 - Connected components</h2>
+          <h2>Example #4 - Connected logic</h2>
           <p>
             Attaching actions, reducers and selectors to your components will get you pretty far.
           </p>
@@ -59,7 +59,7 @@ export default class ConnectedScene extends Component {
             The inline version that we've been using until now (<code>{'@kea({})(Component)'}</code>) came much later.
           </p>
           <p>
-            So how do you separate your logic from your components?
+            So how do you separate your <strong>logic</strong> from your components?
           </p>
           <p>
             Let's look at a real world example: this guide itself.
@@ -140,7 +140,7 @@ export default class ConnectedScene extends Component {
           </p>
           <p>
             You also don't know what baggage you're getting. There might be hundreds of new actions and props, which your relatively simple
-            component will receive. That will slow the page down, as a change in each of them will trigger re-rendering.
+            component will receive. That will slow down the page, as a change in each of them will trigger re-rendering.
           </p>
           <p>
             What if one of the props changes? For example the new intern replaces the action <code>toggleFeature</code> with
@@ -177,7 +177,7 @@ export default class ConnectedScene extends Component {
             That's it for the guide!
           </p>
           <p>
-            Check out the <a href='/examples/todos' onClick={this.handleRoute}>example applications</a> or read the API docs (coming soon).
+            Check out the <a href='/examples/todos' onClick={this.handleRoute}>example applications</a> or read the <a href='/api' onClick={this.handleRoute}>API docs</a>.
           </p>
         </div>
       </div>

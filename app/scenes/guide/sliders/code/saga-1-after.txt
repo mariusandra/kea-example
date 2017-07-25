@@ -1,7 +1,13 @@
 import api from './api'
 
 function * doSomething () {
+  // get all visible users
   const result = yield api.fetchUsers()
   console.log('api returned', result)
-  // do something with "result"
+
+  // get the posts for the first user
+  const posts = yield api.fetchUserPosts(result.users[0].username)
+
+  // do something with the user's posts
+  console.log('got the posts', posts)
 }

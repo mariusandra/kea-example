@@ -1,8 +1,14 @@
 import api from './api'
 
 function doSomething () {
+  // get all visible users
   api.fetchUsers().then(result => {
     console.log('api returned', result)
-    // do something with "result"
+
+    // get the posts for the first user
+    api.fetchUserPosts(result.users[0].username).then(posts => {
+      // do something with the user's posts
+      console.log('got the posts', posts)
+    })
   })
 }

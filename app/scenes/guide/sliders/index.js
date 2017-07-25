@@ -64,15 +64,15 @@ export default class SlidersScene extends Component {
               <Slider id={1} initialSlide={0} />
             </div>
           </div>
-          Whenever you press any of the dots the counter reset.
+          Whenever you press any of the dots the 5 second counter will reset.
 
           <h2>1. The static component</h2>
-          Based on knowledge from the previous chapers, you should be able to build a static slider.
+          Based on the knowledge from the previous chapters, you should be able to build a static slider.
           <br /><br />
           The code for it will look something like this:
           <Highlight className='javascript'>{code.static}</Highlight>
 
-          This will give us the following result:
+          Giving us the following result:
 
           <div className='demo'>
             <div className='slider-container'>
@@ -80,13 +80,13 @@ export default class SlidersScene extends Component {
             </div>
           </div>
 
-          Click it! It works! But it won't change the slides automatically.
+          Click it! It works, but won't change the slides automatically.
 
           <h2>2. Just Add Sagas</h2>
 
-          For that we need to write some sagas.
+          For that we need to write some <a href='https://redux-saga.js.org/'>sagas</a>.
           <br /><br />
-          Sagas provide a nice way to write code that has side effects. They might be unfamiliar at first, but when you get to
+          <a href='https://redux-saga.js.org/'>Sagas</a> provide a nice way to write code that has side effects. They might be unfamiliar at first, but when you get to
           know them, you'll wonder how you ever wrote your frontend code without them.
           <br /><br />
 
@@ -103,6 +103,8 @@ export default class SlidersScene extends Component {
               <Highlight className='javascript'>{code.saga1Before}</Highlight>
               With sagas you can write the same code like this:
               <Highlight className='javascript'>{code.saga1After}</Highlight>
+              This is a simple example, but you can probably see how the magical <code>yield</code> keyword will make your life so much easier.
+              <br /><br />
 
               <button onClick={() => toggleFeature('sagasGenerators')}>What the ...?</button>
               <br />
@@ -118,11 +120,19 @@ export default class SlidersScene extends Component {
                 </div>
               ) : null}
               <br />
-              There are a few special effects you can use to control your sagas:
+
+              In addition to simplifying promise-based callbacks, redux-saga provides a lot of helpers which
+              make working with redux actions very simple.
+              <br /><br />
+
+              Here are a few of the special effects you can use to control your sagas:
 
               <Highlight className='javascript'>{code.saga2Effects}</Highlight>
 
-              For this example it's important that you understand how the <code>put</code>, <code>take</code> and <code>race</code> effects work. <code>takeEvery</code> is nice to know as well!
+              For this example it's important that you understand how the <code>put</code>, <code>take</code> and <code>race</code> effects work.
+              <br /><br />
+
+              <a href='https://redux-saga.js.org/docs/advanced/Concurrency.html'><code>takeEvery</code></a> and <a href='https://redux-saga.js.org/docs/advanced/Concurrency.html'><code>takeLatest</code></a> are very useful as well!
             </div>
           ) : null}
           <br />
@@ -133,12 +143,13 @@ export default class SlidersScene extends Component {
 
           And then we create a <code>start</code> generator function inside <code>{'@kea({})'}</code>. This function is called every time your component is mounted.
           <br /><br />
-          Inside this function we create a <code>race</code> condition between two competing effects: a delay of 5 sec and
-          the action <code>updateSlide</code> being triggered. The code pauses at the <code>yield race()</code> call until
-          one of the two conditions comes through.
+          Inside this <code>start</code> function we create a <code>race</code> condition between two competing effects: a delay of 5 seconds and
+          the action <code>updateSlide</code> being triggered.
           <br /><br />
-          In case it was the timeout that happened, we fetch the latest slide (<code>yield this.get(..)</code> is a shorthand to use the selectors
-          defined in <code>{'@kea({})'}</code>)... and then we dispatch (<code>yield put</code>) the <code>updateSlide</code> action with the next slide.
+          The code pauses at the <code>yield race()</code> call until one of the two conditions is met.
+          <br /><br />
+          In case the timeout won the race, we fetch the latest slide (<code>yield this.get(..)</code> is a shorthand to use the selectors
+          defined in <code>{'@kea({})'}</code>)... and then we dispatch (<code>yield put()</code>) the <code>updateSlide</code> action with the next slide.
 
           <Highlight className='javascript'>{code.addSagaStart}</Highlight>
 
@@ -150,11 +161,12 @@ export default class SlidersScene extends Component {
             </div>
           </div>
 
-          Now if you will always just have one slider on your screen, you're done. If you wish to run many, you will run into the same
+          Now if you will always just have one slider on your screen, you're done. If you wish to have many slider instances, you will run into the same
           issue as with the dynamic counter example - both sliders will listen to and react to the <code>updateSlide</code> actions
           unless you explicitly prohibit them.
           <br /><br />
-          The code below demonstrates a way to prevent this from happening. It also shows the other saga functions that are available in kea.
+          The code below demonstrates a way to prevent this from happening. It also shows how to listen to actions using
+          the <code>takeEvery</code> helper and the <code>workers</code> object.
         </div>
         <div className='code'>
           <h2>Full source</h2>
@@ -162,7 +174,7 @@ export default class SlidersScene extends Component {
           and the <a href='https://redux-saga.js.org/'>redux-saga</a> documentation.
           <Highlight className='javascript'>{code.full}</Highlight>
 
-          <a href='/guide/connected' onClick={this.handleRoute}>Next demo</a>
+          Next page: <a href='/guide/connected' onClick={this.handleRoute}>Connected logic</a>
         </div>
       </div>
     )

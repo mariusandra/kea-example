@@ -1,5 +1,5 @@
-npm install kea -g
+npm install -g kea
 kea new my-project
 cd my-project
-npm install # or yarn
-npm start   # or yarn start
+yarn       # ... or npm install
+yarn start # ... or npm start

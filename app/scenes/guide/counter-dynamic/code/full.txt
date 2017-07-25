@@ -8,8 +8,8 @@ import { kea } from 'kea'
   path: (key) => ['scenes', 'counterDynamic', 'counter', key],
 
   actions: () => ({
-    increment: (amount = 1) => ({ amount }),
-    decrement: (amount = 1) => ({ amount })
+    increment: (amount) => ({ amount }),
+    decrement: (amount) => ({ amount })
   }),
 
   reducers: ({ actions, key, props }) => ({

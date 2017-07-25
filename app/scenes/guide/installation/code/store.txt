@@ -1,8 +1,9 @@
-import { keaSaga, keaReducer } from 'kea' // add this
+import { keaReducer, keaSaga } from 'kea' // add this
 
 const reducers = combineReducers({
-  routing: routerReducer,
-  scenes: keaReducer('scenes') // add this
+  scenes: keaReducer('scenes'), // add this
+  routing: routerReducer
+  // ... other reducers you might have
 })
 
 const sagaMiddleware = createSagaMiddleware()

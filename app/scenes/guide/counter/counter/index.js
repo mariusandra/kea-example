@@ -32,10 +32,8 @@ export default class Counter extends Component {
 
     return (
       <div className='kea-counter'>
-        Count: {counter}
-        <br />
-        Doublecount: {doubleCounter}
-        <br />
+        Count: {counter}<br />
+        Doublecount: {doubleCounter}<br />
         <button onClick={() => increment(1)}>Increment</button>
         <button onClick={() => decrement(1)}>Decrement</button>
       </div>

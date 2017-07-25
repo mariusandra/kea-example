@@ -32,7 +32,10 @@ export default class CounterDynamicScene extends Component {
           <h2>Example #2 - Dynamic Counter</h2>
           This example demonstrates dynamically created actions and reducers.
           <br /><br />
-          Dynamically in this context means <em>on mount</em>. In short, this allows you to create multiple instances of the component with separate state.
+          As we saw in the <a href='/guide/counter' onClick={this.handleRoute}>previous example</a>, if you render multiple instances of the
+          same connected component, they will share the state.
+          <br /><br />
+          The guide below shows how to create multiple instances of one component with separate states:
 
           <div className='demo'>
             <Counter id={1} />
@@ -41,27 +44,30 @@ export default class CounterDynamicScene extends Component {
           </div>
 
           <h2>1. Key and path</h2>
-          The code for this example is almost the same as for the <a href='/guide/counter' onClick={this.handleRoute}>singleton counter</a>.
+          The code for this example is almost the same as for the <a href='/guide/counter' onClick={this.handleRoute}>previous counter</a>.
           <br /><br />
           The big difference is that we must manually tell our component instances where to store their data:
 
           <Highlight className='javascript'>{code.keyPath}</Highlight>
 
-          The <code>key</code> function receives your component's props as input and must return a key that's unique for the
-          life of the component. Usually it's something like <code>key = (props) => props.id</code> if your component is rendered as <code>{'<Component id=\'somethingUnique\' />'}</code>
+          The <code>key</code> function receives your component instance's <code>props</code> as input and must return a key that's unique for the
+          life of the component. Usually it's something like <nobr><code>key = (props) => props.id</code></nobr> if your component is
+          rendered as <nobr><code>{'<Component id=\'somethingUnique\' />'}</code></nobr>
           <br />
           <br />
-          The <code>path</code> specifies where the data for your component lives in redux. It takes just one argument,
+          The <em>optional</em> <code>path</code> function specifies where the data for your component will live in Redux. It takes just one argument,
           the <code>key</code> from the previous step.
           <br />
           <br />
-          Note! You may also use <code>path</code> with singleton components (like the <a href='/guide/counter' onClick={this.handleRoute}>previous example</a>) if you wish to specify
+          Note! You may also use <code>path</code> with non-dynamic components (like the <a href='/guide/counter' onClick={this.handleRoute}>previous example</a>) if you wish to specify
           where they will store their data.
           <br /><br />
-          It makes your redux tree more readable and helps with debugging. In that case you must skip the <code>key</code> line.
+          It makes your redux tree more readable and helps with debugging. In that case you have to skip the <code>key</code> line.
 
           <h2>2. Limiting the reducers</h2>
           There's one last thing you need to do.
+          <br /><br />
+          While the reducers are unique for each component instance, the actions are shared.
           <br /><br />
           No matter which instance of your component triggers the action, all the reducers will receive it.
           So if counter #1 dispatches the <code>increment</code> action, counter #2 will also receive it.
@@ -70,7 +76,7 @@ export default class CounterDynamicScene extends Component {
 
           <Highlight className='javascript'>{code.reducers}</Highlight>
 
-          And we're done!
+          This way you can choose if your actions are processed by each instance of the component or by all instances simultaneously.
         </div>
 
         <div className='description'>

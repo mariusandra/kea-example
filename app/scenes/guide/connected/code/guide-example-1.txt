@@ -19,7 +19,7 @@ import { kea } from 'kea'
     }]
   })
 })
-export default class CounterSingletonScene extends Component {
+export default class CounterExampleScene extends Component {
   // ...
 
   render () {

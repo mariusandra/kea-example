@@ -16,6 +16,7 @@ const code = {
   actions: require('raw-loader!./code/actions.txt'),
   actions2: require('raw-loader!./code/actions-2.txt'),
   actions3: require('raw-loader!./code/actions-3.txt'),
+  actionsInject: require('raw-loader!./code/actions-inject.txt'),
   reducers: require('raw-loader!./code/reducers.txt'),
   selectors: require('raw-loader!./code/selectors.txt'),
   selectors2: require('raw-loader!./code/selectors-2.txt'),
@@ -80,6 +81,7 @@ export default class CounterSingletonScene extends Component {
               <br /><br />
               In case decorators are not your cup of tea, you may just write your code like so:
               <Highlight className='javascript'>{code.noDecorators}</Highlight>
+              ... and it will work just fine. For the rest of this guide we will assume you have decorators enabled.
             </div>
           ) : null}
         </div>
@@ -88,7 +90,7 @@ export default class CounterSingletonScene extends Component {
           <h2>2. Actions, reducers, selectors, oh my!</h2>
           Kea is built as a wrapper <strong>on top of</strong> <a href='http://redux.js.org/'>redux</a>, <a href='https://github.com/reactjs/reselect'>reselect</a> and <a href='https://redux-saga.js.org/'>redux-saga</a>.
           <br /><br />
-          We strongly recommend you understand the basics of redux before continuing, as kea liberally borrows concepts from it.
+          We strongly recommend you understand the <a href='http://redux.js.org/'>basics of Redux</a> before continuing, as kea liberally borrows concepts from it.
 
           <h3>2.1. Actions</h3>
           The first thing we do is define our actions:
@@ -101,13 +103,16 @@ export default class CounterSingletonScene extends Component {
 
           {features.actionDetails ? (
             <div className='extra-help'>
-              We're using the ES6 double arrow shortand for creating functions. What we're actually doing is this:
+              We're using the ES6 double arrow shorthand for creating functions. What we're actually doing is this:
               <Highlight className='javascript'>{code.actions2}</Highlight>
-
-              When wrapping kea onto your component, we also create a new object, <code>this.actions</code>, which automatically
+              Also note the line:
+              <Highlight className='javascript'>{code.actionsInject}</Highlight>
+              ... inside the <code>render()</code> function.
+              <br /><br />
+              When wrapping kea onto your React component, we also inject a new object, <code>this.actions</code>, which automatically
               binds these action creators to redux's <code>dispatch()</code> and generates a unique <code>type</code> for them.
               <br /><br />
-              Calling <code>this.actions.increment(1)</code> is the same as doing:
+              Calling <code>this.actions.increment(1)</code> in your React component is the same as doing:
               <Highlight className='javascript'>{code.actions3}</Highlight>
             </div>
           ) : null}
@@ -115,7 +120,12 @@ export default class CounterSingletonScene extends Component {
           <h3>2.2. Reducers</h3>
           Now that we can dispatch actions, we need to define reducers. This is where your data lives.
           <br /><br />
-          Reducers have an initial <code>state</code> and define actions which change this state. They may also include an optional <code>propType</code>. Here's an example:
+          Reducers have an initial <code>state</code> and define actions which change this state. They may also include an optional <code>propType</code>.
+          <br /><br />
+          The latest state of all of the reducers will be passed to your component as props.
+          <br /><br />
+
+          Here's an example:
 
           <Highlight className='javascript'>{code.reducers}</Highlight>
 
@@ -134,7 +144,7 @@ export default class CounterSingletonScene extends Component {
 
           {features.reducerDetails ? (
             <div className='extra-help'>
-              To see more complex reducers in action, look at <a href='https://github.com/mariusandra/kea-example/blob/master/app/scenes/todos/logic.js'>the code for the todos example</a> (copied below).
+              To see more complex reducers in action, look at <a href='https://github.com/mariusandra/kea-example/blob/master/app/scenes/examples/todos/logic.js'>the code for the todos example</a> (copied below).
               <br /><br />
               We store all the todos in one object, and whenever we need to update anything for any todo, we return a completely new object.
               <br /><br />
@@ -174,7 +184,7 @@ export default class CounterSingletonScene extends Component {
 
           <h2>Full source</h2>
           <Highlight className='javascript'>{code.full}</Highlight>
-          <a href='/guide/counter-dynamic' onClick={this.handleRoute}>Next demo</a>
+          Next page: <a href='/guide/counter-dynamic' onClick={this.handleRoute}>Dynamic counters</a>
         </div>
       </div>
     )

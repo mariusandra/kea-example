@@ -52,7 +52,7 @@ export default class InstallationScene extends Component {
           <Highlight className='javascript'>{code.store}</Highlight>
 
           <h3>2. Adding to apps made with create-redux-app</h3>
-          TODO
+          TODO. PRs welcome!
 
           <h3>3. Starting a new kea app from scratch</h3>
           <Highlight className='bash'>{code.cli}</Highlight>

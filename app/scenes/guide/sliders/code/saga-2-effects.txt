@@ -1,6 +1,7 @@
 import api from './api'
 import { take, race, put, fork, call } from 'redux-saga/effects'
 
+// redux action creator
 const loadUsers = (search) => ({ type: 'LOAD_USERS', payload: { search } })
 
 // all saga effects must be run in generator functions
@@ -15,7 +16,7 @@ function * saga () {
   // == { type: 'LOAD_USERS', payload: { search: 'something' } }
   yield put(loadUsers('something'))
 
-  // wait until either the action 'LOAD_USERS' or the action 'LOAD_POSTS' got dispatched
+  // block until either the action 'LOAD_USERS' or the action 'LOAD_POSTS' got dispatched
   const winner = yield race({
     loadUsers: take('LOAD_USERS'),
     loadPosts: take('LOAD_POSTS'),
