@@ -41,10 +41,10 @@ export default class HomepageScene extends Component {
               <strong>High level abstraction between <nobr>React and Redux</nobr></strong>
               <div className='links'>
                 <a href='/guide/installation' onClick={this.handleRoute}>Get started</a>
-                {' - '}
+                &nbsp;&nbsp;&nbsp;&nbsp;
                 <a href='https://www.github.com/keajs/kea'>Fork on GitHub</a>
-                {' - '}
-                <iframe src='https://ghbtns.com/github-btn.html?user=keajs&repo=kea&type=star&count=false' frameBorder='0' scrolling='0' width='60px' height='20px' style={{verticalAlign: 'sub'}} />
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <iframe src='https://ghbtns.com/github-btn.html?user=keajs&repo=kea&type=star&count=true' frameBorder='0' scrolling='0' width='100px' height='20px' style={{verticalAlign: 'sub'}} />
               </div>
             </div>
           </div>
