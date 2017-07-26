@@ -43,6 +43,8 @@ export default class HomepageScene extends Component {
               <a href='/guide/installation' onClick={this.handleRoute}>Get started</a>
               {' - '}
               <a href='https://www.github.com/keajs/kea'>Fork on GitHub</a>
+              {' - '}
+              <iframe src='https://ghbtns.com/github-btn.html?user=keajs&repo=kea&type=star&count=false' frameBorder='0' scrolling='0' width='170px' height='20px' style={{verticalAlign: 'sub'}} />
             </div>
           </div>
         </div>
