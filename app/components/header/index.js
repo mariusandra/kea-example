@@ -100,7 +100,7 @@ export default class Header extends Component {
             {Object.keys(menu).map(key => (
               <a href={menu[key].url} key={key} onClick={this.handleLoad} className={selectedMenuKey === key ? 'active' : ''}>{menu[key].title}</a>
             ))}
-            <a className='right' href='https://www.github.com/mariusandra/kea' target='_blank'>Github</a>
+            <a className='right' href='https://www.github.com/keajs/kea' target='_blank'>Github</a>
           </nav>
         </header>
         <main>

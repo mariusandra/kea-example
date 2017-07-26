@@ -144,7 +144,7 @@ export default class CounterSingletonScene extends Component {
 
           {features.reducerDetails ? (
             <div className='extra-help'>
-              To see more complex reducers in action, look at <a href='https://github.com/mariusandra/kea-example/blob/master/app/scenes/examples/todos/logic.js'>the code for the todos example</a> (copied below).
+              To see more complex reducers in action, look at <a href='https://github.com/keajs/kea-example/blob/master/app/scenes/examples/todos/logic.js'>the code for the todos example</a> (copied below).
               <br /><br />
               We store all the todos in one object, and whenever we need to update anything for any todo, we return a completely new object.
               <br /><br />

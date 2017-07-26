@@ -10,14 +10,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mariusandra/kea-example.git"
+    "url": "git+https://github.com/keajs/kea-example.git"
   },
   "author": "Marius Andra",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/mariusandra/kea-example/issues"
+    "url": "https://github.com/keajs/kea-example/issues"
   },
-  "homepage": "https://github.com/mariusandra/kea-example#readme",
+  "homepage": "https://github.com/keajs/kea-example#readme",
   "dependencies": {
     "babel-runtime": "6.22.0",
     "es6-promise": "4.0.5",

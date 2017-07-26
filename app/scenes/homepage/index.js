@@ -42,7 +42,7 @@ export default class HomepageScene extends Component {
 
               <a href='/guide/installation' onClick={this.handleRoute}>Get started</a>
               {' - '}
-              <a href='https://www.github.com/mariusandra/kea'>Fork on GitHub</a>
+              <a href='https://www.github.com/keajs/kea'>Fork on GitHub</a>
             </div>
           </div>
         </div>

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# prerequisites: clone mariusandra/kea to ../gh-pages/kea and set to gh-pages branch
+# prerequisites: clone keajs/kea to ../gh-pages/kea and set to gh-pages branch
 
 npm run build
 rsync -ar static/* ../gh-pages/kea/
