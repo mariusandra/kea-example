@@ -10,7 +10,7 @@ actions: ({ path, constants }) => ({
 })
 
 // Output
-actions == {
+myRandomSceneLogic.actions == {
   actionWithStaticPayload: () => ({ type: '...', payload: 'payload value' }),
   anotherActionWithAStaticPayload: () => ({ type: '...', payload: { thisIs: 'that' } }),
   simpleAction: () => ({ type: '...', payload: true }),

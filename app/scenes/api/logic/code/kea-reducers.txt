@@ -20,8 +20,8 @@ reducers: ({ actions, path, constants }) => ({
 })
 
 // Output
-reducers == {
+myRandomSceneLogic.reducers == {
   reducerKey: (initialState = defaultValue, action) => /* ... */,
   constantDefault: (initialState = constants.OTHER_STRING, action) => /* ... */,
 }
-reducer == combineReducers(reducers)
+myRandomSceneLogic.reducer == combineReducers(reducers)
