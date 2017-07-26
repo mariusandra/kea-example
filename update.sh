@@ -23,8 +23,8 @@ cp index.html api/action.html
 cp index.html api/saga.html
 cp index.html api/reducer.html
 mkdir -p img
-cp app/assets/logo.svg img/logo.svg
-cp app/assets/logo.png img/logo.png
+cp ../../kea-example/app/assets/logo.svg img/logo.svg
+cp ../../kea-example/app/assets/logo.png img/logo.png
 git add .
 git commit -m 'website update'
 git push
