@@ -45,7 +45,8 @@ export default kea({
       },
       [actions.noStateUsed]: (_, payload) => payload.value,
       [actions.setToTrue]: () => true,
-      [actions.clearSomething]: () => false
+      [actions.clearSomething]: () => false,
+      "ANY_OTHER_ACTION_TYPE": (state, payload, meta) => 'do whatever you want'
     }, /* optional options: */ { persist: true }],
 
     constantDefault: [constants.OTHER_STRING, PropTypes.string, {
