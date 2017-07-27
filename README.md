@@ -1,19 +1,7 @@
-# kea-example
+# kea-website
 
-This is the example app for kea.
+This is the website for kea, visible on https://kea.js.org/
 
-This app is automatically set up as the boilerplate when you use the scaffolding tool:
+To help with the documentation/examples, clone the project, `yarn`, `yarn start` and open http://localhost:2000/
 
-```
-npm install -g kea
-
-kea new myproject
-cd myproject
-
-npm install
-npm start
-```
-
-and then open http://localhost:2000/
-
-... or clone it instead of scaffolding, if that's your cup of tea.
+All PRs are very welcome!
