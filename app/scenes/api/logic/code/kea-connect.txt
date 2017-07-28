@@ -12,6 +12,11 @@ connect: {
       'firstProp',
       'secondProp as renamedProp',
       '* as allProps'
+    ],
+    // select from any redux tree node
+    (state) => state.somethingThatResolvesToAnObject, [
+      'variable',
+      'otherVariable'
     ]
   ]
 }
@@ -25,5 +30,7 @@ myRandomSceneLogic.actions == {
 myRandomSceneLogic.selectors == {
   firstProp: otherLogic.selectors.firstProp,
   renamedProp: otherLogic.selectors.secondProp,
-  allProps: otherLogic.selector
+  allProps: otherLogic.selector,
+  variable: state.somethingThatResolvesToAnObject.variable,
+  otherVariable: state.somethingThatResolvesToAnObject.otherVariable
 }

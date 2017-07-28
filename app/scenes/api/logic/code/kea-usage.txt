@@ -17,6 +17,11 @@ export default kea({
         'firstProp',
         'secondProp as renamedProp',
         '* as allProps'
+      ],
+      // select from any redux tree node
+      (state) => state.somethingThatResolvesToAnObject, [
+        'variable',
+        'otherVariable'
       ]
     ]
   },
