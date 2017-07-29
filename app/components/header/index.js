@@ -47,7 +47,8 @@ const menu = {
       {
         title: 'Examples',
         children: [
-          { url: '/examples/todos', title: 'TodoMVC', className: 'darker' }
+          { url: '/examples/todos', title: 'TodoMVC', className: 'darker' },
+          { url: '/examples/github', title: 'Github' }
         ]
       }
     ]

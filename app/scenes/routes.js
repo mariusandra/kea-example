@@ -17,6 +17,7 @@ const scenes = {
   apiAction: require('bundle-loader?lazy&name=api!./api/action/scene.js'),
 
   exampleTodos: require('bundle-loader?lazy&name=exampleTodos!./examples/todos/scene.js'),
+  exampleGithub: require('bundle-loader?lazy&name=exampleGithub!./examples/github/scene.js'),
 
   playground: require('bundle-loader?lazy&name=playground!./playground/scene.js')
 }
@@ -41,6 +42,10 @@ const routes = {
 
   '/examples/todos': 'exampleTodos',
   '/examples/todos/:visible': 'exampleTodos',
+
+  '/examples/github': 'exampleGithub',
+  '/examples/github/:username': 'exampleGithub',
+  '/examples/github/:username/:repository': 'exampleGithub',
 
   '/playground': 'playground'
 }
