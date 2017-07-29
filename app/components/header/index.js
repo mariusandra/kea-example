@@ -47,8 +47,8 @@ const menu = {
       {
         title: 'Examples',
         children: [
-          { url: '/examples/todos', title: 'TodoMVC', className: 'darker' },
-          { url: '/examples/github', title: 'Github' }
+          { url: '/examples/todos', title: 'TodoMVC', className: 'darker', source: 'https://github.com/keajs/kea-website/tree/master/app/scenes/examples/todos' },
+          { url: '/examples/github', title: 'Github', source: 'https://github.com/keajs/kea-website/blob/master/app/scenes/examples/github/index.js' }
         ]
       }
     ]
@@ -116,6 +116,9 @@ export default class Header extends Component {
                         {section.children.map(child => (
                           <li key={child.url}>
                             <a href={child.url} onClick={this.handleLoad} className={path === child.url ? 'active' : ''}>{child.title}</a>
+                            {child.source ? (
+                              <small style={{marginLeft: 10}}><a href={child.source} target='_blank'>source</a></small>
+                            ) : null}
                           </li>
                         ))}
                       </ul>
