@@ -12,7 +12,8 @@ const BASE_URL = 'https://api.github.com'
 @kea({
   actions: () => ({
     setUsername: (username) => ({ username }),
-    setRepositories: (repositories) => ({ repositories })
+    setRepositories: (repositories) => ({ repositories }),
+    setFetchError: (message) => ({ message })
   }),
 
   reducers: ({ actions }) => ({
@@ -25,7 +26,12 @@ const BASE_URL = 'https://api.github.com'
     }],
     isLoading: [true, PropTypes.bool, {
       [actions.setUsername]: () => true,
-      [actions.setRepositories]: () => false
+      [actions.setRepositories]: () => false,
+      [actions.setFetchError]: () => false
+    }],
+    error: [null, PropTypes.string, {
+      [actions.setUsername]: () => null,
+      [actions.setFetchError]: (_, payload) => payload.message
     }]
   }),
 
@@ -48,21 +54,25 @@ const BASE_URL = 'https://api.github.com'
 
   workers: {
     * fetchRepositories (action) {
-      const { setRepositories } = this.actions
+      const { setRepositories, setFetchError } = this.actions
       const { username } = action.payload
 
       yield delay(100) // debounce for 100ms
 
       const response = yield window.fetch(`${BASE_URL}/users/${username}/repos?per_page=250`)
-      const json = yield response.json()
-
-      yield put(setRepositories(json))
+      if (response.status === 200) {
+        const json = yield response.json()
+        yield put(setRepositories(json))
+      } else {
+        const json = yield response.json()
+        yield put(setFetchError(json.message))
+      }
     }
   }
 })
 export default class ExampleGithubScene extends Component {
   render () {
-    const { username, isLoading, repositories, sortedRepositories } = this.props
+    const { username, isLoading, repositories, sortedRepositories, error } = this.props
     const { setUsername } = this.actions
 
     return (
@@ -86,7 +96,7 @@ export default class ExampleGithubScene extends Component {
           </div>
         ) : (
           <div>
-            No repositories found
+            {error ? `Error: ${error}` : 'No repositories found'}
           </div>
         )}
       </div>
