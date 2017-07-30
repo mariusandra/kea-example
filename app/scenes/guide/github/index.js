@@ -185,6 +185,12 @@ export default class GithubScene extends Component {
           </div>
           <p>With this code:</p>
           <Highlight className='javascript'>{code.full}</Highlight>
+          <p>There's still one thing that's broken:</p>
+          <p>
+            If a github user or organisation has more than 100 repositories, only the first 100 results will be returned.
+            Github's API provides a way to ask for the next 100 results (the <a href='https://developer.github.com/v3/repos/#response'><code>Link</code> headers</a>), but as resolving this is
+            outside the scope of this guide, it will be left as an exercise for the reader ;).
+          </p>
         </div>
         <div className='description'>
           Next page: <a href='/guide/connected' onClick={this.handleRoute}>Connected logic</a>
