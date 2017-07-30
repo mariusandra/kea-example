@@ -54,12 +54,12 @@ export default class InstallationScene extends Component {
           </p>
           <p>
             This guide describes three ways to install:
-            <ol>
-              <li>Adding kea to an existing app that already uses <code>redux</code> (and <code>redux-saga</code>?)</li>
-              <li>Adding to apps made with <code>create-redux-app</code></li>
-              <li>Starting a new kea app from scratch</li>
-            </ol>
           </p>
+          <ol>
+            <li>Adding kea to an existing app that already uses <code>redux</code> (and <code>redux-saga</code>?)</li>
+            <li>Adding to apps made with <code>create-redux-app</code></li>
+            <li>Starting a new kea app from scratch</li>
+          </ol>
           <h3>1. Adding to an existing app that already uses <code>redux</code> (and <code>redux-saga</code>?)</h3>
           <h4>1.1. Packages</h4>
           <p>First install the packages:</p>
