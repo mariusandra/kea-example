@@ -1,0 +1,7 @@
+@kea({
+  start: function * () {
+    const { setUsername } = this.actions
+    const username = yield this.get('username')
+    yield put(setUsername(username))
+  }
+})

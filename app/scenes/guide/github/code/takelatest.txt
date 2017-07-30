@@ -1,0 +1,16 @@
+@kea({
+  actions: ...,
+  reducers: ...,
+
+  takeLatest: ({ actions, workers }) => ({
+    [actions.setUsername]: workers.fetchRepositories
+  }),
+
+  workers: {
+    * fetchRepositories (action) {
+      const { username } = action.payload
+
+      console.log(`setUsername called with ${username}`)
+    }
+  }
+})

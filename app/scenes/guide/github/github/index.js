@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { kea } from 'kea'
 
-import { put, call } from 'redux-saga/effects'
+import { put } from 'redux-saga/effects'
 import { delay } from 'redux-saga'
 
 const API_URL = 'https://api.github.com'
@@ -36,15 +36,15 @@ const API_URL = 'https://api.github.com'
   selectors: ({ selectors }) => ({
     sortedRepositories: [
       () => [selectors.repositories],
-      (repositories) => repositories.sort(
-                          (a, b) => b.stargazers_count - a.stargazers_count),
+      (repositories) => repositories.sort((a, b) => b.stargazers_count - a.stargazers_count),
       PropTypes.array
     ]
   }),
 
   start: function * () {
+    const { setUsername } = this.actions
     const username = yield this.get('username')
-    yield call(this.workers.fetchRepositories, { payload: { username } })
+    yield put(setUsername(username))
   },
 
   takeLatest: ({ actions, workers }) => ({
@@ -58,9 +58,7 @@ const API_URL = 'https://api.github.com'
 
       yield delay(100) // debounce for 100ms
 
-      const url = `${API_URL}/users/${username}/repos?per_page=250`
-      const response = yield window.fetch(url)
-
+      const response = yield window.fetch(`${API_URL}/users/${username}/repos?per_page=250`)
       if (response.status === 200) {
         const json = yield response.json()
         yield put(setRepositories(json))
@@ -73,17 +71,14 @@ const API_URL = 'https://api.github.com'
 })
 export default class ExampleGithubScene extends Component {
   render () {
-    const { username, isLoading, repositories,
-            sortedRepositories, error } = this.props
+    const { username, isLoading, repositories, sortedRepositories, error } = this.props
     const { setUsername } = this.actions
 
     return (
       <div className='example-github-scene'>
         <div style={{marginBottom: 20}}>
           <h1>Search for a github user</h1>
-          <input value={username}
-                 type='text'
-                 onChange={e => setUsername(e.target.value)} />
+          <input value={username} type='text' onChange={e => setUsername(e.target.value)} />
         </div>
         {isLoading ? (
           <div>
@@ -94,8 +89,7 @@ export default class ExampleGithubScene extends Component {
             Found {repositories.length} repositories for user {username}!
             {sortedRepositories.map(repo => (
               <div key={repo.id}>
-                <a href={repo.html_url} target='_blank'>{repo.full_name}</a>
-                {' - '}{repo.stargazers_count} stars, {repo.forks} forks.
+                <a href={repo.html_url} target='_blank'>{repo.full_name}</a> - {repo.stargazers_count} stars, {repo.forks} forks.
               </div>
             ))}
           </div>

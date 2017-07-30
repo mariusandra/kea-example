@@ -1,0 +1,26 @@
+@kea({
+  actions: () => ({
+    setUsername: (username) => ({ username }),
+    setRepositories: (repositories) => ({ repositories }),
+    setFetchError: (message) => ({ message })
+  }),
+
+  reducers: ({ actions }) => ({
+    username: ['keajs', PropTypes.string, {
+      [actions.setUsername]: (_, payload) => payload.username
+    }],
+    repositories: [[], PropTypes.array, {
+      [actions.setUsername]: () => [],
+      [actions.setRepositories]: (_, payload) => payload.repositories
+    }],
+    isLoading: [false, PropTypes.bool, {
+      [actions.setUsername]: () => true,
+      [actions.setRepositories]: () => false,
+      [actions.setFetchError]: () => false
+    }],
+    error: [null, PropTypes.string, {
+      [actions.setUsername]: () => null,
+      [actions.setFetchError]: (_, payload) => payload.message
+    }]
+  })
+})

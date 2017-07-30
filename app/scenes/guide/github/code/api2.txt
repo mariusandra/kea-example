@@ -1,0 +1,23 @@
+import { put } from 'redux-saga/effects' // new
+
+@kea({
+  workers: {
+    * fetchRepositories (action) {
+      const { setRepositories, setFetchError } = this.actions // new
+      const { username } = action.payload
+
+      yield delay(100)
+
+      const url = `${API_URL}/users/${username}/repos?per_page=250`
+      const response = yield window.fetch(url)
+
+      if (response.status === 200) {
+        const json = yield response.json()
+        yield put(setRepositories(json)) // new
+      } else {
+        const json = yield response.json()
+        yield put(setFetchError(json.message)) // new
+      }
+    }
+  }
+})

@@ -11,13 +11,13 @@ import logo from '~/assets/logo.svg'
 import Slider from '../guide/sliders/slider'
 import Counter from '../guide/counter/counter'
 import Countdown from '../guide/countdown/countdown'
-import Github from './github'
+import Github from '../guide/github/github'
 
 const code = {
   counter: require('raw-loader!../guide/counter/code/selectors.txt'),
   slider: require('raw-loader!../guide/sliders/code/homepage.txt'),
   countdown: require('raw-loader!../guide/countdown/countdown/code.txt'),
-  github: require('raw-loader!./github/code.txt')
+  github: require('raw-loader!../guide/github/code/full.txt')
 }
 
 @kea({})
@@ -90,6 +90,7 @@ export default class HomepageScene extends Component {
               <Github />
             </div>
             <br />
+            Read the guide: <a href='/guide/github' onClick={this.handleRoute}>Github</a>
           </div>
         </div>
 

@@ -1,0 +1,8 @@
+import { call } from 'redux-saga/effects'
+
+@kea({
+  start: function * () {
+    const username = yield this.get('username')
+    yield call(this.workers.fetchRepositories, { payload: { username } })
+  }
+})

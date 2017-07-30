@@ -45,7 +45,7 @@ export default class ConnectedScene extends Component {
     return (
       <div className='connected-scene'>
         <div className='description'>
-          <h2>Example #4 - Connected logic</h2>
+          <h2>Example #5 - Connected logic</h2>
           <p>
             Attaching actions, reducers and selectors to your components will get you pretty far.
           </p>

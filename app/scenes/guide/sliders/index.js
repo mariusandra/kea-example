@@ -174,7 +174,7 @@ export default class SlidersScene extends Component {
           and the <a href='https://redux-saga.js.org/'>redux-saga</a> documentation.
           <Highlight className='javascript'>{code.full}</Highlight>
 
-          Next page: <a href='/guide/connected' onClick={this.handleRoute}>Connected logic</a>
+          Next page: <a href='/guide/github' onClick={this.handleRoute}>Github API</a>
         </div>
       </div>
     )

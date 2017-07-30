@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { kea } from 'kea'
 
-import { put, call } from 'redux-saga/effects'
+import { put } from 'redux-saga/effects'
 import { delay } from 'redux-saga'
 
 const API_URL = 'https://api.github.com'
@@ -22,7 +22,7 @@ const API_URL = 'https://api.github.com'
       [actions.setUsername]: () => [],
       [actions.setRepositories]: (state, payload) => payload.repositories
     }],
-    isLoading: [true, PropTypes.bool, {
+    isLoading: [false, PropTypes.bool, {
       [actions.setUsername]: () => true,
       [actions.setRepositories]: () => false,
       [actions.setFetchError]: () => false
@@ -32,19 +32,6 @@ const API_URL = 'https://api.github.com'
       [actions.setFetchError]: (_, payload) => payload.message
     }]
   }),
-
-  selectors: ({ selectors }) => ({
-    sortedRepositories: [
-      () => [selectors.repositories],
-      (repositories) => repositories.sort((a, b) => b.stargazers_count - a.stargazers_count),
-      PropTypes.array
-    ]
-  }),
-
-  start: function * () {
-    const username = yield this.get('username')
-    yield call(this.workers.fetchRepositories, { payload: { username } })
-  },
 
   takeLatest: ({ actions, workers }) => ({
     [actions.setUsername]: workers.fetchRepositories
@@ -70,7 +57,7 @@ const API_URL = 'https://api.github.com'
 })
 export default class ExampleGithubScene extends Component {
   render () {
-    const { username, isLoading, repositories, sortedRepositories, error } = this.props
+    const { username, isLoading, repositories, error } = this.props
     const { setUsername } = this.actions
 
     return (
@@ -86,7 +73,7 @@ export default class ExampleGithubScene extends Component {
         ) : repositories.length > 0 ? (
           <div>
             Found {repositories.length} repositories for user {username}!
-            {sortedRepositories.map(repo => (
+            {repositories.map(repo => (
               <div key={repo.id}>
                 <a href={repo.html_url} target='_blank'>{repo.full_name}</a> - {repo.stargazers_count} stars, {repo.forks} forks.
               </div>

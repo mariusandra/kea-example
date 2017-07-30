@@ -12,6 +12,7 @@ cp index.html guide/index.html
 cp index.html guide/counter.html
 cp index.html guide/counter-dynamic.html
 cp index.html guide/connected.html
+cp index.html guide/github.html
 cp index.html guide/sliders.html
 cp index.html examples/index.html
 cp index.html examples/todos.html
