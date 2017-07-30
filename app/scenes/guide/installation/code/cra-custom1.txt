@@ -1,0 +1,2 @@
+yarn add custom-react-scripts
+yarn remove react-scripts

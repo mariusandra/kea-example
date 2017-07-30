@@ -1,5 +1,9 @@
 # if you're using yarn
 yarn add kea
+yarn add reselect redux-saga     # you will need these if not already installed
+yarn add react redux react-redux # you probably have these
 
 # if you're using npm
 npm install kea --save
+npm install reselect redux-saga --save     # you will need these if not already installed
+npm install react redux react-redux --save # you probably have these
