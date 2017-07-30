@@ -11,11 +11,13 @@ import logo from '~/assets/logo.svg'
 import Slider from '../guide/sliders/slider'
 import Counter from '../guide/counter/counter'
 import Countdown from '../guide/countdown/countdown'
+import Github from './github'
 
 const code = {
   counter: require('raw-loader!../guide/counter/code/selectors.txt'),
   slider: require('raw-loader!../guide/sliders/code/homepage.txt'),
-  countdown: require('raw-loader!../guide/countdown/countdown/code.txt')
+  countdown: require('raw-loader!../guide/countdown/countdown/code.txt'),
+  github: require('raw-loader!./github/code.txt')
 }
 
 @kea({})
@@ -78,6 +80,19 @@ export default class HomepageScene extends Component {
           </div>
         </div>
 
+        <h2>Github</h2>
+        <div className='split'>
+          <div className='code'>
+            <Highlight className='javascript'>{code.github}</Highlight>
+          </div>
+          <div className='description'>
+            <div className='demo'>
+              <Github />
+            </div>
+            <br />
+          </div>
+        </div>
+
         <h2>Debounced countdown</h2>
         <div className='split'>
           <div className='code'>
@@ -90,7 +105,6 @@ export default class HomepageScene extends Component {
             <br />
           </div>
         </div>
-
       </div>
     )
   }

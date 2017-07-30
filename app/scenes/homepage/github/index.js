@@ -1,5 +1,3 @@
-import './styles.scss'
-
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { kea } from 'kea'
@@ -7,7 +5,7 @@ import { kea } from 'kea'
 import { put, call } from 'redux-saga/effects'
 import { delay } from 'redux-saga'
 
-const BASE_URL = 'https://api.github.com'
+const API_URL = 'https://api.github.com'
 
 @kea({
   actions: () => ({
@@ -59,7 +57,7 @@ const BASE_URL = 'https://api.github.com'
 
       yield delay(100) // debounce for 100ms
 
-      const response = yield window.fetch(`${BASE_URL}/users/${username}/repos?per_page=250`)
+      const response = yield window.fetch(`${API_URL}/users/${username}/repos?per_page=250`)
       if (response.status === 200) {
         const json = yield response.json()
         yield put(setRepositories(json))
@@ -79,7 +77,7 @@ export default class ExampleGithubScene extends Component {
       <div className='example-github-scene'>
         <div style={{marginBottom: 20}}>
           <h1>Search for a github user</h1>
-          <input value={username} autoFocus type='text' onChange={e => setUsername(e.target.value)} />
+          <input value={username} type='text' onChange={e => setUsername(e.target.value)} />
         </div>
         {isLoading ? (
           <div>
