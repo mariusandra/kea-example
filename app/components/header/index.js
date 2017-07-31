@@ -24,8 +24,9 @@ const menu = {
           { url: '/guide/counter-dynamic', title: 'Dynamic Counter' },
           { url: '/guide/sliders', title: 'Sliders' },
           { url: '/guide/github', title: 'Github API' },
-          { url: '/guide/connected', title: 'Connected Logic' },
-          { url: '/guide/connected-services', title: 'Connected Services' }
+          { url: '/guide/connected', title: 'Connected Logic' }
+          // TODO: not yet ready
+          // { url: '/guide/connected-services', title: 'Connected Services' }
         ]
       },
       {
