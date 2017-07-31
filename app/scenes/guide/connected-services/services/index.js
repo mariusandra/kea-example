@@ -42,11 +42,6 @@ import hackerNewsLogic from './hacker-news-logic'
     }]
   }),
 
-  sagas: [
-    githubLogic.saga,
-    hackerNewsLogic.saga
-  ],
-
   start: function * () {
     const { setUsername } = this.actions
     const username = yield this.get('username')
