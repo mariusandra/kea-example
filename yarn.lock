@@ -1285,7 +1285,7 @@ combined-stream@^1.0.5, combined-stream@~1.0.5:
   dependencies:
     delayed-stream "~1.0.0"
 
-"commander@github:tj/commander.js#c6236d9504b60d9a2e6aa7fc3ce17a12f48f4a3e":
+commander@tj/commander.js#c6236d9504b60d9a2e6aa7fc3ce17a12f48f4a3e:
   version "2.9.0"
   resolved "https://codeload.github.com/tj/commander.js/tar.gz/c6236d9504b60d9a2e6aa7fc3ce17a12f48f4a3e"
   dependencies:
