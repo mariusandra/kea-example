@@ -9,6 +9,7 @@ const scenes = {
   guideSliders: require('bundle-loader?lazy&name=guide!./guide/sliders/scene.js'),
   guideGithub: require('bundle-loader?lazy&name=guide!./guide/github/scene.js'),
   guideConnected: require('bundle-loader?lazy&name=guide!./guide/connected/scene.js'),
+  guideConnectedServices: require('bundle-loader?lazy&name=guide!./guide/connected-services/scene.js'),
 
   apiLogic: require('bundle-loader?lazy&name=api!./api/logic/scene.js'),
   apiComponent: require('bundle-loader?lazy&name=api!./api/component/scene.js'),
@@ -33,6 +34,7 @@ const routes = {
   '/guide/sliders': 'guideSliders',
   '/guide/github': 'guideGithub',
   '/guide/connected': 'guideConnected',
+  '/guide/connected-services': 'guideConnectedServices',
 
   '/api': 'apiLogic',
   '/api/logic': 'apiLogic',
