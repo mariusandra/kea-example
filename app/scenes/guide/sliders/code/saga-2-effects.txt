@@ -42,7 +42,7 @@ function * otherWorker () {
 
 function * waitForUsersAction () {
   while (true) {
-    yield take(LOAD_USERS)
+    yield take('LOAD_USERS')
     const result = yield api.loadUsers()
     yield put({ type: 'USERS_LOADED', payload: { result } })
   }
