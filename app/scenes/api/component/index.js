@@ -7,6 +7,7 @@ import Highlight from 'react-highlight'
 const code = {
   usage: require('raw-loader!./code/usage.txt'),
   decorators: require('raw-loader!./code/decorators.txt'),
+  stateless: require('raw-loader!./code/stateless.txt'),
   path: require('raw-loader!./code/path.txt'),
   key: require('raw-loader!./code/key.txt'),
   selectors: require('raw-loader!./code/selectors.txt')
@@ -41,6 +42,13 @@ export default class API extends Component {
         <p>
           See the <a href='/guide/installation' onClick={this.handleRoute}>installation guide</a> for details.
         </p>
+
+        <h3>Stateless functional components</h3>
+        <p>
+          You may also use kea with stateless functional components. The syntax can get quite <em>lispy</em> with all the brackets, but it works:
+        </p>
+        <Highlight className='javascript'>{code.stateless}</Highlight>
+
         <h3>Options</h3>
         <p>
           Wrapped logic stores accept all the same options as regular logic stores.
