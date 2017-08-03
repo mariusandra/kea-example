@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { kea } from 'kea'
 
+import otherLogic from './other-logic'
+
 @kea({
   key: (props) => props.id,
   path: (key) => ['scenes', 'something', key],
@@ -13,19 +15,33 @@ import { kea } from 'kea'
     myValue: [0, PropTypes.number, {
       [actions.someAction]: (state, payload): payload.id
     }]
+  }),
+
+  selectors: ({ selectors }) => ({
+    combinedValue: [
+      () => [
+        selectors.myValue,
+        otherLogic.selectors.otherValue,
+        (state, props) => props.id
+      ],
+      (myValue, otherValue, id) => myValue + otherValue + id,
+      PropTypes.number
+    ]
   })
 
   // other options, see the api docs for kea(options):
-  // - constants, selectors, connect
-  // - start, stop, takeEvery, takeLatest, workers, sagas
+  // - connect, constants, start, stop, takeEvery, takeLatest, workers, sagas
 })
 export default class MyComponent extends Component {
   render () {
-    const { myValue } = this.props
+    const { myValue, combinedValue } = this.props
     const { someAction } = this.actions
 
     return (
-      <button onClick={() => someAction(12)}>{myValue}</button>
+      <div>
+        <div>Combined props and reducer in a selector: {combinedValue}</div>
+        <button onClick={() => someAction(12)}>{myValue}</button>
+      </div>
     )
   }
 }

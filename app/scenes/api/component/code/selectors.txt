@@ -1,0 +1,16 @@
+selectors: ({ selectors }) => ({
+  combinedValue: [
+    () => [
+      // standard selector for myValue
+      selectors.myValue,
+
+      // use a selector from a different logic store without conencting the prop
+      otherLogic.selectors.otherValue,
+
+      // props are passed as the second argument to input selectors
+      (state, props) => props.id
+    ],
+    (myValue, otherValue, id) => myValue + otherValue + id,
+    PropTypes.number
+  ]
+})
