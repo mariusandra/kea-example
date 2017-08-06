@@ -12,12 +12,14 @@ import Slider from '../guide/sliders/slider'
 import Counter from '../guide/counter/counter'
 import Countdown from '../guide/countdown/countdown'
 import Github from '../guide/github/github'
+import ConnectedToggle from '../guide/connected/connected-toggle'
 
 const code = {
   counter: require('raw-loader!../guide/counter/code/selectors.txt'),
   slider: require('raw-loader!../guide/sliders/code/homepage.txt'),
   countdown: require('raw-loader!../guide/countdown/countdown/code.txt'),
-  github: require('raw-loader!../guide/github/code/full.txt')
+  github: require('raw-loader!../guide/github/code/full.txt'),
+  connected: require('raw-loader!../guide/connected/code/homepage.txt')
 }
 
 @kea({})
@@ -104,6 +106,20 @@ export default class HomepageScene extends Component {
               <Countdown />
             </div>
             <br />
+          </div>
+        </div>
+
+        <h2>Connected logic stores</h2>
+        <div className='split'>
+          <div className='code'>
+            <Highlight className='javascript'>{code.connected}</Highlight>
+          </div>
+          <div className='description'>
+            <div className='demo'>
+              <ConnectedToggle />
+            </div>
+            <br />
+            Read the guide: <a href='/guide/connected' onClick={this.handleRoute}>Connected</a>
           </div>
         </div>
       </div>
