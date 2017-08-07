@@ -9,6 +9,7 @@ mkdir -p guide
 mkdir -p examples
 mkdir -p api
 cp index.html guide/index.html
+cp index.html guide/installation.html
 cp index.html guide/counter.html
 cp index.html guide/counter-dynamic.html
 cp index.html guide/connected.html
