@@ -11,9 +11,9 @@ actions: ({ path, constants }) => ({
 
 // Output
 myRandomSceneLogic.actions == {
-  actionWithStaticPayload: () => ({ type: '...', payload: 'payload value' }),
+  actionWithStaticPayload: () => ({ type: '...', payload: { value: 'payload value' } }),
   anotherActionWithAStaticPayload: () => ({ type: '...', payload: { thisIs: 'that' } }),
-  simpleAction: () => ({ type: '...', payload: true }),
+  simpleAction: () => ({ type: '...', payload: { value: true } }),
 
   actionWithDynamicPayload: (id) => ({ type: '...', payload: { id } }),
   actionWithManyParameters: (id, message) => ({ type: '...', payload: { id, message } }),

@@ -43,10 +43,10 @@ export default kea({
   reducers: ({ actions, path, constants }) => ({
     reducerKey: [defaultValue, propType, {
       // operations
-      [actions.simpleAction]: (state, payload) => state + payload // return the new state,
+      [actions.simpleAction]: (state, payload) => state + payload.value // return the new state,
       [actions.complexAction]: (state, payload) => {
         // do more things in the block
-        return state + payload
+        return state + payload.value
       },
       [actions.noStateUsed]: (_, payload) => payload.value,
       [actions.setToTrue]: () => true,
