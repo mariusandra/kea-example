@@ -69,7 +69,8 @@ var config = {
       },
       {
         test: /\.(js|jsx)$/,
-        loader: 'babel-loader'
+        loader: 'babel-loader',
+        exclude: /node_modules/
       },
       {
         test: /\.(png|jpg|svg|gif)$/,
