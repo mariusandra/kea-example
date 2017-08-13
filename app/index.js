@@ -6,9 +6,9 @@ import { Router, browserHistory } from 'react-router'
 import { syncHistoryWithStore } from 'react-router-redux'
 import { getRoutes } from 'kea/scene'
 
-import App from './scenes/index'
-import routes from './scenes/routes'
 import store from './store'
+import routes from './scenes/routes'
+import App from './scenes/index'
 
 import './index.html'
 
