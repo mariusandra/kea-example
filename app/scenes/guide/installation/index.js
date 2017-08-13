@@ -69,7 +69,7 @@ export default class InstallationScene extends Component {
           <Highlight className='javascript'>{code.store}</Highlight>
           <p>
             NB! Make sure the store is loaded before any <code>kea()</code> calls. In practice this usually means you should
-            import your store before your componentts in your app's entrypoint.
+            import your store before your components in your app's entrypoint.
           </p>
           <h4>1.3. Optional: Enable decorators</h4>
           Kea makes use of an experimental support for decorators to make your code nicer to read. If you
