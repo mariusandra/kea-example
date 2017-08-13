@@ -174,10 +174,7 @@ export default class ConnectedScene extends Component {
           </p>
           <h2>Next steps</h2>
           <p>
-            That's it for the guide!
-          </p>
-          <p>
-            Check out the <a href='/examples/todos' onClick={this.handleRoute}>example applications</a> or read the <a href='/api/logic' onClick={this.handleRoute}>API docs</a>.
+            The last topic in this guide: <a href='/guide/migration' onClick={this.handleRoute}>How to migrate existing Redux applications?</a> or read the <a href='/api/logic' onClick={this.handleRoute}>API docs</a>.
           </p>
         </div>
       </div>

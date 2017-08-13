@@ -32,7 +32,8 @@ var config = {
       './scenes/guide/counter-dynamic/scene.js',
       './scenes/guide/sliders/scene.js',
       './scenes/guide/github/scene.js',
-      './scenes/guide/connected/scene.js'
+      './scenes/guide/connected/scene.js',
+      './scenes/guide/migration/scene.js'
     ],
     exampleTodos: [
       './scenes/examples/todos/scene.js'
