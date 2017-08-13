@@ -1,0 +1,46 @@
+// my-logic.js
+export default kea({
+  actions: () => ({
+    addOne: true
+  }),
+  reducers: ({ actions }) => ({
+    myNumber: [0, PropTypes.number, {
+      [actions.addOne]: (state) => state + 1
+    }]
+  }),
+  selectors: ({ selectors }) => ({
+    myNumberDouble: [
+      () => [selectors.myNumber],
+      (myNumber) => myNumber * 2,
+      PropTypes.number
+    ]
+  })
+})
+
+// component
+import TodoList from '../components/TodoList'
+import { toggleTodo } from '../actions'
+
+import myLogic from './my-logic'
+
+const mapStateToProps = state => {
+  return {
+    todos: state => state.todos,
+    myNumber: myLogic.selectors.myNumber,
+    myNumberDouble: myLogic.selectors.myNumberDouble,
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    onTodoClick: id => dispatch(toggleTodo(id)),
+    onAddOneClick: () => dispatch(myLogic.actions.addOne())
+  }
+}
+
+const VisibleTodoList = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(TodoList)
+
+export default ConnectedTodoList

@@ -1,0 +1,29 @@
+import React, { Component } from 'react'
+import { kea } from 'kea'
+import { push } from 'react-router-redux'
+
+import doSomething from './actions/do-something'
+
+// just to get the dispatch
+@kea({})
+export deafult const MyComponent extends Component {
+  handleButton = () => {
+    const { dispatch } = this.props
+
+    // call the action
+    dispatch(doSomething())
+
+    // ask redux-router to take us home
+    dispatch(push('/home'))
+  }
+
+  render () {
+    return (
+      <div>
+        <button onClick={this.handleButton}>
+          Do something
+        </button>
+      </div>
+    )
+  }
+}

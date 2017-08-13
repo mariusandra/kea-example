@@ -1,0 +1,27 @@
+import { connect } from 'kea'
+
+import someLogic from './some-logic'
+
+const railsContext = (state) => state.rails
+
+@connect({
+  props: [
+    someLogic, [
+      'prop1',
+      'prop2'
+    ],
+    railsContext, [
+      'i18nLocale',
+      'currentUserId'
+    ],
+    (state) => state.form.myForm, [
+      '* as myForm'
+    ]
+  ]
+})
+export deafult const MyComponent extends Component {
+  render () {
+    const { prop1, prop2, i18nLocale, currentUserId, myForm } = this.props
+    // ...
+  }
+}
