@@ -1,44 +1,59 @@
-import './styles.scss'
-
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
+import React from 'react'
 import { kea } from 'kea'
+import PropTypes from 'prop-types'
 
-const books = {
-  1: 'book1',
-  2: 'book2'
-}
-
-const booksLogic = kea({
+const appLogic = kea({
+  actions: () => ({
+    showAlert: (id) => ({ id }),
+    hideAlert: (id) => ({ id })
+  }),
   reducers: ({ actions }) => ({
-    books: [books, PropTypes.object, {}]
+    visibleAlerts: [{}, PropTypes.object, {
+      [actions.showAlert]: (state, payload) => ({ ...state, [payload.id]: true }),
+      [actions.hideAlert]: (state, payload) => ({ ...state, [payload.id]: false })
+    }]
   })
 })
 
-@kea({
+const alertLogic = kea({
+  connect: {
+    actions: [
+      appLogic, [
+        'hideAlert'
+      ]
+    ]
+  },
   selectors: ({ selectors }) => ({
-    book: [
-      () => [booksLogic.selectors.books, (_, props) => props.bookId],
-      (books, bookId) => books[bookId],
-      PropTypes.object
+    isVisible: [
+      () => [(_, props) => props.id, appLogic.selectors.visibleAlerts],
+      (id, visibleAlerts) => visibleAlerts[id],
+      PropTypes.bool
     ]
   })
 })
-class BookDetail extends Component {
-  render () {
-    const { book } = this.props
-    return <div>{book}</div>
-  }
-}
 
-export default class Playground extends Component {
-  render () {
-    return (
-      <div className='playground-scene'>
-        <BookDetail bookId={1} />
-        <BookDetail bookId={2} />
+const Alert = alertLogic(
+  ({ message, isVisible, id, actions: { hideAlert } }) => (
+    isVisible ? (
+      <div>
+        {message}
+        &nbsp;
+        <button onClick={() => hideAlert(id)}>x</button>
       </div>
-    )
-  }
-}
+    ) : null
+  )
+)
 
+const App = appLogic(
+  ({ actions: { showAlert }, visibleAlerts }) => (
+    <div>
+      <Alert message='Hello React' id='Alert1' />
+      <button onClick={() => showAlert('Alert1')} disabled={visibleAlerts.Alert1}>Show Alert</button>
+      <br />
+      <Alert message='Hello again React' id='Alert2' />
+      <button onClick={() => showAlert('Alert2')} disabled={visibleAlerts.Alert2}>Show Alert</button>
+    </div>
+  )
+)
+
+export default App
