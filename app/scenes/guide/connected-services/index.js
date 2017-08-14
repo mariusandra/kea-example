@@ -1,8 +1,5 @@
 import React, { Component } from 'react'
-import { connect } from 'kea'
-import { push } from 'react-router-redux'
-
-import featuresLogic from '../features-logic'
+import { Link } from 'react-router-dom'
 
 import Services from './services'
 
@@ -16,32 +13,8 @@ const code = {
   // guideExample5: require('raw-loader!./code/guide-example-5.txt')
 }
 
-@connect({
-  actions: [
-    featuresLogic, [
-      'toggleFeature'
-    ]
-  ],
-  props: [
-    featuresLogic, [
-      'features'
-    ]
-  ]
-})
 export default class ConnectedScene extends Component {
-  handleRoute = (e) => {
-    const { dispatch } = this.props
-    const href = e.target.attributes.href.value
-
-    e.preventDefault()
-    dispatch(push(href))
-    window.scrollTo(0, 0)
-  }
-
   render () {
-    const { features } = this.props
-    const { toggleFeature } = this.actions
-
     return (
       <div className='connected-scene'>
         <div className='description'>
@@ -56,7 +29,8 @@ export default class ConnectedScene extends Component {
             That's it for the guide!
           </p>
           <p>
-            Check out the <a href='/examples/todos' onClick={this.handleRoute}>example applications</a> or read the <a href='/api/logic' onClick={this.handleRoute}>API docs</a>.
+            Check out the <Link to='/examples/todos'>example applications</Link> or
+            read the <Link to='/api/logic'>API docs</Link>.
           </p>
         </div>
       </div>

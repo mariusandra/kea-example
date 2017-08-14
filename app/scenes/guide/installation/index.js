@@ -1,10 +1,7 @@
 import React, { Component } from 'react'
-import { push } from 'react-router-redux'
-import { connect } from 'kea'
+import { Link } from 'react-router-dom'
 
 import Highlight from 'react-highlight'
-
-import featuresLogic from '../features-logic'
 
 const code = {
   package: require('raw-loader!./code/package.txt'),
@@ -18,32 +15,8 @@ const code = {
   craCustomEnv: require('raw-loader!./code/cra-customenv.txt')
 }
 
-@connect({
-  actions: [
-    featuresLogic, [
-      'toggleFeature'
-    ]
-  ],
-  props: [
-    featuresLogic, [
-      'features'
-    ]
-  ]
-})
 export default class InstallationScene extends Component {
-  handleRoute = (e) => {
-    const { dispatch } = this.props
-    const href = e.target.attributes.href.value
-
-    e.preventDefault()
-    dispatch(push(href))
-    window.scrollTo(0, 0)
-  }
-
   render () {
-    const { features } = this.props
-    const { toggleFeature } = this.actions
-
     return (
       <div className='counter-singleton-scene'>
         <div className='description'>
@@ -113,10 +86,9 @@ export default class InstallationScene extends Component {
 
           <h2>Continue with the guide</h2>
 
-          Next page: <a href='/guide/counter' onClick={this.handleRoute}>Counter</a>
+          Next page: <Link to='/guide/counter'>Counter</Link>
         </div>
       </div>
     )
   }
 }
-

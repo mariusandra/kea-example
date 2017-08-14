@@ -2,7 +2,7 @@ import './styles.scss'
 
 import React, { Component } from 'react'
 import { kea } from 'kea'
-import { push } from 'react-router-redux'
+import { Link } from 'react-router-dom'
 
 import Highlight from 'react-highlight'
 
@@ -24,15 +24,6 @@ const code = {
 
 @kea({})
 export default class HomepageScene extends Component {
-  handleRoute = (e) => {
-    const { dispatch } = this.props
-    const href = e.target.attributes.href.value
-
-    e.preventDefault()
-    dispatch(push(href))
-    window.scrollTo(0, 0)
-  }
-
   render () {
     return (
       <div className='homepage-scene'>
@@ -44,7 +35,7 @@ export default class HomepageScene extends Component {
               <h1>Kea</h1>
               <strong>High level abstraction between <nobr>React and Redux</nobr></strong>
               <div className='links'>
-                <a href='/guide/installation' onClick={this.handleRoute}>Get started</a>
+                <Link to='/guide/installation'>Get started</Link>
                 &nbsp;&nbsp;&nbsp;&nbsp;
                 <a href='https://www.github.com/keajs/kea'>Fork on GitHub</a>
                 &nbsp;&nbsp;&nbsp;&nbsp;
@@ -64,7 +55,7 @@ export default class HomepageScene extends Component {
               <Counter />
             </div>
             <br />
-            Read the guide: <a href='/guide/counter' onClick={this.handleRoute}>Counter</a>
+            Read the guide: <Link to='/guide/counter'>Counter</Link>
           </div>
         </div>
 
@@ -78,7 +69,7 @@ export default class HomepageScene extends Component {
               <Slider id={999} />
             </div>
             <br />
-            Read the guide: <a href='/guide/sliders' onClick={this.handleRoute}>Sliders</a>
+            Read the guide: <Link to='/guide/sliders'>Sliders</Link>
           </div>
         </div>
 
@@ -92,7 +83,7 @@ export default class HomepageScene extends Component {
               <Github />
             </div>
             <br />
-            Read the guide: <a href='/guide/github' onClick={this.handleRoute}>Github</a>
+            Read the guide: <Link to='/guide/github'>Github</Link>
           </div>
         </div>
 
@@ -119,7 +110,7 @@ export default class HomepageScene extends Component {
               <ConnectedToggle />
             </div>
             <br />
-            Read the guide: <a href='/guide/connected' onClick={this.handleRoute}>Connected</a>
+            Read the guide: <Link to='/guide/connected'>Connected</Link>
           </div>
         </div>
       </div>

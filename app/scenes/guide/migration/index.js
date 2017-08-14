@@ -1,8 +1,5 @@
 import React, { Component } from 'react'
-import { connect } from 'kea'
-import { push } from 'react-router-redux'
-
-import featuresLogic from '../features-logic'
+import { Link } from 'react-router-dom'
 
 import Highlight from 'react-highlight'
 
@@ -13,32 +10,8 @@ const code = {
   import: require('raw-loader!./code/import.txt')
 }
 
-@connect({
-  actions: [
-    featuresLogic, [
-      'toggleFeature'
-    ]
-  ],
-  props: [
-    featuresLogic, [
-      'features'
-    ]
-  ]
-})
 export default class ConnectedScene extends Component {
-  handleRoute = (e) => {
-    const { dispatch } = this.props
-    const href = e.target.attributes.href.value
-
-    e.preventDefault()
-    dispatch(push(href))
-    window.scrollTo(0, 0)
-  }
-
   render () {
-    const { features } = this.props
-    const { toggleFeature } = this.actions
-
     return (
       <div className='migration-scene'>
         <div className='description'>
@@ -76,7 +49,7 @@ export default class ConnectedScene extends Component {
           </p>
           <Highlight className='javascript'>{code.import}</Highlight>
           <p>
-            The <a href='/api/logic' onClick={this.handleRoute}>API docs</a> describe what is available to import.
+            The <Link to='/api/logic'>API docs</Link> describe what is available to import.
           </p>
 
           <h2>Next steps</h2>
@@ -84,7 +57,7 @@ export default class ConnectedScene extends Component {
             That's it for the guide!
           </p>
           <p>
-            Check out the <a href='/examples/todos' onClick={this.handleRoute}>example applications</a> or read the <a href='/api/logic' onClick={this.handleRoute}>API docs</a>.
+            Check out the <Link to='/examples/todos'>example applications</Link> or read the <Link to='/api/logic'>API docs</Link>.
           </p>
         </div>
       </div>

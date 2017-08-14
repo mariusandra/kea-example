@@ -19,4 +19,3 @@ export default class API extends Component {
     )
   }
 }
-

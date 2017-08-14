@@ -2,7 +2,7 @@ import './styles.scss'
 
 import React, { Component } from 'react'
 import { connect } from 'kea'
-import { push } from 'react-router-redux'
+import { Link } from 'react-router-dom'
 
 import Highlight from 'react-highlight'
 
@@ -38,15 +38,6 @@ const code = {
   ]
 })
 export default class CounterSingletonScene extends Component {
-  handleRoute = (e) => {
-    const { dispatch } = this.props
-    const href = e.target.attributes.href.value
-
-    e.preventDefault()
-    dispatch(push(href))
-    window.scrollTo(0, 0)
-  }
-
   render () {
     const { features } = this.props
     const { toggleFeature } = this.actions
@@ -180,11 +171,11 @@ export default class CounterSingletonScene extends Component {
           Is there something we can do about this?
           <br />
           <br />
-          Yes. That's what the next example is all about: <a href='/guide/counter-dynamic' onClick={this.handleRoute}>Dynamic counters</a>
+          Yes. That's what the next example is all about: <Link to='/guide/counter-dynamic'>Dynamic counters</Link>
 
           <h2>Full source</h2>
           <Highlight className='javascript'>{code.full}</Highlight>
-          Next page: <a href='/guide/counter-dynamic' onClick={this.handleRoute}>Dynamic counters</a>
+          Next page: <Link to='/guide/counter-dynamic'>Dynamic counters</Link>
         </div>
       </div>
     )

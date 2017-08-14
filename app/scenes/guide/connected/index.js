@@ -2,7 +2,7 @@ import './styles.scss'
 
 import React, { Component } from 'react'
 import { connect } from 'kea'
-import { push } from 'react-router-redux'
+import { Link } from 'react-router-dom'
 
 import featuresLogic from '../features-logic'
 
@@ -29,15 +29,6 @@ const code = {
   ]
 })
 export default class ConnectedScene extends Component {
-  handleRoute = (e) => {
-    const { dispatch } = this.props
-    const href = e.target.attributes.href.value
-
-    e.preventDefault()
-    dispatch(push(href))
-    window.scrollTo(0, 0)
-  }
-
   render () {
     const { features } = this.props
     const { toggleFeature } = this.actions
@@ -174,7 +165,8 @@ export default class ConnectedScene extends Component {
           </p>
           <h2>Next steps</h2>
           <p>
-            The last topic in this guide: <a href='/guide/migration' onClick={this.handleRoute}>How to migrate existing Redux applications?</a> or read the <a href='/api/logic' onClick={this.handleRoute}>API docs</a>.
+            The last topic in this guide: <Link to='/guide/migration'>How to migrate existing Redux applications?</Link> or
+            read the <Link to='/api/logic'>API docs</Link>.
           </p>
         </div>
       </div>

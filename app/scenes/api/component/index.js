@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
-import { kea } from 'kea'
-import { push } from 'react-router-redux'
+import { Link } from 'react-router-dom'
 
 import Highlight from 'react-highlight'
 
@@ -13,17 +12,7 @@ const code = {
   selectors: require('raw-loader!./code/selectors.txt')
 }
 
-@kea({})
 export default class API extends Component {
-  handleRoute = (e) => {
-    const { dispatch } = this.props
-    const href = e.target.attributes.href.value
-
-    e.preventDefault()
-    dispatch(push(href))
-    window.scrollTo(0, 0)
-  }
-
   render () {
     return (
       <div className='api-scene'>
@@ -40,7 +29,7 @@ export default class API extends Component {
         </p>
         <Highlight className='javascript'>{code.decorators}</Highlight>
         <p>
-          See the <a href='/guide/installation' onClick={this.handleRoute}>installation guide</a> for details.
+          See the <Link to='/guide/installation'>installation guide</Link> for details.
         </p>
 
         <h3>Stateless functional components</h3>
@@ -52,7 +41,7 @@ export default class API extends Component {
         <h3>Options</h3>
         <p>
           Wrapped logic stores accept all the same options as regular logic stores.
-          See the documentation for <code><a href='/api/logic' onClick={this.handleRoute}>{'kea(options)'}</a></code> for more details.
+          See the documentation for <code><Link to='/api/logic'>{'kea(options)'}</Link></code> for more details.
         </p>
         <p>
           These options are different:

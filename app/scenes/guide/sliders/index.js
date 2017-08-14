@@ -2,7 +2,7 @@ import './styles.scss'
 
 import React, { Component } from 'react'
 import { connect } from 'kea'
-import { push } from 'react-router-redux'
+import { Link } from 'react-router-dom'
 
 import Slider from './slider'
 import StaticSlider from './slider/static'
@@ -35,15 +35,6 @@ const code = {
   ]
 })
 export default class SlidersScene extends Component {
-  handleRoute = (e) => {
-    const { dispatch } = this.props
-    const href = e.target.attributes.href.value
-
-    e.preventDefault()
-    dispatch(push(href))
-    window.scrollTo(0, 0)
-  }
-
   render () {
     const { features } = this.props
     const { toggleFeature } = this.actions
@@ -174,7 +165,7 @@ export default class SlidersScene extends Component {
           and the <a href='https://redux-saga.js.org/'>redux-saga</a> documentation.
           <Highlight className='javascript'>{code.full}</Highlight>
 
-          Next page: <a href='/guide/github' onClick={this.handleRoute}>Github API</a>
+          Next page: <Link to='/guide/github'>Github API</Link>
         </div>
       </div>
     )

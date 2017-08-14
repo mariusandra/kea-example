@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'kea'
-import { push } from 'react-router-redux'
+import { Link } from 'react-router-dom'
 
 import Highlight from 'react-highlight'
 
@@ -36,15 +36,6 @@ const code = {
   ]
 })
 export default class GithubScene extends Component {
-  handleRoute = (e) => {
-    const { dispatch } = this.props
-    const href = e.target.attributes.href.value
-
-    e.preventDefault()
-    dispatch(push(href))
-    window.scrollTo(0, 0)
-  }
-
   render () {
     const { features } = this.props
     const { toggleFeature } = this.actions
@@ -117,7 +108,7 @@ export default class GithubScene extends Component {
           <p>The code for this, with an additional 100ms debounce, will look like this:</p>
           <Highlight className='javascript'>{code.api}</Highlight>
           <p>Note the <code>yield</code> statements that we use to synchronously resolve promises without any nested callbacks!</p>
-          <p>There are more details on <code>yield</code> and the code that you can use inside the workers in the <a href='/guide/sliders' onClick={this.handleRoute}>sliders guide</a>.</p>
+          <p>There are more details on <code>yield</code> and the code that you can use inside the workers in the <Link to='/guide/sliders'>sliders guide</Link>.</p>
         </div>
         <div className='description'>
           <h2>4. Store the response of the call</h2>
@@ -193,10 +184,9 @@ export default class GithubScene extends Component {
           </p>
         </div>
         <div className='description'>
-          Next page: <a href='/guide/connected' onClick={this.handleRoute}>Connected logic</a>
+          Next page: <Link to='/guide/connected'>Connected logic</Link>
         </div>
       </div>
     )
   }
 }
-

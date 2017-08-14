@@ -1,8 +1,7 @@
 import './styles.scss'
 
 import React, { Component } from 'react'
-import { kea } from 'kea'
-import { push } from 'react-router-redux'
+import { Link } from 'react-router-dom'
 
 import Highlight from 'react-highlight'
 
@@ -14,17 +13,7 @@ const code = {
   reducers: require('raw-loader!./code/reducers.txt')
 }
 
-@kea({}) // so we get dispatch
 export default class CounterDynamicScene extends Component {
-  handleRoute = (e) => {
-    const { dispatch } = this.props
-    const href = e.target.attributes.href.value
-
-    e.preventDefault()
-    dispatch(push(href))
-    window.scrollTo(0, 0)
-  }
-
   render () {
     return (
       <div className='counter-dynamic-scene'>
@@ -32,7 +21,7 @@ export default class CounterDynamicScene extends Component {
           <h2>Example #2 - Dynamic Counter</h2>
           This example demonstrates dynamically created actions and reducers.
           <br /><br />
-          As we saw in the <a href='/guide/counter' onClick={this.handleRoute}>previous example</a>, if you render multiple instances of the
+          As we saw in the <Link to='/guide/counter'>previous example</Link>, if you render multiple instances of the
           same connected component, they will share the state.
           <br /><br />
           The guide below shows how to create multiple instances of one component with separate states:
@@ -44,7 +33,7 @@ export default class CounterDynamicScene extends Component {
           </div>
 
           <h2>1. Key and path</h2>
-          The code for this example is almost the same as for the <a href='/guide/counter' onClick={this.handleRoute}>previous counter</a>.
+          The code for this example is almost the same as for the <Link to='/guide/counter'>previous counter</Link>.
           <br /><br />
           The big difference is that we must manually tell our component instances where to store their data:
 
@@ -59,7 +48,7 @@ export default class CounterDynamicScene extends Component {
           the <code>key</code> from the previous step.
           <br />
           <br />
-          Note! You may also use <code>path</code> with non-dynamic components (like the <a href='/guide/counter' onClick={this.handleRoute}>previous example</a>) if you wish to specify
+          Note! You may also use <code>path</code> with non-dynamic components (like the <Link to='/guide/counter'>previous example</Link>) if you wish to specify
           where they will store their data.
           <br /><br />
           It makes your redux tree more readable and helps with debugging. In that case you have to skip the <code>key</code> line.
@@ -90,13 +79,13 @@ export default class CounterDynamicScene extends Component {
             <Counter id={2} />
           </div>
 
-          Next, check out the <a href='/guide/sliders' onClick={this.handleRoute}>sliders</a> demo to see how to add side effects to your code.
+          Next, check out the <Link to='/guide/sliders'>sliders</Link> demo to see how to add side effects to your code.
 
           <h2>Full source</h2>
 
           <Highlight className='javascript'>{code.full}</Highlight>
 
-          <a href='/guide/sliders' onClick={this.handleRoute}>Next demo</a>
+          Next page: <Link to='/guide/sliders'>Sliders</Link>
         </div>
       </div>
     )
