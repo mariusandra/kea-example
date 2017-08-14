@@ -13,8 +13,8 @@ const menu = {
     title: 'Home'
   },
   guide: {
-    url: '/guide/installation',
-    paths: ['guide', 'api'],
+    url: '/guide',
+    paths: ['guide'],
     title: 'Docs',
     children: [
       {
@@ -30,7 +30,14 @@ const menu = {
           // TODO: not yet ready
           // { url: '/guide/connected-services', title: 'Connected Services' }
         ]
-      },
+      }
+    ]
+  },
+  api: {
+    url: '/api',
+    title: 'API',
+    paths: ['api'],
+    children: [
       {
         title: 'API',
         children: [
@@ -45,7 +52,7 @@ const menu = {
     ]
   },
   examples: {
-    url: '/examples/todos',
+    url: '/examples',
     paths: ['examples'],
     title: 'Examples',
     children: [
