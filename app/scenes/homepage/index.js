@@ -44,6 +44,39 @@ export default class HomepageScene extends Component {
             </div>
           </div>
         </div>
+        <h2>What is Kea?</h2>
+        <div className='description'>
+          <p>
+            Kea is a state management library for React.
+            It <em>empowers</em> Redux, making it as easy to use as <code>setState</code> while
+            retaining composability and improving code clarity.
+          </p>
+          <ul>
+            <li>
+              <strong>100% Redux</strong>:
+              Built on top of <a href='http://redux.js.org/'>redux</a>, <a href='https://redux-saga.js.org/'>redux-saga</a> and <a href='https://github.com/reactjs/reselect'>reselect</a>.
+            </li>
+            <li>
+              <strong>No boilerplate</strong>:
+              Forget <code>mapStateToProps</code> and redundant constants. Only write code that matters!
+            </li>
+            <li>
+              <strong>No new concepts</strong>:
+              Use actions, reducers, selectors and sagas.
+              Gradually migrate <Link to='/guide/migration'>existing Redux applications</Link>.
+            </li>
+            <li>
+              <strong>Interoperability</strong>:
+              Seamlessly <Link to='/guide/connected'>connect</Link> different parts of your application.
+            </li>
+          </ul>
+          <p>
+            Compare it to other state management libraries: <a href='https://medium.com/@mariusandra/kea-vs-setstate-redux-mobx-dva-jumpstate-apollo-etc-4aa26ea11d02'>Kea vs setState, Redux, Mobx, Dva, JumpState, Apollo, etc.</a>
+          </p>
+          <p>
+            <Link to='/guide/installation'>Read the guide</Link> or check out the examples below:
+          </p>
+        </div>
 
         <h2>Simple counter</h2>
         <div className='split'>
