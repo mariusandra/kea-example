@@ -19,13 +19,16 @@ export default class CounterDynamicScene extends Component {
       <div className='counter-dynamic-scene'>
         <div className='description'>
           <h2>Example #2 - Dynamic Counter</h2>
-          This example demonstrates dynamically created actions and reducers.
-          <br /><br />
-          As we saw in the <Link to='/guide/counter'>previous example</Link>, if you render multiple instances of the
-          same connected component, they will share the state.
-          <br /><br />
-          The guide below shows how to create multiple instances of one component with separate states:
-
+          <p>
+            This example demonstrates dynamically created actions and reducers.
+          </p>
+          <p>
+            As we saw in the <Link to='/guide/counter'>previous example</Link>, if you render multiple instances of the
+            same connected component, they will share the state.
+          </p>
+          <p>
+            The guide below shows how to create multiple instances of one component with separate states:
+          </p>
           <div className='demo'>
             <Counter id={1} />
             <br />
@@ -33,59 +36,69 @@ export default class CounterDynamicScene extends Component {
           </div>
 
           <h2>1. Key and path</h2>
-          The code for this example is almost the same as for the <Link to='/guide/counter'>previous counter</Link>.
-          <br /><br />
-          The big difference is that we must manually tell our component instances where to store their data:
+          <p>
+            The code for this example is almost the same as for the <Link to='/guide/counter'>previous counter</Link>.
+          </p>
+          <p>
+            The big difference is that we must manually tell our component instances where to store their data:
+          </p>
 
           <Highlight className='javascript'>{code.keyPath}</Highlight>
-
-          The <code>key</code> function receives your component instance's <code>props</code> as input and must return a key that's unique for the
-          life of the component. Usually it's something like <nobr><code>key = (props) => props.id</code></nobr> if your component is
-          rendered as <nobr><code>{'<Component id=\'somethingUnique\' />'}</code></nobr>
-          <br />
-          <br />
-          The <em>optional</em> <code>path</code> function specifies where the data for your component will live in Redux. It takes just one argument,
-          the <code>key</code> from the previous step.
-          <br />
-          <br />
-          Note! You may also use <code>path</code> with non-dynamic components (like the <Link to='/guide/counter'>previous example</Link>) if you wish to specify
-          where they will store their data.
-          <br /><br />
-          It makes your redux tree more readable and helps with debugging. In that case you have to skip the <code>key</code> line.
+          <p>
+            The <code>key</code> function receives your component instance's <code>props</code> as input and must return a key that's unique for the
+            life of the component. Usually it's something like <nobr><code>key = (props) => props.id</code></nobr> if your component is
+            rendered as <nobr><code>{'<Component id=\'somethingUnique\' />'}</code></nobr>
+          </p>
+          <p>
+            The <em>optional</em> <code>path</code> function specifies where the data for your component will live in Redux. It takes just one argument,
+            the <code>key</code> from the previous step.
+          </p>
+          <p>
+            Note! You may also use <code>path</code> with non-dynamic components (like the <Link to='/guide/counter'>previous example</Link>) if you wish to specify
+            where they will store their data.
+          </p>
+          <p>
+            It makes your redux tree more readable and helps with debugging. In that case you have to skip the <code>key</code> line.
+          </p>
 
           <h2>2. Limiting the reducers</h2>
-          There's one last thing you need to do.
-          <br /><br />
-          While the reducers are unique for each component instance, the actions are shared.
-          <br /><br />
-          No matter which instance of your component triggers the action, all the reducers will receive it.
-          So if counter #1 dispatches the <code>increment</code> action, counter #2 will also receive it.
-          <br /><br />
-          In order to prevent this, you must check for the key in your reducers, like so:
-
+          <p>
+            There's one last thing you need to do.
+          </p>
+          <p>
+            While the reducers are unique for each component instance, the actions are shared.
+          </p>
+          <p>
+            No matter which instance of your component triggers the action, all the reducers will receive it.
+            So if counter #1 dispatches the <code>increment</code> action, counter #2 will also receive it.
+          </p>
+          <p>
+            In order to prevent this, you must check for the key in your reducers, like so:
+          </p>
           <Highlight className='javascript'>{code.reducers}</Highlight>
-
-          This way you can choose if your actions are processed by each instance of the component or by all instances simultaneously.
+          <p>
+            This way you can choose if your actions are processed by each instance of the component or by all instances simultaneously.
+          </p>
         </div>
 
         <div className='description'>
           <h2>Final Example</h2>
-
-          While the following counters have separate data, they are still connected to the counters on top of this page, as they share the same <code>id</code>s. You can mix and match!
-
+          <p>
+            While the following counters have separate data, they are still connected to the counters on top of this page, as they share the same <code>id</code>s. You can mix and match!
+          </p>
           <div className='demo'>
             <Counter id={1} />
             <br />
             <Counter id={2} />
           </div>
-
-          Next, check out the <Link to='/guide/sliders'>sliders</Link> demo to see how to add side effects to your code.
-
+          <p>
+            Next, check out the <Link to='/guide/sliders'>sliders</Link> demo to see how to add side effects to your code.
+          </p>
           <h2>Full source</h2>
-
           <Highlight className='javascript'>{code.full}</Highlight>
-
-          Next page: <Link to='/guide/sliders'>Sliders</Link>
+          <p>
+            Next page: <Link to='/guide/sliders'>Sliders</Link>
+          </p>
         </div>
       </div>
     )
