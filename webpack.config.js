@@ -11,32 +11,6 @@ var config = {
     common: [
       'babel-polyfill', 'react', 'react-highlight',
       './index.js'
-    ],
-    homepage: [
-      './scenes/homepage/scene.js'
-    ],
-    api: [
-      './scenes/api/logic/scene.js',
-      './scenes/api/component/scene.js',
-      './scenes/api/connect/scene.js',
-      './scenes/api/reducer/scene.js',
-      './scenes/api/saga/scene.js',
-      './scenes/api/action/scene.js'
-    ],
-    playground: [
-      './scenes/playground/scene.js'
-    ],
-    guide: [
-      './scenes/guide/installation/scene.js',
-      './scenes/guide/counter/scene.js',
-      './scenes/guide/counter-dynamic/scene.js',
-      './scenes/guide/sliders/scene.js',
-      './scenes/guide/github/scene.js',
-      './scenes/guide/connected/scene.js',
-      './scenes/guide/migration/scene.js'
-    ],
-    exampleTodos: [
-      './scenes/examples/todos/scene.js'
     ]
   },
   output: {

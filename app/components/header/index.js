@@ -5,6 +5,8 @@ import { connect } from 'kea'
 
 import { push } from 'react-router-redux'
 
+import { routeSelector } from '~/store'
+
 const menu = {
   homepage: {
     url: '/',
@@ -65,20 +67,12 @@ const darker = [
 
 @connect({
   props: [
-    (state) => state.routing.locationBeforeTransitions, [
-      'pathname as path'
+    routeSelector, [
+      'pathname'
     ]
   ]
 })
 export default class Header extends Component {
-  static propTypes = {
-    // libs
-    dispatch: React.PropTypes.func.isRequired,
-
-    // react-router
-    path: React.PropTypes.string.isRequired
-  }
-
   handleLoad = (event) => {
     const { dispatch } = this.props
 
@@ -91,9 +85,9 @@ export default class Header extends Component {
   }
 
   render () {
-    const { path } = this.props
+    const { pathname } = this.props
 
-    const selectedPage = path.split('/')[1] || 'homepage'
+    const selectedPage = pathname.split('/')[1] || 'homepage'
     const selectedMenuKey = Object.keys(menu).filter(k => menu[k].paths.indexOf(selectedPage) >= 0)[0]
 
     const hasSidebar = selectedMenuKey && menu[selectedMenuKey] && menu[selectedMenuKey].children
@@ -119,7 +113,7 @@ export default class Header extends Component {
                       <ul>
                         {section.children.map(child => (
                           <li key={child.url}>
-                            <a href={child.url} onClick={this.handleLoad} className={path === child.url ? 'active' : ''}>{child.title}</a>
+                            <a href={child.url} onClick={this.handleLoad} className={pathname === child.url ? 'active' : ''}>{child.title}</a>
                             {child.source ? (
                               <small style={{marginLeft: 10}}><a href={child.source} target='_blank'>source</a></small>
                             ) : null}
@@ -131,7 +125,7 @@ export default class Header extends Component {
                 </nav>
               </aside>
             ) : null}
-            <div className={`content ${hasSidebar ? 'with-sidebar' : 'without-sidebar'}${darker.indexOf(path) >= 0 ? ' darker' : ''}`}>
+            <div className={`content ${hasSidebar ? 'with-sidebar' : 'without-sidebar'}${darker.indexOf(pathname) >= 0 ? ' darker' : ''}`}>
               {this.props.children}
             </div>
           </section>
