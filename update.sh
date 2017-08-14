@@ -19,6 +19,7 @@ cp index.html guide/migration.html
 cp index.html guide/sliders.html
 cp index.html examples/index.html
 cp index.html examples/todos.html
+cp index.html examples/github.html
 cp index.html api/index.html
 cp index.html api/logic.html
 cp index.html api/component.html
