@@ -4,7 +4,7 @@ import React, { Component } from 'react'
 import { connect } from 'kea'
 
 import { routeSelector } from '~/store'
-import { NavLink } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 
 const menu = {
   homepage: {
@@ -14,7 +14,7 @@ const menu = {
   },
   guide: {
     url: '/guide',
-    paths: ['guide'],
+    paths: ['guide', 'api'],
     title: 'Docs',
     children: [
       {
@@ -30,14 +30,7 @@ const menu = {
           // TODO: not yet ready
           // { url: '/guide/connected-services', title: 'Connected Services' }
         ]
-      }
-    ]
-  },
-  api: {
-    url: '/api',
-    title: 'API',
-    paths: ['api'],
-    children: [
+      },
       {
         title: 'API',
         children: [
@@ -93,7 +86,7 @@ export default class Header extends Component {
         <header className='body-header'>
           <nav className='first-level'>
             {Object.keys(menu).map(key => (
-              <NavLink key={key} to={menu[key].url} exact={menu[key].url === '/'}>{menu[key].title}</NavLink>
+              <Link key={key} to={menu[key].url} className={menu[key].paths.indexOf(selectedPage) >= 0 ? 'active' : ''}>{menu[key].title}</Link>
             ))}
             <a className='right' href='https://www.github.com/keajs/kea' target='_blank'>Github</a>
           </nav>
