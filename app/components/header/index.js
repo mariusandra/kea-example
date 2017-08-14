@@ -3,9 +3,8 @@ import './styles.scss'
 import React, { Component } from 'react'
 import { connect } from 'kea'
 
-import { push } from 'react-router-redux'
-
 import { routeSelector } from '~/store'
+import { NavLink } from 'react-router-dom'
 
 const menu = {
   homepage: {
@@ -73,17 +72,6 @@ const darker = [
   ]
 })
 export default class Header extends Component {
-  handleLoad = (event) => {
-    const { dispatch } = this.props
-
-    event.preventDefault()
-    if (event.target.attributes.href) {
-      dispatch(push(event.target.attributes.href.value))
-    } else {
-      dispatch(push(event.target.parentElement.attributes.href.value))
-    }
-  }
-
   render () {
     const { pathname } = this.props
 
@@ -97,7 +85,7 @@ export default class Header extends Component {
         <header className='body-header'>
           <nav className='first-level'>
             {Object.keys(menu).map(key => (
-              <a href={menu[key].url} key={key} onClick={this.handleLoad} className={selectedMenuKey === key ? 'active' : ''}>{menu[key].title}</a>
+              <NavLink key={key} to={menu[key].url} exact={menu[key].url === '/'}>{menu[key].title}</NavLink>
             ))}
             <a className='right' href='https://www.github.com/keajs/kea' target='_blank'>Github</a>
           </nav>
@@ -113,7 +101,7 @@ export default class Header extends Component {
                       <ul>
                         {section.children.map(child => (
                           <li key={child.url}>
-                            <a href={child.url} onClick={this.handleLoad} className={pathname === child.url ? 'active' : ''}>{child.title}</a>
+                            <NavLink to={child.url}>{child.title}</NavLink>
                             {child.source ? (
                               <small style={{marginLeft: 10}}><a href={child.source} target='_blank'>source</a></small>
                             ) : null}
