@@ -2,25 +2,17 @@ import './styles.scss'
 
 import React, { Component } from 'react'
 import { connect } from 'kea'
+import { NavLink } from 'react-router-dom'
 
 import Todo from './todo'
 
 import sceneLogic from './logic'
-
-const {
-  SHOW_ALL,
-  SHOW_ACTIVE,
-  SHOW_COMPLETED
-} = sceneLogic.constants
 
 const ENTER = 13
 
 @connect({
   actions: [
     sceneLogic, [
-      'showAll',
-      'showActive',
-      'showCompleted',
       'addTodo',
       'toggleAll',
       'clearCompleted'
@@ -28,7 +20,6 @@ const ENTER = 13
   ],
   props: [
     sceneLogic, [
-      'visibilityFilter',
       'visibleTodos',
       'todoCount',
       'activeTodoCount',
@@ -38,12 +29,12 @@ const ENTER = 13
 })
 export default class TodosScene extends Component {
   handleToggleAll = (e) => {
-    const { toggleAll } = this.props.actions
+    const { toggleAll } = this.actions
     toggleAll(e.target.checked)
   }
 
   handleKeyDown = (e) => {
-    const { addTodo } = this.props.actions
+    const { addTodo } = this.actions
 
     if (e.keyCode === ENTER) {
       const node = this.refs.newTodo
@@ -56,8 +47,8 @@ export default class TodosScene extends Component {
   }
 
   render () {
-    const { visibilityFilter, visibleTodos, todoCount, activeTodoCount, completedTodoCount } = this.props
-    const { showAll, showActive, showCompleted, clearCompleted } = this.actions
+    const { visibleTodos, todoCount, activeTodoCount, completedTodoCount } = this.props
+    const { clearCompleted } = this.actions
 
     return (
       <div className='todo-scene'>
@@ -66,7 +57,7 @@ export default class TodosScene extends Component {
             <h1>todos</h1>
             <input ref='newTodo' className='new-todo' placeholder='What needs to be done?' onKeyDown={this.handleKeyDown} />
           </header>
-          {todoCount > 0 ? (
+          {visibleTodos.length > 0 ? (
             <section className='main'>
               <input className='toggle-all' type='checkbox' onChange={this.handleToggleAll} checked={activeTodoCount === 0} />
               <ul className='todo-list'>
@@ -81,13 +72,13 @@ export default class TodosScene extends Component {
               </span>
               <ul className='filters'>
                 <li>
-                  <a href='#' onClick={showAll} className={visibilityFilter === SHOW_ALL ? 'selected' : ''}>All</a>
+                  <NavLink to='/examples/todos' exact activeClassName='selected'>All</NavLink>
                 </li>
                 <li>
-                  <a href='#' onClick={showActive} className={visibilityFilter === SHOW_ACTIVE ? 'selected' : ''}>Active</a>
+                  <NavLink to='/examples/todos/active' exact activeClassName='selected'>Active</NavLink>
                 </li>
                 <li>
-                  <a href='#' onClick={showCompleted} className={visibilityFilter === SHOW_COMPLETED ? 'selected' : ''}>Completed</a>
+                  <NavLink to='/examples/todos/completed' exact activeClassName='selected'>Completed</NavLink>
                 </li>
               </ul>
               {completedTodoCount > 0 ? (

@@ -79,6 +79,7 @@ export default class Header extends Component {
     const selectedMenuKey = Object.keys(menu).filter(k => menu[k].paths.indexOf(selectedPage) >= 0)[0]
 
     const hasSidebar = selectedMenuKey && menu[selectedMenuKey] && menu[selectedMenuKey].children
+    const isDarker = darker.filter(route => pathname.indexOf(route) === 0).length > 0
 
     return (
       <div>
@@ -113,7 +114,7 @@ export default class Header extends Component {
                 </nav>
               </aside>
             ) : null}
-            <div className={`content ${hasSidebar ? 'with-sidebar' : 'without-sidebar'}${darker.indexOf(pathname) >= 0 ? ' darker' : ''}`}>
+            <div className={`content ${hasSidebar ? 'with-sidebar' : 'without-sidebar'}${isDarker ? ' darker' : ''}`}>
               {this.props.children}
             </div>
           </section>

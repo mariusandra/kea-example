@@ -3,6 +3,8 @@ import PropTypes from 'prop-types'
 
 import createUuid from '~/utils/create-uuid'
 
+import { routeSelector } from '~/store'
+
 export default kea({
   path: () => ['scenes', 'todos', 'index'],
 
@@ -13,12 +15,6 @@ export default kea({
   ],
 
   actions: ({ constants }) => ({
-    // tab
-    showAll: true,
-    showActive: true,
-    showCompleted: true,
-
-    // todos
     addTodo: value => ({ value }),
     removeTodo: id => ({ id }),
     completeTodo: id => ({ id }),
@@ -32,12 +28,6 @@ export default kea({
   }),
 
   reducers: ({ actions, constants }) => ({
-    visibilityFilter: [constants.SHOW_ALL, PropTypes.string, {
-      [actions.showAll]: () => constants.SHOW_ALL,
-      [actions.showActive]: () => constants.SHOW_ACTIVE,
-      [actions.showCompleted]: () => constants.SHOW_COMPLETED
-    }],
-
     todos: [{}, PropTypes.object, { persist: true }, {
       [actions.addTodo]: (state, payload) => {
         const { value } = payload
@@ -150,36 +140,56 @@ export default kea({
 
   // SELECTORS (data from reducer + more)
   selectors: ({ constants, selectors }) => ({
-    todoCount: [
+    visibilityFilter: [
+      () => [routeSelector],
+      ({ pathname }) => {
+        if (pathname === '/examples/todos/active') {
+          return constants.SHOW_ACTIVE
+        } else if (pathname === '/examples/todos/completed') {
+          return constants.SHOW_COMPLETED
+        } else {
+          return constants.SHOW_ALL
+        }
+      },
+      PropTypes.string
+    ],
+
+    allTodos: [
       () => [selectors.todos],
-      (todos) => Object.keys(todos).length,
+      (todos) => Object.values(todos),
+      PropTypes.array
+    ],
+
+    visibleTodos: [
+      () => [selectors.allTodos, selectors.visibilityFilter],
+      (todos, visibilityFilter) => {
+        if (visibilityFilter === constants.SHOW_ACTIVE) {
+          return todos.filter(todo => !todo.completed)
+        } else if (visibilityFilter === constants.SHOW_COMPLETED) {
+          return todos.filter(todo => todo.completed)
+        } else {
+          return todos
+        }
+      },
+      PropTypes.array
+    ],
+
+    todoCount: [
+      () => [selectors.allTodos],
+      (allTodos) => allTodos.length,
       PropTypes.number
     ],
 
     activeTodoCount: [
-      () => [selectors.todos],
-      (todos) => Object.values(todos).filter(todo => !todo.completed).length,
+      () => [selectors.allTodos],
+      (allTodos) => allTodos.filter(todo => !todo.completed).length,
       PropTypes.number
     ],
 
     completedTodoCount: [
-      () => [selectors.todos],
-      (todos) => Object.values(todos).filter(todo => todo.completed).length,
+      () => [selectors.allTodos],
+      (allTodos) => allTodos.filter(todo => todo.completed).length,
       PropTypes.number
-    ],
-
-    visibleTodos: [
-      () => [selectors.visibilityFilter, selectors.todos],
-      (visibilityFilter, todos) => {
-        if (visibilityFilter === constants.SHOW_ALL) {
-          return Object.values(todos)
-        } else if (visibilityFilter === constants.SHOW_ACTIVE) {
-          return Object.values(todos).filter(todo => !todo.completed)
-        } else if (visibilityFilter === constants.SHOW_COMPLETED) {
-          return Object.values(todos).filter(todo => todo.completed)
-        }
-      },
-      PropTypes.array
     ]
   })
 })
