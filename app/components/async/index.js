@@ -1,7 +1,25 @@
 // The code below is borrowed from here:
 // https://blog.emilecantin.com/web/react/javascript/2017/05/16/ssr-react-router-4-webpack-code-split.html
 
-import React from 'react'
+import React, { Component } from 'react'
+
+import NProgress from 'nprogress'
+
+import './styles.scss'
+
+class NProgressTag extends Component {
+  componentWillMount () {
+    NProgress.start()
+  }
+
+  componentWillUnmount () {
+    NProgress.done()
+  }
+
+  render () {
+    return <div />
+  }
+}
 
 function asyncComponent (chunkName, getComponent) {
   return class AsyncComponent extends React.Component {
@@ -44,7 +62,7 @@ function asyncComponent (chunkName, getComponent) {
       if (Component !== null) {
         return (<Component {...this.props} />)
       }
-      return null // or <div /> with a loading spinner, etc..
+      return <NProgressTag /> // or <div /> with a loading spinner, etc..
     }
   }
 }

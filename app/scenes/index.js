@@ -4,36 +4,36 @@ import React from 'react'
 import { Route } from 'react-router'
 import { Redirect } from 'react-router-dom'
 
-import asyncComponent from '~/utils/async-component'
+import async from '~/components/async'
 
 import WithHeader from '~/components/header'
 
 // all the root components in this app
-const Homepage = asyncComponent('Homepage', () => import(/* webpackChunkName: "homepage" */'./homepage'))
+const Homepage = async('Homepage', () => import(/* webpackChunkName: "homepage" */'./homepage'))
 
 const guideRedirect = () => (<Redirect to='/guide/installation' />)
-const GuideInstallation = asyncComponent('GuideInstallation', () => import(/* webpackChunkName: "guideInstallation" */'./guide/installation'))
-const GuideCounter = asyncComponent('GuideCounter', () => import(/* webpackChunkName: "guideCounter" */'./guide/counter'))
-const GuideCounterDynamic = asyncComponent('GuideCounterDynamic', () => import(/* webpackChunkName: "guideCounterDynamic" */'./guide/counter-dynamic'))
-const GuideSliders = asyncComponent('GuideSliders', () => import(/* webpackChunkName: "guideSliders" */'./guide/sliders'))
-const GuideGithub = asyncComponent('GuideGithub', () => import(/* webpackChunkName: "guideGithub" */'./guide/github'))
-const GuideConnected = asyncComponent('GuideConnected', () => import(/* webpackChunkName: "guideConnected" */'./guide/connected'))
-const GuideConnectedServices = asyncComponent('GuideConnectedServices', () => import(/* webpackChunkName: "guideConnectedServices" */'./guide/connected-services'))
-const GuideMigration = asyncComponent('GuideMigration', () => import(/* webpackChunkName: "guideMigration" */'./guide/migration'))
+const GuideInstallation = async('GuideInstallation', () => import(/* webpackChunkName: "guideInstallation" */'./guide/installation'))
+const GuideCounter = async('GuideCounter', () => import(/* webpackChunkName: "guideCounter" */'./guide/counter'))
+const GuideCounterDynamic = async('GuideCounterDynamic', () => import(/* webpackChunkName: "guideCounterDynamic" */'./guide/counter-dynamic'))
+const GuideSliders = async('GuideSliders', () => import(/* webpackChunkName: "guideSliders" */'./guide/sliders'))
+const GuideGithub = async('GuideGithub', () => import(/* webpackChunkName: "guideGithub" */'./guide/github'))
+const GuideConnected = async('GuideConnected', () => import(/* webpackChunkName: "guideConnected" */'./guide/connected'))
+const GuideConnectedServices = async('GuideConnectedServices', () => import(/* webpackChunkName: "guideConnectedServices" */'./guide/connected-services'))
+const GuideMigration = async('GuideMigration', () => import(/* webpackChunkName: "guideMigration" */'./guide/migration'))
 
 const apiRedirect = () => (<Redirect to='/api/logic' />)
-const ApiLogic = asyncComponent('ApiLogic', () => import(/* webpackChunkName: "apiLogic" */'./api/logic'))
-const ApiComponent = asyncComponent('ApiComponent', () => import(/* webpackChunkName: "apiComponent" */'./api/component'))
-const ApiConnect = asyncComponent('ApiConnect', () => import(/* webpackChunkName: "apiConnect" */'./api/connect'))
-const ApiReducer = asyncComponent('ApiReducer', () => import(/* webpackChunkName: "apiReducer" */'./api/reducer'))
-const ApiSaga = asyncComponent('ApiSaga', () => import(/* webpackChunkName: "apiSaga" */'./api/saga'))
-const ApiAction = asyncComponent('ApiAction', () => import(/* webpackChunkName: "apiAction" */'./api/action'))
+const ApiLogic = async('ApiLogic', () => import(/* webpackChunkName: "apiLogic" */'./api/logic'))
+const ApiComponent = async('ApiComponent', () => import(/* webpackChunkName: "apiComponent" */'./api/component'))
+const ApiConnect = async('ApiConnect', () => import(/* webpackChunkName: "apiConnect" */'./api/connect'))
+const ApiReducer = async('ApiReducer', () => import(/* webpackChunkName: "apiReducer" */'./api/reducer'))
+const ApiSaga = async('ApiSaga', () => import(/* webpackChunkName: "apiSaga" */'./api/saga'))
+const ApiAction = async('ApiAction', () => import(/* webpackChunkName: "apiAction" */'./api/action'))
 
 const examplesRedirect = () => (<Redirect to='/examples/todos' />)
-const ExamplesTodos = asyncComponent('ExamplesTodos', () => import(/* webpackChunkName: "examplesTodos" */'./examples/todos'))
-const ExamplesGithub = asyncComponent('ExamplesGithub', () => import(/* webpackChunkName: "examplesGithub" */'./examples/github'))
+const ExamplesTodos = async('ExamplesTodos', () => import(/* webpackChunkName: "examplesTodos" */'./examples/todos'))
+const ExamplesGithub = async('ExamplesGithub', () => import(/* webpackChunkName: "examplesGithub" */'./examples/github'))
 
-const Playground = asyncComponent('Playground', () => import(/* webpackChunkName: "playground" */'./playground'))
+const Playground = async('Playground', () => import(/* webpackChunkName: "playground" */'./playground'))
 
 export default () => (
   <WithHeader>
