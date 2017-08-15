@@ -1,6 +1,6 @@
 // Input
 reducers: ({ actions, path, constants }) => ({
-  reducerKey: [defaultValue, propType, {
+  reducerKey: [defaultValue, propType, /* optional options: { persist: true }, */ {
     // operations
     [actions.simpleAction]: (state, payload) => state + payload // return the new state,
     [actions.complexAction]: (state, payload) => {
@@ -11,13 +11,12 @@ reducers: ({ actions, path, constants }) => ({
     [actions.setToTrue]: () => true,
     [actions.clearSomething]: () => false,
     "ANY_OTHER_ACTION_TYPE": (state, payload, meta) => 'do whatever you want'
-  }, /* optional options: */ { persist: true }],
+  }],
 
   constantDefault: [constants.OTHER_STRING, PropTypes.string, {
     [actions.clearSomething]: () => constants.STRING,
     [actions.someOtherAction]: (_, payload) => payload.value
   }]
-
 })
 
 // Output
