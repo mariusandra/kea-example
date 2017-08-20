@@ -1,5 +1,6 @@
 const webpack = require('webpack')
 const path = require('path')
+const HappyPack = require('happypack')
 
 const nodeEnv = process.env.NODE_ENV || 'development'
 const isProd = nodeEnv === 'production'
@@ -44,7 +45,7 @@ var config = {
       },
       {
         test: /\.(js|jsx)$/,
-        loader: 'babel-loader',
+        loader: 'happypack/loader',
         exclude: /node_modules/
       },
       {
@@ -70,6 +71,10 @@ var config = {
     ]
   },
   plugins: [
+    new HappyPack({
+      loaders: [ 'babel-loader' ],
+      threads: 4
+    }),
     new webpack.optimize.CommonsChunkPlugin({
       name: 'common',
       minChunks: 2,
