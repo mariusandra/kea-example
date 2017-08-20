@@ -27,9 +27,9 @@ const devServer = new WebpackDevServer(compiler, {
   }
 })
 
-devServer.listen(2000, '0.0.0.0', function (err) {
+devServer.listen(2014, '0.0.0.0', function (err) {
   if (err) console.error(err)
-  console.log('=> 🔥  Webpack development server is running on port ' + 2000);
+  console.log('=> 🔥  Webpack development server is running on port ' + 2014);
 
   (async () => {
     let urls = { '/': false }
@@ -45,7 +45,7 @@ devServer.listen(2000, '0.0.0.0', function (err) {
 
       console.log(`Opening ${url}`)
 
-      await page.goto(`http://localhost:2000${url}`, { waitUntil: 'networkidle' })
+      await page.goto(`http://localhost:2014${url}`, { waitUntil: 'networkidle' })
       await page.waitForSelector('[data-reactroot]')
 
       const html = await page.evaluate(() => {
