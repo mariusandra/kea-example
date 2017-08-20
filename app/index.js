@@ -21,6 +21,7 @@ function render () {
   )
 }
 
+// do we have to preload bundles before rendering?
 if (typeof window !== 'undefined' && window.__keaPrerender) {
   Promise.all(window.__keaPrerender.map(chunk => bundles[chunk].loadComponent())).then(render).catch(render)
 } else {
