@@ -72,7 +72,7 @@ var config = {
   },
   plugins: [
     new HappyPack({
-      loaders: [ 'babel-loader' ],
+      loaders: [ 'babel-loader?cacheDirectory' ],
       threads: 4
     }),
     new webpack.optimize.CommonsChunkPlugin({
