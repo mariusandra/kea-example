@@ -8,7 +8,7 @@ import Slider from './slider'
 import StaticSlider from './slider/static'
 import SliderWithSaga from './slider/with-saga'
 
-import Highlight from 'react-highlight'
+import Highlight from 'react-highlight/lib/optimized'
 
 import featuresLogic from '../features-logic'
 

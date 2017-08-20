@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 
-import Highlight from 'react-highlight'
+import Highlight from 'react-highlight/lib/optimized'
 
 const code = {
   package: require('raw-loader!./code/package.txt'),

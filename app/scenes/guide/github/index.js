@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'kea'
 import { Link } from 'react-router-dom'
 
-import Highlight from 'react-highlight'
+import Highlight from 'react-highlight/lib/optimized'
 
 import GithubFull from './github'
 import GithubInput from './github/input'

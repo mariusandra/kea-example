@@ -4,7 +4,7 @@ import React, { Component } from 'react'
 import { kea } from 'kea'
 import { Link } from 'react-router-dom'
 
-import Highlight from 'react-highlight'
+import Highlight from 'react-highlight/lib/optimized'
 
 import logo from '~/assets/logo.svg'
 

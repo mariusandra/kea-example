@@ -4,7 +4,7 @@ import React, { Component } from 'react'
 import { connect } from 'kea'
 import { Link } from 'react-router-dom'
 
-import Highlight from 'react-highlight'
+import Highlight from 'react-highlight/lib/optimized'
 
 import Counter from './counter'
 

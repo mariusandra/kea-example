@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Highlight from 'react-highlight'
+import Highlight from 'react-highlight/lib/optimized'
 
 const code = {
   keaUsage: require('raw-loader!./code/kea-usage.txt'),

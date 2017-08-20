@@ -1,6 +1,8 @@
 const webpack = require('webpack')
 const path = require('path')
+
 const HappyPack = require('happypack')
+const DashboardPlugin = require('webpack-dashboard/plugin')
 
 const nodeEnv = process.env.NODE_ENV || 'development'
 const isProd = nodeEnv === 'production'
@@ -10,7 +12,7 @@ var config = {
   context: path.join(__dirname, './app'),
   entry: {
     common: [
-      'babel-polyfill', 'react', 'react-highlight',
+      'babel-polyfill', 'react',
       './index.js'
     ]
   },
@@ -75,6 +77,11 @@ var config = {
       loaders: [ 'babel-loader?cacheDirectory' ],
       threads: 4
     }),
+    new DashboardPlugin(),
+    new webpack.ContextReplacementPlugin(
+      /highlight\.js\/lib\/languages$/,
+      new RegExp(`^./(${['javascript', 'bash'].join('|')})$`),
+    ),
     new webpack.optimize.CommonsChunkPlugin({
       name: 'common',
       minChunks: 2,
