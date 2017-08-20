@@ -77,7 +77,6 @@ var config = {
       loaders: [ 'babel-loader?cacheDirectory' ],
       threads: 4
     }),
-    new DashboardPlugin(),
     new webpack.ContextReplacementPlugin(
       /highlight\.js\/lib\/languages$/,
       new RegExp(`^./(${['javascript', 'bash'].join('|')})$`),
@@ -100,6 +99,7 @@ var config = {
       'process.env': { NODE_ENV: JSON.stringify(nodeEnv) }
     })
   ].concat(isProd ? [] : [
+    new DashboardPlugin(),
     new webpack.NamedModulesPlugin()
   ]),
   devServer: {
