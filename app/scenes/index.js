@@ -4,65 +4,42 @@ import React from 'react'
 import { Route } from 'react-router'
 import { Redirect } from 'react-router-dom'
 
-import async from '~/components/async'
-
 import WithHeader from '~/components/header'
 
-// all the root components in this app
-const Homepage = async('Homepage', () => import(/* webpackChunkName: "homepage" */'./homepage'))
+import bundles from './bundles'
 
 const guideRedirect = () => (<Redirect to='/guide/installation' />)
-const GuideInstallation = async('GuideInstallation', () => import(/* webpackChunkName: "guideInstallation" */'./guide/installation'))
-const GuideCounter = async('GuideCounter', () => import(/* webpackChunkName: "guideCounter" */'./guide/counter'))
-const GuideCounterDynamic = async('GuideCounterDynamic', () => import(/* webpackChunkName: "guideCounterDynamic" */'./guide/counter-dynamic'))
-const GuideSliders = async('GuideSliders', () => import(/* webpackChunkName: "guideSliders" */'./guide/sliders'))
-const GuideGithub = async('GuideGithub', () => import(/* webpackChunkName: "guideGithub" */'./guide/github'))
-const GuideConnected = async('GuideConnected', () => import(/* webpackChunkName: "guideConnected" */'./guide/connected'))
-const GuideConnectedServices = async('GuideConnectedServices', () => import(/* webpackChunkName: "guideConnectedServices" */'./guide/connected-services'))
-const GuideMigration = async('GuideMigration', () => import(/* webpackChunkName: "guideMigration" */'./guide/migration'))
-
 const apiRedirect = () => (<Redirect to='/api/logic' />)
-const ApiLogic = async('ApiLogic', () => import(/* webpackChunkName: "apiLogic" */'./api/logic'))
-const ApiComponent = async('ApiComponent', () => import(/* webpackChunkName: "apiComponent" */'./api/component'))
-const ApiConnect = async('ApiConnect', () => import(/* webpackChunkName: "apiConnect" */'./api/connect'))
-const ApiReducer = async('ApiReducer', () => import(/* webpackChunkName: "apiReducer" */'./api/reducer'))
-const ApiSaga = async('ApiSaga', () => import(/* webpackChunkName: "apiSaga" */'./api/saga'))
-const ApiAction = async('ApiAction', () => import(/* webpackChunkName: "apiAction" */'./api/action'))
-
 const examplesRedirect = () => (<Redirect to='/examples/todos' />)
-const ExamplesTodos = async('ExamplesTodos', () => import(/* webpackChunkName: "examplesTodos" */'./examples/todos'))
-const ExamplesGithub = async('ExamplesGithub', () => import(/* webpackChunkName: "examplesGithub" */'./examples/github'))
-
-const Playground = async('Playground', () => import(/* webpackChunkName: "playground" */'./playground'))
 
 export default () => (
   <WithHeader>
     <div>
-      <Route exact path='/' component={Homepage} />
+      <Route exact path='/' component={bundles.homepage} />
 
       <Route path='/guide' exact render={guideRedirect} />
-      <Route path='/guide/installation' component={GuideInstallation} />
-      <Route path='/guide/counter' component={GuideCounter} />
-      <Route path='/guide/counter-dynamic' component={GuideCounterDynamic} />
-      <Route path='/guide/sliders' component={GuideSliders} />
-      <Route path='/guide/github' component={GuideGithub} />
-      <Route path='/guide/connected' component={GuideConnected} />
-      <Route path='/guide/connected-services' component={GuideConnectedServices} />
-      <Route path='/guide/migration' component={GuideMigration} />
+      <Route path='/guide/installation' component={bundles.guideInstallation} />
+      <Route path='/guide/counter' component={bundles.guideCounter} />
+      <Route path='/guide/counter-dynamic' component={bundles.guideCounterDynamic} />
+      <Route path='/guide/sliders' component={bundles.guideSliders} />
+      <Route path='/guide/github' component={bundles.guideGithub} />
+      <Route path='/guide/connected' component={bundles.guideConnected} />
+      <Route path='/guide/connected-services' component={bundles.guideConnectedServices} />
+      <Route path='/guide/migration' component={bundles.guideMigration} />
 
       <Route path='/api' exact render={apiRedirect} />
-      <Route path='/api/logic' component={ApiLogic} />
-      <Route path='/api/component' component={ApiComponent} />
-      <Route path='/api/connect' component={ApiConnect} />
-      <Route path='/api/reducer' component={ApiReducer} />
-      <Route path='/api/saga' component={ApiSaga} />
-      <Route path='/api/action' component={ApiAction} />
+      <Route path='/api/logic' component={bundles.apiLogic} />
+      <Route path='/api/component' component={bundles.apiComponent} />
+      <Route path='/api/connect' component={bundles.apiConnect} />
+      <Route path='/api/reducer' component={bundles.apiReducer} />
+      <Route path='/api/saga' component={bundles.apiSaga} />
+      <Route path='/api/action' component={bundles.apiAction} />
 
       <Route path='/examples' exact render={examplesRedirect} />
-      <Route path='/examples/todos' component={ExamplesTodos} />
-      <Route path='/examples/github' component={ExamplesGithub} />
+      <Route path='/examples/todos' component={bundles.examplesTodos} />
+      <Route path='/examples/github' component={bundles.examplesGithub} />
 
-      <Route path='/playground' component={Playground} />
+      <Route path='/playground' component={bundles.playground} />
     </div>
   </WithHeader>
 )

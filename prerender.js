@@ -59,7 +59,8 @@ devServer.listen(2000, '0.0.0.0', function (err) {
         const match = src && src.match(/\/(.*)\.bundle\.js/)
 
         if (match) {
-          $(this).attr('src', '')
+          $(this).attr('src', null)
+          $(this).attr('async', null)
           $(this).text('if (!window.__keaPrerender) { window.__keaPrerender = []; }; window.__keaPrerender.push(' + JSON.stringify(match[1]) + '); ')
         }
       })
