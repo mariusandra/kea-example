@@ -52,9 +52,19 @@ devServer.listen(2000, '0.0.0.0', function (err) {
         return document.documentElement.outerHTML
       })
 
-      urls[url] = html
-
       const $ = cheerio.load(html)
+
+      $('head script').each(function (index, elem) {
+        const src = $(this).attr('src')
+        const match = src && src.match(/\/(.*)\.bundle\.js/)
+
+        if (match) {
+          $(this).attr('src', '')
+          $(this).text('if (!window.__keaPrerender) { window.__keaPrerender = []; }; window.__keaPrerender.push(' + JSON.stringify(match[1]) + '); ')
+        }
+      })
+
+      urls[url] = $.html()
 
       const links = $('a').map(function (i, elem) {
         return $(this).attr('href')
@@ -68,14 +78,16 @@ devServer.listen(2000, '0.0.0.0', function (err) {
     }
 
     Object.entries(urls).forEach(([url, html]) => {
-      let isIndex = url.slice(-1)[0] === '/' || Object.keys(urls).filter(u => u.indexOf(`${url}/`) === 0).length > 0
+      if (html) {
+        let isIndex = url.slice(-1)[0] === '/' || Object.keys(urls).filter(u => u.indexOf(`${url}/`) === 0).length > 0
 
-      const fileName = path.join(url + (isIndex ? '' : '.html'), isIndex ? 'index.html' : '')
-      const outputPath = path.join(webpackConfig.output.path, fileName)
-      console.log(`Saving ${outputPath}`)
+        const fileName = path.join(url + (isIndex ? '' : '.html'), isIndex ? 'index.html' : '')
+        const outputPath = path.join(webpackConfig.output.path, fileName)
+        console.log(`Saving ${outputPath}`)
 
-      ensureDirectoryExistence(outputPath)
-      fs.writeFileSync(outputPath, html)
+        ensureDirectoryExistence(outputPath)
+        fs.writeFileSync(outputPath, html)
+      }
     })
 
     browser.close()
