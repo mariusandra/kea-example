@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Highlight from 'react-highlight/lib/optimized'
+import Highlight from '~/components/tags/highlight'
 
 const code = {
   usage: require('raw-loader!./code/usage.txt')

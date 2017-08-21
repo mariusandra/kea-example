@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 
 import featuresLogic from '../features-logic'
 
-import Highlight from 'react-highlight/lib/optimized'
+import Highlight from '~/components/tags/highlight'
 
 const code = {
   guideExample1: require('raw-loader!./code/guide-example-1.txt'),

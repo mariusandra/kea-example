@@ -3,7 +3,7 @@ import './styles.scss'
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 
-import Highlight from 'react-highlight/lib/optimized'
+import Highlight from '~/components/tags/highlight'
 
 import Counter from './counter'
 

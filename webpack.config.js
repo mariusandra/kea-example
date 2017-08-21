@@ -12,7 +12,11 @@ var config = {
   context: path.join(__dirname, './app'),
   entry: {
     common: [
-      'babel-polyfill', 'react', 'react-highlight/lib/optimized',
+      'babel-polyfill',
+      'highlight.js/lib/highlight',
+      'highlight.js/lib/languages/javascript',
+      'highlight.js/lib/languages/bash',
+      './components/tags/highlight.js',
       './index.js'
     ]
   },
