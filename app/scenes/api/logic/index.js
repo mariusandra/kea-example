@@ -72,13 +72,17 @@ export default class API extends Component {
 
         <h4>start: <code>function * () {'{}'}</code></h4>
         <p>
-          Saga that is started whenever the saga exported from this component starts
+          Saga that is started whenever the component is connected or the saga exported from this component starts
+        </p>
+        <p>
+          Note: sagas are started with your component's <code>componentDidMount</code>. Actions dispatched before this lifecycle
+          method will not be seen inside <code>start</code>.
         </p>
         <Highlight className='javascript'>{code.keaStart}</Highlight>
 
         <h4>stop: <code>function * () {'{}'}</code></h4>
         <p>
-          Saga that is started whenever the saga exported from this component is cancelled
+          Saga that is started whenever the component is disconnected or the saga exported from this component is cancelled
         </p>
         <Highlight className='javascript'>{code.keaStop}</Highlight>
 
@@ -86,11 +90,19 @@ export default class API extends Component {
         <p>
           Run the following workers every time the action is dispatched
         </p>
+        <p>
+          Note: sagas are started with your component's <code>componentDidMount</code>. Actions dispatched before this lifecycle
+          method will not be seen by <code>takeEvery</code>.
+        </p>
         <Highlight className='javascript'>{code.keaTakeEvery}</Highlight>
 
         <h4>takeLatest: <code>{'({ actions }) => ({})'}</code></h4>
         <p>
           Run the following workers every time the action is dispatched, cancel the previous worker if still running
+        </p>
+        <p>
+          Note: sagas are started with your component's <code>componentDidMount</code>. Actions dispatched before this lifecycle
+          method will not be seen by <code>takeLatest</code>.
         </p>
         <Highlight className='javascript'>{code.keaTakeLatest}</Highlight>
 
