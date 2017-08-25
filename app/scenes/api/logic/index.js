@@ -75,14 +75,17 @@ export default class API extends Component {
           Saga that is started whenever the component is connected or the saga exported from this component starts
         </p>
         <p>
-          Note: sagas are started with your component's <code>componentDidMount</code>. Actions dispatched before this lifecycle
-          method will not be seen inside <code>start</code>.
+          Note: sagas are started before your <u>wrapped component's</u> <code>componentDidMount</code>.
+          Actions dispatched before this lifecycle method will not be seen inside <code>start</code>.
         </p>
         <Highlight className='javascript'>{code.keaStart}</Highlight>
 
         <h4>stop: <code>function * () {'{}'}</code></h4>
         <p>
           Saga that is started whenever the component is disconnected or the saga exported from this component is cancelled
+        </p>
+        <p>
+          This function is called right before your <u>wrapped component's</u> <code>componentWillUnmount</code> lifecycle method.
         </p>
         <Highlight className='javascript'>{code.keaStop}</Highlight>
 
@@ -91,8 +94,8 @@ export default class API extends Component {
           Run the following workers every time the action is dispatched
         </p>
         <p>
-          Note: sagas are started with your component's <code>componentDidMount</code>. Actions dispatched before this lifecycle
-          method will not be seen by <code>takeEvery</code>.
+          Note: sagas are started before your wrapped component's <code>componentDidMount</code>.
+          Actions dispatched before this lifecycle method will not be seen by <code>takeEvery</code>.
         </p>
         <Highlight className='javascript'>{code.keaTakeEvery}</Highlight>
 
@@ -101,8 +104,8 @@ export default class API extends Component {
           Run the following workers every time the action is dispatched, cancel the previous worker if still running
         </p>
         <p>
-          Note: sagas are started with your component's <code>componentDidMount</code>. Actions dispatched before this lifecycle
-          method will not be seen by <code>takeLatest</code>.
+          Note: sagas are started before your wrapped component's <code>componentDidMount</code>.
+          Actions dispatched before this lifecycle method will not be seen by <code>takeLatest</code>.
         </p>
         <Highlight className='javascript'>{code.keaTakeLatest}</Highlight>
 
