@@ -26,6 +26,7 @@ export default () => (
       <Route path='/guide/connected' component={bundles.guideConnected} />
       <Route path='/guide/connected-services' component={bundles.guideConnectedServices} />
       <Route path='/guide/migration' component={bundles.guideMigration} />
+      <Route path='/guide/forms' component={bundles.guideForms} />
 
       <Route path='/api' exact render={apiRedirect} />
       <Route path='/api/logic' component={bundles.apiLogic} />
