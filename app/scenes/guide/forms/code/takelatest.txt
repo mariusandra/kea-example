@@ -1,0 +1,30 @@
+// form.js
+
+import { put } from 'redux-saga/effects'
+import { delay } from 'redux-saga'
+
+export default kea({
+  // actions, reducers, ...
+
+  takeLatest: ({ actions, workers }) => ({
+    [actions.submit]: function * () {
+      const { submitSuccess, submitFailure } = this.actions
+
+      // get the form data...
+      const values = yield this.get('values')
+      console.log('Submitting form with values:', values)
+
+      // simulate a 1sec async request.
+      yield delay(1000)
+
+      if (true) { // if the request was successful
+        window.alert('Success')
+        yield put(submitSuccess())
+      } else {
+        window.alert('Error')
+        yield put(submitFailure())
+      }
+    }
+  })
+})
+

@@ -8,12 +8,14 @@ import Highlight from '~/components/tags/highlight'
 
 import SimpleForm from './simple-form'
 import CrudeForm from './crude-form'
+import CrudeSubmitForm from './crude-submit-form'
 
 import featuresLogic from '../features-logic'
 
 const code = {
   actionsReducers: require('raw-loader!./code/actions-reducers.txt'),
-  component: require('raw-loader!./code/component.txt')
+  component: require('raw-loader!./code/component.txt'),
+  takeLatest: require('raw-loader!./code/takelatest.txt')
 }
 
 @connect({
@@ -129,7 +131,17 @@ export default class FormsScene extends Component {
         </div>
         <div className='description'>
           <h2>Handling the submissions</h2>
-
+          <p>
+            We will use the <code>takeLatest</code> helper to listent to the submit event and respond with either
+            a <code>submitSuccess</code> or <code>submitFailure</code> action:
+          </p>
+          <Highlight className='javascript'>{code.takeLatest}</Highlight>
+          <p>
+            Adding this code results in the following form:
+          </p>
+          <div className='demo'>
+            <CrudeSubmitForm />
+          </div>
         </div>
       </div>
     )
