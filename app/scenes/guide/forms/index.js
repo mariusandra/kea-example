@@ -51,17 +51,28 @@ export default class FormsScene extends Component {
         <div className='description'>
           <h2>Example #6 - Forms</h2>
           <p>
-            Before Kea I used to dread forms in React. They would always require a lot of boilerplate to get going.
+            Before Kea I used to dread forms in React. They would always require a lot of work to set up properly.
           </p>
           <p>
-            With Kea, that's no longer the case. Even the boilerplate is quick to write, as we will soon demonstrate.
+            I could either use <code>setState</code> for the simplest one-component forms... or
+            a <a href='https://github.com/erikras/redux-form/issues/2315'>bulky library</a> like <a href='https://redux-form.com/'>redux-form</a> for
+            a connected Redux-based form. Neither of those is a great option... and writing a pure-redux-form requires way too much boilerplate.
           </p>
+          <p>
+            With Kea, forms are finally easy! Even the code to setup a form from scratch is quick to write, as you shall soon see.
+          </p>
+        </div>
+        <div className='description'>
+          <h2>What shall we do?</h2>
           <p>
             In this chapter we will first build a simple form that looks like this:
           </p>
           <div className='demo'>
             <FinalForm />
           </div>
+          <p>
+            <em>Go ahead, play with it!</em>
+          </p>
           <p>
             ... and then abstract the remaining boilerplate into a form builder.
           </p>
@@ -93,15 +104,15 @@ export default class FormsScene extends Component {
             At the very minimum, we'll need the following reducers:
           </p>
           <ul>
-            <li>An object <code>values</code>, which contains the form data</li>
+            <li>An object <code>values</code>, which contains the form data (<code>name</code>, <code>email</code> and <code>message</code>)</li>
             <li>A boolean <code>isSubmitting</code>, which knows if we're actively submitting the form or not</li>
-            <li>A boolean <code>hasTriedToSubmit</code> to know if we will show the errors or not</li>
+            <li>A boolean <code>hasTriedToSubmit</code> to know if we will show errors or not</li>
           </ul>
           <p>
             These three reducers are enough to give us everything, except for validation rules and errors. We'll skip those for now.
           </p>
           <p>
-            What about the actions we can perform on the form? The bare minimum set is as follows:
+            What about the actions we can perform on the form? The minimum set is as follows:
           </p>
           <ul>
             <li><code>setValue</code> to update the value of one field (or <code>setValues</code> to update many simultaneously)</li>
@@ -114,14 +125,14 @@ export default class FormsScene extends Component {
           </p>
           <Highlight className='javascript'>{code.actionsReducers}</Highlight>
           <p>
-            Seems clear enough?
+            Seems clear enough? :)
           </p>
         </div>
         <div className='description'>
           <h2>The component</h2>
           <p>
             We could continue extending the logic by adding error handling, validations and actual submission logic,
-            but since it's nice to already see something tangible, let's first build the component itself!
+            but since it's nice to see something tangible, let's first build the component itself!
           </p>
           <p>
             A very crude version will look something like this:
@@ -137,13 +148,13 @@ export default class FormsScene extends Component {
             The only problem: once you hit "submit", it will forever be stuck in the <code>isSubmitting</code> state.
           </p>
           <p>
-            We need to add some logic to make it actually do anything.
+            We need to add some logic to make it actually do something.
           </p>
         </div>
         <div className='description'>
           <h2>Submitting the form</h2>
           <p>
-            We will use the <code>takeLatest</code> helper to listent to the submit action and respond with either
+            We will use the <code>takeLatest</code> helper to listen to the submit action and respond with either
             a <code>submitSuccess</code> or <code>submitFailure</code> action:
           </p>
           <Highlight className='javascript'>{code.takeLatest}</Highlight>
@@ -154,6 +165,9 @@ export default class FormsScene extends Component {
             <CrudeSubmitForm />
           </div>
           <p>
+            Go ahead, write some data and try submitting it!
+          </p>
+          <p>
             If you replace the <code>yield delay(1000)</code> part with an actual API call, this will be a fully functional form.
           </p>
           <p>
@@ -163,7 +177,7 @@ export default class FormsScene extends Component {
         <div className='description'>
           <h2>Errors and validation</h2>
           <p>
-            We want to prevent an empty form from being submitted.
+            We want to prevent an empty form from being submitted!
           </p>
           <p>
             The easiest solution is to create a selector <code>errors</code> that depends on <code>values</code>. This selector
@@ -181,7 +195,7 @@ export default class FormsScene extends Component {
           </p>
           <Highlight className='javascript'>{code.errorsForm}</Highlight>
           <p>
-            In order to display the errors, we must also update our component as follows:
+            In order to display the errors, we will also update our component as follows:
           </p>
           <Highlight className='javascript'>{code.errorsIndex}</Highlight>
           <p>
@@ -191,20 +205,20 @@ export default class FormsScene extends Component {
             <ErrorsForm />
           </div>
           <p>
-            Almost perfect! The only thing: we don't want to show the red errors <em>before</em> the user submits the form.
+            Almost perfect! The only thing: we don't want to show the <span style={{color: 'red'}}>red</span> errors <em>before</em> the user submits the form.
           </p>
           <p>
             Remember the <code>hasTriedToSubmit</code> reducer from before? Now is its time to shine!
           </p>
           <p>
-            We have two options with it. We can either use it in our <code>render</code> function like so:
+            We have two choices with it. We can either use it in our <code>render</code> function like so:
           </p>
           <Highlight className='javascript'>{code.showErrorsRender}</Highlight>
           <p>
             ... or we can simply return an empty hash for the <code>errors</code> selector until <code>hasTriedToSubmit</code> becomes true.
           </p>
           <p>
-            I prefer the second approach as it moves form logic away from the <code>render</code> function.
+            I prefer the second approach as it moves the form logic away from the <code>render</code> function.
           </p>
           <p>
             In order to do this, we'll rename the previous selector <code>errors</code> into <code>allErrors</code> and make an new
@@ -213,8 +227,8 @@ export default class FormsScene extends Component {
           </p>
           <Highlight className='javascript'>{code.showErrorsSelector}</Highlight>
           <p>
-            And that's it! With a few actons, reducers and selectors you have a fully functional and extremely extendable form library at
-            your disposal.
+            And that's it! With a few actons, reducers and selectors, totalling about 75 lines of code, you have a fully functional and
+            extremely extendable form library at your disposal!
           </p>
           <p>
             This is the final result:
