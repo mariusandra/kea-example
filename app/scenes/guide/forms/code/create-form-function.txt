@@ -1,3 +1,5 @@
+// create-form.js
+
 import PropTypes from 'prop-types'
 import { kea } from 'kea'
 import { put, call } from 'redux-saga/effects'
@@ -25,8 +27,12 @@ export default function createForm (options) {
 
     reducers: ({ actions }) => ({
       values: [defaults, propType, {
-        [actions.setValue]: (state, payload) => Object.assign({}, state, { [payload.key]: payload.value }),
-        [actions.setValues]: (state, payload) => Object.assign({}, state, payload.values),
+        [actions.setValue]: (state, payload) => {
+          return Object.assign({}, state, { [payload.key]: payload.value })
+        },
+        [actions.setValues]: (state, payload) => {
+          return Object.assign({}, state, payload.values)
+        },
         [actions.submitSuccess]: () => defaults
       }],
 
@@ -51,7 +57,7 @@ export default function createForm (options) {
 
       hasErrors: [
         () => [selectors.allErrors],
-        (errors) => Object.values(errors).filter(k => k).length > 0,
+        (allErrors) => Object.values(allErrors).filter(k => k).length > 0,
         PropTypes.bool
       ],
 

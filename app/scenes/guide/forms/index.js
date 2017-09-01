@@ -10,6 +10,7 @@ import CrudeForm from './crude-form'
 import CrudeSubmitForm from './crude-submit-form'
 import ErrorsForm from './errors-form'
 import FinalForm from './final-form'
+import CreatedForm from './created-form'
 
 import featuresLogic from '../features-logic'
 
@@ -21,7 +22,11 @@ const code = {
   errorsIndex: require('raw-loader!./code/errors-index.txt'),
   showErrorsRender: require('raw-loader!./code/show-errors-render.txt'),
   showErrorsSelector: require('raw-loader!./code/show-errors-selector.txt'),
-  simpleFull: require('raw-loader!./code/simple-full.txt')
+  simpleFull: require('raw-loader!./code/simple-full.txt'),
+  createStub: require('raw-loader!./code/create-stub.txt'),
+  createFormCall: require('raw-loader!./code/create-form-call.txt'),
+  createFormFunction: require('raw-loader!./code/create-form-function.txt'),
+  createFormIndex: require('raw-loader!./code/create-form-index.txt')
 }
 
 @connect({
@@ -233,13 +238,71 @@ export default class FormsScene extends Component {
             As you saw, it's really easy to create forms with Kea. As a side-effect you're no longer dependant on heavy 50KB form libraries.
           </p>
           <p>
-            That said, what if you need a second form on your page? Should you copy paste
+            That said, what if you need a second form on your page? Should you copy paste all this code around?
           </p>
           <p>
             There's not a lot of boilerplate with this solution, but even what is there could be eliminated.
           </p>
           <p>
             Let's build a form builder!
+          </p>
+          <p>
+            The principle here is simple. We'll create a function, <code>createForm</code>, that takes as an input all the form-specific
+            data and returns a <code>{'kea({})'}</code> logic store. Something like this:
+          </p>
+          <Highlight className='javascript'>{code.createStub}</Highlight>
+          <p>
+            So what is all of the form-specific data? What kind of API do we want the <code>createForm</code> function to have?
+          </p>
+          <p>
+            Well, here's one option:
+          </p>
+          <Highlight className='javascript'>{code.createFormCall}</Highlight>
+          <p>
+            That's about as lean as it gets!
+          </p>
+          <p>
+            And what about this <code>createForm</code>?
+          </p>
+          <p>
+            Turns out it requires very minimal changes from the code above. Here it is in all its glory. See if you can spot what changed:
+          </p>
+          <Highlight className='javascript'>{code.createFormFunction}</Highlight>
+          <p>
+            Since the result of calling <code>createForm</code> is just a regular kea logic store, you may connect to it
+            in any way you please. In fact, the code for the component is identical to what you saw above.
+          </p>
+          <p>
+            Here it is again for completion:
+          </p>
+          <Highlight className='javascript'>{code.createFormIndex}</Highlight>
+          <p>
+            And this is the created form in action:
+          </p>
+          <div className='demo'>
+            <CreatedForm />
+          </div>
+          <p>
+            Now, there are surely additional things that can be done. For example:
+          </p>
+          <ol>
+            <li>You may create an abstract <code>Field</code> component that removes even more boilerplate.</li>
+            <li>You may add extra code for async validation. E.g. checking if the username is taken or not.</li>
+            <li>You may publish this <code>createForm</code> as a separate NPM package and reap all the fame that comes with being an open source maintainer :).</li>
+          </ol>
+          <p>
+            ... but those things are outside the scope of this guide and are left as an exercise for the reader.
+          </p>
+          <p>
+            I hope you found this guide useful!
+          </p>
+          <p>
+            Happy hacking! :D
+          </p>
+          <h2>Next steps</h2>
+          <p>
+            The last topic in this guide: <Link to='/guide/migration'>How to migrate existing Redux applications?</Link> or
+            read the <Link to='/api/logic'>API docs</Link>.
           </p>
         </div>
       </div>

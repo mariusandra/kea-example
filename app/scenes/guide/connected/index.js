@@ -163,10 +163,8 @@ export default class ConnectedScene extends Component {
           <p>
             If this is not redux-heaven, I don't know what is!
           </p>
-          <h2>Next steps</h2>
           <p>
-            The last topic in this guide: <Link to='/guide/migration'>How to migrate existing Redux applications?</Link> or
-            read the <Link to='/api/logic'>API docs</Link>.
+            Next page: <Link to='/guide/forms'>Forms</Link>
           </p>
         </div>
       </div>

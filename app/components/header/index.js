@@ -26,7 +26,7 @@ const menu = {
           { url: '/guide/sliders', title: 'Sliders' },
           { url: '/guide/github', title: 'Github API' },
           { url: '/guide/connected', title: 'Connected Logic' },
-          // { url: '/guide/forms', title: 'Forms' },
+          { url: '/guide/forms', title: 'Forms' },
           { url: '/guide/migration', title: 'Migrating Redux Apps' }
           // TODO: not yet ready
           // { url: '/guide/connected-services', title: 'Connected Services' }

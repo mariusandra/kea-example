@@ -1,0 +1,10 @@
+import PropTypes from 'prop-types'
+import { kea } from 'kea'
+
+export default function createForm (options) {
+  // parse and clean up `options`
+
+  return kea({
+    // actions, reducers, etc that are built from `options`
+  })
+}
