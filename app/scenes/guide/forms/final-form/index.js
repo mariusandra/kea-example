@@ -12,11 +12,11 @@ const defaultValues = {
   message: ''
 }
 
-const propType = PropTypes.shape({
+const propTypes = {
   name: PropTypes.string,
   email: PropTypes.string,
   message: PropTypes.string
-})
+}
 
 const missingText = 'This field is required'
 
@@ -24,22 +24,25 @@ const missingText = 'This field is required'
   actions: () => ({
     setValue: (key, value) => ({ key, value }),
     setValues: (values) => ({ values }),
+
     submit: true,
     submitSuccess: true,
     submitFailure: true
   }),
 
   reducers: ({ actions }) => ({
-    values: [defaultValues, propType, {
+    values: [defaultValues, PropTypes.shape(propTypes), {
       [actions.setValue]: (state, payload) => Object.assign({}, state, { [payload.key]: payload.value }),
       [actions.setValues]: (state, payload) => Object.assign({}, state, payload.values),
       [actions.submitSuccess]: () => defaultValues
     }],
+
     isSubmitting: [false, PropTypes.bool, {
       [actions.submit]: () => true,
       [actions.submitSuccess]: () => false,
       [actions.submitFailure]: () => false
     }],
+
     hasTriedToSubmit: [false, PropTypes.bool, {
       [actions.submit]: () => true,
       [actions.submitSuccess]: () => false
@@ -59,7 +62,7 @@ const missingText = 'This field is required'
 
     hasErrors: [
       () => [selectors.allErrors],
-      (errors) => Object.values(errors).filter(k => k).length > 0,
+      (allErrors) => Object.values(allErrors).filter(k => k).length > 0,
       PropTypes.bool
     ],
 
@@ -81,9 +84,11 @@ const missingText = 'This field is required'
         return
       }
 
+      // get the form data...
       const values = yield this.get('values')
+      console.log('Submitting form with values:', values)
 
-      // simulate submitting
+      // simulate a 1sec async request.
       yield delay(1000)
 
       if (values) {
@@ -98,9 +103,10 @@ const missingText = 'This field is required'
 })
 export default class SimpleForm extends Component {
   render () {
-    const { isSubmitting, errors } = this.props
-    const { name, email, message } = this.props.values
+    const { isSubmitting, errors, values } = this.props
     const { submit, setValue } = this.actions
+
+    const { name, email, message } = values
 
     return (
       <div>

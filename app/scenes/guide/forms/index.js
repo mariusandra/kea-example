@@ -6,16 +6,22 @@ import { Link } from 'react-router-dom'
 
 import Highlight from '~/components/tags/highlight'
 
-import SimpleForm from './simple-form'
 import CrudeForm from './crude-form'
 import CrudeSubmitForm from './crude-submit-form'
+import ErrorsForm from './errors-form'
+import FinalForm from './final-form'
 
 import featuresLogic from '../features-logic'
 
 const code = {
   actionsReducers: require('raw-loader!./code/actions-reducers.txt'),
   component: require('raw-loader!./code/component.txt'),
-  takeLatest: require('raw-loader!./code/takelatest.txt')
+  takeLatest: require('raw-loader!./code/takelatest.txt'),
+  errorsForm: require('raw-loader!./code/errors-form.txt'),
+  errorsIndex: require('raw-loader!./code/errors-index.txt'),
+  showErrorsRender: require('raw-loader!./code/show-errors-render.txt'),
+  showErrorsSelector: require('raw-loader!./code/show-errors-selector.txt'),
+  simpleFull: require('raw-loader!./code/simple-full.txt')
 }
 
 @connect({
@@ -49,7 +55,7 @@ export default class FormsScene extends Component {
             In this chapter we will first build a simple form that looks like this:
           </p>
           <div className='demo'>
-            <SimpleForm />
+            <FinalForm />
           </div>
           <p>
             ... and then abstract the remaining boilerplate into a form builder.
@@ -107,7 +113,7 @@ export default class FormsScene extends Component {
           </p>
         </div>
         <div className='description'>
-          <h2>The form component</h2>
+          <h2>The component</h2>
           <p>
             We could continue extending the logic by adding error handling, validations and actual submission logic,
             but since it's nice to already see something tangible, let's first build the component itself!
@@ -130,9 +136,9 @@ export default class FormsScene extends Component {
           </p>
         </div>
         <div className='description'>
-          <h2>Handling the submissions</h2>
+          <h2>Submitting the form</h2>
           <p>
-            We will use the <code>takeLatest</code> helper to listent to the submit event and respond with either
+            We will use the <code>takeLatest</code> helper to listent to the submit action and respond with either
             a <code>submitSuccess</code> or <code>submitFailure</code> action:
           </p>
           <Highlight className='javascript'>{code.takeLatest}</Highlight>
@@ -142,6 +148,99 @@ export default class FormsScene extends Component {
           <div className='demo'>
             <CrudeSubmitForm />
           </div>
+          <p>
+            If you replace the <code>yield delay(1000)</code> part with an actual API call, this will be a fully functional form.
+          </p>
+          <p>
+            Only one thing left to do...
+          </p>
+        </div>
+        <div className='description'>
+          <h2>Errors and validation</h2>
+          <p>
+            We want to prevent an empty form from being submitted.
+          </p>
+          <p>
+            The easiest solution is to create a selector <code>errors</code> that depends on <code>values</code>. This selector
+            checks the content of each field and returns and object describing which fields have errors.
+          </p>
+          <p>
+            We'll also create another selector <code>hasErrors</code>, which gives a simple yes/no answer to the question "does this form have errors?".
+          </p>
+          <p>
+            Finally, we'll check the value of <code>hasErrors</code> in the <code>submit</code> worker, and dispatch a <code>submitFailure</code> action
+            in case the form doesn't pass the validation.
+          </p>
+          <p>
+            Something like this:
+          </p>
+          <Highlight className='javascript'>{code.errorsForm}</Highlight>
+          <p>
+            In order to display the errors, we must also update our component as follows:
+          </p>
+          <Highlight className='javascript'>{code.errorsIndex}</Highlight>
+          <p>
+            Plugging in the changes results in the following form:
+          </p>
+          <div className='demo'>
+            <ErrorsForm />
+          </div>
+          <p>
+            Almost perfect! The only thing: we don't want to show the red errors <em>before</em> the user submits the form.
+          </p>
+          <p>
+            Remember the <code>hasTriedToSubmit</code> reducer from before? Now is its time to shine!
+          </p>
+          <p>
+            We have two options with it. We can either use it in our <code>render</code> function like so:
+          </p>
+          <Highlight className='javascript'>{code.showErrorsRender}</Highlight>
+          <p>
+            ... or we can simply return an empty hash for the <code>errors</code> selector until <code>hasTriedToSubmit</code> becomes true.
+          </p>
+          <p>
+            I prefer the second approach as it moves form logic away from the <code>render</code> function.
+          </p>
+          <p>
+            In order to do this, we'll rename the previous selector <code>errors</code> into <code>allErrors</code> and make an new
+            selector <code>errors</code>, that depends on both <code>allErrors</code> and <code>hasTriedToSubmit</code>. We'll also
+            make <code>hasErrors</code> depend on the renamed <code>allErrors</code>:
+          </p>
+          <Highlight className='javascript'>{code.showErrorsSelector}</Highlight>
+          <p>
+            And that's it! With a few actons, reducers and selectors you have a fully functional and extremely extendable form library at
+            your disposal.
+          </p>
+          <p>
+            This is the final result:
+          </p>
+          <p>
+            <em>Note that it shares data with the form on top of the page.</em>
+          </p>
+          <div className='demo'>
+            <FinalForm />
+          </div>
+          <p>
+            <button onClick={() => toggleFeature('finalCode')}>Show the full source</button>
+          </p>
+          {features.finalCode ? (
+            <Highlight className='javascript'>{code.simpleFull}</Highlight>
+          ) : null}
+        </div>
+        <div className='description'>
+          <h2>Abstracting <code>createForm</code></h2>
+          <p>
+            As you saw, it's really easy to create forms with Kea. As a side-effect you're no longer dependant on heavy 50KB form libraries.
+          </p>
+          <p>
+            That said, what if you need a second form on your page? Should you copy paste
+          </p>
+          <p>
+            There's not a lot of boilerplate with this solution, but even what is there could be eliminated.
+          </p>
+          <p>
+            Let's build a form builder!
+          </p>
         </div>
       </div>
     )

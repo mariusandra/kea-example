@@ -1,0 +1,45 @@
+// form.js
+
+// ...
+
+const isEmailValid = (email) => /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/.test(email)
+
+const missingText = 'This field is required'
+const invalidEmail = 'Invalid e-mail'
+
+export default kea({
+  // actions, reducers, takeLatest, ...
+
+  selectors: ({ selectors }) => ({
+    errors: [
+      () => [selectors.values],
+      (values) => ({
+        name: !values.name ? missingText : null,
+        email: !values.email ? missingText : (!isEmailValid(values.email) ? invalidEmail : null),
+        message: !values.message ? missingText : null
+      }),
+      PropTypes.object
+    ],
+
+    hasErrors: [
+      () => [selectors.errors],
+      (errors) => Object.values(errors).filter(k => k).length > 0,
+      PropTypes.bool
+    ]
+  }),
+
+  takeLatest: ({ actions, workers }) => ({
+    [actions.submit]: function * () {
+      const { submitSuccess, submitFailure } = this.actions
+
+      const hasErrors = yield this.get('hasErrors')
+
+      if (hasErrors) {
+        yield put(submitFailure())
+        return
+      }
+
+      // ... the rest of the submit worker
+    }
+  })
+})

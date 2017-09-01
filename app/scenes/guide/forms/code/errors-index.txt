@@ -1,0 +1,36 @@
+// index.js
+
+export default class Form extends Component {
+  render () {
+    const { isSubmitting, errors, values } = this.props
+    const { submit, setValue } = this.actions
+
+    const { name, email, message } = values
+
+    return (
+      <div>
+        <div className='form-field'>
+          <label>Name</label>
+          <input type='text' value={name} onChange={e => setValue('name', e.target.value)} />
+          {errors.name ? <div className='form-error'>{errors.name}</div> : null}
+        </div>
+
+        <div className='form-field'>
+          <label>E-mail</label>
+          <input type='text' value={email} onChange={e => setValue('email', e.target.value)} />
+          {errors.email ? <div className='form-error'>{errors.email}</div> : null}
+        </div>
+
+        <div className='form-field'>
+          <label className='block'>Message</label>
+          <textarea value={message} onChange={e => setValue('message', e.target.value)} />
+          {errors.message ? <div className='form-error'>{errors.message}</div> : null}
+        </div>
+
+        <button disabled={isSubmitting} onClick={submit}>
+          {isSubmitting ? 'Submitting...' : 'Submit!'}
+        </button>
+      </div>
+    )
+  }
+}

@@ -1,10 +1,14 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { kea } from 'kea'
+
 import { put } from 'redux-saga/effects'
 import { delay } from 'redux-saga'
 
 const isEmailValid = (email) => /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/.test(email)
+
+const missingText = 'This field is required'
+const invalidEmail = 'Invalid e-mail'
 
 const defaultValues = {
   name: 'John Doe',
@@ -18,13 +22,10 @@ const propTypes = {
   message: PropTypes.string
 }
 
-const missingText = 'This field is required'
-
 @kea({
   actions: () => ({
     setValue: (key, value) => ({ key, value }),
     setValues: (values) => ({ values }),
-
     submit: true,
     submitSuccess: true,
     submitFailure: true
@@ -36,13 +37,11 @@ const missingText = 'This field is required'
       [actions.setValues]: (state, payload) => Object.assign({}, state, payload.values),
       [actions.submitSuccess]: () => defaultValues
     }],
-
     isSubmitting: [false, PropTypes.bool, {
       [actions.submit]: () => true,
       [actions.submitSuccess]: () => false,
       [actions.submitFailure]: () => false
     }],
-
     hasTriedToSubmit: [false, PropTypes.bool, {
       [actions.submit]: () => true,
       [actions.submitSuccess]: () => false
@@ -50,26 +49,20 @@ const missingText = 'This field is required'
   }),
 
   selectors: ({ selectors }) => ({
-    allErrors: [
+    errors: [
       () => [selectors.values],
       (values) => ({
         name: !values.name ? missingText : null,
-        email: !values.email ? missingText : (!isEmailValid(values.email) ? 'Invalid e-mail' : null),
+        email: !values.email ? missingText : (!isEmailValid(values.email) ? invalidEmail : null),
         message: !values.message ? missingText : null
       }),
       PropTypes.object
     ],
 
     hasErrors: [
-      () => [selectors.allErrors],
-      (allErrors) => Object.values(allErrors).filter(k => k).length > 0,
+      () => [selectors.errors],
+      (errors) => Object.values(errors).filter(k => k).length > 0,
       PropTypes.bool
-    ],
-
-    errors: [
-      () => [selectors.allErrors, selectors.hasTriedToSubmit],
-      (errors, hasTriedToSubmit) => hasTriedToSubmit ? errors : {},
-      PropTypes.object
     ]
   }),
 
@@ -91,7 +84,7 @@ const missingText = 'This field is required'
       // simulate a 1sec async request.
       yield delay(1000)
 
-      if (values) {
+      if (true) { // if the request was successful
         window.alert('Success')
         yield put(submitSuccess())
       } else {
@@ -101,7 +94,7 @@ const missingText = 'This field is required'
     }
   })
 })
-export default class SimpleForm extends Component {
+export default class ErrorsForm extends Component {
   render () {
     const { isSubmitting, errors, values } = this.props
     const { submit, setValue } = this.actions

@@ -64,7 +64,7 @@ const propTypes = {
     }
   })
 })
-export default class SimpleForm extends Component {
+export default class CrudeSubmitForm extends Component {
   render () {
     const { isSubmitting, values } = this.props
     const { submit, setValue } = this.actions

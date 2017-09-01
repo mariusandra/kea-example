@@ -1,0 +1,31 @@
+// form.js
+
+// ...
+
+export default kea({
+  // actions, reducers, takeLatest, ...
+
+  selectors: ({ selectors }) => ({
+    allErrors: [
+      () => [selectors.values],
+      (values) => ({
+        name: !values.name ? missingText : null,
+        email: !values.email ? missingText : (!isEmailValid(values.email) ? invalidEmail : null),
+        message: !values.message ? missingText : null
+      }),
+      PropTypes.object
+    ],
+
+    hasErrors: [
+      () => [selectors.allErrors],
+      (allErrors) => Object.values(allErrors).filter(k => k).length > 0,
+      PropTypes.bool
+    ],
+
+    errors: [
+      () => [selectors.allErrors, selectors.hasTriedToSubmit],
+      (errors, hasTriedToSubmit) => hasTriedToSubmit ? errors : {},
+      PropTypes.object
+    ]
+  })
+})
