@@ -249,13 +249,16 @@ export default class FormsScene extends Component {
         <div className='description'>
           <h2>Abstracting <code>createForm</code></h2>
           <p>
-            As you saw, it's really easy to create forms with Kea. As a side-effect you're no longer dependant on heavy 50KB form libraries.
+            As you saw, it's really easy to create forms with Kea. And you're no longer dependant on heavy (~50KB) form libraries!
           </p>
           <p>
             That said, what if you need a second form on your page? Should you copy paste all this code around?
           </p>
           <p>
-            There's not a lot of boilerplate with this solution, but even what is there could be eliminated.
+            No!
+          </p>
+          <p>
+            There's not a lot of boilerplate with our form solution, but even what is there can be eliminated.
           </p>
           <p>
             Let's build a form builder!
@@ -266,7 +269,7 @@ export default class FormsScene extends Component {
           </p>
           <Highlight className='javascript'>{code.createStub}</Highlight>
           <p>
-            So what is all of the form-specific data? What kind of API do we want the <code>createForm</code> function to have?
+            So what is all of the form-specific data? What kind of an API do we want the <code>createForm</code> function to have?
           </p>
           <p>
             Well, here's one option:
@@ -284,7 +287,7 @@ export default class FormsScene extends Component {
           <Highlight className='javascript'>{code.createFormFunction}</Highlight>
           <p>
             Since the result of calling <code>createForm</code> is just a regular kea logic store, you may connect to it
-            in any way you please. In fact, the code for the component is identical to what you saw above.
+            in any way you please. In fact, the code for the component itself is identical to what you saw above.
           </p>
           <p>
             Here it is again for completion:

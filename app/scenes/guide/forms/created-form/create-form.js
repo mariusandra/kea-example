@@ -19,8 +19,8 @@ export default function createForm (options) {
       setValues: (values) => ({ values }),
 
       submit: true,
-      submitSuccess: true,
-      submitFailure: true
+      submitSuccess: (response) => ({ response }),
+      submitFailure: (error) => ({ error })
     }),
 
     reducers: ({ actions }) => ({
@@ -51,7 +51,7 @@ export default function createForm (options) {
 
       hasErrors: [
         () => [selectors.allErrors],
-        (errors) => Object.values(errors).filter(k => k).length > 0,
+        (allErrors) => Object.values(allErrors).filter(k => k).length > 0,
         PropTypes.bool
       ],
 
@@ -76,10 +76,10 @@ export default function createForm (options) {
         try {
           const response = yield call(submit.bind(this))
           yield call(success.bind(this), response)
-          yield put(submitSuccess())
+          yield put(submitSuccess(response))
         } catch (error) {
           yield call(failure.bind(this), error)
-          yield put(submitFailure())
+          yield put(submitFailure(error))
         }
       }
     })

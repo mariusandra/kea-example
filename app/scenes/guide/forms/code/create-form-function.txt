@@ -21,8 +21,8 @@ export default function createForm (options) {
       setValues: (values) => ({ values }),
 
       submit: true,
-      submitSuccess: true,
-      submitFailure: true
+      submitSuccess: (response) => ({ response }),
+      submitFailure: (error) => ({ error })
     }),
 
     reducers: ({ actions }) => ({
@@ -82,10 +82,10 @@ export default function createForm (options) {
         try {
           const response = yield call(submit.bind(this))
           yield call(success.bind(this), response)
-          yield put(submitSuccess())
+          yield put(submitSuccess(response))
         } catch (error) {
           yield call(failure.bind(this), error)
-          yield put(submitFailure())
+          yield put(submitFailure(error))
         }
       }
     })
