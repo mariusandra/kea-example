@@ -1,5 +1,3 @@
-import './styles.scss'
-
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { kea } from 'kea'
@@ -14,19 +12,27 @@ const defaultValues = {
   message: ''
 }
 
+const propType = PropTypes.shape({
+  name: PropTypes.string,
+  email: PropTypes.string,
+  message: PropTypes.string
+})
+
 const missingText = 'This field is required'
 
 @kea({
   actions: () => ({
     setValue: (key, value) => ({ key, value }),
+    setValues: (values) => ({ values }),
     submit: true,
     submitSuccess: true,
     submitFailure: true
   }),
 
   reducers: ({ actions }) => ({
-    values: [defaultValues, PropTypes.object, {
+    values: [defaultValues, propType, {
       [actions.setValue]: (state, payload) => Object.assign({}, state, { [payload.key]: payload.value }),
+      [actions.setValues]: (state, payload) => Object.assign({}, state, payload.values),
       [actions.submitSuccess]: () => defaultValues
     }],
     isSubmitting: [false, PropTypes.bool, {
@@ -90,7 +96,7 @@ const missingText = 'This field is required'
     }
   })
 })
-export default class Form extends Component {
+export default class SimpleForm extends Component {
   render () {
     const { isSubmitting, errors } = this.props
     const { name, email, message } = this.props.values

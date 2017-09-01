@@ -1,15 +1,19 @@
+import './styles.scss'
+
 import React, { Component } from 'react'
 import { connect } from 'kea'
 import { Link } from 'react-router-dom'
 
 import Highlight from '~/components/tags/highlight'
 
-import Form from './form'
+import SimpleForm from './simple-form'
+import CrudeForm from './crude-form'
 
 import featuresLogic from '../features-logic'
 
 const code = {
-  basicFull: require('raw-loader!./code/basic-full.txt')
+  actionsReducers: require('raw-loader!./code/actions-reducers.txt'),
+  component: require('raw-loader!./code/component.txt')
 }
 
 @connect({
@@ -34,16 +38,19 @@ export default class FormsScene extends Component {
         <div className='description'>
           <h2>Example #6 - Forms</h2>
           <p>
-            Before Kea I used to dread forms in React. They would always require a lot of boilerplate to get going. With Kea, even the boilerplate is easy to setup.
+            Before Kea I used to dread forms in React. They would always require a lot of boilerplate to get going.
           </p>
           <p>
-            In this chapter we will first build a simple form like this:
+            With Kea, that's no longer the case. Even the boilerplate is quick to write, as we will soon demonstrate.
+          </p>
+          <p>
+            In this chapter we will first build a simple form that looks like this:
           </p>
           <div className='demo'>
-            <Form />
+            <SimpleForm />
           </div>
           <p>
-            ... and then we will abstract the remaining boilerplate into a form builder.
+            ... and then abstract the remaining boilerplate into a form builder.
           </p>
         </div>
 
@@ -60,12 +67,71 @@ export default class FormsScene extends Component {
             <li>Async processing of the request</li>
           </ul>
           <p>
-            For this we need a minimum of ...
+            Let's build it piece by piece, starting with the data model.
           </p>
-          <Highlight className='javascript'>{code.basicFull}</Highlight>
+        </div>
+
+        <div className='description'>
+          <h2>Actions and reducers</h2>
+          <p>
+            So what do we need to keep track of in order to build this form?
+          </p>
+          <p>
+            At the very minimum, we'll need the following reducers:
+          </p>
+          <ul>
+            <li>An object <code>values</code>, which contains the form data</li>
+            <li>A boolean <code>isSubmitting</code>, which knows if we're actively submitting the form or not</li>
+            <li>A boolean <code>hasTriedToSubmit</code> to know if we will show the errors or not</li>
+          </ul>
+          <p>
+            These three reducers are enough to give us everything, except for validation rules and errors. We'll skip those for now.
+          </p>
+          <p>
+            What about the actions we can perform on the form? The bare minimum set is as follows:
+          </p>
+          <ul>
+            <li><code>setValue</code> to update the value of one field (or <code>setValues</code> to update many simultaneously)</li>
+            <li><code>submit</code>, to try to submit the form</li>
+            <li><code>submitSuccess</code>, if the form was successfully submitted</li>
+            <li><code>submitFailure</code>, if there was an error, e.g. a validation mismatch</li>
+          </ul>
+          <p>
+            Putting them together and adding <code>defaults</code> and <code>propTypes</code> gives us the following code:
+          </p>
+          <Highlight className='javascript'>{code.actionsReducers}</Highlight>
+          <p>
+            Seems clear enough?
+          </p>
+        </div>
+        <div className='description'>
+          <h2>The form component</h2>
+          <p>
+            We could continue extending the logic by adding error handling, validations and actual submission logic,
+            but since it's nice to already see something tangible, let's first build the component itself!
+          </p>
+          <p>
+            A very crude version will look something like this:
+          </p>
+          <Highlight className='javascript'>{code.component}</Highlight>
+          <p>
+            This code works! In fact, try it below:
+          </p>
+          <div className='demo'>
+            <CrudeForm />
+          </div>
+          <p>
+            The only problem: once you hit "submit", it will forever be stuck in the <code>isSubmitting</code> state.
+          </p>
+          <p>
+            We need to add some logic to make it actually do anything.
+          </p>
+        </div>
+        <div className='description'>
+          <h2>Handling the submissions</h2>
+
         </div>
       </div>
     )
   }
 }
-

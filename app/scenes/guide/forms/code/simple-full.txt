@@ -14,6 +14,12 @@ const defaultValues = {
   message: ''
 }
 
+const propTypes = {
+  name: PropTypes.string,
+  email: PropTypes.string,
+  message: PropTypes.string
+}
+
 const missingText = 'This field is required'
 
 @kea({
@@ -25,7 +31,7 @@ const missingText = 'This field is required'
   }),
 
   reducers: ({ actions }) => ({
-    values: [defaultValues, PropTypes.object, {
+    values: [defaultValues, PropTypes.shape(propTypes), {
       [actions.setValue]: (state, payload) => Object.assign({}, state, { [payload.key]: payload.value }),
       [actions.submitSuccess]: () => defaultValues
     }],

@@ -1,0 +1,54 @@
+// form.js
+
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+import { kea } from 'kea'
+
+const defaults = {
+  name: 'John Doe',
+  email: '',
+  message: ''
+}
+
+const propTypes = {
+  name: PropTypes.string,
+  email: PropTypes.string,
+  message: PropTypes.string
+}
+
+export default kea({
+  actions: () => ({
+    setValue: (key, value) => ({ key, value }),
+    setValues: (values) => ({ values }),
+
+    submit: true,
+    submitSuccess: true,
+    submitFailure: true
+  }),
+
+  reducers: ({ actions }) => ({
+    values: [defaults, PropTypes.shape(propTypes), {
+      [actions.setValue]: (state, payload) => {
+        return Object.assign({}, state, { [payload.key]: payload.value })
+      },
+      [actions.setValues]: (state, payload) => {
+        return Object.assign({}, state, payload.values)
+      },
+      [actions.submitSuccess]: () => defaults
+    }],
+
+    isSubmitting: [false, PropTypes.bool, {
+      [actions.submit]: () => true,
+      [actions.submitSuccess]: () => false,
+      [actions.submitFailure]: () => false
+    }],
+
+    hasTriedToSubmit: [false, PropTypes.bool, {
+      [actions.submit]: () => true,
+      [actions.submitSuccess]: () => false
+    }]
+  }),
+
+  // ...
+})
+
