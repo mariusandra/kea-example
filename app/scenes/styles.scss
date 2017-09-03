@@ -62,3 +62,22 @@ h2, h3 {
 .api-scene {
   margin: 20px;
 }
+
+.code-style-bar {
+	background: #388e3c;
+	height: 24px;
+	button {
+		color: white;
+		background: none;
+		border: 1px solid #fff;
+		cursor: pointer;
+		height: 22px;
+		margin-top: 1px;
+		margin-left: 1px;
+		outline: none;
+		&.active {
+			color: #222;
+			background: white;
+		}
+	}
+}

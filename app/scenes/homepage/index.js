@@ -5,6 +5,7 @@ import { kea } from 'kea'
 import { Link } from 'react-router-dom'
 
 import Highlight from '~/components/tags/highlight'
+import CodeStyleHighlight from '~/components/tags/code-style-highlight'
 
 import logo from '~/assets/logo.svg'
 
@@ -15,7 +16,11 @@ import Github from '../guide/github/github'
 import ConnectedToggle from '../guide/connected/connected-toggle'
 
 const code = {
-  counter: require('raw-loader!../guide/counter/code/selectors.txt'),
+  counter: {
+    decorator: require('raw-loader!./code/counter-decorator.txt'),
+    hoc: require('raw-loader!./code/counter-hoc.txt'),
+    functional: require('raw-loader!./code/counter-functional.txt'),
+  },
   slider: require('raw-loader!../guide/sliders/code/homepage.txt'),
   countdown: require('raw-loader!../guide/countdown/countdown/code.txt'),
   github: require('raw-loader!../guide/github/code/full.txt'),
@@ -81,7 +86,7 @@ export default class HomepageScene extends Component {
         <h2>Simple counter</h2>
         <div className='split'>
           <div className='code'>
-            <Highlight className='javascript'>{code.counter}</Highlight>
+            <CodeStyleHighlight language='javascript' code={code.counter} />
           </div>
           <div className='description'>
             <div className='demo'>
