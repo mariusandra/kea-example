@@ -181,7 +181,7 @@ export default class FormsScene extends Component {
           </p>
           <p>
             The easiest solution is to create a selector <code>errors</code> that depends on <code>values</code>. This selector
-            checks the content of each field and returns and object describing which fields have errors.
+            checks the content of each field and returns an object describing which fields have errors.
           </p>
           <p>
             We'll also create another selector <code>hasErrors</code>, which gives a simple yes/no answer to the question "does this form have errors?".
