@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { kea } from 'kea'
 
-const logic = kea({
+const counterLogic = kea({
   actions: () => ({
     increment: (amount) => ({ amount }),
     decrement: (amount) => ({ amount })
@@ -35,4 +35,4 @@ const Counter = ({
     <button onClick={() => decrement(1)}>Decrement</button>
   </div>
 
-export default logic(Counter)
+export default counterLogic(Counter)

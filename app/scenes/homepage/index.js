@@ -21,10 +21,26 @@ const code = {
     hoc: require('raw-loader!./code/counter-hoc.txt'),
     functional: require('raw-loader!./code/counter-functional.txt'),
   },
-  slider: require('raw-loader!../guide/sliders/code/homepage.txt'),
-  countdown: require('raw-loader!../guide/countdown/countdown/code.txt'),
-  github: require('raw-loader!../guide/github/code/full.txt'),
-  connected: require('raw-loader!../guide/connected/code/homepage.txt')
+  slider: {
+    decorator: require('raw-loader!./code/slider-decorator.txt'),
+    hoc: require('raw-loader!./code/slider-hoc.txt'),
+    functional: require('raw-loader!./code/slider-functional.txt'),
+  },
+  github: {
+    decorator: require('raw-loader!./code/github-decorator.txt'),
+    hoc: require('raw-loader!./code/github-hoc.txt'),
+    functional: require('raw-loader!./code/github-functional.txt'),
+  },
+  countdown: {
+    decorator: require('raw-loader!./code/countdown-decorator.txt'),
+    hoc: require('raw-loader!./code/countdown-hoc.txt'),
+    functional: require('raw-loader!./code/countdown-functional.txt'),
+  },
+  connected: {
+    decorator: require('raw-loader!./code/connected-decorator.txt'),
+    hoc: require('raw-loader!./code/connected-hoc.txt'),
+    functional: require('raw-loader!./code/connected-functional.txt'),
+  }
 }
 
 @kea({})
@@ -100,7 +116,7 @@ export default class HomepageScene extends Component {
         <h2>Slider</h2>
         <div className='split'>
           <div className='code'>
-            <Highlight className='javascript'>{code.slider}</Highlight>
+            <CodeStyleHighlight language='javascript' code={code.slider} />
           </div>
           <div className='description'>
             <div className='demo'>
@@ -114,7 +130,7 @@ export default class HomepageScene extends Component {
         <h2>Github</h2>
         <div className='split'>
           <div className='code'>
-            <Highlight className='javascript'>{code.github}</Highlight>
+            <CodeStyleHighlight language='javascript' code={code.github} />
           </div>
           <div className='description'>
             <div className='demo'>
@@ -128,7 +144,7 @@ export default class HomepageScene extends Component {
         <h2>Debounced countdown</h2>
         <div className='split'>
           <div className='code'>
-            <Highlight className='javascript'>{code.countdown}</Highlight>
+            <CodeStyleHighlight language='javascript' code={code.countdown} />
           </div>
           <div className='description'>
             <div className='demo'>
@@ -141,7 +157,7 @@ export default class HomepageScene extends Component {
         <h2>Connected logic stores</h2>
         <div className='split'>
           <div className='code'>
-            <Highlight className='javascript'>{code.connected}</Highlight>
+            <CodeStyleHighlight language='javascript' code={code.connected} />
           </div>
           <div className='description'>
             <div className='demo'>

@@ -1,0 +1,70 @@
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+import { kea } from 'kea'
+
+import { take, race, put } from 'redux-saga/effects'
+
+import delay from '~/utils/delay' // promise-based timeout helper
+import range from '~/utils/range' // range(3) === [0, 1, 2]
+
+import images from './images'     // array of objects [{ src, author }, ...]
+
+const sliderLogic = kea({
+  actions: () => ({
+    updateSlide: index => ({ index })
+  }),
+
+  reducers: ({ actions, key }) => ({
+    currentSlide: [0, PropTypes.number, {
+      [actions.updateSlide]: (state, payload) => payload.index % images.length
+    }]
+  }),
+
+  selectors: ({ selectors }) => ({
+    currentImage: [
+      () => [selectors.currentSlide],
+      (currentSlide) => images[currentSlide],
+      PropTypes.object
+    ]
+  }),
+
+  start: function * () {
+    const { updateSlide } = this.actions
+
+    while (true) {
+      const { timeout } = yield race({
+        change: take(updateSlide.toString()),
+        timeout: delay(5000)
+      })
+
+      if (timeout) {
+        const currentSlide = yield this.get('currentSlide')
+        yield put(updateSlide(currentSlide + 1))
+      }
+    }
+  }
+})
+
+class Slider extends Component {
+  render () {
+    const { currentSlide, currentImage } = this.props
+    const { updateSlide } = this.actions
+
+    const title = `Image copyright by ${currentImage.author}`
+
+    return (
+      <div className='kea-slider'>
+        <img src={currentImage.src} alt={title} title={title} />
+        <div className='buttons'>
+          {range(images.length).map(i => (
+            <span key={i}
+                  className={i === currentSlide ? 'selected' : ''}
+                  onClick={() => updateSlide(i)} />
+          ))}
+        </div>
+      </div>
+    )
+  }
+}
+
+export default sliderLogic(Slider)
