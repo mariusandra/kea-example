@@ -106,7 +106,7 @@ export default class FormsScene extends Component {
           <ul>
             <li>An object <code>values</code>, which contains the form data (<code>name</code>, <code>email</code> and <code>message</code>)</li>
             <li>A boolean <code>isSubmitting</code>, which knows if we're actively submitting the form or not</li>
-            <li>A boolean <code>hasTriedToSubmit</code> to know if we will show errors or not</li>
+            <li>A boolean <code>showErrors</code> to know if we will show errors or not</li>
           </ul>
           <p>
             These three reducers are enough to give us everything, except for validation rules and errors. We'll skip those for now.
@@ -208,21 +208,21 @@ export default class FormsScene extends Component {
             Almost perfect! The only thing: we don't want to show the <span style={{color: 'red'}}>red</span> errors <em>before</em> the user submits the form.
           </p>
           <p>
-            Remember the <code>hasTriedToSubmit</code> reducer from before? Now is its time to shine!
+            Remember the <code>showErrors</code> reducer from before? Now is its time to shine!
           </p>
           <p>
             We have two choices with it. We can either use it in our <code>render</code> function like so:
           </p>
           <Highlight className='javascript'>{code.showErrorsRender}</Highlight>
           <p>
-            ... or we can simply return an empty hash for the <code>errors</code> selector until <code>hasTriedToSubmit</code> becomes true.
+            ... or we can simply return an empty hash for the <code>errors</code> selector until <code>showErrors</code> becomes true.
           </p>
           <p>
             I prefer the second approach as it moves the form logic away from the <code>render</code> function.
           </p>
           <p>
             In order to do this, we'll rename the previous selector <code>errors</code> into <code>allErrors</code> and make an new
-            selector <code>errors</code>, that depends on both <code>allErrors</code> and <code>hasTriedToSubmit</code>. We'll also
+            selector <code>errors</code>, that depends on both <code>allErrors</code> and <code>showErrors</code>. We'll also
             make <code>hasErrors</code> depend on the renamed <code>allErrors</code>:
           </p>
           <Highlight className='javascript'>{code.showErrorsSelector}</Highlight>

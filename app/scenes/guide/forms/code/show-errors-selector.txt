@@ -23,8 +23,8 @@ export default kea({
     ],
 
     errors: [
-      () => [selectors.allErrors, selectors.hasTriedToSubmit],
-      (errors, hasTriedToSubmit) => hasTriedToSubmit ? errors : {},
+      () => [selectors.allErrors, selectors.showErrors],
+      (errors, showErrors) => showErrors ? errors : {},
       PropTypes.object
     ]
   })

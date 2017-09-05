@@ -42,7 +42,7 @@ const propTypes = {
       [actions.submitSuccess]: () => false,
       [actions.submitFailure]: () => false
     }],
-    hasTriedToSubmit: [false, PropTypes.bool, {
+    showErrors: [false, PropTypes.bool, {
       [actions.submit]: () => true,
       [actions.submitSuccess]: () => false
     }]

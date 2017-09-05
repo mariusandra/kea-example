@@ -43,7 +43,7 @@ const missingText = 'This field is required'
       [actions.submitFailure]: () => false
     }],
 
-    hasTriedToSubmit: [false, PropTypes.bool, {
+    showErrors: [false, PropTypes.bool, {
       [actions.submit]: () => true,
       [actions.submitSuccess]: () => false
     }]
@@ -67,8 +67,8 @@ const missingText = 'This field is required'
     ],
 
     errors: [
-      () => [selectors.allErrors, selectors.hasTriedToSubmit],
-      (errors, hasTriedToSubmit) => hasTriedToSubmit ? errors : {},
+      () => [selectors.allErrors, selectors.showErrors],
+      (errors, showErrors) => showErrors ? errors : {},
       PropTypes.object
     ]
   }),

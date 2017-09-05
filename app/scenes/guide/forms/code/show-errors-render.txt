@@ -1,12 +1,12 @@
 export default class Form extends Component {
   render () {
-    const { isSubmitting, errors, values, hasTriedToSubmit } = this.props
+    const { isSubmitting, errors, values, showErrors } = this.props
 
     return (
       <div>
         <div className='form-field'>
           ...
-          {hasTriedToSubmit && errors.name
+          {showErrors && errors.name
             ? <div className='form-error'>{errors.name}</div>
             : null}
         </div>
