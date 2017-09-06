@@ -28,7 +28,8 @@ export default class API extends Component {
         <h3>Creating a store for your tests</h3>
         <Highlight className='javascript'>{code.store}</Highlight>
 
-        <h3>Testing logic</h3>
+        <h2>Testing logic</h2>
+
         <Highlight className='javascript'>{code.logic}</Highlight>
 
         <h3>Testing components with enzyme</h3>

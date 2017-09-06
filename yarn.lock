@@ -1465,7 +1465,7 @@ combined-stream@^1.0.5, combined-stream@~1.0.5:
   dependencies:
     delayed-stream "~1.0.0"
 
-commander@^2.9.0, commander@tj/commander.js#c6236d9504b60d9a2e6aa7fc3ce17a12f48f4a3e:
+commander@^2.9.0, "commander@github:tj/commander.js#c6236d9504b60d9a2e6aa7fc3ce17a12f48f4a3e":
   version "2.9.0"
   resolved "https://codeload.github.com/tj/commander.js/tar.gz/c6236d9504b60d9a2e6aa7fc3ce17a12f48f4a3e"
   dependencies:
@@ -3358,9 +3358,9 @@ jsx-ast-utils@^2.0.0:
   dependencies:
     array-includes "^3.0.3"
 
-kea@^0.23.0:
-  version "0.23.0"
-  resolved "https://registry.yarnpkg.com/kea/-/kea-0.23.0.tgz#2e3b5084d92297164a8a8357598b9e9515711955"
+kea@^0.23.5:
+  version "0.23.5"
+  resolved "https://registry.yarnpkg.com/kea/-/kea-0.23.5.tgz#7779b787a0e3c5e4c39fc735dae0da625e0fc597"
   dependencies:
     babel-runtime "^6.25.0"
     change-case "^3.0.1"
