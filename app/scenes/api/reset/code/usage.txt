@@ -1,0 +1,10 @@
+// logic.test.js
+import { resetKeaCache } from 'kea'
+
+beforeEach(() => {
+  resetKeaCache()
+})
+
+test('starts from a clear state', () => {
+  // ...
+})

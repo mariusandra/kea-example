@@ -27,6 +27,7 @@ export default () => (
       <Route path='/guide/connected-services' component={bundles.guideConnectedServices} />
       <Route path='/guide/migration' component={bundles.guideMigration} />
       <Route path='/guide/forms' component={bundles.guideForms} />
+      <Route path='/guide/testing' component={bundles.guideTesting} />
 
       <Route path='/api' exact render={apiRedirect} />
       <Route path='/api/logic' component={bundles.apiLogic} />
@@ -35,6 +36,7 @@ export default () => (
       <Route path='/api/reducer' component={bundles.apiReducer} />
       <Route path='/api/saga' component={bundles.apiSaga} />
       <Route path='/api/action' component={bundles.apiAction} />
+      <Route path='/api/reset' component={bundles.apiReset} />
 
       <Route path='/examples' exact render={examplesRedirect} />
       <Route path='/examples/todos' component={bundles.examplesTodos} />

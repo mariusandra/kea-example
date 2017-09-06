@@ -27,7 +27,8 @@ const menu = {
           { url: '/guide/github', title: 'Github API' },
           { url: '/guide/connected', title: 'Connected Logic' },
           { url: '/guide/forms', title: 'Forms' },
-          { url: '/guide/migration', title: 'Migrating Redux Apps' }
+          { url: '/guide/migration', title: 'Migrating Redux Apps' },
+          { url: '/guide/testing', title: 'Testing' }
           // TODO: not yet ready
           // { url: '/guide/connected-services', title: 'Connected Services' }
         ]
@@ -40,7 +41,8 @@ const menu = {
           { url: '/api/connect', title: 'connect(options)' },
           { url: '/api/reducer', title: 'keaReducer' },
           { url: '/api/saga', title: 'keaSaga' },
-          { url: '/api/action', title: 'createAction' }
+          { url: '/api/action', title: 'createAction' },
+          { url: '/api/reset', title: 'resetKeaCache' }
         ]
       }
     ]
