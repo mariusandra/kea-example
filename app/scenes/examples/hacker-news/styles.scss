@@ -1,0 +1,64 @@
+.example-hacker-news-scene {
+  margin: 20px;
+  max-width: 930px;
+  font-size: 14px;
+
+  a {
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .hn-header {
+    background: #ff6600;
+    line-height: 24px;
+    font-size: 14px;
+    img {
+      vertical-align: top;
+      margin-left: 2px;
+      margin-top: 2px;
+    }
+    a {
+      margin-left: 5px;
+      margin-right: 5px;
+      color: #000;
+      &.root-link {
+        font-weight: bold;
+      }
+      &.active {
+        color: white;
+      }
+    }
+  }
+
+  .hn-body {
+    background: #f6f6ef;
+    padding: 10px;
+
+    .hn-story {
+      margin-bottom: 7px;
+      td {
+        vertical-align: top;
+        &.count {
+          text-align: right;
+          padding-left: 0;
+        }
+      }
+
+      .first-line {
+        a {
+          color: #222;
+        }
+      }
+      .small-line {
+        font-size: 11px;
+        margin-top: 2px;
+        color: #888;
+        a {
+          color: #888;
+        }
+      }
+    }
+  }
+}

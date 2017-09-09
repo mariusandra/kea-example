@@ -25,6 +25,7 @@ export default {
 
   examplesTodos: async('ExamplesTodos', () => import(/* webpackChunkName: "examplesTodos" */'./examples/todos')),
   examplesGithub: async('ExamplesGithub', () => import(/* webpackChunkName: "examplesGithub" */'./examples/github')),
+  examplesHackerNews: async('ExamplesHackerNews', () => import(/* webpackChunkName: "examplesHackerNews" */'./examples/hacker-news')),
 
   playground: async('Playground', () => import(/* webpackChunkName: "playground" */'./playground'))
 }
