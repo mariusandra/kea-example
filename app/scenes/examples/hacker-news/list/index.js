@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { kea } from 'kea'
 import { put, fork } from 'redux-saga/effects'
 import { Link } from 'react-router-dom'
+import NProgress from 'nprogress'
 
 import firebase from 'firebase/app'
 import 'firebase/database'
@@ -30,8 +31,13 @@ const hnservice = hackernews.init(firebase)
     [actions.loadStories]: function * (action) {
       const { setStories } = this.actions
       const { type, page } = action.payload
+
+      NProgress.start()
+
       const stories = yield hnservice.stories(type, { page: page, count: 30 })
       yield put(setStories(stories))
+
+      NProgress.done()
     }
   })
 })
