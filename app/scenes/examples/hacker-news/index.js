@@ -16,10 +16,7 @@ export default class ExampleHackerNewsScene extends Component {
         <Header />
         <div className='hn-body'>
           <Route path='/examples/hackernews/:type?/:page?' exact render={props => (
-            <List
-              key={props.match.params.type + '_' + props.match.params.page}
-              type={props.match.params.type || 'top'}
-              page={parseInt(props.match.params.page || 1)} />
+            <List type={props.match.params.type || 'top'} page={parseInt(props.match.params.page || 1)} />
           )} />
         </div>
       </div>
