@@ -1,13 +1,13 @@
 import './styles.scss'
 
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
-import { kea } from 'kea'
-import { Route } from 'react-router'
-import { Link } from 'react-router-dom'
+import { Route, Switch } from 'react-router'
 
 import Header from './header'
+
 import List from './list'
+import User from './user'
+import Item from './item'
 
 export default class ExampleHackerNewsScene extends Component {
   render () {
@@ -15,9 +15,17 @@ export default class ExampleHackerNewsScene extends Component {
       <div className='example-hacker-news-scene'>
         <Header />
         <div className='hn-body'>
-          <Route path='/examples/hackernews/:type?/:page?' exact render={props => (
-            <List type={props.match.params.type || 'top'} page={parseInt(props.match.params.page || 1)} />
-          )} />
+          <Switch>
+            <Route path='/examples/hackernews/user/:user' render={props => (
+              <User user={props.match.params.user} />
+            )} />
+            <Route path='/examples/hackernews/item/:item' render={props => (
+              <Item id={props.match.params.item} />
+            )} />
+            <Route path='/examples/hackernews/:type?/:page?' render={props => (
+              <List type={props.match.params.type || 'top'} page={parseInt(props.match.params.page || 1)} />
+            )} />
+          </Switch>
         </div>
       </div>
     )

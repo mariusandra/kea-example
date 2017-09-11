@@ -36,6 +36,14 @@
     background: #f6f6ef;
     padding: 10px;
 
+    p {
+      margin: 0;
+    }
+
+    .indent {
+      margin-left: 10px;
+    }
+
     .hn-story {
       margin-bottom: 7px;
       td {
@@ -58,6 +66,14 @@
         a {
           color: #888;
         }
+      }
+    }
+
+    .item {
+      margin-bottom: 20px;
+      .small-line {
+        font-size: 11px;
+        color: #888;
       }
     }
   }
