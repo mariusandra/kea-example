@@ -1,5 +1,6 @@
 .example-hacker-news-scene {
-  margin: 20px;
+  margin: 20px auto;
+  padding: 0 20px;
   max-width: 930px;
   font-size: 14px;
 
@@ -69,8 +70,8 @@
       }
     }
 
-    .item {
-      margin-bottom: 20px;
+    .comment {
+      margin-top: 20px;
       .small-line {
         font-size: 11px;
         color: #888;

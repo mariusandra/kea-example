@@ -16,38 +16,56 @@ const Story = ({ title, url }) =>
   </div>
 
 const Comment = ({ text, by }) =>
-  <div className='item'>
+  <div className='comment'>
     <div className='small-line'>
       by {by}
     </div>
     <div dangerouslySetInnerHTML={{ __html: text }} />
   </div>
 
+const Kid = ({ id, kids }) =>
+  <div>
+    {kids[id] ? <Comment {...kids[id]} /> : 'Loading...'}
+    {kids[id] && kids[id].kids && kids[id].kids.length > 0 ? (
+      <div className='indent'>
+        {kids[id].kids.map(kidId => <Kid key={kidId} id={kidId} kids={kids} />)}
+      </div>
+    ) : null}
+  </div>
+
 const logic = kea({
-  key: (props) => props.id,
-  path: (key) => ['scenes', 'hackerNews', 'items', key],
+  // key: (props) => props.id,
+  path: (key) => ['scenes', 'hackerNews', 'item'],
+
+  propTypes: {
+    id: PropTypes.string
+  },
 
   actions: () => ({
-    loadItem: (id) => ({ id, key: id }),
-    setItem: (item) => ({ item, key: item.id }),
-    loadKids: (id, ids) => ({ id, ids, key: id }),
-    setKids: (kids, key) => ({ kids, key })
+    loadItem: (id) => ({ id }),
+    itemLoaded: (item) => ({ item }),
+    kidsLoaded: (kids) => ({ kids }),
+    finishedLoading: true
   }),
 
   reducers: ({ actions, key, props }) => ({
     isLoading: [!props.itemData, PropTypes.bool, {
-      [actions.loadItem]: (state, payload) => parseInt(payload.key) === parseInt(key) ? true : state,
-      [actions.setItem]: (state, payload) => parseInt(payload.key) === parseInt(key) ? false : state
+      [actions.loadItem]: (state, payload) => true,
+      [actions.finishedLoading]: () => false
     }],
     loadedItemData: [null, PropTypes.object, {
-      [actions.setItem]: (state, payload) => parseInt(payload.key) === parseInt(key) ? payload.item : state
+      [actions.loadItem]: () => null,
+      [actions.itemLoaded]: (state, payload) => payload.item
     }],
-    kidsLoading: [false, PropTypes.bool, {
-      [actions.loadKids]: (state, payload) => parseInt(payload.key) === parseInt(key) ? true : state,
-      [actions.setKids]: (state, payload) => parseInt(payload.key) === parseInt(key) ? false : state
-    }],
-    kids: [null, PropTypes.array, {
-      [actions.setKids]: (state, payload) => parseInt(payload.key) === parseInt(key) ? payload.kids : state
+    kids: [{}, PropTypes.object, {
+      [actions.loadItem]: () => ({}),
+      [actions.kidsLoaded]: (state, payload) => {
+        let newState = Object.assign({}, state)
+        payload.kids.forEach(kid => {
+          newState[kid.id] = kid
+        })
+        return newState
+      }
     }]
   }),
 
@@ -61,32 +79,26 @@ const logic = kea({
 
   takeEvery: ({ actions }) => ({
     [actions.loadItem]: function * (action) {
-      const { setItem, loadKids } = this.actions
+      const { itemLoaded, kidsLoaded } = this.actions
       const { id } = action.payload
 
       NProgress.start()
 
       const itemData = yield hnAPI.items(id)
+      yield put(itemLoaded(itemData[0]))
 
-      yield put(setItem(itemData[0]))
+      let unloadedKids = [].concat(itemData[0].kids)
 
-      if (itemData[0].kids) {
-        yield put(loadKids(id, itemData[0].kids))
+      while (unloadedKids.length > 0) {
+        const loadedKids = yield hnAPI.items(unloadedKids)
+        yield put(kidsLoaded(loadedKids))
+        unloadedKids = []
+        loadedKids.forEach(kid => {
+          if (kid.kids) {
+            unloadedKids = unloadedKids.concat(kid.kids)
+          }
+        })
       }
-
-      NProgress.done()
-    },
-
-    [actions.loadKids]: function * (action) {
-      const { setKids } = this.actions
-      const { id, ids } = action.payload
-
-      NProgress.start()
-
-      const kids = yield hnAPI.items(ids)
-      console.log(kids)
-
-      yield put(setKids(kids, id))
 
       NProgress.done()
     }
@@ -101,9 +113,6 @@ class Item extends Component {
     if (id && !itemData) {
       loadItem(id)
     }
-    // if (itemData && itemData.kids) {
-    //   loadKids(id, itemData.kids)
-    // }
   }
 
   componentWillUpdate (nextProps) {
@@ -115,14 +124,10 @@ class Item extends Component {
   }
 
   render () {
-    const { isLoading, item, kids, kidsLoading } = this.props
-
-    if (isLoading) {
-      return <div>Loading...</div>
-    }
+    const { isLoading, item, kids } = this.props
 
     if (!item) {
-      return <div>Nothing found!</div>
+      return <div>{isLoading ? 'Loading...' : 'Nothing found!'}</div>
     }
 
     return (
@@ -130,11 +135,10 @@ class Item extends Component {
         {item.type === 'story' ? <Story {...item} /> : null}
         {item.type === 'comment' ? <Comment {...item} /> : null}
 
-        <div className='indent'>
-          {kidsLoading ? 'Loading...' : null}
-          {kids ? kids.map(kid => (
-            <ConnectedItem key={kid.id} id={kid.id} itemData={kid} />
-          )) : null}
+        <div>
+          {item.kids.map(id => (
+            <Kid key={id} kids={kids} id={id} />
+          ))}
         </div>
       </div>
     )
