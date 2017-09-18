@@ -4,11 +4,13 @@ export default function (url) {
   if (domainCache[url]) {
     return domainCache[url]
   }
-  var link = document.createElement('a')
+  const link = document.createElement('a')
   link.setAttribute('href', url)
-  var parts = link.hostname.split('.')
+  const parts = link.hostname.split('.')
 
-  domainCache[url] = parts.slice(parts.length - 2, parts.length).join('.')
+  const withCo = parts.length > 2 && parts[parts.length - 2] === 'co'
+
+  domainCache[url] = parts.slice(parts.length - (withCo ? 3 : 2), parts.length).join('.')
 
   return domainCache[url]
 }

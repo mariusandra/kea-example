@@ -2,17 +2,27 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { kea } from 'kea'
 import { put } from 'redux-saga/effects'
+import { Link } from 'react-router-dom'
 import NProgress from 'nprogress'
 
+import getDomain from '~/scenes/examples/hacker-news/utils/get-domain'
 import hnAPI from '~/scenes/examples/hacker-news/utils/api'
 
-const Story = ({ title, url }) =>
-  <div>
-    {title ? (
-      url ? (
+const Story = ({ title, url, id, score, by, descendants }) =>
+  <div className='hn-story'>
+    <div className='first-line'>
+      {url ? (
         <a href={url}>{title}</a>
-      ) : null
-    ) : null}
+      ) : (
+        <Link to={`/examples/hackernews/item/${id}`}>{title}</Link>
+      )}
+      {url ? (
+        <span className='small-line'> ({getDomain(url)})</span>
+      ) : null}
+    </div>
+    <div className='small-line'>
+      {score} points by <Link to={`/examples/hackernews/user/${by}`}>{by}</Link> | <Link to={`/examples/hackernews/item/${id}`}>{descendants} comments</Link>
+    </div>
   </div>
 
 const Comment = ({ text, by }) =>
