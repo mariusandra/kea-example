@@ -5,8 +5,9 @@ import { put } from 'redux-saga/effects'
 import { Link } from 'react-router-dom'
 import NProgress from 'nprogress'
 
-import getDomain from '~/scenes/examples/hacker-news/utils/get-domain'
 import hnAPI from '~/scenes/examples/hacker-news/utils/api'
+
+import Story from './story'
 
 @kea({
   actions: () => ({
@@ -32,6 +33,7 @@ import hnAPI from '~/scenes/examples/hacker-news/utils/api'
       NProgress.start()
 
       const stories = yield hnAPI.stories(type, { page: page, count: 30 })
+      console.log(stories)
       yield put(setStories(stories))
 
       NProgress.done()
@@ -71,24 +73,12 @@ export default class List extends Component {
         <table>
           <tbody>
             {stories.map(story => (
-              <tr key={story.id} className='hn-story'>
+              <tr key={story.id} className='hn-list'>
                 <td className='count'>
                   {count++}.
                 </td>
                 <td>
-                  <div className='first-line'>
-                    {story.url ? (
-                      <a href={story.url}>{story.title}</a>
-                    ) : (
-                      <Link to={`/examples/hackernews/item/${story.id}`}>{story.title}</Link>
-                    )}
-                    {story.url ? (
-                      <span className='small-line'> ({getDomain(story.url)})</span>
-                    ) : null}
-                  </div>
-                  <div className='small-line'>
-                    {story.score} points by <Link to={`/examples/hackernews/user/${story.by}`}>{story.by}</Link> | <Link to={`/examples/hackernews/item/${story.id}`}>{story.descendants} comments</Link>
-                  </div>
+                  <Story {...story} />
                 </td>
               </tr>
             ))}

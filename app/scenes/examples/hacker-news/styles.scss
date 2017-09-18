@@ -2,9 +2,11 @@
   margin: 20px auto;
   padding: 0 20px;
   max-width: 930px;
-  font-size: 14px;
+  font-size: 12px;
+  font-family: Verdana, Geneva, sans-serif;
 
   a {
+    color: #888;
     text-decoration: none;
     &:hover {
       text-decoration: underline;
@@ -45,7 +47,7 @@
       margin-left: 10px;
     }
 
-    .hn-story {
+    .hn-list {
       margin-bottom: 7px;
       td {
         vertical-align: top;
@@ -54,7 +56,9 @@
           padding-left: 0;
         }
       }
+    }
 
+    .hn-story {
       .first-line {
         a {
           color: #222;
@@ -70,10 +74,27 @@
       }
     }
 
+    .story-body {
+      margin-top: 7px;
+    }
+
     .comment {
       margin-top: 20px;
+      margin-left: 15px;
+      position: relative;
+
+      &:before {
+        content: '▲';
+        color: #888;
+        font-size: 10px;
+        position: absolute;
+        top: 0;
+        left: -15px;
+      }
+
       .small-line {
         font-size: 11px;
+        margin-bottom: 4px;
         color: #888;
       }
     }
