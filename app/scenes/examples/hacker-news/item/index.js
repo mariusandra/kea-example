@@ -73,7 +73,7 @@ const logic = kea({
       const itemData = yield hnAPI.items(id)
       yield put(itemLoaded(itemData[0]))
 
-      let unloadedKids = [].concat(itemData[0].kids)
+      let unloadedKids = itemData[0].kids || []
 
       while (unloadedKids.length > 0) {
         const loadedKids = yield hnAPI.items(unloadedKids)
@@ -126,7 +126,7 @@ class Item extends Component {
         {item.type === 'comment' ? <Comment {...item} /> : null}
 
         <div>
-          {item.kids.map(id => (
+          {item.kids && item.kids.map(id => (
             <Kid key={id} kids={kids} id={id} />
           ))}
         </div>

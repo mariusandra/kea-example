@@ -22,9 +22,7 @@ export default class ExampleHackerNewsScene extends Component {
             <Route path='/examples/hackernews/item/:item' render={props => (
               <Item id={props.match.params.item} />
             )} />
-            <Route path='/examples/hackernews/:type?/:page?' render={props => (
-              <List type={props.match.params.type || 'top'} page={parseInt(props.match.params.page || 1)} />
-            )} />
+            <Route path='/examples/hackernews/:type?/:page?' render={props => <List />} />
           </Switch>
         </div>
       </div>
