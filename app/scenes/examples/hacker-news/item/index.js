@@ -1,13 +1,20 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { kea } from 'kea'
-import { put } from 'redux-saga/effects'
+import { put, call } from 'redux-saga/effects'
 import NProgress from 'nprogress'
+
+import { LOCATION_CHANGE } from 'react-router-redux'
 
 import hnAPI from '~/scenes/examples/hacker-news/utils/api'
 
 import Story from '../list/story'
 import Comment from './comment'
+
+const getItemFromUrl = (pathname) => {
+  const urlParts = pathname.split('/examples/hackernews/item/').join('').split('/')
+  return urlParts[0]
+}
 
 const Kid = ({ id, kids }) =>
   <div>
@@ -19,14 +26,7 @@ const Kid = ({ id, kids }) =>
     ) : null}
   </div>
 
-const logic = kea({
-  // key: (props) => props.id,
-  path: (key) => ['scenes', 'hackerNews', 'item'],
-
-  propTypes: {
-    id: PropTypes.string
-  },
-
+@kea({
   actions: () => ({
     loadItem: (id) => ({ id }),
     itemLoaded: (item) => ({ item }),
@@ -63,10 +63,24 @@ const logic = kea({
     ]
   }),
 
-  takeEvery: ({ actions }) => ({
-    [actions.loadItem]: function * (action) {
+  * start () {
+    yield call(this.workers.loadItem)
+  },
+
+  takeEvery: ({ actions, workers }) => ({
+    [LOCATION_CHANGE]: function * (action) {
+      if (action.payload.pathname.indexOf('/examples/hackernews/item/')) {
+        yield call(workers.loadItem)
+      }
+    }
+  }),
+
+  workers: {
+    * loadItem (action) {
       const { itemLoaded, kidsLoaded } = this.actions
-      const { id } = action.payload
+
+      const pathname = (action && action.payload && action.payload.pathname) || window.location.pathname
+      const id = getItemFromUrl(pathname)
 
       NProgress.start()
 
@@ -76,7 +90,7 @@ const logic = kea({
       let unloadedKids = itemData[0].kids || []
 
       while (unloadedKids.length > 0) {
-        const loadedKids = yield hnAPI.items(unloadedKids)
+        const loadedKids = yield hnAPI.items(unloadedKids.filter(i => i))
         yield put(kidsLoaded(loadedKids))
         unloadedKids = []
         loadedKids.forEach(kid => {
@@ -88,10 +102,9 @@ const logic = kea({
 
       NProgress.done()
     }
-  })
+  }
 })
-
-class Item extends Component {
+export default class Item extends Component {
   componentDidMount () {
     const { id, itemData } = this.props
     const { loadItem } = this.actions
@@ -134,7 +147,3 @@ class Item extends Component {
     )
   }
 }
-
-const ConnectedItem = logic(Item)
-
-export default ConnectedItem
