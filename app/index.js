@@ -10,8 +10,8 @@ import './index.html'
 
 import bundles from './scenes/bundles'
 
-function render () {
-  ReactDOM.render(
+function deploy (method) {
+  method(
     <Provider store={store}>
       <ConnectedRouter history={history}>
         <App />
@@ -21,9 +21,17 @@ function render () {
   )
 }
 
+function render () {
+  deploy(ReactDOM.render)
+}
+
+function hydrate () {
+  deploy(ReactDOM.hydrate)
+}
+
 // do we have to preload bundles before rendering?
 if (typeof window !== 'undefined' && window.__keaPrerender) {
-  Promise.all(window.__keaPrerender.map(chunk => bundles[chunk].loadComponent())).then(render).catch(render)
+  Promise.all(window.__keaPrerender.map(chunk => bundles[chunk].loadComponent())).then(hydrate).catch(render)
 } else {
   render()
 }
