@@ -121,7 +121,7 @@ export default class HomepageScene extends Component {
           </div>
         </div>
 
-        <h2>Delayed Counter <small>with kea-thunk</small></h2>
+        <h2>Delayed Counter <small>with <Link to='/effects/thunk'>kea-thunk</Link></small></h2>
         <div className='split'>
           <div className='code'>
             <CodeStyleHighlight language='javascript' code={code.thunk} />
@@ -135,7 +135,7 @@ export default class HomepageScene extends Component {
           </div>
         </div>
 
-        <h2>Slider <small>with kea-saga</small></h2>
+        <h2>Slider <small>with <Link to='/effects/saga'>kea-saga</Link></small></h2>
         <div className='split'>
           <div className='code'>
             <CodeStyleHighlight language='javascript' code={code.slider} />
@@ -149,7 +149,7 @@ export default class HomepageScene extends Component {
           </div>
         </div>
 
-        <h2>Github <small>with kea-saga</small></h2>
+        <h2>Github <small>with <Link to='/effects/saga'>kea-saga</Link></small></h2>
         <div className='split'>
           <div className='code'>
             <CodeStyleHighlight language='javascript' code={code.github} />
@@ -163,7 +163,7 @@ export default class HomepageScene extends Component {
           </div>
         </div>
 
-        <h2>Debounced countdown <small>with kea-saga</small></h2>
+        <h2>Debounced countdown <small>with <Link to='/effects/saga'>kea-saga</Link></small></h2>
         <div className='split'>
           <div className='code'>
             <CodeStyleHighlight language='javascript' code={code.countdown} />

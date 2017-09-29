@@ -13,7 +13,7 @@ const delay = ms => new Promise(resolve => window.setTimeout(resolve, ms))
       [actions.increase]: (state, payload) => state + 1
     }]
   }),
-  thunks: ({ actions }) => ({
+  thunks: ({ actions, dispatch, getState }) => ({
     increaseAsync: async (ms) => {
       await delay(ms)
       await actions.increase()
