@@ -91,7 +91,7 @@ export default class HomepageScene extends Component {
             </li>
             <li>
               <strong>Composability</strong>:
-              Seamlessly <Link to='/guide/connected'>connect</Link> different parts of your application. Build for large and ambitious apps.
+              Seamlessly <Link to='/guide/connected'>connect</Link> different parts of your application. Built for large and ambitious apps.
             </li>
           </ul>
           <p>
