@@ -1,16 +1,42 @@
-import { keaReducer, keaSaga } from 'kea'
+import { kea } from 'kea'
 
-const reducers = combineReducers({
-  scenes: keaReducer('scenes'),
-  // ... other reducers you might have
+export default kea({
+  // ... see the api docs for more
+
+  // saga functions
+
+  start: function * () {
+    // saga started or component mounted
+    console.log(this)
+  },
+
+  stop: function * () {
+    // saga cancelled or component unmounted
+  },
+
+  takeEvery: ({ actions, workers }) => ({
+    [actions.simpleAction]: function * () {
+      // inline worker
+    },
+    [actions.actionWithDynamicPayload]: workers.dynamicWorker
+  }),
+
+  takeLatest: ({ actions, workers }) => ({
+    [actions.actionWithStaticPayload]: function * () {
+      // inline worker
+    },
+    [actions.actionWithManyParameters]: workers.dynamicWorker
+  }),
+
+  workers: {
+    * dynamicWorker (action) {
+      const { id, message } = action.payload // if from takeEvery/takeLatest
+      // reference with workers.dynamicWorker
+    },
+    longerWayToDefine: function * () {
+      // another way to define a worker
+    }
+  },
+
+  sagas: [saga1, saga2]
 })
-
-const sagaMiddleware = createSagaMiddleware()
-const finalCreateStore = compose(
-  applyMiddleware(sagaMiddleware),
-  // other middleware
-)(createStore)
-
-const store = finalCreateStore(reducers)
-
-sagaMiddleware.run(keaSaga)
