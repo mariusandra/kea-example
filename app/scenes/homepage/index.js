@@ -86,8 +86,12 @@ export default class HomepageScene extends Component {
               use <Link to='/effects/thunk'>thunks</Link> with redux-thunk, <Link to='/effects/saga'>sagas</Link> with redux-saga or (soon!) <a href='https://github.com/keajs/kea/issues/40'>epics</a> with redux-observable.
             </li>
             <li>
-              <strong>Composability</strong>:
-              Seamlessly <Link to='/guide/connected'>connect</Link> different parts of your application. Built for large and ambitious apps.
+              <strong>Wrappable</strong>:
+              Write logic alongside React components. Easier than <code>setState</code> and perfect for small components.
+            </li>
+            <li>
+              <strong>Connectable</strong>:
+              Pull in data and actions through ES6+ <Link to='/guide/connected'>imports</Link>. Built for large and ambitious apps.
             </li>
             <li>
               <strong>No boilerplate</strong>:
