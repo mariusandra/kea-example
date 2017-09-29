@@ -1,4 +1,4 @@
-import { Provider } from 'react-redux'
+// store.js
 import { getStore } from 'kea'
 
 import createHistory from 'history/createBrowserHistory'
@@ -6,17 +6,23 @@ import { routerReducer, routerMiddleware } from 'react-router-redux'
 
 export const history = createHistory()
 
-export const store = getStore({
+export default getStore({
   middleware: [
     routerMiddleware(history)
   ],
   compose: [
-    typeof window !== 'undefined' && window.devToolsExtension ? window.devToolsExtension() : f => f
+    // this is added automatically if you don't specify 'compose:', just redefining here:
+    typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION__ ? window.__REDUX_DEVTOOLS_EXTENSION__() : f => f
   ],
   reducers: {
     router: routerReducer
   }
 })
+
+// index.js
+import { Provider } from 'react-redux'
+import store from './store'
+import App from './app'
 
 ReactDOM.render(
   <Provider store={store}>

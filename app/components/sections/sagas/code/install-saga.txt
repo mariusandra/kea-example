@@ -1,0 +1,5 @@
+# if using yarn
+yarn add kea-saga redux-saga
+
+# if using npm
+npm install kea-saga redux-saga --save

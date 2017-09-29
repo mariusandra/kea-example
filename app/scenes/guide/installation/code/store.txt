@@ -1,11 +1,6 @@
+// store.js
 import { getStore } from 'kea'
-import { Provider } from 'react-redux'
 
-const store = getStore()
-
-ReactDOM.render(
-  <Provider store={store}>
-    <App />
-  </Provider>,
-  document.getElementById('root')
-)
+export default getStore({
+  // additional options (e.g. middleware, reducers, ...)
+})

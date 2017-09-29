@@ -10,6 +10,8 @@ import SliderWithSaga from './slider/with-saga'
 
 import Highlight from '~/components/tags/highlight'
 
+import SagaSection from '~/components/sections/sagas'
+
 import featuresLogic from '../features-logic'
 
 const code = {
@@ -62,6 +64,8 @@ export default class SlidersScene extends Component {
           <p>
             Whenever you press any of the dots the 5 second counter will reset.
           </p>
+
+          <SagaSection />
 
           <h2>1. The static component</h2>
           <p>

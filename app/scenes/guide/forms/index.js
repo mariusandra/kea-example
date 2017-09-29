@@ -6,6 +6,8 @@ import { Link } from 'react-router-dom'
 
 import Highlight from '~/components/tags/highlight'
 
+import SagaSection from '~/components/sections/sagas'
+
 import CrudeForm from './crude-form'
 import CrudeSubmitForm from './crude-submit-form'
 import ErrorsForm from './errors-form'
@@ -79,7 +81,11 @@ export default class FormsScene extends Component {
         </div>
 
         <div className='description'>
-          <h2>Defining the features we need</h2>
+          <SagaSection />
+        </div>
+
+        <div className='description'>
+          <h2>1. Defining the features we need</h2>
           <p>
             If you played with the demo above, you'll see what we need to build the following features:
           </p>
@@ -96,7 +102,7 @@ export default class FormsScene extends Component {
         </div>
 
         <div className='description'>
-          <h2>Actions and reducers</h2>
+          <h2>2. Actions and reducers</h2>
           <p>
             So what do we need to keep track of in order to build this form?
           </p>
@@ -129,7 +135,7 @@ export default class FormsScene extends Component {
           </p>
         </div>
         <div className='description'>
-          <h2>The component</h2>
+          <h2>3. The component</h2>
           <p>
             We could continue extending the logic by adding error handling, validations and actual submission logic,
             but since it's nice to see something tangible, let's first build the component itself!
@@ -152,7 +158,7 @@ export default class FormsScene extends Component {
           </p>
         </div>
         <div className='description'>
-          <h2>Submitting the form</h2>
+          <h2>4. Submitting the form</h2>
           <p>
             We will use the <code>takeLatest</code> helper to listen to the submit action and respond with either
             a <code>submitSuccess</code> or <code>submitFailure</code> action:
@@ -175,7 +181,7 @@ export default class FormsScene extends Component {
           </p>
         </div>
         <div className='description'>
-          <h2>Errors and validation</h2>
+          <h2>5. Errors and validation</h2>
           <p>
             We want to prevent an empty form from being submitted!
           </p>
@@ -247,7 +253,7 @@ export default class FormsScene extends Component {
           ) : null}
         </div>
         <div className='description'>
-          <h2>Abstracting <code>createForm</code></h2>
+          <h2>6. Abstracting <code>createForm</code></h2>
           <p>
             As you saw, it's really easy to create forms with Kea. And you're no longer dependant on heavy (~50KB) form libraries!
           </p>

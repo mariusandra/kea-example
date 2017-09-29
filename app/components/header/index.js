@@ -23,14 +23,21 @@ const menu = {
           { url: '/guide/installation', title: 'Installation' },
           { url: '/guide/counter', title: 'Counter' },
           { url: '/guide/counter-dynamic', title: 'Dynamic Counter' },
-          { url: '/guide/sliders', title: 'Sliders' },
-          { url: '/guide/github', title: 'Github API' },
+          { url: '/guide/sliders', title: 'Sliders', small: 'with kea-saga' },
+          { url: '/guide/github', title: 'Github API', small: 'with kea-saga' },
           { url: '/guide/connected', title: 'Connected Logic' },
-          { url: '/guide/forms', title: 'Forms' },
+          { url: '/guide/forms', title: 'Forms', small: 'with kea-saga' },
           { url: '/guide/migration', title: 'Migrating Redux Apps' },
           { url: '/guide/testing', title: 'Testing' }
           // TODO: not yet ready
           // { url: '/guide/connected-services', title: 'Connected Services' }
+        ]
+      },
+      {
+        title: 'Side effects',
+        children: [
+          { url: '/api/saga', title: 'Sagas' },
+          { url: '/api/reset', title: 'Thunks' }
         ]
       },
       {
@@ -43,13 +50,6 @@ const menu = {
           { url: '/api/reducer', title: 'keaReducer' },
           { url: '/api/action', title: 'createAction' },
           { url: '/api/reset', title: 'resetKeaCache' }
-        ]
-      },
-      {
-        title: 'Side effects',
-        children: [
-          { url: '/api/saga', title: 'kea-saga' },
-          { url: '/api/reset', title: 'kea-thunk' }
         ]
       }
     ]
@@ -115,6 +115,9 @@ export default class Header extends Component {
                             <NavLink to={child.url}>{child.title}</NavLink>
                             {child.source ? (
                               <small style={{marginLeft: 10}}><a href={child.source} target='_blank'>source</a></small>
+                            ) : null}
+                            {child.small ? (
+                              <small style={{marginLeft: 10, color: '#aaa', fontWeight: 300}}>{child.small}</small>
                             ) : null}
                           </li>
                         ))}

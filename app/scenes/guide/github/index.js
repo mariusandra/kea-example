@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom'
 
 import Highlight from '~/components/tags/highlight'
 
+import SagaSection from '~/components/sections/sagas'
+
 import GithubFull from './github'
 import GithubInput from './github/input'
 import GithubAlmost from './github/almost'
@@ -52,6 +54,10 @@ export default class GithubScene extends Component {
           <div className='demo'>
             <GithubFull />
           </div>
+        </div>
+
+        <div className='description'>
+          <SagaSection />
         </div>
 
         <div className='description'>

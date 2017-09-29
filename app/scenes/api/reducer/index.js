@@ -13,7 +13,7 @@ export default class API extends Component {
       <div className='api-scene'>
         <h2><code>keaReducer(reducerRoot)</code></h2>
         <p>
-          Define paths in Redux which kea can use.
+          Define paths in Redux which Kea can use.
         </p>
         <h3>Usage</h3>
         <Highlight className='javascript'>{code.usage}</Highlight>
@@ -25,7 +25,7 @@ export default class API extends Component {
         </p>
         <h3>Run <code>keaReducer</code> before <code>kea</code>!</h3>
         <p>
-          <em>Note: This was a hard requirement before v0.23.5. Now it's just a suggestion.</em>
+          <em>Note: This was a hard requirement before v0.23.5. Now it's just a strong suggestion.</em>
         </p>
         <p>
           Please note that the call to <code>keaReducer</code> has to be executed before any subsequent calls to <code>kea()</code>.

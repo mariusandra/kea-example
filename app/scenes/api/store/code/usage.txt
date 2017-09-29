@@ -1,7 +1,7 @@
-import { Provider } from 'react-redux'
+// store.js
 import { getStore } from 'kea'
 
-export const store = getStore({
+export default getStore({
   // what root paths are available for kea
   paths: ['kea', 'scenes'],
 
@@ -9,11 +9,16 @@ export const store = getStore({
   middleware: [],
 
   // gets passed to compose(middleware, ...composeArray)(createStore)
-  compose: [],
+  compose: [ reduxDevTools ],
 
   // additional reducers that your app uses
   reducers: {}
 })
+
+// index.js
+import { Provider } from 'react-redux'
+import store from './store' // this has to come before App
+import App from './app'
 
 ReactDOM.render(
   <Provider store={store}>

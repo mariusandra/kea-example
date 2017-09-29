@@ -1,13 +1,16 @@
+// index.js
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux' // add this
+import { Provider } from 'react-redux'; // <--- add this
+
 import './index.css';
-import store from './store'; // add this (before import App !!!)
+
+import store from './store'; // <--- add this BEFORE App
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 
-ReactDOM.render( // update this
-  <Provider store={store}>
+ReactDOM.render(
+  <Provider store={store}> // <-- add this
     <App />
   </Provider>,
   document.getElementById('root')
