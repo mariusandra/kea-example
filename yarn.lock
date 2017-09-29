@@ -3471,9 +3471,15 @@ kea-saga@^0.1.0:
   dependencies:
     babel-runtime "^6.26.0"
 
-kea@^0.24.2:
-  version "0.24.2"
-  resolved "https://registry.yarnpkg.com/kea/-/kea-0.24.2.tgz#7d3789141678bbe74d3ca64ce414ec49184d3932"
+kea-thunk@^0.1.1:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/kea-thunk/-/kea-thunk-0.1.1.tgz#29212c4a69ebb938e4c2dba5498cd368f6b5cc85"
+  dependencies:
+    babel-runtime "^6.26.0"
+
+kea@^0.25.1:
+  version "0.25.1"
+  resolved "https://registry.yarnpkg.com/kea/-/kea-0.25.1.tgz#ad758179d758847160de5252ca5940b9eb340a3a"
   dependencies:
     babel-runtime "^6.26.0"
 
@@ -5010,6 +5016,10 @@ redux-devtools@^3.4.0:
 redux-saga@^0.15.6:
   version "0.15.6"
   resolved "https://registry.yarnpkg.com/redux-saga/-/redux-saga-0.15.6.tgz#8638dc522de6c6c0a496fe8b2b5466287ac2dc4d"
+
+redux-thunk@^2.2.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/redux-thunk/-/redux-thunk-2.2.0.tgz#e615a16e16b47a19a515766133d1e3e99b7852e5"
 
 redux@^3.7.2:
   version "3.7.2"

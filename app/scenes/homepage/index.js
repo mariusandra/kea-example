@@ -12,6 +12,7 @@ import Slider from '../guide/sliders/slider'
 import Counter from '../guide/counter/counter'
 import Countdown from '../guide/countdown/countdown'
 import Github from '../guide/github/github'
+import ThunkCounter from '../guide/thunk/thunk-counter'
 import ConnectedToggle from '../guide/connected/connected-toggle'
 
 const code = {
@@ -19,6 +20,11 @@ const code = {
     decorator: require('raw-loader!./code/counter-decorator.txt'),
     hoc: require('raw-loader!./code/counter-hoc.txt'),
     functional: require('raw-loader!./code/counter-functional.txt'),
+  },
+  thunk: {
+    decorator: require('raw-loader!./code/thunk-decorator.txt'),
+    hoc: require('raw-loader!./code/thunk-hoc.txt'),
+    functional: require('raw-loader!./code/thunk-functional.txt'),
   },
   slider: {
     decorator: require('raw-loader!./code/slider-decorator.txt'),
@@ -112,6 +118,20 @@ export default class HomepageScene extends Component {
             </div>
             <br />
             Read the guide: <Link to='/guide/counter'>Counter</Link>
+          </div>
+        </div>
+
+        <h2>Delayed Counter <small>with kea-thunk</small></h2>
+        <div className='split'>
+          <div className='code'>
+            <CodeStyleHighlight language='javascript' code={code.thunk} />
+          </div>
+          <div className='description'>
+            <div className='demo'>
+              <ThunkCounter />
+            </div>
+            <br />
+            Read the docs: <Link to='/effects/thunk'>kea-thunk</Link>
           </div>
         </div>
 

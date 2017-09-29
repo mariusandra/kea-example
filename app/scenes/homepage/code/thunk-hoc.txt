@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 
 const delay = ms => new Promise(resolve => window.setTimeout(resolve, ms))
 
-@kea({
+const logic = kea({
   actions: () => ({
     increase: true
   }),
@@ -20,7 +20,8 @@ const delay = ms => new Promise(resolve => window.setTimeout(resolve, ms))
     }
   })
 })
-export default class ThunkCounter extends Component {
+
+class ThunkCounter extends Component {
   render () {
     const { increase, increaseAsync } = this.actions
     const { counter } = this.props
@@ -29,9 +30,14 @@ export default class ThunkCounter extends Component {
       <div style={{textAlign: 'center'}}>
         <div>{counter}</div>
         {[0, 10, 100, 500, 1000, 2000].map(ms => (
-          <button key={ms} onClick={() => ms === 0 ? increase() : increaseAsync(ms)}>{ms}</button>
+          <button key={ms}
+                  onClick={() => ms === 0 ? increase() : increaseAsync(ms)}>
+            {ms}
+          </button>
         ))}
       </div>
     )
   }
 }
+
+export default logic(ThunkCounter)

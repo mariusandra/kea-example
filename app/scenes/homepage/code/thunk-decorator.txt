@@ -29,7 +29,10 @@ export default class ThunkCounter extends Component {
       <div style={{textAlign: 'center'}}>
         <div>{counter}</div>
         {[0, 10, 100, 500, 1000, 2000].map(ms => (
-          <button key={ms} onClick={() => ms === 0 ? increase() : increaseAsync(ms)}>{ms}</button>
+          <button key={ms}
+                  onClick={() => ms === 0 ? increase() : increaseAsync(ms)}>
+            {ms}
+          </button>
         ))}
       </div>
     )
