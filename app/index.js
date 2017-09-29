@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom'
 import React from 'react'
 import { ConnectedRouter } from 'react-router-redux'
 
+import 'kea-saga'
+
 import { store, history } from './store'
 import App from './scenes/index'
 

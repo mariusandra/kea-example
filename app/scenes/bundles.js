@@ -19,6 +19,7 @@ export default {
   apiComponent: async('ApiComponent', () => import(/* webpackChunkName: "apiComponent" */'./api/component')),
   apiConnect: async('ApiConnect', () => import(/* webpackChunkName: "apiConnect" */'./api/connect')),
   apiReducer: async('ApiReducer', () => import(/* webpackChunkName: "apiReducer" */'./api/reducer')),
+  apiStore: async('ApiStore', () => import(/* webpackChunkName: "apiStore" */'./api/store')),
   apiSaga: async('ApiSaga', () => import(/* webpackChunkName: "apiSaga" */'./api/saga')),
   apiAction: async('ApiAction', () => import(/* webpackChunkName: "apiAction" */'./api/action')),
   apiReset: async('ApiReset', () => import(/* webpackChunkName: "apiReset" */'./api/reset')),

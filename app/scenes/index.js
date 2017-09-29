@@ -35,6 +35,7 @@ export default () => (
       <Route path='/api/connect' component={bundles.apiConnect} />
       <Route path='/api/reducer' component={bundles.apiReducer} />
       <Route path='/api/saga' component={bundles.apiSaga} />
+      <Route path='/api/store' component={bundles.apiStore} />
       <Route path='/api/action' component={bundles.apiAction} />
       <Route path='/api/reset' component={bundles.apiReset} />
 

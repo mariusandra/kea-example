@@ -39,10 +39,17 @@ const menu = {
           { url: '/api/logic', title: 'kea(options)' },
           { url: '/api/component', title: 'kea(options)(Component)' },
           { url: '/api/connect', title: 'connect(options)' },
+          { url: '/api/store', title: 'getStore' },
           { url: '/api/reducer', title: 'keaReducer' },
-          { url: '/api/saga', title: 'keaSaga' },
           { url: '/api/action', title: 'createAction' },
           { url: '/api/reset', title: 'resetKeaCache' }
+        ]
+      },
+      {
+        title: 'Side effects',
+        children: [
+          { url: '/api/saga', title: 'kea-saga' },
+          { url: '/api/reset', title: 'kea-thunk' }
         ]
       }
     ]
