@@ -48,7 +48,6 @@ export default class HomepageScene extends Component {
   render () {
     return (
       <div className='homepage-scene'>
-
         <div className='landing'>
           <div className='intro'>
             <img src={logo} alt='' />
@@ -75,7 +74,7 @@ export default class HomepageScene extends Component {
           <ul>
             <li>
               <strong>100% Redux</strong>:
-              Built on top of <a href='http://redux.js.org/'>redux</a>, <a href='https://redux-saga.js.org/'>redux-saga</a> and <a href='https://github.com/reactjs/reselect'>reselect</a>.
+              Built on top of <a href='http://redux.js.org/'>redux</a> and <a href='https://github.com/reactjs/reselect'>reselect</a>.
             </li>
             <li>
               <strong>No boilerplate</strong>:
@@ -83,12 +82,16 @@ export default class HomepageScene extends Component {
             </li>
             <li>
               <strong>No new concepts</strong>:
-              Use actions, reducers, selectors and sagas.
+              Use actions, reducers and selectors.
               Gradually migrate <Link to='/guide/migration'>existing Redux applications</Link>.
             </li>
             <li>
-              <strong>Interoperability</strong>:
-              Seamlessly <Link to='/guide/connected'>connect</Link> different parts of your application.
+              <strong>Side effect agnostic</strong>:
+              use <Link to='/effects/thunk'>thunks</Link> with redux-thunk, <Link to='/effects/saga'>sagas</Link> with redux-saga or (soon!) <a href='https://github.com/keajs/kea/issues/40'>epics</a> with redux-observable.
+            </li>
+            <li>
+              <strong>Composability</strong>:
+              Seamlessly <Link to='/guide/connected'>connect</Link> different parts of your application. Build for large and ambitious apps.
             </li>
           </ul>
           <p>
@@ -113,7 +116,7 @@ export default class HomepageScene extends Component {
           </div>
         </div>
 
-        <h2>Slider</h2>
+        <h2>Slider <small>with kea-saga</small></h2>
         <div className='split'>
           <div className='code'>
             <CodeStyleHighlight language='javascript' code={code.slider} />
@@ -127,7 +130,7 @@ export default class HomepageScene extends Component {
           </div>
         </div>
 
-        <h2>Github</h2>
+        <h2>Github <small>with kea-saga</small></h2>
         <div className='split'>
           <div className='code'>
             <CodeStyleHighlight language='javascript' code={code.github} />
@@ -141,7 +144,7 @@ export default class HomepageScene extends Component {
           </div>
         </div>
 
-        <h2>Debounced countdown</h2>
+        <h2>Debounced countdown <small>with kea-saga</small></h2>
         <div className='split'>
           <div className='code'>
             <CodeStyleHighlight language='javascript' code={code.countdown} />

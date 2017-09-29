@@ -20,9 +20,11 @@ export default {
   apiConnect: async('ApiConnect', () => import(/* webpackChunkName: "apiConnect" */'./api/connect')),
   apiReducer: async('ApiReducer', () => import(/* webpackChunkName: "apiReducer" */'./api/reducer')),
   apiStore: async('ApiStore', () => import(/* webpackChunkName: "apiStore" */'./api/store')),
-  apiSaga: async('ApiSaga', () => import(/* webpackChunkName: "apiSaga" */'./api/saga')),
   apiAction: async('ApiAction', () => import(/* webpackChunkName: "apiAction" */'./api/action')),
   apiReset: async('ApiReset', () => import(/* webpackChunkName: "apiReset" */'./api/reset')),
+
+  effectsSaga: async('EffectsSaga', () => import(/* webpackChunkName: "effectsSaga" */'./effects/saga')),
+  effectsThunk: async('EffectsThunk', () => import(/* webpackChunkName: "effectsThunk" */'./effects/thunk')),
 
   examplesTodos: async('ExamplesTodos', () => import(/* webpackChunkName: "examplesTodos" */'./examples/todos')),
   examplesGithub: async('ExamplesGithub', () => import(/* webpackChunkName: "examplesGithub" */'./examples/github')),

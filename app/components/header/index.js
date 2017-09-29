@@ -14,7 +14,7 @@ const menu = {
   },
   guide: {
     url: '/guide',
-    paths: ['guide', 'api'],
+    paths: ['guide', 'api', 'effects'],
     title: 'Docs',
     children: [
       {
@@ -36,8 +36,8 @@ const menu = {
       {
         title: 'Side effects',
         children: [
-          { url: '/api/saga', title: 'Sagas' },
-          { url: '/api/reset', title: 'Thunks' }
+          { url: '/effects/saga', title: 'Sagas' },
+          { url: '/effects/thunk', title: 'Thunks' }
         ]
       },
       {

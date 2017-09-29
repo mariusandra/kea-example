@@ -23,7 +23,7 @@ export default class SlidersScene extends Component {
         </p>
         <Highlight className='javascript'>{code.importSaga}</Highlight>
         <p>
-          <Link to='/api/saga'>Read here for more</Link>
+          <Link to='/effects/saga'>Read here for more</Link>
         </p>
       </div>
     )

@@ -10,6 +10,7 @@ import bundles from './bundles'
 
 const guideRedirect = () => (<Redirect to='/guide/installation' />)
 const apiRedirect = () => (<Redirect to='/api/logic' />)
+const effectsRedirect = () => (<Redirect to='/effects/saga' />)
 const examplesRedirect = () => (<Redirect to='/examples/todos' />)
 
 export default () => (
@@ -34,10 +35,13 @@ export default () => (
       <Route path='/api/component' component={bundles.apiComponent} />
       <Route path='/api/connect' component={bundles.apiConnect} />
       <Route path='/api/reducer' component={bundles.apiReducer} />
-      <Route path='/api/saga' component={bundles.apiSaga} />
       <Route path='/api/store' component={bundles.apiStore} />
       <Route path='/api/action' component={bundles.apiAction} />
       <Route path='/api/reset' component={bundles.apiReset} />
+
+      <Route path='/effects' exact render={effectsRedirect} />
+      <Route path='/effects/saga' component={bundles.effectsSaga} />
+      <Route path='/effects/thunk' component={bundles.effectsThunk} />
 
       <Route path='/examples' exact render={examplesRedirect} />
       <Route path='/examples/todos' component={bundles.examplesTodos} />
