@@ -1,0 +1,2 @@
+yarn add kea-thunk redux-thunk
+npm install --save kea-thunk redux-thunk

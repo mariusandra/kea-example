@@ -11,7 +11,7 @@ export default getStore({
     routerMiddleware(history)
   ],
   compose: [
-    // this is added automatically if you don't specify 'compose:', just redefining here:
+    // this is added automatically if you don not specify "compose:", just redefining here:
     typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION__ ? window.__REDUX_DEVTOOLS_EXTENSION__() : f => f
   ],
   reducers: {

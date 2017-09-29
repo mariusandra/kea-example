@@ -1,16 +1,25 @@
-import { keaReducer, keaSaga } from 'kea'
+const delay = (ms) => new Promise(resolve => window.setTimeout(resolve, ms))
 
-const reducers = combineReducers({
-  scenes: keaReducer('scenes'),
-  // ... other reducers you might have
+const logic = kea({
+  actions: ({ constants }) => ({
+    updateName: name => ({ name })
+  }),
+
+  thunks: ({ actions, dispatch, getState }) => ({
+    updateNameAsync: async name => {
+      await delay(1000)            // standard promise
+      await actions.anotherThunk() // another thunk action
+      actions.updateName(name)     // not a thunk, so no async needed
+      dispatch({ type: 'RANDOM_REDUX_ACTION' }) // random redux action
+    },
+    anotherThunk: async () => {
+      // do something
+    }
+  }),
+
+  reducers: ({ actions, constants }) => ({
+    name: ['chirpy', PropTypes.string, {
+      [actions.updateName]: (state, payload) => payload.name
+    }]
+  })
 })
-
-const sagaMiddleware = createSagaMiddleware()
-const finalCreateStore = compose(
-  applyMiddleware(sagaMiddleware),
-  // other middleware
-)(createStore)
-
-const store = finalCreateStore(reducers)
-
-sagaMiddleware.run(keaSaga)
