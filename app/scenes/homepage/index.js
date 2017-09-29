@@ -82,6 +82,10 @@ export default class HomepageScene extends Component {
               Built on top of <a href='http://redux.js.org/'>redux</a> and <a href='https://github.com/reactjs/reselect'>reselect</a>.
             </li>
             <li>
+              <strong>Side effect agnostic</strong>:
+              use <Link to='/effects/thunk'>thunks</Link> with redux-thunk, <Link to='/effects/saga'>sagas</Link> with redux-saga or (soon!) <a href='https://github.com/keajs/kea/issues/40'>epics</a> with redux-observable.
+            </li>
+            <li>
               <strong>No boilerplate</strong>:
               Forget <code>mapStateToProps</code> and redundant constants. Only write code that matters!
             </li>
@@ -89,10 +93,6 @@ export default class HomepageScene extends Component {
               <strong>No new concepts</strong>:
               Use actions, reducers and selectors.
               Gradually migrate <Link to='/guide/migration'>existing Redux applications</Link>.
-            </li>
-            <li>
-              <strong>Side effect agnostic</strong>:
-              use <Link to='/effects/thunk'>thunks</Link> with redux-thunk, <Link to='/effects/saga'>sagas</Link> with redux-saga or (soon!) <a href='https://github.com/keajs/kea/issues/40'>epics</a> with redux-observable.
             </li>
             <li>
               <strong>Composability</strong>:
