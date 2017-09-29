@@ -1,17 +1,11 @@
-import { keaReducer, keaSaga } from 'kea' // add this
+import { getStore } from 'kea'
+import { Provider } from 'react-redux'
 
-const reducers = combineReducers({
-  scenes: keaReducer('scenes'), // add this
-  routing: routerReducer
-  // ... other reducers you might have
-})
+const store = getStore()
 
-const sagaMiddleware = createSagaMiddleware()
-const finalCreateStore = compose(
-  applyMiddleware(sagaMiddleware),
-  applyMiddleware(routerMiddleware(browserHistory))
-)(createStore)
-
-const store = finalCreateStore(reducers)
-
-sagaMiddleware.run(keaSaga) // add this
+ReactDOM.render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById('root')
+)

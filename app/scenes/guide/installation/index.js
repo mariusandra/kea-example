@@ -23,22 +23,23 @@ export default class InstallationScene extends Component {
           <h2>Installation</h2>
           <p>
             Installing <code>kea</code> is rather straightforward. You need to add the <code>kea</code> package,
-            hook it up to your reducers and run the saga.
+            install any plugins and connect your store to Redux.
           </p>
           <p>
             This guide describes three ways to install:
           </p>
           <ol>
-            <li>Adding kea to an existing app that already uses <code>redux</code> (and <code>redux-saga</code>?)</li>
+            <li>Adding kea to an existing app that already uses <code>redux</code></li>
             <li>Adding to apps made with <code>create-redux-app</code></li>
             <li>Starting a new kea app from scratch</li>
           </ol>
-          <h3>1. Adding to an existing app that already uses <code>redux</code> (and <code>redux-saga</code>?)</h3>
+
+          <h3>1. Adding to an existing app that already uses <code>redux</code></h3>
           <h4>1.1. Packages</h4>
           <p>First install the packages:</p>
           <Highlight className='bash'>{code.package}</Highlight>
           <h4>1.2. Store</h4>
-          <p>Then configure the store:</p>
+          <p>Then configure the Redux store:</p>
           <Highlight className='javascript'>{code.store}</Highlight>
           <p>
             NB! Make sure the store is loaded before any <code>kea()</code> calls. In practice this usually means you should
