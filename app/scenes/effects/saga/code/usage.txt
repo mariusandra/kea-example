@@ -3,8 +3,6 @@ import { kea } from 'kea'
 export default kea({
   // ... see the api docs for more
 
-  // saga functions
-
   start: function * () {
     // saga started or component mounted
     console.log(this)
