@@ -116,9 +116,6 @@ export default class HomepageScene extends Component {
           <p>
             Compare it to other state management libraries: <a href='https://medium.com/@mariusandra/kea-vs-setstate-redux-mobx-dva-jumpstate-apollo-etc-4aa26ea11d02'>Kea vs setState, Redux, Mobx, Dva, JumpState, Apollo, etc.</a>
           </p>
-          <p>
-            <Link to='/guide/installation'>Read the guide</Link> or check out the examples below:
-          </p>
         </div>
 
         <h2>How does it work?</h2>
@@ -166,7 +163,7 @@ export default class HomepageScene extends Component {
               The logic stores can either
             </p>
             <p>
-              1) be wrapped around your component:
+              1) be wrapped around your component or pure function:
             </p>
           </div>
           <div className='code'>
@@ -230,6 +227,9 @@ export default class HomepageScene extends Component {
             </p>
             <p>
               Check out the examples below or <Link to='/guide/installation'>start reading the guide</Link> for more.
+            </p>
+            <p>
+              If you're already using Redux in your apps, it's <Link to='/guide/migration'>really easy to migrate</Link>.
             </p>
           </div>
           <div className='code'>
