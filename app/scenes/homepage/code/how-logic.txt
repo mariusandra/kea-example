@@ -1,0 +1,5 @@
+kea({
+  actions: ({}) => ({ }),
+  reducers: ({ actions }) => ({ }),
+  selectors: ({ selectors }) => ({ })
+})

@@ -1,0 +1,6 @@
+@kea({ /* options from above */ })
+export default class Counter extends Component {
+  render () {
+    return <div />
+  }
+}

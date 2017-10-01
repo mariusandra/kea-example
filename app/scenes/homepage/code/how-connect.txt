@@ -1,0 +1,27 @@
+// features-logic.js
+import { kea } from 'kea'
+export default kea({ /* options from above */ })
+
+// index.js
+import { connect } from 'kea'
+import featuresLogic from 'features-logic'
+
+@connect({
+  actions: [
+    featuresLogic, [
+      'increment',
+      'decrement'
+    ]
+  ],
+  props: [
+    featuresLogic, [
+      'counter',
+      'doubleCounter'
+    ]
+  ]
+})
+export default class Counter extends Component {
+  render () {
+    return <div />
+  }
+}

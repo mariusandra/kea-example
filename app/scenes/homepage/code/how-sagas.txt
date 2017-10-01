@@ -1,0 +1,38 @@
+import 'kea-saga'
+import { kea } from 'kea'
+
+const sliderLogic = kea({
+  actions: () => ({
+    updateSlide: index => ({ index })
+  }),
+
+  reducers: ({ actions, key }) => ({
+    currentSlide: [0, PropTypes.number, {
+      [actions.updateSlide]: (state, payload) => payload.index % images.length
+    }]
+  }),
+
+  selectors: ({ selectors }) => ({
+    currentImage: [
+      () => [selectors.currentSlide],
+      (currentSlide) => images[currentSlide],
+      PropTypes.object
+    ]
+  }),
+
+  start: function * () {
+    const { updateSlide } = this.actions
+
+    while (true) {
+      const { timeout } = yield race({
+        change: take(updateSlide.toString()),
+        timeout: delay(5000)
+      })
+
+      if (timeout) {
+        const currentSlide = yield this.get('currentSlide')
+        yield put(updateSlide(currentSlide + 1))
+      }
+    }
+  }
+})

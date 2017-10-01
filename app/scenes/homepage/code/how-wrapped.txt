@@ -1,0 +1,12 @@
+const logic = kea({ /* options from above */ })
+
+class Counter extends Component {
+  render () {
+    const { counter, doubleCounter } = this.props
+    const { increment, decrement } = this.actions
+
+    return <div>...</div>
+  }
+}
+
+export default logic(Counter)

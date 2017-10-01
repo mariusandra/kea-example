@@ -1,0 +1,19 @@
+import 'kea-thunk'
+import { kea } from 'kea'
+
+const incrementerLogic = kea({
+  actions: () => ({
+    increase: true
+  }),
+  reducers: ({ actions }) => ({
+    counter: [0, PropTypes.number, {
+      [actions.increase]: (state, payload) => state + 1
+    }]
+  }),
+  thunks: ({ actions, dispatch, getState }) => ({
+    increaseAsync: async (ms) => {
+      await delay(ms)
+      await actions.increase()
+    }
+  })
+})

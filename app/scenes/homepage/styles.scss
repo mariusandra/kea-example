@@ -34,6 +34,13 @@
         margin: 0;
       }
     }
+    .wide-description {
+      margin-left: 20px;
+      flex: 1 auto;
+      .demo {
+        margin: 0;
+      }
+    }
     .code {
       width: 650px;
       min-width: 650px;

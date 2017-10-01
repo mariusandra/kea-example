@@ -5,6 +5,7 @@ import { kea } from 'kea'
 import { Link } from 'react-router-dom'
 
 import CodeStyleHighlight from '~/components/tags/code-style-highlight'
+import Highlight from '~/components/tags/highlight'
 
 import logo from '~/assets/logo.svg'
 
@@ -45,6 +46,15 @@ const code = {
     decorator: require('raw-loader!./code/connected-decorator.txt'),
     hoc: require('raw-loader!./code/connected-hoc.txt'),
     functional: require('raw-loader!./code/connected-functional.txt'),
+  },
+  how: {
+    logic: require('raw-loader!./code/how-logic.txt'),
+    counter: require('raw-loader!./code/how-counter.txt'),
+    wrapped: require('raw-loader!./code/how-wrapped.txt'),
+    decorator: require('raw-loader!./code/how-decorator.txt'),
+    connect: require('raw-loader!./code/how-connect.txt'),
+    thunks: require('raw-loader!./code/how-thunks.txt'),
+    sagas: require('raw-loader!./code/how-sagas.txt')
   }
 }
 
@@ -109,6 +119,122 @@ export default class HomepageScene extends Component {
           <p>
             <Link to='/guide/installation'>Read the guide</Link> or check out the examples below:
           </p>
+        </div>
+
+        <h2>How does it work?</h2>
+        <div className='split'>
+          <div className='wide-description'>
+            <p>
+              In Kea, you define logic stores with the <code>{'kea({})'}</code> function.
+            </p>
+            <p>
+              Each logic store contains <code>actions</code>, <code>reducers</code> and <code>selectors</code>.
+            </p>
+          </div>
+          <div className='code'>
+            <Highlight className='javascript'>{code.how.logic}</Highlight>
+          </div>
+        </div>
+        <div className='split'>
+          <div className='wide-description'>
+            <p>
+              They work just like in Redux:
+            </p>
+            <p>
+              <ul>
+                <li>They are all pure functions (no side effects, same input = same output)</li>
+                <li><strong>Actions</strong> are functions which take an input and return a payload</li>
+                <li><strong>Reducers</strong> take actions as input and return new_data = old_data + payload</li>
+                <li><strong>Selectors</strong> take the input of multiple reducers and return a combined output</li>
+              </ul>
+            </p>
+            <p>
+              See here for a nice overview of how Redux
+              works: <a href='https://medium.com/gitconnected/redux-logic-flow-crazy-simple-summary-35416eadabd8'>Redux Logic Flow — Crazy Simple Summary</a>
+            </p>
+            <p>
+              For example, to build a simple counter:
+            </p>
+          </div>
+          <div className='code'>
+            <Highlight className='javascript'>{code.how.counter}</Highlight>
+          </div>
+        </div>
+        <div className='split'>
+          <div className='wide-description'>
+            <p>
+              The logic stores can either
+            </p>
+            <p>
+              1) be wrapped around your component:
+            </p>
+          </div>
+          <div className='code'>
+            <Highlight className='javascript'>{code.how.wrapped}</Highlight>
+          </div>
+        </div>
+        <div className='split'>
+          <div className='wide-description'>
+            <p>
+              2) used as decorators:
+            </p>
+          </div>
+          <div className='code'>
+            <Highlight className='javascript'>{code.how.decorator}</Highlight>
+          </div>
+        </div>
+        <div className='split'>
+          <div className='wide-description'>
+            <p>
+              or
+            </p>
+            <p>
+              3) imported and then connected to.
+            </p>
+            <p>
+              You can also connect logic stores together, to e.g:
+            </p>
+            <p>
+              <ul>
+                <li>... use actions from one logic store in the reducer of another.</li>
+                <li>... combine reducers from multiple logic stores into one selector.</li>
+              </ul>
+            </p>
+          </div>
+          <div className='code'>
+            <Highlight className='javascript'>{code.how.connect}</Highlight>
+          </div>
+        </div>
+
+        <div className='split'>
+          <div className='wide-description'>
+            <p>
+              Eventually you'll need side effects. Then you have a choice.
+            </p>
+            <p>
+              You can use simple <Link to='/effects/thunk'>thunks</Link> via redux-thunk:
+            </p>
+          </div>
+          <div className='code'>
+            <Highlight className='javascript'>{code.how.thunks}</Highlight>
+          </div>
+        </div>
+
+        <div className='split'>
+          <div className='wide-description'>
+            <p>
+              .... or the more powerful <Link to='/effects/saga'>sagas</Link> via redux-saga.
+            </p>
+            <p>
+              (coming soon: <a href='https://github.com/keajs/kea/issues/40'>support for epics</a> with redux-observable)
+            </p>
+            <p>
+              Check out the examples below or <Link to='/guide/installation'>start reading the guide</Link> for more.
+            </p>
+          </div>
+          <div className='code'>
+            <Highlight className='javascript'>{code.how.sagas}</Highlight>
+          </div>
         </div>
 
         <h2>Simple counter</h2>
