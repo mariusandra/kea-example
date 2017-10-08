@@ -5,14 +5,17 @@ export default getStore({
   // what root paths are available for kea
   paths: ['kea', 'scenes'],
 
-  // middleware that gets passed to applyMiddleware(...middlewareArray)
+  // additional reducers that your app uses
+  reducers: {},
+
+  // middleware that gets passed to applyMiddleware(...middleware)
   middleware: [],
 
-  // gets passed to compose(middleware, ...composeArray)(createStore)
-  compose: [ reduxDevTools ],
+  // the compose function, defaults to the one from redux-devtools-extension or redux's own compose
+  compose: composeWithDevTools || compose,
 
-  // additional reducers that your app uses
-  reducers: {}
+  // gets passed to compose(middleware, ...enhancers)(createStore)
+  enhancers: []
 })
 
 // index.js
