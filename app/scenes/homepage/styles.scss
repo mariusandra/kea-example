@@ -61,7 +61,8 @@
   }
 
   .landing {
-    background: #388e3c;
+    background-color: #388e3c;
+    background-image: linear-gradient(to bottom, rgba(0,0,0,0.15) 0%,rgba(0,0,0,0) 100%), url('./assets/pattern.png');
     padding: 120px 40px 120px 40px;
     color: #fff;
 
