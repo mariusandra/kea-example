@@ -86,33 +86,49 @@ export default class HomepageScene extends Component {
             It <em>empowers</em> Redux, making it as easy to use as <code>setState</code> while
             retaining composability and improving code clarity.
           </p>
-          <ul>
-            <li>
-              <strong>100% Redux</strong>:
-              Built on top of <a href='http://redux.js.org/'>redux</a> and <a href='https://github.com/reactjs/reselect'>reselect</a>.
-            </li>
-            <li>
-              <strong>Side effect agnostic</strong>:
-              use <Link to='/effects/thunk'>thunks</Link> with redux-thunk, <Link to='/effects/saga'>sagas</Link> with redux-saga or (soon!) <a href='https://github.com/keajs/kea/issues/40'>epics</a> with redux-observable.
-            </li>
-            <li>
-              <strong>Wrappable</strong>:
-              Write logic alongside React components. Easier than <code>setState</code> and perfect for small components.
-            </li>
-            <li>
-              <strong>Connectable</strong>:
-              Pull in data and actions through ES6+ <Link to='/guide/connected'>imports</Link>. Built for large and ambitious apps.
-            </li>
-            <li>
-              <strong>No boilerplate</strong>:
-              Forget <code>mapStateToProps</code> and redundant constants. Only write code that matters!
-            </li>
-            <li>
-              <strong>No new concepts</strong>:
-              Use actions, reducers and selectors.
-              Gradually migrate <Link to='/guide/migration'>existing Redux applications</Link>.
-            </li>
-          </ul>
+          <div className='features'>
+            <div className='features-inner'>
+              <div>
+                <h4>100% Redux</h4>
+                <p>
+                  Built on top of <a href='http://redux.js.org/'>redux</a> and <a href='https://github.com/reactjs/reselect'>reselect</a>.
+                </p>
+              </div>
+              <div>
+                <h4>Side effect agnostic</h4>
+                <p>
+                  use <Link to='/effects/thunk'>thunks</Link> with redux-thunk, <Link to='/effects/saga'>sagas</Link> with redux-saga or (soon!) <a href='https://github.com/keajs/kea/issues/40'>epics</a> with redux-observable.
+                </p>
+              </div>
+              <div>
+                <h4>Wrappable</h4>
+                <p>
+                  Write logic alongside React components.
+                  Easier than <code>setState</code> and perfect for small components.
+                </p>
+              </div>
+              <div>
+                <h4>Connectable</h4>
+                <p>
+                  Pull in data and actions through ES6+ <Link to='/guide/connected'>imports</Link>.
+                  Built for large and ambitious apps.
+                </p>
+              </div>
+              <div>
+                <h4>No boilerplate</h4>
+                <p>
+                  Forget <code>mapStateToProps</code> and redundant constants. Only write code that matters!
+                </p>
+              </div>
+              <div>
+                <h4>No new concepts</h4>
+                <p>
+                  Use actions, reducers and selectors.
+                  Gradually migrate <Link to='/guide/migration'>existing Redux applications</Link>.
+                </p>
+              </div>
+            </div>
+          </div>
           <p>
             Compare it to other state management libraries: <a href='https://medium.com/@mariusandra/kea-vs-setstate-redux-mobx-dva-jumpstate-apollo-etc-4aa26ea11d02'>Kea vs setState, Redux, Mobx, Dva, JumpState, Apollo, etc.</a>
           </p>
