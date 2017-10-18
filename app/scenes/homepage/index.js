@@ -117,7 +117,20 @@ export default class HomepageScene extends Component {
             Compare it to other state management libraries: <a href='https://medium.com/@mariusandra/kea-vs-setstate-redux-mobx-dva-jumpstate-apollo-etc-4aa26ea11d02'>Kea vs setState, Redux, Mobx, Dva, JumpState, Apollo, etc.</a>
           </p>
         </div>
-
+        <h2>Thank you to our sponsors!</h2>
+        <div className='description'>
+          <p>
+            <a href='https://opencollective.com/kea/sponsor/0/website' target='_blank'><img src='https://opencollective.com/kea/sponsor/0/avatar.svg' /></a>
+            <a href='https://opencollective.com/kea/sponsor/1/website' target='_blank'><img src='https://opencollective.com/kea/sponsor/1/avatar.svg' /></a>
+            <a href='https://opencollective.com/kea/sponsor/2/website' target='_blank'><img src='https://opencollective.com/kea/sponsor/2/avatar.svg' /></a>
+          </p>
+          <p>
+            <a href='https://opencollective.com/kea#sponsor'>Support this project by becoming a sponsor</a>.
+          </p>
+          <p>
+            Your logo will show up here and in the <a href='https://github.com/keajs/kea' target='_blank'>README</a> with a link to your website.
+          </p>
+        </div>
         <h2>How does it work?</h2>
         <div className='split'>
           <div className='wide-description'>
