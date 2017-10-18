@@ -39,6 +39,21 @@ header.body-header {
       &.logo {
         padding: 5px;
       }
+      &.opencollective {
+        color: $active-link-color;
+      }
+
+      .short-text {
+        display: none;
+      }
+      @media (max-width: 500px) {
+        .long-text {
+          display: none;
+        }
+        .short-text {
+          display: inline-block;
+        }
+      }
     }
   }
 }
@@ -59,6 +74,10 @@ main {
       box-sizing: border-box;
       padding: 10px;
       float: left;
+    }
+
+    .content {
+      padding-bottom: 20px;
     }
 
     .content.with-sidebar {
@@ -117,5 +136,14 @@ aside.kea-sidebar {
         }
       }
     }
+  }
+}
+
+footer {
+  padding: 1px 20px;
+  color: #fff;
+  background: #3a72a5;
+  a {
+    color: #ffff00;
   }
 }

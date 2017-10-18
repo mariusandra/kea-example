@@ -98,7 +98,8 @@ export default class Header extends Component {
             {Object.keys(menu).map(key => (
               <Link key={key} to={menu[key].url} className={menu[key].paths.indexOf(selectedPage) >= 0 ? 'active' : ''}>{menu[key].title}</Link>
             ))}
-            <a className='right' href='https://www.github.com/keajs/kea' target='_blank'>Github</a>
+            <a className='right' href='https://github.com/keajs/kea' target='_blank'><span className='long-text'>Github</span><span className='short-text'>GH</span></a>
+            <a className='opencollective' href='https://opencollective.com/kea' target='_blank'><span className='long-text'>OpenCollective</span><span className='short-text'>OC</span></a>
           </nav>
         </header>
         <main>
@@ -132,6 +133,17 @@ export default class Header extends Component {
             </div>
           </section>
         </main>
+        <footer>
+          <p>
+            Developing Kea and writing this documentation takes a fair bit of work.
+          </p>
+          <p>
+            Please support this work by sponsoring us on <a href='https://opencollective.com/kea' target='_blank'>OpenCollective</a>.
+          </p>
+          <p>
+            Just <strong>$2/month</strong> will make a huge difference in our mission to develop the best state management solution for React!
+          </p>
+        </footer>
       </div>
     )
   }
