@@ -14,6 +14,8 @@ export default {
   guideMigration: async('GuideMigration', () => import(/* webpackChunkName: "guideMigration" */'./guide/migration')),
   guideForms: async('GuideForms', () => import(/* webpackChunkName: "guideForms" */'./guide/forms')),
   guideTesting: async('GuideTesting', () => import(/* webpackChunkName: "guideTesting" */'./guide/testing')),
+  guideFaq: async('GuideFaq', () => import(/* webpackChunkName: "guideFaq" */'./guide/faq')),
+  
 
   apiLogic: async('ApiLogic', () => import(/* webpackChunkName: "apiLogic" */'./api/logic')),
   apiComponent: async('ApiComponent', () => import(/* webpackChunkName: "apiComponent" */'./api/component')),
