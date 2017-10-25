@@ -134,7 +134,7 @@ export default class Header extends Component {
             </div>
           </section>
         </main>
-        <footer>
+        <footer className='opencollective-footer'>
           <p>
             Developing Kea and writing this documentation takes a fair bit of work.
           </p>
