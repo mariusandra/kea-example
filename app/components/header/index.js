@@ -28,7 +28,8 @@ const menu = {
           { url: '/guide/connected', title: 'Connected Logic' },
           { url: '/guide/forms', title: 'Forms', small: 'with kea-saga' },
           { url: '/guide/migration', title: 'Migrating Redux Apps' },
-          { url: '/guide/testing', title: 'Testing' }
+          { url: '/guide/testing', title: 'Testing' },
+          { url: '/guide/faq', title: 'Frequently Asked Questions' }
           // TODO: not yet ready
           // { url: '/guide/connected-services', title: 'Connected Services' }
         ]

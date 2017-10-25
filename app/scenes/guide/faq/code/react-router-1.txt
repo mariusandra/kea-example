@@ -1,0 +1,30 @@
+import React,  { Component } from 'react'
+import { kea } from 'kea'
+
+const logic = kea({})
+
+class _Wrapper extends Component {
+  render() {
+    return(
+      <div>{this.props.children}</div>
+    )
+  }
+}
+
+const Wrapper =  logic(_Wrapper) // switch routes does not work
+//const Wrapper = _Wrapper  // switch routes works
+
+const App = () => (
+  <ConnectedRouter history={history}>
+    <Wrapper>
+      <ul>
+        <li><Link to="/">Home</Link></li>
+        <li><Link to="/foo">Foo</Link></li>
+        <li><Link to="/bar">Bar</Link></li>        
+      </ul>
+      <Route exact path="/" component={Home} />
+      <Route path="/foo" component={Foo} />
+      <Route path="/bar" component={Bar} />
+    </Wrapper>    
+  </ConnectedRouter>
+)
