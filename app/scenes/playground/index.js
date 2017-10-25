@@ -2,35 +2,44 @@ import React, { Component } from 'react'
 import { kea } from 'kea'
 import PropTypes from 'prop-types'
 
-const delay = ms => new Promise(resolve => window.setTimeout(resolve, ms))
-
-@kea({
+const Auth = kea({
   actions: () => ({
-    increase: true
+    setUser: (user) => ({ user })
   }),
   reducers: ({ actions }) => ({
-    counter: [0, PropTypes.number, {
-      [actions.increase]: (state, payload) => state + 1
+    user: [null, PropTypes.object, {
+      [actions.setUser]: (_, payload) => payload.user
+    }],
+    isLoggedIn: [false, PropTypes.bool, {
+      [actions.setUser]: () => true
     }]
-  }),
-  thunks: ({ actions }) => ({
-    increaseAsync: async (ms) => {
-      await delay(ms)
-      await actions.increase()
-    }
   })
 })
+
+export const LoginGate = kea({
+  selectors: () => ({
+    isLoginPath: [
+      () => [() => window.location.pathname === '/login'],
+      isLoginPath => isLoginPath,
+      PropTypes.bool
+    ]
+  }),
+  connect: {
+    props: [
+      Auth, [
+        'isLoggedIn'
+      ]
+    ]
+  }
+})(({ isLoginPath, isLoggedIn, children }) => <div>{isLoggedIn ? children : isLoginPath ? 'login page' : 'no login'}</div>)
+
 export default class ThunkCounter extends Component {
   render () {
-    const { increase, increaseAsync } = this.actions
-    const { counter } = this.props
-
     return (
       <div style={{textAlign: 'center'}}>
-        <div>{counter}</div>
-        {[0, 10, 100, 500, 1000, 2000].map(ms => (
-          <button key={ms} onClick={() => ms === 0 ? increase() : increaseAsync(ms)}>{ms}</button>
-        ))}
+        <LoginGate>
+          logged in
+        </LoginGate>
       </div>
     )
   }
