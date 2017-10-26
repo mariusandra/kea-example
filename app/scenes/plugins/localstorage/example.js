@@ -3,25 +3,31 @@ import PropTypes from 'prop-types'
 import { kea } from 'kea'
 
 @kea({
-  path: () => ['kea', 'localstorage', 'example'],
+  path: () => ['scenes', 'localstorage', 'counter'],
 
   actions: () => ({
-    setText: (text) => ({ text })
+    increment: (amount = 1) => ({ amount }),
+    decrement: (amount = 1) => ({ amount })
   }),
 
-  reducers: ({ actions }) => ({
-    text: ['kea rocks!', PropTypes.string, { persist: true }, {
-      [actions.setText]: (_, payload) => payload.text
+  reducers: ({ actions, key, props }) => ({
+    counter: [0, PropTypes.number, { persist: true }, {
+      [actions.increment]: (state, payload) => state + payload.amount,
+      [actions.decrement]: (state, payload) => state - payload.amount
     }]
   })
 })
-export default class LocalStorageExample extends Component {
+export default class Counter extends Component {
   render () {
-    const { text } = this.props
-    const { setText } = this.actions
+    const { counter } = this.props
+    const { increment, decrement } = this.actions
 
     return (
-      <input value={text} type='text' onChange={e => setText(e.target.value)} />
+      <div>
+        Count: {counter}<br />
+        <button onClick={() => increment(1)}>Increment</button>
+        <button onClick={() => decrement(1)}>Decrement</button>
+      </div>
     )
   }
 }

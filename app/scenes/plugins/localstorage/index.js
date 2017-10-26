@@ -49,7 +49,7 @@ export default class LocalStorage extends Component {
         <div className='description'>
           <h2>Example</h2>
           <p>
-            Change the text and refresh the page. The content should remain:
+            Update the counter and refresh the page. The content should remain:
           </p>
           <div className='demo'>
             <Example />
