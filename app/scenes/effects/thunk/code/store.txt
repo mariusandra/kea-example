@@ -1,9 +1,11 @@
-import { keaReducer } from 'kea'
+import { keaReducer, activatePlugin } from 'kea'
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux'
 
-import thunk from 'redux-thunk'
+import thunkPlugin from 'kea-thunk'
 
 export default function getStore () {
+  activatePlugin(thunkPlugin)
+
   const reducers = combineReducers({
     kea: keaReducer('kea'),
     scenes: keaReducer('scenes')

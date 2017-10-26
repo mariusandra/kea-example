@@ -8,7 +8,8 @@ const code = {
   keaActions: require('raw-loader!./code/kea-actions.txt'),
   keaReducers: require('raw-loader!./code/kea-reducers.txt'),
   keaSelectors: require('raw-loader!./code/kea-selectors.txt'),
-  keaConnect: require('raw-loader!./code/kea-connect.txt')
+  keaConnect: require('raw-loader!./code/kea-connect.txt'),
+  keaPlugins: require('raw-loader!./code/kea-plugins.txt')
 }
 
 export default class API extends Component {
@@ -26,6 +27,13 @@ export default class API extends Component {
         <Highlight className='javascript'>{code.keaUsage}</Highlight>
 
         <h3>Options</h3>
+
+        <h4>plugins: <code>[]</code></h4>
+        <p>
+          Plugins that only this logic store will use. See the <code>plugins</code> array in <code>getStore</code> on how to install
+          global plugins.
+        </p>
+        <Highlight className='javascript'>{code.keaPlugins}</Highlight>
 
         <h4>path: <code>() => []</code></h4>
         <p>

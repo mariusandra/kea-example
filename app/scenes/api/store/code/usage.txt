@@ -2,6 +2,9 @@
 import { getStore } from 'kea'
 
 export default getStore({
+  // plugins to use globally (for all logic stores)
+  plugins: [],
+
   // what root paths are available for kea
   paths: ['kea', 'scenes'],
 

@@ -1,9 +1,14 @@
 // scenes/my-random-scene/logic.js
 import { kea } from 'kea'
+import localStoragePlugin from 'kea-localstorage'
 
 import otherLogic from './other-logic.js'
 
 export default kea({
+  plugins: [
+    localStoragePlugin
+  ],
+
   connect: {
     actions: [
       otherLogic, [
@@ -41,7 +46,7 @@ export default kea({
   }),
 
   reducers: ({ actions, path, constants }) => ({
-    reducerKey: [defaultValue, propType, /* optional options: { persist: true }, */ {
+    reducerKey: [defaultValue, propType, /* with localStoragePlugin: { persist: true }, */ {
       // operations
       [actions.simpleAction]: (state, payload) => state + payload.value // return the new state,
       [actions.complexAction]: (state, payload) => {
@@ -74,44 +79,7 @@ export default kea({
       },
       PropTypes.object
     ]
-  }),
-
-  // saga functions
-
-  start: function * () {
-    // saga started or component mounted
-    console.log(this)
-  },
-
-  stop: function * () {
-    // saga cancelled or component unmounted
-  },
-
-  takeEvery: ({ actions, workers }) => ({
-    [actions.simpleAction]: function * () {
-      // inline worker
-    },
-    [actions.actionWithDynamicPayload]: workers.dynamicWorker
-  }),
-
-  takeLatest: ({ actions, workers }) => ({
-    [actions.actionWithStaticPayload]: function * () {
-      // inline worker
-    },
-    [actions.actionWithManyParameters]: workers.dynamicWorker
-  }),
-
-  workers: {
-    * dynamicWorker (action) {
-      const { id, message } = action.payload // if from takeEvery/takeLatest
-      // reference with workers.dynamicWorker
-    },
-    longerWayToDefine: function * () {
-      // another way to define a worker
-    }
-  },
-
-  sagas: [saga1, saga2]
+  })
 })
 
 // index.js

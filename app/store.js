@@ -1,7 +1,7 @@
-import { getStore } from 'kea'
-
 import createHistory from 'history/createBrowserHistory'
 import { routerReducer, routerMiddleware } from 'react-router-redux'
+
+import { getStore } from 'kea'
 
 import sagaPlugin from 'kea-saga'
 import thunkPlugin from 'kea-thunk'

@@ -1,7 +1,9 @@
-import { keaReducer } from 'kea'
-import { keaSaga } from 'kea-saga'
+import { keaReducer, activatePlugin } from 'kea'
+import sagaPlugin, { keaSaga } from 'kea-saga'
 
 export default function getStore () {
+  activatePlugin(sagaPlugin)
+
   const reducers = combineReducers({
     kea: keaReducer('kea'),
     scenes: keaReducer('scenes')

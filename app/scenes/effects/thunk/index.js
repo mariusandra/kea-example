@@ -26,8 +26,8 @@ export default class API extends Component {
           </p>
           <Highlight className='bash'>{code.install}</Highlight>
           <p>
-            Then import <code>kea-thunk</code> somewhere in your app's entrypoint or <code>store.js</code>,
-            before any calls to <code>kea()</code> and <code>getStore()</code> are made:
+            Then import <code>thunkPlugin</code> from <code>kea-thunk</code> in your <code>store.js</code> and add it to the plugins array
+            in <code>getStore()</code>
           </p>
           <Highlight className='javascript'>{code.import}</Highlight>
           <p>

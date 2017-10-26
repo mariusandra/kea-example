@@ -1,1 +1,7 @@
-import 'kea-saga'
+import sagaPlugin from 'kea-saga'
+
+const store = getStore({
+  plugins: [
+    sagaPlugin
+  ]
+})
