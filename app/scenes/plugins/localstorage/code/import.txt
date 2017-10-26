@@ -1,0 +1,7 @@
+import localStoragePlugin from 'kea-thunk'
+
+const store = getStore({
+  plugins: [
+    localStoragePlugin
+  ]
+})

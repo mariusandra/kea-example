@@ -15,7 +15,6 @@ export default {
   guideForms: async('GuideForms', () => import(/* webpackChunkName: "guideForms" */'./guide/forms')),
   guideTesting: async('GuideTesting', () => import(/* webpackChunkName: "guideTesting" */'./guide/testing')),
   guideFaq: async('GuideFaq', () => import(/* webpackChunkName: "guideFaq" */'./guide/faq')),
-  
 
   apiLogic: async('ApiLogic', () => import(/* webpackChunkName: "apiLogic" */'./api/logic')),
   apiComponent: async('ApiComponent', () => import(/* webpackChunkName: "apiComponent" */'./api/component')),
@@ -24,6 +23,8 @@ export default {
   apiStore: async('ApiStore', () => import(/* webpackChunkName: "apiStore" */'./api/store')),
   apiAction: async('ApiAction', () => import(/* webpackChunkName: "apiAction" */'./api/action')),
   apiReset: async('ApiReset', () => import(/* webpackChunkName: "apiReset" */'./api/reset')),
+
+  pluginsLocalStorage: async('PluginsLocalStorage', () => import(/* webpackChunkName: "pluginsLocalStorage" */'./plugins/localstorage')),
 
   effectsSaga: async('EffectsSaga', () => import(/* webpackChunkName: "effectsSaga" */'./effects/saga')),
   effectsThunk: async('EffectsThunk', () => import(/* webpackChunkName: "effectsThunk" */'./effects/thunk')),

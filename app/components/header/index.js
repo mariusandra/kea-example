@@ -14,7 +14,7 @@ const menu = {
   },
   guide: {
     url: '/guide',
-    paths: ['guide', 'api', 'effects'],
+    paths: ['guide', 'api', 'effects', 'plugins'],
     title: 'Docs',
     children: [
       {
@@ -39,6 +39,12 @@ const menu = {
         children: [
           { url: '/effects/saga', title: 'Sagas' },
           { url: '/effects/thunk', title: 'Thunks' }
+        ]
+      },
+      {
+        title: 'Plugins',
+        children: [
+          { url: '/plugins/localstorage', title: 'LocalStorage' }
         ]
       },
       {

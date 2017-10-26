@@ -1,0 +1,11 @@
+const logic = kea({
+  actions: ({ constants }) => ({
+    updateName: name => ({ name })
+  }),
+
+  reducers: ({ actions, constants }) => ({
+    name: ['chirpy', PropTypes.string, { persist: true }, {
+      [actions.updateName]: (state, payload) => payload.name
+    }]
+  })
+})

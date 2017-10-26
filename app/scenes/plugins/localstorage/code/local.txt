@@ -1,0 +1,10 @@
+import { kea } from 'kea'
+import localStoragePlugin from 'kea-thunk'
+
+const logic = kea({
+  plugins: [
+    localStoragePlugin
+  ],
+
+  // actions, reducers, etc
+})

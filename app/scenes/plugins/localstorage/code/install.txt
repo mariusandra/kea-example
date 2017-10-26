@@ -1,0 +1,2 @@
+yarn add kea-localstorage
+npm install --save kea-localstorage

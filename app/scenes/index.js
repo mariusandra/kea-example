@@ -11,6 +11,7 @@ import bundles from './bundles'
 const guideRedirect = () => (<Redirect to='/guide/installation' />)
 const apiRedirect = () => (<Redirect to='/api/logic' />)
 const effectsRedirect = () => (<Redirect to='/effects/saga' />)
+const pluginsRedirect = () => (<Redirect to='/plugins/localstorage' />)
 const examplesRedirect = () => (<Redirect to='/examples/todos' />)
 
 export default () => (
@@ -43,6 +44,9 @@ export default () => (
       <Route path='/effects' exact render={effectsRedirect} />
       <Route path='/effects/saga' component={bundles.effectsSaga} />
       <Route path='/effects/thunk' component={bundles.effectsThunk} />
+
+      <Route path='/plugins' exact render={pluginsRedirect} />
+      <Route path='/plugins/localstorage' component={bundles.pluginsLocalStorage} />
 
       <Route path='/examples' exact render={examplesRedirect} />
       <Route path='/examples/todos' component={bundles.examplesTodos} />
