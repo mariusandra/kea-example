@@ -49,11 +49,15 @@ export default class LocalStorage extends Component {
         <div className='description'>
           <h2>Example</h2>
           <p>
-            Update the counter and refresh the page. The content should remain:
+            Update the counter and refresh the page. The number should remain:
           </p>
           <div className='demo'>
             <Example />
           </div>
+          <p>
+            <em>Note: if you refresh, it may flash the number 0 for a brief moment, as that's what's stored in the pre-rendered HTML
+            that's served when you open the page. It should then immediately update.</em>
+          </p>
         </div>
       </div>
     )
