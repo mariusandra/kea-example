@@ -1,0 +1,5045 @@
+[
+  {
+    "timeStamp": 1509005970753,
+    "time": 17180,
+    "hash": "56c6c51dc740eb4d70a6",
+    "errors": [],
+    "size": 1468322,
+    "assets": [
+      {
+        "name": "apiComponent.bundle.js",
+        "chunks": [
+          11
+        ],
+        "size": 6557,
+        "minified": true
+      },
+      {
+        "name": "index.html",
+        "chunks": [],
+        "size": 1016
+      },
+      {
+        "name": "a63cfb870de9e2d5a64f396ede8c30b0.jpg",
+        "chunks": [],
+        "size": 187819
+      },
+      {
+        "name": "278689e0ed22536cefa31c0ad4ef72bd.jpg",
+        "chunks": [],
+        "size": 162098
+      },
+      {
+        "name": "examplesHackerNews.bundle.js",
+        "chunks": [
+          0
+        ],
+        "size": 271754,
+        "minified": true
+      },
+      {
+        "name": "homepage.bundle.js",
+        "chunks": [
+          1
+        ],
+        "size": 75868,
+        "minified": true
+      },
+      {
+        "name": "guideForms.bundle.js",
+        "chunks": [
+          2
+        ],
+        "size": 55836,
+        "minified": true
+      },
+      {
+        "name": "guideSliders.bundle.js",
+        "chunks": [
+          3
+        ],
+        "size": 30309,
+        "minified": true
+      },
+      {
+        "name": "guideCounter.bundle.js",
+        "chunks": [
+          4
+        ],
+        "size": 23282,
+        "minified": true
+      },
+      {
+        "name": "guideGithub.bundle.js",
+        "chunks": [
+          5
+        ],
+        "size": 32377,
+        "minified": true
+      },
+      {
+        "name": "effectsSaga.bundle.js",
+        "chunks": [
+          6
+        ],
+        "size": 10772,
+        "minified": true
+      },
+      {
+        "name": "apiLogic.bundle.js",
+        "chunks": [
+          7
+        ],
+        "size": 10862,
+        "minified": true
+      },
+      {
+        "name": "guideCounterDynamic.bundle.js",
+        "chunks": [
+          8
+        ],
+        "size": 10478,
+        "minified": true
+      },
+      {
+        "name": "guideConnected.bundle.js",
+        "chunks": [
+          9
+        ],
+        "size": 12288,
+        "minified": true
+      },
+      {
+        "name": "guideInstallation.bundle.js",
+        "chunks": [
+          10
+        ],
+        "size": 6829,
+        "minified": true
+      },
+      {
+        "name": "f3950cfdf9b297de16cb49e4405ee0d3.jpg",
+        "chunks": [],
+        "size": 102234
+      },
+      {
+        "name": "pluginsLocalStorage.bundle.js",
+        "chunks": [
+          12
+        ],
+        "size": 5679,
+        "minified": true
+      },
+      {
+        "name": "examplesTodos.bundle.js",
+        "chunks": [
+          13
+        ],
+        "size": 18801,
+        "minified": true
+      },
+      {
+        "name": "guideTesting.bundle.js",
+        "chunks": [
+          14
+        ],
+        "size": 8600,
+        "minified": true
+      },
+      {
+        "name": "guideMigration.bundle.js",
+        "chunks": [
+          15
+        ],
+        "size": 6428,
+        "minified": true
+      },
+      {
+        "name": "effectsThunk.bundle.js",
+        "chunks": [
+          16
+        ],
+        "size": 4945,
+        "minified": true
+      },
+      {
+        "name": "guideFaq.bundle.js",
+        "chunks": [
+          17
+        ],
+        "size": 4752,
+        "minified": true
+      },
+      {
+        "name": "guideConnectedServices.bundle.js",
+        "chunks": [
+          18
+        ],
+        "size": 8794,
+        "minified": true
+      },
+      {
+        "name": "apiStore.bundle.js",
+        "chunks": [
+          19
+        ],
+        "size": 4746,
+        "minified": true
+      },
+      {
+        "name": "apiReducer.bundle.js",
+        "chunks": [
+          20
+        ],
+        "size": 4628,
+        "minified": true
+      },
+      {
+        "name": "examplesGithub.bundle.js",
+        "chunks": [
+          21
+        ],
+        "size": 4402,
+        "minified": true
+      },
+      {
+        "name": "apiReset.bundle.js",
+        "chunks": [
+          22
+        ],
+        "size": 1728,
+        "minified": true
+      },
+      {
+        "name": "apiConnect.bundle.js",
+        "chunks": [
+          23
+        ],
+        "size": 2117,
+        "minified": true
+      },
+      {
+        "name": "apiAction.bundle.js",
+        "chunks": [
+          24
+        ],
+        "size": 1948,
+        "minified": true
+      },
+      {
+        "name": "playground.bundle.js",
+        "chunks": [
+          25
+        ],
+        "size": 2034,
+        "minified": true
+      },
+      {
+        "name": "common.bundle.js",
+        "chunks": [
+          26
+        ],
+        "size": 388341,
+        "minified": true
+      }
+    ],
+    "chunks": [
+      {
+        "size": 883166,
+        "files": [
+          "examplesHackerNews.bundle.js"
+        ],
+        "modules": [
+          {
+            "name": "./app/scenes/examples/hacker-news/index.js",
+            "size": 3167,
+            "id": 566
+          },
+          {
+            "name": "./node_modules/firebase/utils/assert.js",
+            "size": 1532,
+            "id": 568
+          },
+          {
+            "name": "./node_modules/firebase/database/core/util/util.js",
+            "size": 26906,
+            "id": 569
+          },
+          {
+            "name": "./node_modules/firebase/utils/obj.js",
+            "size": 4389,
+            "id": 570
+          },
+          {
+            "name": "./node_modules/firebase/database/core/util/Path.js",
+            "size": 10490,
+            "id": 571
+          },
+          {
+            "name": "./node_modules/firebase/database/core/snap/indexes/PriorityIndex.js",
+            "size": 3747,
+            "id": 572
+          },
+          {
+            "name": "./node_modules/firebase/database/core/snap/ChildrenNode.js",
+            "size": 17585,
+            "id": 573
+          },
+          {
+            "name": "./node_modules/firebase/database/core/snap/Node.js",
+            "size": 1271,
+            "id": 574
+          },
+          {
+            "name": "./node_modules/firebase/utils/json.js",
+            "size": 1322,
+            "id": 576
+          },
+          {
+            "name": "./node_modules/firebase/utils/validation.js",
+            "size": 4324,
+            "id": 577
+          },
+          {
+            "name": "./node_modules/firebase/database/core/util/validation.js",
+            "size": 19180,
+            "id": 578
+          },
+          {
+            "name": "./node_modules/firebase/database/core/operation/Operation.js",
+            "size": 3196,
+            "id": 579
+          },
+          {
+            "name": "./node_modules/firebase/utils/promise.js",
+            "size": 3583,
+            "id": 580
+          },
+          {
+            "name": "./node_modules/firebase/utils/environment.js",
+            "size": 6438,
+            "id": 581
+          },
+          {
+            "name": "./node_modules/firebase/database/core/view/Change.js",
+            "size": 3112,
+            "id": 582
+          },
+          {
+            "name": "./node_modules/date-fns/parse/index.js",
+            "size": 8313,
+            "id": 583
+          },
+          {
+            "name": "./node_modules/firebase/database/core/snap/indexes/KeyIndex.js",
+            "size": 3871,
+            "id": 591
+          },
+          {
+            "name": "./node_modules/firebase/database/core/snap/nodeFromJSON.js",
+            "size": 8837,
+            "id": 592
+          },
+          {
+            "name": "./node_modules/firebase/app.js",
+            "size": 1110,
+            "id": 593
+          },
+          {
+            "name": "./node_modules/firebase/utils/constants.js",
+            "size": 1192,
+            "id": 594
+          },
+          {
+            "name": "./node_modules/firebase/database/core/storage/storage.js",
+            "size": 2462,
+            "id": 595
+          },
+          {
+            "name": "./node_modules/firebase/database/realtime/Constants.js",
+            "size": 1282,
+            "id": 596
+          },
+          {
+            "name": "./node_modules/firebase/database/core/snap/indexes/Index.js",
+            "size": 2105,
+            "id": 597
+          },
+          {
+            "name": "./node_modules/firebase/database/core/snap/LeafNode.js",
+            "size": 12932,
+            "id": 598
+          },
+          {
+            "name": "./node_modules/firebase/database/core/Repo.js",
+            "size": 26522,
+            "id": 599
+          },
+          {
+            "name": "./node_modules/firebase/database/core/view/CacheNode.js",
+            "size": 2789,
+            "id": 600
+          },
+          {
+            "name": "./app/assets/logo.svg",
+            "size": 5485,
+            "id": 601
+          },
+          {
+            "name": "./app/scenes/examples/hacker-news/utils/api.js",
+            "size": 181,
+            "id": 611
+          },
+          {
+            "name": "./node_modules/firebase/utils/utf8.js",
+            "size": 3341,
+            "id": 612
+          },
+          {
+            "name": "./node_modules/firebase/database/api/Reference.js",
+            "size": 13529,
+            "id": 613
+          },
+          {
+            "name": "./node_modules/firebase/database/core/util/SortedMap.js",
+            "size": 22055,
+            "id": 614
+          },
+          {
+            "name": "./node_modules/firebase/database/core/util/ImmutableTree.js",
+            "size": 12368,
+            "id": 615
+          },
+          {
+            "name": "./node_modules/firebase/database/core/view/filter/IndexedFilter.js",
+            "size": 5366,
+            "id": 616
+          },
+          {
+            "name": "./node_modules/firebase/database/core/stats/StatsManager.js",
+            "size": 1754,
+            "id": 617
+          },
+          {
+            "name": "./node_modules/firebase/database/core/RepoManager.js",
+            "size": 5092,
+            "id": 618
+          },
+          {
+            "name": "./node_modules/firebase/utils/globalScope.js",
+            "size": 1160,
+            "id": 621
+          },
+          {
+            "name": "./node_modules/process/browser.js",
+            "size": 5299,
+            "id": 622
+          },
+          {
+            "name": "./node_modules/firebase/utils/deep_copy.js",
+            "size": 2624,
+            "id": 623
+          },
+          {
+            "name": "./node_modules/firebase/database/api/Database.js",
+            "size": 5114,
+            "id": 624
+          },
+          {
+            "name": "./node_modules/firebase/database/core/util/libs/parser.js",
+            "size": 4355,
+            "id": 625
+          },
+          {
+            "name": "./node_modules/firebase/database/core/RepoInfo.js",
+            "size": 8520,
+            "id": 626
+          },
+          {
+            "name": "./node_modules/firebase/database/api/Query.js",
+            "size": 26296,
+            "id": 627
+          },
+          {
+            "name": "./node_modules/firebase/database/core/snap/snap.js",
+            "size": 6288,
+            "id": 628
+          },
+          {
+            "name": "./node_modules/firebase/database/core/snap/indexes/ValueIndex.js",
+            "size": 3230,
+            "id": 629
+          },
+          {
+            "name": "./node_modules/firebase/database/core/snap/IndexMap.js",
+            "size": 7141,
+            "id": 630
+          },
+          {
+            "name": "./node_modules/firebase/database/core/snap/childSet.js",
+            "size": 5030,
+            "id": 631
+          },
+          {
+            "name": "./node_modules/firebase/database/core/snap/comparators.js",
+            "size": 1154,
+            "id": 632
+          },
+          {
+            "name": "./node_modules/firebase/database/core/snap/indexes/PathIndex.js",
+            "size": 3619,
+            "id": 633
+          },
+          {
+            "name": "./node_modules/firebase/database/api/DataSnapshot.js",
+            "size": 7526,
+            "id": 634
+          },
+          {
+            "name": "./node_modules/firebase/database/core/util/ServerValues.js",
+            "size": 8391,
+            "id": 635
+          },
+          {
+            "name": "./node_modules/firebase/database/core/SparseSnapshotTree.js",
+            "size": 6011,
+            "id": 636
+          },
+          {
+            "name": "./node_modules/firebase/database/core/util/CountedSet.js",
+            "size": 2863,
+            "id": 637
+          },
+          {
+            "name": "./node_modules/firebase/database/core/operation/Overwrite.js",
+            "size": 1677,
+            "id": 638
+          },
+          {
+            "name": "./node_modules/firebase/database/core/SyncPoint.js",
+            "size": 9880,
+            "id": 639
+          },
+          {
+            "name": "./node_modules/firebase/database/core/view/ViewCache.js",
+            "size": 3006,
+            "id": 640
+          },
+          {
+            "name": "./node_modules/firebase/database/core/stats/StatsListener.js",
+            "size": 1689,
+            "id": 641
+          },
+          {
+            "name": "./node_modules/firebase/database/core/PersistentConnection.js",
+            "size": 33882,
+            "id": 642
+          },
+          {
+            "name": "./node_modules/firebase/database/core/util/EventEmitter.js",
+            "size": 3268,
+            "id": 643
+          },
+          {
+            "name": "./node_modules/firebase/database/realtime/Connection.js",
+            "size": 21155,
+            "id": 644
+          },
+          {
+            "name": "./node_modules/firebase/database/realtime/BrowserPollConnection.js",
+            "size": 30898,
+            "id": 645
+          },
+          {
+            "name": "./node_modules/firebase/database/realtime/WebSocketConnection.js",
+            "size": 14798,
+            "id": 646
+          },
+          {
+            "name": "./node_modules/firebase/database/core/ServerActions.js",
+            "size": 2448,
+            "id": 647
+          },
+          {
+            "name": "./node_modules/firebase/database/core/view/filter/RangedFilter.js",
+            "size": 4892,
+            "id": 648
+          },
+          {
+            "name": "./app/scenes/examples/hacker-news/list/story.js",
+            "size": 1413,
+            "id": 649
+          },
+          {
+            "name": "./node_modules/date-fns/distance_in_words_to_now/index.js",
+            "size": 3958,
+            "id": 650
+          },
+          {
+            "name": "./app/scenes/examples/hacker-news/styles.scss",
+            "size": 1238,
+            "id": 823
+          },
+          {
+            "name": "./node_modules/css-loader!./node_modules/postcss-loader/lib?{\"ident\":\"postcss\",\"plugins\":[null,null]}!./app/scenes/examples/hacker-news/styles.scss",
+            "size": 2451,
+            "id": 824
+          },
+          {
+            "name": "./app/scenes/examples/hacker-news/header/index.js",
+            "size": 2846,
+            "id": 825
+          },
+          {
+            "name": "./app/scenes/examples/hacker-news/list/index.js",
+            "size": 7304,
+            "id": 826
+          },
+          {
+            "name": "./node_modules/firebase/utils/shims.js",
+            "size": 3472,
+            "id": 827
+          },
+          {
+            "name": "./node_modules/firebase/app/firebase_app.js",
+            "size": 13989,
+            "id": 828
+          },
+          {
+            "name": "./node_modules/firebase/app/subscribe.js",
+            "size": 7751,
+            "id": 829
+          },
+          {
+            "name": "./node_modules/promise-polyfill/promise.js",
+            "size": 6235,
+            "id": 830
+          },
+          {
+            "name": "./node_modules/timers-browserify/main.js",
+            "size": 1360,
+            "id": 831
+          },
+          {
+            "name": "./node_modules/setimmediate/setImmediate.js",
+            "size": 6473,
+            "id": 832
+          },
+          {
+            "name": "./node_modules/firebase/app/errors.js",
+            "size": 2929,
+            "id": 833
+          },
+          {
+            "name": "./node_modules/firebase/database.js",
+            "size": 3681,
+            "id": 834
+          },
+          {
+            "name": "./node_modules/firebase/utils/crypt.js",
+            "size": 9502,
+            "id": 835
+          },
+          {
+            "name": "./node_modules/firebase/utils/Sha1.js",
+            "size": 9642,
+            "id": 836
+          },
+          {
+            "name": "./node_modules/firebase/utils/hash.js",
+            "size": 1815,
+            "id": 837
+          },
+          {
+            "name": "./node_modules/firebase/database/core/storage/DOMStorageWrapper.js",
+            "size": 3057,
+            "id": 838
+          },
+          {
+            "name": "./node_modules/firebase/database/core/storage/MemoryStorage.js",
+            "size": 1793,
+            "id": 839
+          },
+          {
+            "name": "./node_modules/firebase/database/api/onDisconnect.js",
+            "size": 5411,
+            "id": 840
+          },
+          {
+            "name": "./node_modules/firebase/database/api/TransactionResult.js",
+            "size": 1790,
+            "id": 841
+          },
+          {
+            "name": "./node_modules/firebase/database/core/util/NextPushId.js",
+            "size": 3535,
+            "id": 842
+          },
+          {
+            "name": "./node_modules/firebase/database/core/view/EventRegistration.js",
+            "size": 8079,
+            "id": 843
+          },
+          {
+            "name": "./node_modules/firebase/database/core/view/Event.js",
+            "size": 3482,
+            "id": 844
+          },
+          {
+            "name": "./node_modules/firebase/database/core/SyncTree.js",
+            "size": 32149,
+            "id": 845
+          },
+          {
+            "name": "./node_modules/firebase/database/core/operation/AckUserWrite.js",
+            "size": 2591,
+            "id": 846
+          },
+          {
+            "name": "./node_modules/firebase/database/core/operation/ListenComplete.js",
+            "size": 1627,
+            "id": 847
+          },
+          {
+            "name": "./node_modules/firebase/database/core/operation/Merge.js",
+            "size": 2699,
+            "id": 848
+          },
+          {
+            "name": "./node_modules/firebase/database/core/view/View.js",
+            "size": 8939,
+            "id": 849
+          },
+          {
+            "name": "./node_modules/firebase/database/core/view/ViewProcessor.js",
+            "size": 28549,
+            "id": 850
+          },
+          {
+            "name": "./node_modules/firebase/database/core/view/ChildChangeAccumulator.js",
+            "size": 3421,
+            "id": 851
+          },
+          {
+            "name": "./node_modules/firebase/database/core/view/CompleteChildSource.js",
+            "size": 3782,
+            "id": 852
+          },
+          {
+            "name": "./node_modules/firebase/database/core/view/EventGenerator.js",
+            "size": 5464,
+            "id": 853
+          },
+          {
+            "name": "./node_modules/firebase/database/core/WriteTree.js",
+            "size": 27235,
+            "id": 854
+          },
+          {
+            "name": "./node_modules/firebase/database/core/CompoundWrite.js",
+            "size": 8723,
+            "id": 855
+          },
+          {
+            "name": "./node_modules/firebase/database/core/SnapshotHolder.js",
+            "size": 1577,
+            "id": 856
+          },
+          {
+            "name": "./node_modules/firebase/database/core/AuthTokenProvider.js",
+            "size": 3478,
+            "id": 857
+          },
+          {
+            "name": "./node_modules/firebase/database/core/stats/StatsCollection.js",
+            "size": 1573,
+            "id": 858
+          },
+          {
+            "name": "./node_modules/firebase/database/core/stats/StatsReporter.js",
+            "size": 3391,
+            "id": 859
+          },
+          {
+            "name": "./node_modules/firebase/database/core/view/EventQueue.js",
+            "size": 6303,
+            "id": 860
+          },
+          {
+            "name": "./node_modules/firebase/database/core/util/VisibilityMonitor.js",
+            "size": 3786,
+            "id": 861
+          },
+          {
+            "name": "./node_modules/firebase/database/core/util/OnlineMonitor.js",
+            "size": 3635,
+            "id": 862
+          },
+          {
+            "name": "./node_modules/firebase/utils/jwt.js",
+            "size": 8883,
+            "id": 863
+          },
+          {
+            "name": "./node_modules/firebase/database/realtime/TransportManager.js",
+            "size": 3870,
+            "id": 864
+          },
+          {
+            "name": "./node_modules/firebase/database/realtime/polling/PacketReceiver.js",
+            "size": 3390,
+            "id": 865
+          },
+          {
+            "name": "./node_modules/firebase/database/core/ReadonlyRestClient.js",
+            "size": 7690,
+            "id": 866
+          },
+          {
+            "name": "./node_modules/firebase/utils/util.js",
+            "size": 2185,
+            "id": 867
+          },
+          {
+            "name": "./node_modules/firebase/database/core/view/QueryParams.js",
+            "size": 13485,
+            "id": 868
+          },
+          {
+            "name": "./node_modules/firebase/database/core/view/filter/LimitedFilter.js",
+            "size": 11028,
+            "id": 869
+          },
+          {
+            "name": "./node_modules/firebase/database/core/Repo_transaction.js",
+            "size": 30168,
+            "id": 870
+          },
+          {
+            "name": "./node_modules/firebase/database/core/util/Tree.js",
+            "size": 8045,
+            "id": 871
+          },
+          {
+            "name": "./node_modules/firebase/database/api/internal.js",
+            "size": 2613,
+            "id": 872
+          },
+          {
+            "name": "./node_modules/firebase/database/api/test_access.js",
+            "size": 3311,
+            "id": 873
+          },
+          {
+            "name": "./node_modules/firebase-hackernews/dist/firebase-hackernews.js",
+            "size": 6787,
+            "id": 874
+          },
+          {
+            "name": "./node_modules/date-fns/distance_in_words/index.js",
+            "size": 7734,
+            "id": 875
+          },
+          {
+            "name": "./node_modules/date-fns/compare_desc/index.js",
+            "size": 1384,
+            "id": 876
+          },
+          {
+            "name": "./node_modules/date-fns/is_date/index.js",
+            "size": 456,
+            "id": 877
+          },
+          {
+            "name": "./node_modules/date-fns/difference_in_seconds/index.js",
+            "size": 899,
+            "id": 878
+          },
+          {
+            "name": "./node_modules/date-fns/difference_in_milliseconds/index.js",
+            "size": 901,
+            "id": 879
+          },
+          {
+            "name": "./node_modules/date-fns/difference_in_months/index.js",
+            "size": 1368,
+            "id": 880
+          },
+          {
+            "name": "./node_modules/date-fns/difference_in_calendar_months/index.js",
+            "size": 968,
+            "id": 881
+          },
+          {
+            "name": "./node_modules/date-fns/compare_asc/index.js",
+            "size": 1302,
+            "id": 882
+          },
+          {
+            "name": "./node_modules/date-fns/locale/en/index.js",
+            "size": 310,
+            "id": 883
+          },
+          {
+            "name": "./node_modules/date-fns/locale/en/build_distance_in_words_locale/index.js",
+            "size": 1875,
+            "id": 884
+          },
+          {
+            "name": "./node_modules/date-fns/locale/en/build_format_locale/index.js",
+            "size": 2876,
+            "id": 885
+          },
+          {
+            "name": "./node_modules/date-fns/locale/_lib/build_formatting_tokens_reg_exp/index.js",
+            "size": 711,
+            "id": 886
+          },
+          {
+            "name": "./app/scenes/examples/hacker-news/utils/get-domain.js",
+            "size": 421,
+            "id": 887
+          },
+          {
+            "name": "./app/scenes/examples/hacker-news/user/index.js",
+            "size": 5309,
+            "id": 888
+          },
+          {
+            "name": "./app/scenes/examples/hacker-news/item/index.js",
+            "size": 9339,
+            "id": 889
+          },
+          {
+            "name": "./app/scenes/examples/hacker-news/item/comment.js",
+            "size": 688,
+            "id": 890
+          }
+        ]
+      },
+      {
+        "size": 111342,
+        "files": [
+          "homepage.bundle.js"
+        ],
+        "modules": [
+          {
+            "name": "./app/scenes/homepage/index.js",
+            "size": 27285,
+            "id": 542
+          },
+          {
+            "name": "./app/scenes/guide/features-logic.js",
+            "size": 1052,
+            "id": 575
+          },
+          {
+            "name": "./app/scenes/guide/sliders/slider/styles.scss",
+            "size": 1259,
+            "id": 584
+          },
+          {
+            "name": "./app/utils/delay.js",
+            "size": 267,
+            "id": 585
+          },
+          {
+            "name": "./app/utils/range.js",
+            "size": 107,
+            "id": 586
+          },
+          {
+            "name": "./app/scenes/guide/sliders/slider/images/index.js",
+            "size": 392,
+            "id": 587
+          },
+          {
+            "name": "./app/assets/logo.svg",
+            "size": 5485,
+            "id": 601
+          },
+          {
+            "name": "./app/scenes/guide/sliders/slider/index.js",
+            "size": 6757,
+            "id": 602
+          },
+          {
+            "name": "./node_modules/css-loader!./node_modules/postcss-loader/lib?{\"ident\":\"postcss\",\"plugins\":[null,null]}!./app/scenes/guide/sliders/slider/styles.scss",
+            "size": 839,
+            "id": 603
+          },
+          {
+            "name": "./app/scenes/guide/sliders/slider/images/kea1.jpg",
+            "size": 82,
+            "id": 604
+          },
+          {
+            "name": "./app/scenes/guide/sliders/slider/images/kea2.jpg",
+            "size": 82,
+            "id": 605
+          },
+          {
+            "name": "./app/scenes/guide/sliders/slider/images/kea3.jpg",
+            "size": 82,
+            "id": 606
+          },
+          {
+            "name": "./app/scenes/guide/counter/counter/index.js",
+            "size": 4257,
+            "id": 607
+          },
+          {
+            "name": "./app/scenes/guide/counter/counter/styles.scss",
+            "size": 1259,
+            "id": 608
+          },
+          {
+            "name": "./node_modules/css-loader!./node_modules/postcss-loader/lib?{\"ident\":\"postcss\",\"plugins\":[null,null]}!./app/scenes/guide/counter/counter/styles.scss",
+            "size": 208,
+            "id": 609
+          },
+          {
+            "name": "./app/scenes/guide/github/github/index.js",
+            "size": 8511,
+            "id": 610
+          },
+          {
+            "name": "./app/scenes/homepage/assets/pattern.png",
+            "size": 1133,
+            "id": 619
+          },
+          {
+            "name": "./app/scenes/homepage/styles.scss",
+            "size": 1217,
+            "id": 651
+          },
+          {
+            "name": "./node_modules/css-loader!./node_modules/postcss-loader/lib?{\"ident\":\"postcss\",\"plugins\":[null,null]}!./app/scenes/homepage/styles.scss",
+            "size": 3470,
+            "id": 652
+          },
+          {
+            "name": "./app/components/tags/code-style-highlight.js",
+            "size": 1716,
+            "id": 653
+          },
+          {
+            "name": "./app/scenes/guide/countdown/countdown/index.js",
+            "size": 5382,
+            "id": 654
+          },
+          {
+            "name": "./app/scenes/guide/thunk/thunk-counter.js",
+            "size": 4722,
+            "id": 655
+          },
+          {
+            "name": "./app/scenes/guide/connected/connected-toggle.js",
+            "size": 2731,
+            "id": 656
+          },
+          {
+            "name": "./node_modules/raw-loader!./app/scenes/homepage/code/counter-decorator.txt",
+            "size": 1099,
+            "id": 657
+          },
+          {
+            "name": "./node_modules/raw-loader!./app/scenes/homepage/code/counter-hoc.txt",
+            "size": 1146,
+            "id": 658
+          },
+          {
+            "name": "./node_modules/raw-loader!./app/scenes/homepage/code/counter-functional.txt",
+            "size": 1030,
+            "id": 659
+          },
+          {
+            "name": "./node_modules/raw-loader!./app/scenes/homepage/code/thunk-decorator.txt",
+            "size": 1050,
+            "id": 660
+          },
+          {
+            "name": "./node_modules/raw-loader!./app/scenes/homepage/code/thunk-hoc.txt",
+            "size": 1088,
+            "id": 661
+          },
+          {
+            "name": "./node_modules/raw-loader!./app/scenes/homepage/code/thunk-functional.txt",
+            "size": 960,
+            "id": 662
+          },
+          {
+            "name": "./node_modules/raw-loader!./app/scenes/homepage/code/slider-decorator.txt",
+            "size": 1838,
+            "id": 663
+          },
+          {
+            "name": "./node_modules/raw-loader!./app/scenes/homepage/code/slider-hoc.txt",
+            "size": 1882,
+            "id": 664
+          },
+          {
+            "name": "./node_modules/raw-loader!./app/scenes/homepage/code/slider-functional.txt",
+            "size": 1781,
+            "id": 665
+          },
+          {
+            "name": "./node_modules/raw-loader!./app/scenes/homepage/code/github-decorator.txt",
+            "size": 3392,
+            "id": 666
+          },
+          {
+            "name": "./node_modules/raw-loader!./app/scenes/homepage/code/github-hoc.txt",
+            "size": 3436,
+            "id": 667
+          },
+          {
+            "name": "./node_modules/raw-loader!./app/scenes/homepage/code/github-functional.txt",
+            "size": 3225,
+            "id": 668
+          },
+          {
+            "name": "./node_modules/raw-loader!./app/scenes/homepage/code/countdown-decorator.txt",
+            "size": 1573,
+            "id": 669
+          },
+          {
+            "name": "./node_modules/raw-loader!./app/scenes/homepage/code/countdown-hoc.txt",
+            "size": 1626,
+            "id": 670
+          },
+          {
+            "name": "./node_modules/raw-loader!./app/scenes/homepage/code/countdown-functional.txt",
+            "size": 1498,
+            "id": 671
+          },
+          {
+            "name": "./node_modules/raw-loader!./app/scenes/homepage/code/connected-decorator.txt",
+            "size": 1153,
+            "id": 672
+          },
+          {
+            "name": "./node_modules/raw-loader!./app/scenes/homepage/code/connected-hoc.txt",
+            "size": 1212,
+            "id": 673
+          },
+          {
+            "name": "./node_modules/raw-loader!./app/scenes/homepage/code/connected-functional.txt",
+            "size": 1104,
+            "id": 674
+          },
+          {
+            "name": "./node_modules/raw-loader!./app/scenes/homepage/code/how-logic.txt",
+            "size": 133,
+            "id": 675
+          },
+          {
+            "name": "./node_modules/raw-loader!./app/scenes/homepage/code/how-counter.txt",
+            "size": 536,
+            "id": 676
+          },
+          {
+            "name": "./node_modules/raw-loader!./app/scenes/homepage/code/how-wrapped.txt",
+            "size": 292,
+            "id": 677
+          },
+          {
+            "name": "./node_modules/raw-loader!./app/scenes/homepage/code/how-decorator.txt",
+            "size": 148,
+            "id": 678
+          },
+          {
+            "name": "./node_modules/raw-loader!./app/scenes/homepage/code/how-connect.txt",
+            "size": 494,
+            "id": 679
+          },
+          {
+            "name": "./node_modules/raw-loader!./app/scenes/homepage/code/how-thunks.txt",
+            "size": 450,
+            "id": 680
+          },
+          {
+            "name": "./node_modules/raw-loader!./app/scenes/homepage/code/how-sagas.txt",
+            "size": 901,
+            "id": 681
+          }
+        ]
+      },
+      {
+        "size": 95253,
+        "files": [
+          "guideForms.bundle.js"
+        ],
+        "modules": [
+          {
+            "name": "./app/scenes/guide/forms/index.js",
+            "size": 28418,
+            "id": 551
+          },
+          {
+            "name": "./app/scenes/guide/features-logic.js",
+            "size": 1052,
+            "id": 575
+          },
+          {
+            "name": "./app/components/sections/sagas/index.js",
+            "size": 3944,
+            "id": 588
+          },
+          {
+            "name": "./node_modules/raw-loader!./app/components/sections/sagas/code/import-saga.txt",
+            "size": 121,
+            "id": 589
+          },
+          {
+            "name": "./node_modules/raw-loader!./app/components/sections/sagas/code/install-saga.txt",
+            "size": 124,
+            "id": 590
+          },
+          {
+            "name": "./app/scenes/guide/forms/styles.scss",
+            "size": 1238,
+            "id": 747
+          },
+          {
+            "name": "./node_modules/css-loader!./node_modules/postcss-loader/lib?{\"ident\":\"postcss\",\"plugins\":[null,null]}!./app/scenes/guide/forms/styles.scss",
+            "size": 546,
+            "id": 748
+          },
+          {
+            "name": "./app/scenes/guide/forms/crude-form/index.js",
+            "size": 5645,
+            "id": 749
+          },
+          {
+            "name": "./app/scenes/guide/forms/crude-submit-form/index.js",
+            "size": 7321,
+            "id": 750
+          },
+          {
+            "name": "./app/scenes/guide/forms/errors-form/index.js",
+            "size": 9137,
+            "id": 751
+          },
+          {
+            "name": "./app/scenes/guide/forms/final-form/index.js",
+            "size": 9275,
+            "id": 752
+          },
+          {
+            "name": "./app/scenes/guide/forms/created-form/index.js",
+            "size": 4358,
+            "id": 753
+          },
+          {
+            "name": "./app/scenes/guide/forms/created-form/form.js",
+            "size": 2029,
+            "id": 754
+          },
+          {
+            "name": "./app/scenes/guide/forms/created-form/create-form.js",
+            "size": 5135,
+            "id": 755
+          },
+          {
+            "name": "./node_modules/raw-loader!./app/scenes/guide/forms/code/actions-reducers.txt",
+            "size": 1275,
+            "id": 756
+          },
+          {
+            "name": "./node_modules/raw-loader!./app/scenes/guide/forms/code/component.txt",
+            "size": 1279,
+            "id": 757
+          },
+          {
+            "name": "./node_modules/raw-loader!./app/scenes/guide/forms/code/takelatest.txt",
+            "size": 751,
+            "id": 758
+          },
+          {
+            "name": "./node_modules/raw-loader!./app/scenes/guide/forms/code/errors-form.txt",
+            "size": 1241,
+            "id": 759
+          },
+          {
+            "name": "./node_modules/raw-loader!./app/scenes/guide/forms/code/errors-index.txt",
+            "size": 1261,
+            "id": 760
+          },
+          {
+            "name": "./node_modules/raw-loader!./app/scenes/guide/forms/code/show-errors-render.txt",
+            "size": 412,
+            "id": 761
+          },
+          {
+            "name": "./node_modules/raw-loader!./app/scenes/guide/forms/code/show-errors-selector.txt",
+            "size": 797,
+            "id": 762
+          },
+          {
+            "name": "./node_modules/raw-loader!./app/scenes/guide/forms/code/simple-full.txt",
+            "size": 4122,
+            "id": 763
+          },
+          {
+            "name": "./node_modules/raw-loader!./app/scenes/guide/forms/code/create-stub.txt",
+            "size": 276,
+            "id": 764
+          },
+          {
+            "name": "./node_modules/raw-loader!./app/scenes/guide/forms/code/create-form-call.txt",
+            "size": 1260,
+            "id": 765
+          },
+          {
+            "name": "./node_modules/raw-loader!./app/scenes/guide/forms/code/create-form-function.txt",
+            "size": 2680,
+            "id": 766
+          },
+          {
+            "name": "./node_modules/raw-loader!./app/scenes/guide/forms/code/create-form-index.txt",
+            "size": 1556,
+            "id": 767
+          }
+        ]
+      },
+      {
+        "size": 52204,
+        "files": [
+          "guideSliders.bundle.js"
+        ],
+        "modules": [
+          {
+            "name": "./app/scenes/guide/sliders/index.js",
+            "size": 18100,
+            "id": 546
+          },
+          {
+            "name": "./app/scenes/guide/features-logic.js",
+            "size": 1052,
+            "id": 575
+          },
+          {
+            "name": "./app/scenes/guide/sliders/slider/styles.scss",
+            "size": 1259,
+            "id": 584
+          },
+          {
+            "name": "./app/utils/delay.js",
+            "size": 267,
+            "id": 585
+          },
+          {
+            "name": "./app/utils/range.js",
+            "size": 107,
+            "id": 586
+          },
+          {
+            "name": "./app/scenes/guide/sliders/slider/images/index.js",
+            "size": 392,
+            "id": 587
+          },
+          {
+            "name": "./app/components/sections/sagas/index.js",
+            "size": 3944,
+            "id": 588
+          },
+          {
+            "name": "./node_modules/raw-loader!./app/components/sections/sagas/code/import-saga.txt",
+            "size": 121,
+            "id": 589
+          },
+          {
+            "name": "./node_modules/raw-loader!./app/components/sections/sagas/code/install-saga.txt",
+            "size": 124,
+            "id": 590
+          },
+          {
+            "name": "./app/scenes/guide/sliders/slider/index.js",
+            "size": 6757,
+            "id": 602
+          },
+          {
+            "name": "./node_modules/css-loader!./node_modules/postcss-loader/lib?{\"ident\":\"postcss\",\"plugins\":[null,null]}!./app/scenes/guide/sliders/slider/styles.scss",
+            "size": 839,
+            "id": 603
+          },
+          {
+            "name": "./app/scenes/guide/sliders/slider/images/kea1.jpg",
+            "size": 82,
+            "id": 604
+          },
+          {
+            "name": "./app/scenes/guide/sliders/slider/images/kea2.jpg",
+            "size": 82,
+            "id": 605
+          },
+          {
+            "name": "./app/scenes/guide/sliders/slider/images/kea3.jpg",
+            "size": 82,
+            "id": 606
+          },
+          {
+            "name": "./app/scenes/guide/sliders/styles.scss",
+            "size": 1238,
+            "id": 710
+          },
+          {
+            "name": "./node_modules/css-loader!./node_modules/postcss-loader/lib?{\"ident\":\"postcss\",\"plugins\":[null,null]}!./app/scenes/guide/sliders/styles.scss",
+            "size": 305,
+            "id": 711
+          },
+          {
+            "name": "./app/scenes/guide/sliders/slider/static.js",
+            "size": 3854,
+            "id": 712
+          },
+          {
+            "name": "./app/scenes/guide/sliders/slider/with-saga.js",
+            "size": 5384,
+            "id": 713
+          },
+          {
+            "name": "./node_modules/raw-loader!./app/scenes/guide/sliders/code/full.txt",
+            "size": 3834,
+            "id": 714
+          },
+          {
+            "name": "./node_modules/raw-loader!./app/scenes/guide/sliders/code/static.txt",
+            "size": 1340,
+            "id": 715
+          },
+          {
+            "name": "./node_modules/raw-loader!./app/scenes/guide/sliders/code/add-saga-imports.txt",
+            "size": 108,
+            "id": 716
+          },
+          {
+            "name": "./node_modules/raw-loader!./app/scenes/guide/sliders/code/add-saga-start.txt",
+            "size": 609,
+            "id": 717
+          },
+          {
+            "name": "./node_modules/raw-loader!./app/scenes/guide/sliders/code/saga-1-before.txt",
+            "size": 393,
+            "id": 718
+          },
+          {
+            "name": "./node_modules/raw-loader!./app/scenes/guide/sliders/code/saga-1-after.txt",
+            "size": 377,
+            "id": 719
+          },
+          {
+            "name": "./node_modules/raw-loader!./app/scenes/guide/sliders/code/saga-2-effects.txt",
+            "size": 1554,
+            "id": 720
+          }
+        ]
+      },
+      {
+        "size": 37383,
+        "files": [
+          "guideCounter.bundle.js"
+        ],
+        "modules": [
+          {
+            "name": "./app/scenes/guide/counter/index.js",
+            "size": 19539,
+            "id": 544
+          },
+          {
+            "name": "./app/scenes/guide/features-logic.js",
+            "size": 1052,
+            "id": 575
+          },
+          {
+            "name": "./app/scenes/guide/counter/counter/index.js",
+            "size": 4257,
+            "id": 607
+          },
+          {
+            "name": "./app/scenes/guide/counter/counter/styles.scss",
+            "size": 1259,
+            "id": 608
+          },
+          {
+            "name": "./node_modules/css-loader!./node_modules/postcss-loader/lib?{\"ident\":\"postcss\",\"plugins\":[null,null]}!./app/scenes/guide/counter/counter/styles.scss",
+            "size": 208,
+            "id": 609
+          },
+          {
+            "name": "./app/scenes/guide/counter/styles.scss",
+            "size": 1238,
+            "id": 688
+          },
+          {
+            "name": "./node_modules/css-loader!./node_modules/postcss-loader/lib?{\"ident\":\"postcss\",\"plugins\":[null,null]}!./app/scenes/guide/counter/styles.scss",
+            "size": 229,
+            "id": 689
+          },
+          {
+            "name": "./node_modules/raw-loader!./app/scenes/guide/counter/code/full.txt",
+            "size": 1332,
+            "id": 690
+          },
+          {
+            "name": "./node_modules/raw-loader!./app/scenes/guide/counter/code/import.txt",
+            "size": 46,
+            "id": 691
+          },
+          {
+            "name": "./node_modules/raw-loader!./app/scenes/guide/counter/code/actions.txt",
+            "size": 800,
+            "id": 692
+          },
+          {
+            "name": "./node_modules/raw-loader!./app/scenes/guide/counter/code/actions-2.txt",
+            "size": 82,
+            "id": 693
+          },
+          {
+            "name": "./node_modules/raw-loader!./app/scenes/guide/counter/code/actions-3.txt",
+            "size": 134,
+            "id": 694
+          },
+          {
+            "name": "./node_modules/raw-loader!./app/scenes/guide/counter/code/actions-inject.txt",
+            "size": 66,
+            "id": 695
+          },
+          {
+            "name": "./node_modules/raw-loader!./app/scenes/guide/counter/code/reducers.txt",
+            "size": 1096,
+            "id": 696
+          },
+          {
+            "name": "./node_modules/raw-loader!./app/scenes/guide/counter/code/selectors.txt",
+            "size": 1099,
+            "id": 697
+          },
+          {
+            "name": "./node_modules/raw-loader!./app/scenes/guide/counter/code/selectors-2.txt",
+            "size": 349,
+            "id": 698
+          },
+          {
+            "name": "./node_modules/raw-loader!./app/scenes/guide/counter/code/no-decorators.txt",
+            "size": 722,
+            "id": 699
+          },
+          {
+            "name": "./node_modules/raw-loader!./app/scenes/guide/counter/code/todo-reducer.txt",
+            "size": 3191,
+            "id": 700
+          },
+          {
+            "name": "./node_modules/raw-loader!./app/scenes/guide/counter/code/component.txt",
+            "size": 684,
+            "id": 701
+          }
+        ]
+      },
+      {
+        "size": 55074,
+        "files": [
+          "guideGithub.bundle.js"
+        ],
+        "modules": [
+          {
+            "name": "./app/scenes/guide/github/index.js",
+            "size": 21603,
+            "id": 547
+          },
+          {
+            "name": "./app/scenes/guide/features-logic.js",
+            "size": 1052,
+            "id": 575
+          },
+          {
+            "name": "./app/components/sections/sagas/index.js",
+            "size": 3944,
+            "id": 588
+          },
+          {
+            "name": "./node_modules/raw-loader!./app/components/sections/sagas/code/import-saga.txt",
+            "size": 121,
+            "id": 589
+          },
+          {
+            "name": "./node_modules/raw-loader!./app/components/sections/sagas/code/install-saga.txt",
+            "size": 124,
+            "id": 590
+          },
+          {
+            "name": "./app/scenes/guide/github/github/index.js",
+            "size": 8511,
+            "id": 610
+          },
+          {
+            "name": "./app/scenes/guide/github/github/input.js",
+            "size": 3477,
+            "id": 721
+          },
+          {
+            "name": "./app/scenes/guide/github/github/almost.js",
+            "size": 7450,
+            "id": 722
+          },
+          {
+            "name": "./node_modules/raw-loader!./app/scenes/guide/github/code/input.txt",
+            "size": 915,
+            "id": 723
+          },
+          {
+            "name": "./node_modules/raw-loader!./app/scenes/guide/github/code/takelatest.txt",
+            "size": 340,
+            "id": 724
+          },
+          {
+            "name": "./node_modules/raw-loader!./app/scenes/guide/github/code/api.txt",
+            "size": 710,
+            "id": 725
+          },
+          {
+            "name": "./node_modules/raw-loader!./app/scenes/guide/github/code/reducers.txt",
+            "size": 872,
+            "id": 726
+          },
+          {
+            "name": "./node_modules/raw-loader!./app/scenes/guide/github/code/api2.txt",
+            "size": 659,
+            "id": 727
+          },
+          {
+            "name": "./node_modules/raw-loader!./app/scenes/guide/github/code/view.txt",
+            "size": 1179,
+            "id": 728
+          },
+          {
+            "name": "./node_modules/raw-loader!./app/scenes/guide/github/code/call.txt",
+            "size": 231,
+            "id": 729
+          },
+          {
+            "name": "./node_modules/raw-loader!./app/scenes/guide/github/code/put.txt",
+            "size": 191,
+            "id": 730
+          },
+          {
+            "name": "./node_modules/raw-loader!./app/scenes/guide/github/code/selector.txt",
+            "size": 291,
+            "id": 731
+          },
+          {
+            "name": "./node_modules/raw-loader!./app/scenes/guide/github/code/full.txt",
+            "size": 3404,
+            "id": 732
+          }
+        ]
+      },
+      {
+        "size": 17458,
+        "files": [
+          "effectsSaga.bundle.js"
+        ],
+        "modules": [
+          {
+            "name": "./app/scenes/effects/saga/index.js",
+            "size": 13244,
+            "id": 562
+          },
+          {
+            "name": "./node_modules/raw-loader!./app/scenes/effects/saga/code/install.txt",
+            "size": 89,
+            "id": 803
+          },
+          {
+            "name": "./node_modules/raw-loader!./app/scenes/effects/saga/code/import.txt",
+            "size": 121,
+            "id": 804
+          },
+          {
+            "name": "./node_modules/raw-loader!./app/scenes/effects/saga/code/store.txt",
+            "size": 540,
+            "id": 805
+          },
+          {
+            "name": "./node_modules/raw-loader!./app/scenes/effects/saga/code/usage.txt",
+            "size": 986,
+            "id": 806
+          },
+          {
+            "name": "./node_modules/raw-loader!./app/scenes/effects/saga/code/kea-sagas.txt",
+            "size": 174,
+            "id": 807
+          },
+          {
+            "name": "./node_modules/raw-loader!./app/scenes/effects/saga/code/kea-start.txt",
+            "size": 321,
+            "id": 808
+          },
+          {
+            "name": "./node_modules/raw-loader!./app/scenes/effects/saga/code/kea-stop.txt",
+            "size": 283,
+            "id": 809
+          },
+          {
+            "name": "./node_modules/raw-loader!./app/scenes/effects/saga/code/kea-takeevery.txt",
+            "size": 549,
+            "id": 810
+          },
+          {
+            "name": "./node_modules/raw-loader!./app/scenes/effects/saga/code/kea-takelatest.txt",
+            "size": 552,
+            "id": 811
+          },
+          {
+            "name": "./node_modules/raw-loader!./app/scenes/effects/saga/code/kea-workers.txt",
+            "size": 599,
+            "id": 812
+          }
+        ]
+      },
+      {
+        "size": 14101,
+        "files": [
+          "apiLogic.bundle.js"
+        ],
+        "modules": [
+          {
+            "name": "./app/scenes/api/logic/index.js",
+            "size": 7084,
+            "id": 554
+          },
+          {
+            "name": "./node_modules/raw-loader!./app/scenes/api/logic/code/kea-usage.txt",
+            "size": 2557,
+            "id": 775
+          },
+          {
+            "name": "./node_modules/raw-loader!./app/scenes/api/logic/code/kea-path.txt",
+            "size": 177,
+            "id": 776
+          },
+          {
+            "name": "./node_modules/raw-loader!./app/scenes/api/logic/code/kea-constants.txt",
+            "size": 171,
+            "id": 777
+          },
+          {
+            "name": "./node_modules/raw-loader!./app/scenes/api/logic/code/kea-actions.txt",
+            "size": 928,
+            "id": 778
+          },
+          {
+            "name": "./node_modules/raw-loader!./app/scenes/api/logic/code/kea-reducers.txt",
+            "size": 1078,
+            "id": 779
+          },
+          {
+            "name": "./node_modules/raw-loader!./app/scenes/api/logic/code/kea-selectors.txt",
+            "size": 1171,
+            "id": 780
+          },
+          {
+            "name": "./node_modules/raw-loader!./app/scenes/api/logic/code/kea-connect.txt",
+            "size": 869,
+            "id": 781
+          },
+          {
+            "name": "./node_modules/raw-loader!./app/scenes/api/logic/code/kea-plugins.txt",
+            "size": 66,
+            "id": 782
+          }
+        ]
+      },
+      {
+        "size": 19556,
+        "files": [
+          "guideCounterDynamic.bundle.js"
+        ],
+        "modules": [
+          {
+            "name": "./app/scenes/guide/counter-dynamic/index.js",
+            "size": 9803,
+            "id": 545
+          },
+          {
+            "name": "./app/scenes/guide/counter-dynamic/styles.scss",
+            "size": 1238,
+            "id": 702
+          },
+          {
+            "name": "./node_modules/css-loader!./node_modules/postcss-loader/lib?{\"ident\":\"postcss\"}!./app/scenes/guide/counter-dynamic/styles.scss",
+            "size": 227,
+            "id": 703
+          },
+          {
+            "name": "./app/scenes/guide/counter-dynamic/counter/index.js",
+            "size": 4464,
+            "id": 704
+          },
+          {
+            "name": "./app/scenes/guide/counter-dynamic/counter/styles.scss",
+            "size": 1259,
+            "id": 705
+          },
+          {
+            "name": "./node_modules/css-loader!./node_modules/postcss-loader/lib?{\"ident\":\"postcss\",\"plugins\":[null,null]}!./app/scenes/guide/counter-dynamic/counter/styles.scss",
+            "size": 175,
+            "id": 706
+          },
+          {
+            "name": "./node_modules/raw-loader!./app/scenes/guide/counter-dynamic/code/full.txt",
+            "size": 1511,
+            "id": 707
+          },
+          {
+            "name": "./node_modules/raw-loader!./app/scenes/guide/counter-dynamic/code/key-path.txt",
+            "size": 308,
+            "id": 708
+          },
+          {
+            "name": "./node_modules/raw-loader!./app/scenes/guide/counter-dynamic/code/reducers.txt",
+            "size": 571,
+            "id": 709
+          }
+        ]
+      },
+      {
+        "size": 20155,
+        "files": [
+          "guideConnected.bundle.js"
+        ],
+        "modules": [
+          {
+            "name": "./app/scenes/guide/connected/index.js",
+            "size": 14843,
+            "id": 548
+          },
+          {
+            "name": "./app/scenes/guide/features-logic.js",
+            "size": 1052,
+            "id": 575
+          },
+          {
+            "name": "./app/scenes/guide/connected/styles.scss",
+            "size": 1238,
+            "id": 733
+          },
+          {
+            "name": "./node_modules/css-loader!./node_modules/postcss-loader/lib?{\"ident\":\"postcss\",\"plugins\":[null,null]}!./app/scenes/guide/connected/styles.scss",
+            "size": 172,
+            "id": 734
+          },
+          {
+            "name": "./node_modules/raw-loader!./app/scenes/guide/connected/code/guide-example-1.txt",
+            "size": 973,
+            "id": 735
+          },
+          {
+            "name": "./node_modules/raw-loader!./app/scenes/guide/connected/code/guide-example-2.txt",
+            "size": 482,
+            "id": 736
+          },
+          {
+            "name": "./node_modules/raw-loader!./app/scenes/guide/connected/code/guide-example-3.txt",
+            "size": 227,
+            "id": 737
+          },
+          {
+            "name": "./node_modules/raw-loader!./app/scenes/guide/connected/code/guide-example-4.txt",
+            "size": 686,
+            "id": 738
+          },
+          {
+            "name": "./node_modules/raw-loader!./app/scenes/guide/connected/code/guide-example-5.txt",
+            "size": 482,
+            "id": 739
+          }
+        ]
+      },
+      {
+        "size": 12098,
+        "files": [
+          "guideInstallation.bundle.js"
+        ],
+        "modules": [
+          {
+            "name": "./app/scenes/guide/installation/index.js",
+            "size": 11023,
+            "id": 543
+          },
+          {
+            "name": "./node_modules/raw-loader!./app/scenes/guide/installation/code/package.txt",
+            "size": 160,
+            "id": 682
+          },
+          {
+            "name": "./node_modules/raw-loader!./app/scenes/guide/installation/code/store.txt",
+            "size": 164,
+            "id": 683
+          },
+          {
+            "name": "./node_modules/raw-loader!./app/scenes/guide/installation/code/provider.txt",
+            "size": 486,
+            "id": 684
+          },
+          {
+            "name": "./node_modules/raw-loader!./app/scenes/guide/installation/code/cli.txt",
+            "size": 142,
+            "id": 685
+          },
+          {
+            "name": "./node_modules/raw-loader!./app/scenes/guide/installation/code/cra-custom1.txt",
+            "size": 77,
+            "id": 686
+          },
+          {
+            "name": "./node_modules/raw-loader!./app/scenes/guide/installation/code/cra-customenv.txt",
+            "size": 46,
+            "id": 687
+          }
+        ]
+      },
+      {
+        "size": 9659,
+        "files": [
+          "apiComponent.bundle.js"
+        ],
+        "modules": [
+          {
+            "name": "./app/scenes/api/component/index.js",
+            "size": 6892,
+            "id": 555
+          },
+          {
+            "name": "./node_modules/raw-loader!./app/scenes/api/component/code/usage.txt",
+            "size": 1223,
+            "id": 783
+          },
+          {
+            "name": "./node_modules/raw-loader!./app/scenes/api/component/code/decorators.txt",
+            "size": 331,
+            "id": 784
+          },
+          {
+            "name": "./node_modules/raw-loader!./app/scenes/api/component/code/stateless.txt",
+            "size": 613,
+            "id": 785
+          },
+          {
+            "name": "./node_modules/raw-loader!./app/scenes/api/component/code/path.txt",
+            "size": 74,
+            "id": 786
+          },
+          {
+            "name": "./node_modules/raw-loader!./app/scenes/api/component/code/key.txt",
+            "size": 45,
+            "id": 787
+          },
+          {
+            "name": "./node_modules/raw-loader!./app/scenes/api/component/code/selectors.txt",
+            "size": 481,
+            "id": 788
+          }
+        ]
+      },
+      {
+        "size": 10222,
+        "files": [
+          "pluginsLocalStorage.bundle.js"
+        ],
+        "modules": [
+          {
+            "name": "./app/scenes/plugins/localstorage/index.js",
+            "size": 6432,
+            "id": 561
+          },
+          {
+            "name": "./app/scenes/plugins/localstorage/example.js",
+            "size": 3073,
+            "id": 798
+          },
+          {
+            "name": "./node_modules/raw-loader!./app/scenes/plugins/localstorage/code/install.txt",
+            "size": 83,
+            "id": 799
+          },
+          {
+            "name": "./node_modules/raw-loader!./app/scenes/plugins/localstorage/code/import.txt",
+            "size": 138,
+            "id": 800
+          },
+          {
+            "name": "./node_modules/raw-loader!./app/scenes/plugins/localstorage/code/local.txt",
+            "size": 192,
+            "id": 801
+          },
+          {
+            "name": "./node_modules/raw-loader!./app/scenes/plugins/localstorage/code/usage.txt",
+            "size": 304,
+            "id": 802
+          }
+        ]
+      },
+      {
+        "size": 29696,
+        "files": [
+          "examplesTodos.bundle.js"
+        ],
+        "modules": [
+          {
+            "name": "./app/scenes/examples/todos/index.js",
+            "size": 6473,
+            "id": 564
+          },
+          {
+            "name": "./app/scenes/examples/todos/logic.js",
+            "size": 6919,
+            "id": 620
+          },
+          {
+            "name": "./app/scenes/examples/todos/styles.scss",
+            "size": 1238,
+            "id": 817
+          },
+          {
+            "name": "./node_modules/css-loader!./node_modules/postcss-loader/lib?{\"ident\":\"postcss\",\"plugins\":[null,null]}!./app/scenes/examples/todos/styles.scss",
+            "size": 9328,
+            "id": 818
+          },
+          {
+            "name": "./app/scenes/examples/todos/todo/index.js",
+            "size": 5439,
+            "id": 819
+          },
+          {
+            "name": "./app/utils/create-uuid.js",
+            "size": 299,
+            "id": 820
+          }
+        ]
+      },
+      {
+        "size": 10718,
+        "files": [
+          "guideTesting.bundle.js"
+        ],
+        "modules": [
+          {
+            "name": "./app/scenes/guide/testing/index.js",
+            "size": 4831,
+            "id": 552
+          },
+          {
+            "name": "./node_modules/raw-loader!./app/scenes/guide/testing/code/reset.txt",
+            "size": 178,
+            "id": 768
+          },
+          {
+            "name": "./node_modules/raw-loader!./app/scenes/guide/testing/code/store.txt",
+            "size": 663,
+            "id": 769
+          },
+          {
+            "name": "./node_modules/raw-loader!./app/scenes/guide/testing/code/logic.txt",
+            "size": 2401,
+            "id": 770
+          },
+          {
+            "name": "./node_modules/raw-loader!./app/scenes/guide/testing/code/component.txt",
+            "size": 2645,
+            "id": 771
+          }
+        ]
+      },
+      {
+        "size": 9545,
+        "files": [
+          "guideMigration.bundle.js"
+        ],
+        "modules": [
+          {
+            "name": "./app/scenes/guide/migration/index.js",
+            "size": 6656,
+            "id": 550
+          },
+          {
+            "name": "./node_modules/raw-loader!./app/scenes/guide/migration/code/props.txt",
+            "size": 532,
+            "id": 743
+          },
+          {
+            "name": "./node_modules/raw-loader!./app/scenes/guide/migration/code/dispatch.txt",
+            "size": 635,
+            "id": 744
+          },
+          {
+            "name": "./node_modules/raw-loader!./app/scenes/guide/migration/code/reducer.txt",
+            "size": 682,
+            "id": 745
+          },
+          {
+            "name": "./node_modules/raw-loader!./app/scenes/guide/migration/code/import.txt",
+            "size": 1040,
+            "id": 746
+          }
+        ]
+      },
+      {
+        "size": 8070,
+        "files": [
+          "effectsThunk.bundle.js"
+        ],
+        "modules": [
+          {
+            "name": "./app/scenes/effects/thunk/index.js",
+            "size": 6414,
+            "id": 563
+          },
+          {
+            "name": "./node_modules/raw-loader!./app/scenes/effects/thunk/code/install.txt",
+            "size": 93,
+            "id": 813
+          },
+          {
+            "name": "./node_modules/raw-loader!./app/scenes/effects/thunk/code/import.txt",
+            "size": 124,
+            "id": 814
+          },
+          {
+            "name": "./node_modules/raw-loader!./app/scenes/effects/thunk/code/store.txt",
+            "size": 525,
+            "id": 815
+          },
+          {
+            "name": "./node_modules/raw-loader!./app/scenes/effects/thunk/code/usage.txt",
+            "size": 914,
+            "id": 816
+          }
+        ]
+      },
+      {
+        "size": 6648,
+        "files": [
+          "guideFaq.bundle.js"
+        ],
+        "modules": [
+          {
+            "name": "./app/scenes/guide/faq/index.js",
+            "size": 4948,
+            "id": 553
+          },
+          {
+            "name": "./node_modules/raw-loader!./app/scenes/guide/faq/code/react-router-1.txt",
+            "size": 790,
+            "id": 772
+          },
+          {
+            "name": "./node_modules/raw-loader!./app/scenes/guide/faq/code/react-router-2.txt",
+            "size": 62,
+            "id": 773
+          },
+          {
+            "name": "./node_modules/raw-loader!./app/scenes/guide/faq/code/react-router-3.txt",
+            "size": 848,
+            "id": 774
+          }
+        ]
+      },
+      {
+        "size": 18477,
+        "files": [
+          "guideConnectedServices.bundle.js"
+        ],
+        "modules": [
+          {
+            "name": "./app/scenes/guide/connected-services/index.js",
+            "size": 3719,
+            "id": 549
+          },
+          {
+            "name": "./app/scenes/guide/connected-services/services/index.js",
+            "size": 7146,
+            "id": 740
+          },
+          {
+            "name": "./app/scenes/guide/connected-services/services/github-logic.js",
+            "size": 3790,
+            "id": 741
+          },
+          {
+            "name": "./app/scenes/guide/connected-services/services/hacker-news-logic.js",
+            "size": 3822,
+            "id": 742
+          }
+        ]
+      },
+      {
+        "size": 6758,
+        "files": [
+          "apiStore.bundle.js"
+        ],
+        "modules": [
+          {
+            "name": "./app/scenes/api/store/index.js",
+            "size": 4830,
+            "id": 558
+          },
+          {
+            "name": "./node_modules/raw-loader!./app/scenes/api/store/code/usage.txt",
+            "size": 883,
+            "id": 793
+          },
+          {
+            "name": "./node_modules/raw-loader!./app/scenes/api/store/code/sample.txt",
+            "size": 661,
+            "id": 794
+          },
+          {
+            "name": "./node_modules/raw-loader!./app/scenes/api/store/code/manual.txt",
+            "size": 384,
+            "id": 795
+          }
+        ]
+      },
+      {
+        "size": 7544,
+        "files": [
+          "apiReducer.bundle.js"
+        ],
+        "modules": [
+          {
+            "name": "./app/scenes/api/reducer/index.js",
+            "size": 6460,
+            "id": 557
+          },
+          {
+            "name": "./node_modules/raw-loader!./app/scenes/api/reducer/code/usage.txt",
+            "size": 289,
+            "id": 790
+          },
+          {
+            "name": "./node_modules/raw-loader!./app/scenes/api/reducer/code/before-app.txt",
+            "size": 545,
+            "id": 791
+          },
+          {
+            "name": "./node_modules/raw-loader!./app/scenes/api/reducer/code/after-app.txt",
+            "size": 250,
+            "id": 792
+          }
+        ]
+      },
+      {
+        "size": 10011,
+        "files": [
+          "examplesGithub.bundle.js"
+        ],
+        "modules": [
+          {
+            "name": "./app/scenes/examples/github/index.js",
+            "size": 8555,
+            "id": 565
+          },
+          {
+            "name": "./app/scenes/examples/github/styles.scss",
+            "size": 1238,
+            "id": 821
+          },
+          {
+            "name": "./node_modules/css-loader!./node_modules/postcss-loader/lib?{\"ident\":\"postcss\",\"plugins\":[null,null]}!./app/scenes/examples/github/styles.scss",
+            "size": 218,
+            "id": 822
+          }
+        ]
+      },
+      {
+        "size": 2832,
+        "files": [
+          "apiReset.bundle.js"
+        ],
+        "modules": [
+          {
+            "name": "./app/scenes/api/reset/index.js",
+            "size": 2654,
+            "id": 560
+          },
+          {
+            "name": "./node_modules/raw-loader!./app/scenes/api/reset/code/usage.txt",
+            "size": 178,
+            "id": 797
+          }
+        ]
+      },
+      {
+        "size": 3284,
+        "files": [
+          "apiConnect.bundle.js"
+        ],
+        "modules": [
+          {
+            "name": "./app/scenes/api/connect/index.js",
+            "size": 2707,
+            "id": 556
+          },
+          {
+            "name": "./node_modules/raw-loader!./app/scenes/api/connect/code/usage.txt",
+            "size": 577,
+            "id": 789
+          }
+        ]
+      },
+      {
+        "size": 3052,
+        "files": [
+          "apiAction.bundle.js"
+        ],
+        "modules": [
+          {
+            "name": "./app/scenes/api/action/index.js",
+            "size": 2621,
+            "id": 559
+          },
+          {
+            "name": "./node_modules/raw-loader!./app/scenes/api/action/code/usage.txt",
+            "size": 431,
+            "id": 796
+          }
+        ]
+      },
+      {
+        "size": 3570,
+        "files": [
+          "playground.bundle.js"
+        ],
+        "modules": [
+          {
+            "name": "./app/scenes/playground/index.js",
+            "size": 3570,
+            "id": 567
+          }
+        ]
+      },
+      {
+        "size": 840668,
+        "files": [
+          "common.bundle.js"
+        ],
+        "modules": [
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/_export.js",
+            "size": 1601,
+            "id": 0
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/_an-object.js",
+            "size": 154,
+            "id": 1
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/_global.js",
+            "size": 369,
+            "id": 2
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/_fails.js",
+            "size": 104,
+            "id": 3
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/_is-object.js",
+            "size": 110,
+            "id": 4
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/_wks.js",
+            "size": 358,
+            "id": 5
+          },
+          {
+            "name": "./node_modules/react/index.js",
+            "size": 190,
+            "id": 6
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/_descriptors.js",
+            "size": 184,
+            "id": 7
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/_object-dp.js",
+            "size": 600,
+            "id": 8
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/_to-length.js",
+            "size": 215,
+            "id": 9
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/_to-object.js",
+            "size": 132,
+            "id": 10
+          },
+          {
+            "name": "./node_modules/prop-types/index.js",
+            "size": 956,
+            "id": 11
+          },
+          {
+            "name": "./node_modules/warning/browser.js",
+            "size": 1807,
+            "id": 12
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/_a-function.js",
+            "size": 125,
+            "id": 13
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/_has.js",
+            "size": 120,
+            "id": 14
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/_hide.js",
+            "size": 286,
+            "id": 15
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/_redefine.js",
+            "size": 1037,
+            "id": 16
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/_string-html.js",
+            "size": 702,
+            "id": 17
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/_to-iobject.js",
+            "size": 217,
+            "id": 18
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/_object-gopd.js",
+            "size": 577,
+            "id": 19
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/_object-gpo.js",
+            "size": 493,
+            "id": 20
+          },
+          {
+            "name": "./node_modules/invariant/browser.js",
+            "size": 1516,
+            "id": 21
+          },
+          {
+            "name": "./node_modules/redux-saga/es/internal/utils.js",
+            "size": 8216,
+            "id": 22
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/_ctx.js",
+            "size": 520,
+            "id": 23
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/_cof.js",
+            "size": 106,
+            "id": 24
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/_strict-method.js",
+            "size": 269,
+            "id": 25
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/_core.js",
+            "size": 122,
+            "id": 26
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/_to-primitive.js",
+            "size": 655,
+            "id": 27
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/_defined.js",
+            "size": 162,
+            "id": 28
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/_to-integer.js",
+            "size": 161,
+            "id": 29
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/_object-sap.js",
+            "size": 370,
+            "id": 30
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/_array-methods.js",
+            "size": 1494,
+            "id": 31
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/_typed-array.js",
+            "size": 18286,
+            "id": 32
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/_metadata.js",
+            "size": 1803,
+            "id": 33
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/_meta.js",
+            "size": 1558,
+            "id": 34
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/_add-to-unscopables.js",
+            "size": 297,
+            "id": 35
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/_property-desc.js",
+            "size": 173,
+            "id": 36
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/_uid.js",
+            "size": 162,
+            "id": 37
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/_library.js",
+            "size": 24,
+            "id": 38
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/_object-keys.js",
+            "size": 222,
+            "id": 39
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/_to-absolute-index.js",
+            "size": 223,
+            "id": 40
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/_object-create.js",
+            "size": 1505,
+            "id": 41
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/_object-gopn.js",
+            "size": 288,
+            "id": 42
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/_set-species.js",
+            "size": 359,
+            "id": 43
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/_an-instance.js",
+            "size": 237,
+            "id": 44
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/_for-of.js",
+            "size": 1176,
+            "id": 45
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/_redefine-all.js",
+            "size": 169,
+            "id": 46
+          },
+          {
+            "name": "./node_modules/redux-saga/es/internal/io.js",
+            "size": 8907,
+            "id": 47
+          },
+          {
+            "name": "./node_modules/redux-saga/es/effects.js",
+            "size": 203,
+            "id": 48
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/_set-to-string-tag.js",
+            "size": 262,
+            "id": 49
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/_string-trim.js",
+            "size": 899,
+            "id": 50
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/_iterators.js",
+            "size": 21,
+            "id": 51
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/_validate-collection.js",
+            "size": 200,
+            "id": 52
+          },
+          {
+            "name": "./node_modules/redux-saga/es/internal/channel.js",
+            "size": 4976,
+            "id": 53
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/_iobject.js",
+            "size": 289,
+            "id": 54
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/_object-pie.js",
+            "size": 37,
+            "id": 55
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/_classof.js",
+            "size": 718,
+            "id": 56
+          },
+          {
+            "name": "./node_modules/history/PathUtils.js",
+            "size": 1768,
+            "id": 57
+          },
+          {
+            "name": "./node_modules/history/es/PathUtils.js",
+            "size": 1605,
+            "id": 58
+          },
+          {
+            "name": "./node_modules/kea/es/kea/reducer/index.js",
+            "size": 3295,
+            "id": 59
+          },
+          {
+            "name": "./node_modules/babel-runtime/regenerator/index.js",
+            "size": 49,
+            "id": 60
+          },
+          {
+            "name": "./node_modules/kea/es/index.js",
+            "size": 729,
+            "id": 61
+          },
+          {
+            "name": "(webpack)/buildin/global.js",
+            "size": 509,
+            "id": 62
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/_shared.js",
+            "size": 202,
+            "id": 63
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/_array-includes.js",
+            "size": 924,
+            "id": 64
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/_object-gops.js",
+            "size": 42,
+            "id": 65
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/_is-array.js",
+            "size": 147,
+            "id": 66
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/_is-regexp.js",
+            "size": 289,
+            "id": 67
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/_iter-detect.js",
+            "size": 645,
+            "id": 68
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/_flags.js",
+            "size": 370,
+            "id": 69
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/_fix-re-wks.js",
+            "size": 937,
+            "id": 70
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/_species-constructor.js",
+            "size": 348,
+            "id": 71
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/_collection.js",
+            "size": 3307,
+            "id": 72
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/_typed.js",
+            "size": 674,
+            "id": 73
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/_object-forced-pam.js",
+            "size": 361,
+            "id": 74
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/_set-collection-of.js",
+            "size": 346,
+            "id": 75
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/_set-collection-from.js",
+            "size": 802,
+            "id": 76
+          },
+          {
+            "name": "./node_modules/fbjs/lib/emptyFunction.js",
+            "size": 959,
+            "id": 77
+          },
+          {
+            "name": "./node_modules/redux/es/index.js",
+            "size": 1077,
+            "id": 78
+          },
+          {
+            "name": "./node_modules/react-router/es/Router.js",
+            "size": 3804,
+            "id": 79
+          },
+          {
+            "name": "./node_modules/history/es/LocationUtils.js",
+            "size": 2224,
+            "id": 80
+          },
+          {
+            "name": "./node_modules/react-router/es/matchPath.js",
+            "size": 2051,
+            "id": 81
+          },
+          {
+            "name": "./node_modules/kea/es/kea/plugins/index.js",
+            "size": 1424,
+            "id": 82
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_core.js",
+            "size": 117,
+            "id": 83
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_fails.js",
+            "size": 99,
+            "id": 84
+          },
+          {
+            "name": "./node_modules/redux-saga/es/internal/buffers.js",
+            "size": 2312,
+            "id": 85
+          },
+          {
+            "name": "./node_modules/css-loader/lib/css-base.js",
+            "size": 2260,
+            "id": 86
+          },
+          {
+            "name": "./node_modules/style-loader/lib/addStyles.js",
+            "size": 9415,
+            "id": 87
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/_dom-create.js",
+            "size": 289,
+            "id": 88
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/_wks-define.js",
+            "size": 417,
+            "id": 89
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/_shared-key.js",
+            "size": 159,
+            "id": 90
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/_enum-bug-keys.js",
+            "size": 160,
+            "id": 91
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/_html.js",
+            "size": 101,
+            "id": 92
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/_set-proto.js",
+            "size": 906,
+            "id": 93
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/_string-ws.js",
+            "size": 170,
+            "id": 94
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/_inherit-if-required.js",
+            "size": 337,
+            "id": 95
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/_string-repeat.js",
+            "size": 373,
+            "id": 96
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/_math-sign.js",
+            "size": 179,
+            "id": 97
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/_math-expm1.js",
+            "size": 343,
+            "id": 98
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/_string-at.js",
+            "size": 620,
+            "id": 99
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/_iter-define.js",
+            "size": 2793,
+            "id": 100
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/_iter-create.js",
+            "size": 526,
+            "id": 101
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/_string-context.js",
+            "size": 314,
+            "id": 102
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/_fails-is-regexp.js",
+            "size": 251,
+            "id": 103
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/_is-array-iter.js",
+            "size": 279,
+            "id": 104
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/_create-property.js",
+            "size": 271,
+            "id": 105
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/core.get-iterator-method.js",
+            "size": 297,
+            "id": 106
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/_array-species-create.js",
+            "size": 223,
+            "id": 107
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/_array-fill.js",
+            "size": 643,
+            "id": 108
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es6.array.iterator.js",
+            "size": 1116,
+            "id": 109
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/_task.js",
+            "size": 2484,
+            "id": 110
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/_microtask.js",
+            "size": 1778,
+            "id": 111
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/_new-promise-capability.js",
+            "size": 504,
+            "id": 112
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/_typed-buffer.js",
+            "size": 9471,
+            "id": 113
+          },
+          {
+            "name": "./node_modules/fbjs/lib/invariant.js",
+            "size": 1506,
+            "id": 114
+          },
+          {
+            "name": "./node_modules/react-redux/es/utils/warning.js",
+            "size": 637,
+            "id": 115
+          },
+          {
+            "name": "./node_modules/lodash-es/isPlainObject.js",
+            "size": 1648,
+            "id": 116
+          },
+          {
+            "name": "./node_modules/history/LocationUtils.js",
+            "size": 2647,
+            "id": 117
+          },
+          {
+            "name": "./node_modules/history/createTransitionManager.js",
+            "size": 2361,
+            "id": 118
+          },
+          {
+            "name": "./node_modules/history/es/createTransitionManager.js",
+            "size": 2133,
+            "id": 119
+          },
+          {
+            "name": "./node_modules/react-router/es/Route.js",
+            "size": 6023,
+            "id": 120
+          },
+          {
+            "name": "./node_modules/kea/es/kea/connect/mapping.js",
+            "size": 1072,
+            "id": 121
+          },
+          {
+            "name": "./node_modules/kea/es/kea/actions/create.js",
+            "size": 1726,
+            "id": 122
+          },
+          {
+            "name": "./node_modules/kea/es/kea/cache/index.js",
+            "size": 609,
+            "id": 123
+          },
+          {
+            "name": "./node_modules/babel-runtime/core-js/object/assign.js",
+            "size": 94,
+            "id": 124
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_global.js",
+            "size": 322,
+            "id": 125
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_is-object.js",
+            "size": 107,
+            "id": 126
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_descriptors.js",
+            "size": 177,
+            "id": 127
+          },
+          {
+            "name": "./node_modules/babel-runtime/core-js/object/keys.js",
+            "size": 92,
+            "id": 128
+          },
+          {
+            "name": "./node_modules/redux-saga/es/internal/sagaHelpers/fsmIterator.js",
+            "size": 1140,
+            "id": 129
+          },
+          {
+            "name": "./node_modules/kea-saga/es/saga/saga.js",
+            "size": 2031,
+            "id": 130
+          },
+          {
+            "name": "./node_modules/react-router-dom/es/Router.js",
+            "size": 131,
+            "id": 131
+          },
+          {
+            "name": "./node_modules/react-router-dom/es/index.js",
+            "size": 925,
+            "id": 132
+          },
+          {
+            "name": "./node_modules/redux-saga/es/index.js",
+            "size": 497,
+            "id": 133
+          },
+          {
+            "name": "./node_modules/react-router-redux/es/index.js",
+            "size": 356,
+            "id": 134
+          },
+          {
+            "name": "./node_modules/react-router/es/index.js",
+            "size": 637,
+            "id": 135
+          },
+          {
+            "name": "./app/store.js",
+            "size": 598,
+            "id": 136
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/_ie8-dom-define.js",
+            "size": 199,
+            "id": 137
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/_wks-ext.js",
+            "size": 31,
+            "id": 138
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/_object-keys-internal.js",
+            "size": 537,
+            "id": 139
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/_object-dps.js",
+            "size": 404,
+            "id": 140
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/_object-gopn-ext.js",
+            "size": 604,
+            "id": 141
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/_object-assign.js",
+            "size": 1195,
+            "id": 142
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/_bind.js",
+            "size": 903,
+            "id": 143
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/_invoke.js",
+            "size": 701,
+            "id": 144
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/_parse-int.js",
+            "size": 390,
+            "id": 145
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/_parse-float.js",
+            "size": 359,
+            "id": 146
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/_a-number-value.js",
+            "size": 158,
+            "id": 147
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/_is-integer.js",
+            "size": 206,
+            "id": 148
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/_math-log1p.js",
+            "size": 154,
+            "id": 149
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/_math-fround.js",
+            "size": 716,
+            "id": 150
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/_iter-call.js",
+            "size": 410,
+            "id": 151
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/_array-reduce.js",
+            "size": 821,
+            "id": 152
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/_array-copy-within.js",
+            "size": 876,
+            "id": 153
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/_iter-step.js",
+            "size": 86,
+            "id": 154
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es6.regexp.flags.js",
+            "size": 201,
+            "id": 155
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/_perform.js",
+            "size": 132,
+            "id": 156
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/_promise-resolve.js",
+            "size": 397,
+            "id": 157
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es6.map.js",
+            "size": 642,
+            "id": 158
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/_collection-strong.js",
+            "size": 5019,
+            "id": 159
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es6.set.js",
+            "size": 481,
+            "id": 160
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es6.weak-map.js",
+            "size": 1965,
+            "id": 161
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/_collection-weak.js",
+            "size": 2788,
+            "id": 162
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/_to-index.js",
+            "size": 339,
+            "id": 163
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/_own-keys.js",
+            "size": 409,
+            "id": 164
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/_flatten-into-array.js",
+            "size": 1286,
+            "id": 165
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/_string-pad.js",
+            "size": 744,
+            "id": 166
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/_object-to-array.js",
+            "size": 468,
+            "id": 167
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/_collection-to-json.js",
+            "size": 317,
+            "id": 168
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/_array-from-iterable.js",
+            "size": 172,
+            "id": 169
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/_math-scale.js",
+            "size": 684,
+            "id": 170
+          },
+          {
+            "name": "./node_modules/highlight.js/lib/highlight.js",
+            "size": 24055,
+            "id": 171
+          },
+          {
+            "name": "./node_modules/highlight.js/lib/languages/javascript.js",
+            "size": 4952,
+            "id": 172
+          },
+          {
+            "name": "./node_modules/highlight.js/lib/languages/bash.js",
+            "size": 2320,
+            "id": 173
+          },
+          {
+            "name": "./node_modules/object-assign/index.js",
+            "size": 2108,
+            "id": 174
+          },
+          {
+            "name": "./node_modules/fbjs/lib/emptyObject.js",
+            "size": 332,
+            "id": 175
+          },
+          {
+            "name": "./node_modules/react-dom/index.js",
+            "size": 1363,
+            "id": 176
+          },
+          {
+            "name": "./node_modules/react-redux/es/index.js",
+            "size": 230,
+            "id": 177
+          },
+          {
+            "name": "./node_modules/react-redux/es/utils/PropTypes.js",
+            "size": 430,
+            "id": 178
+          },
+          {
+            "name": "./node_modules/react-redux/es/components/connectAdvanced.js",
+            "size": 14250,
+            "id": 179
+          },
+          {
+            "name": "./node_modules/redux/es/createStore.js",
+            "size": 8877,
+            "id": 180
+          },
+          {
+            "name": "./node_modules/lodash-es/_Symbol.js",
+            "size": 116,
+            "id": 181
+          },
+          {
+            "name": "./node_modules/redux/es/utils/warning.js",
+            "size": 637,
+            "id": 182
+          },
+          {
+            "name": "./node_modules/redux/es/compose.js",
+            "size": 870,
+            "id": 183
+          },
+          {
+            "name": "./node_modules/react-redux/es/connect/wrapMapToProps.js",
+            "size": 2797,
+            "id": 184
+          },
+          {
+            "name": "./node_modules/react-redux/es/utils/verifyPlainObject.js",
+            "size": 314,
+            "id": 185
+          },
+          {
+            "name": "./node_modules/react-router/es/MemoryRouter.js",
+            "size": 2414,
+            "id": 186
+          },
+          {
+            "name": "./node_modules/resolve-pathname/index.js",
+            "size": 1797,
+            "id": 187
+          },
+          {
+            "name": "./node_modules/value-equal/index.js",
+            "size": 1136,
+            "id": 188
+          },
+          {
+            "name": "./node_modules/react-router/es/Prompt.js",
+            "size": 2685,
+            "id": 189
+          },
+          {
+            "name": "./node_modules/react-router/es/Redirect.js",
+            "size": 3127,
+            "id": 190
+          },
+          {
+            "name": "./node_modules/history/es/DOMUtils.js",
+            "size": 2258,
+            "id": 191
+          },
+          {
+            "name": "./node_modules/react-router/es/StaticRouter.js",
+            "size": 6327,
+            "id": 192
+          },
+          {
+            "name": "./node_modules/react-router/es/Switch.js",
+            "size": 3290,
+            "id": 193
+          },
+          {
+            "name": "./node_modules/react-router/es/withRouter.js",
+            "size": 1400,
+            "id": 194
+          },
+          {
+            "name": "./node_modules/react-router-redux/es/reducer.js",
+            "size": 1105,
+            "id": 195
+          },
+          {
+            "name": "./node_modules/react-router-redux/es/actions.js",
+            "size": 1097,
+            "id": 196
+          },
+          {
+            "name": "./node_modules/history/createBrowserHistory.js",
+            "size": 9751,
+            "id": 197
+          },
+          {
+            "name": "./node_modules/history/DOMUtils.js",
+            "size": 2491,
+            "id": 198
+          },
+          {
+            "name": "./node_modules/kea/es/kea/index.js",
+            "size": 18074,
+            "id": 199
+          },
+          {
+            "name": "./node_modules/reselect/lib/index.js",
+            "size": 4136,
+            "id": 200
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_export.js",
+            "size": 2312,
+            "id": 201
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_object-keys.js",
+            "size": 225,
+            "id": 202
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_to-iobject.js",
+            "size": 213,
+            "id": 203
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_iobject.js",
+            "size": 236,
+            "id": 204
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_defined.js",
+            "size": 157,
+            "id": 205
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_to-integer.js",
+            "size": 158,
+            "id": 206
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_to-object.js",
+            "size": 129,
+            "id": 207
+          },
+          {
+            "name": "./node_modules/redux-saga/es/internal/sagaHelpers/index.js",
+            "size": 1013,
+            "id": 208
+          },
+          {
+            "name": "./node_modules/redux-saga/es/internal/scheduler.js",
+            "size": 1326,
+            "id": 209
+          },
+          {
+            "name": "./node_modules/redux-saga/es/internal/runSaga.js",
+            "size": 2162,
+            "id": 210
+          },
+          {
+            "name": "./node_modules/redux-saga/es/internal/proc.js",
+            "size": 24549,
+            "id": 211
+          },
+          {
+            "name": "./node_modules/kea-saga/es/saga/create-saga.js",
+            "size": 4092,
+            "id": 212
+          },
+          {
+            "name": "./node_modules/kea-saga/es/saga/create-combined.js",
+            "size": 2673,
+            "id": 213
+          },
+          {
+            "name": "./node_modules/react-router-dom/es/Link.js",
+            "size": 4073,
+            "id": 214
+          },
+          {
+            "name": "./node_modules/react-router-dom/es/Route.js",
+            "size": 128,
+            "id": 215
+          },
+          {
+            "name": "./app/scenes/bundles.js",
+            "size": 3648,
+            "id": 216
+          },
+          {
+            "name": "./app/components/tags/highlight.js",
+            "size": 3766,
+            "id": 217
+          },
+          {
+            "name": "./node_modules/nprogress/nprogress.js",
+            "size": 11565,
+            "id": 218
+          },
+          {
+            "name": "multi babel-polyfill highlight.js/lib/highlight highlight.js/lib/languages/javascript highlight.js/lib/languages/bash ./components/tags/highlight.js ./index.js",
+            "size": 88,
+            "id": 219
+          },
+          {
+            "name": "./node_modules/babel-polyfill/lib/index.js",
+            "size": 833,
+            "id": 220
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/shim.js",
+            "size": 8183,
+            "id": 221
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es6.symbol.js",
+            "size": 8829,
+            "id": 222
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/_enum-keys.js",
+            "size": 469,
+            "id": 223
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es6.object.create.js",
+            "size": 162,
+            "id": 224
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es6.object.define-property.js",
+            "size": 217,
+            "id": 225
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es6.object.define-properties.js",
+            "size": 217,
+            "id": 226
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es6.object.get-own-property-descriptor.js",
+            "size": 342,
+            "id": 227
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es6.object.get-prototype-of.js",
+            "size": 273,
+            "id": 228
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es6.object.keys.js",
+            "size": 225,
+            "id": 229
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es6.object.get-own-property-names.js",
+            "size": 150,
+            "id": 230
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es6.object.freeze.js",
+            "size": 267,
+            "id": 231
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es6.object.seal.js",
+            "size": 256,
+            "id": 232
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es6.object.prevent-extensions.js",
+            "size": 334,
+            "id": 233
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es6.object.is-frozen.js",
+            "size": 243,
+            "id": 234
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es6.object.is-sealed.js",
+            "size": 243,
+            "id": 235
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es6.object.is-extensible.js",
+            "size": 267,
+            "id": 236
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es6.object.assign.js",
+            "size": 162,
+            "id": 237
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es6.object.is.js",
+            "size": 139,
+            "id": 238
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/_same-value.js",
+            "size": 190,
+            "id": 239
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es6.object.set-prototype-of.js",
+            "size": 160,
+            "id": 240
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es6.object.to-string.js",
+            "size": 321,
+            "id": 241
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es6.function.bind.js",
+            "size": 164,
+            "id": 242
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es6.function.name.js",
+            "size": 355,
+            "id": 243
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es6.function.has-instance.js",
+            "size": 664,
+            "id": 244
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es6.parse-int.js",
+            "size": 194,
+            "id": 245
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es6.parse-float.js",
+            "size": 201,
+            "id": 246
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es6.number.constructor.js",
+            "size": 2793,
+            "id": 247
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es6.number.to-fixed.js",
+            "size": 2770,
+            "id": 248
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es6.number.to-precision.js",
+            "size": 613,
+            "id": 249
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es6.number.epsilon.js",
+            "size": 125,
+            "id": 250
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es6.number.is-finite.js",
+            "size": 246,
+            "id": 251
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es6.number.is-integer.js",
+            "size": 145,
+            "id": 252
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es6.number.is-nan.js",
+            "size": 220,
+            "id": 253
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es6.number.is-safe-integer.js",
+            "size": 294,
+            "id": 254
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es6.number.max-safe-integer.js",
+            "size": 143,
+            "id": 255
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es6.number.min-safe-integer.js",
+            "size": 145,
+            "id": 256
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es6.number.parse-float.js",
+            "size": 228,
+            "id": 257
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es6.number.parse-int.js",
+            "size": 221,
+            "id": 258
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es6.math.acosh.js",
+            "size": 571,
+            "id": 259
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es6.math.asinh.js",
+            "size": 342,
+            "id": 260
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es6.math.atanh.js",
+            "size": 304,
+            "id": 261
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es6.math.cbrt.js",
+            "size": 218,
+            "id": 262
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es6.math.clz32.js",
+            "size": 208,
+            "id": 263
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es6.math.cosh.js",
+            "size": 187,
+            "id": 264
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es6.math.expm1.js",
+            "size": 187,
+            "id": 265
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es6.math.fround.js",
+            "size": 132,
+            "id": 266
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es6.math.hypot.js",
+            "size": 662,
+            "id": 267
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es6.math.imul.js",
+            "size": 539,
+            "id": 268
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es6.math.log10.js",
+            "size": 168,
+            "id": 269
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es6.math.log1p.js",
+            "size": 129,
+            "id": 270
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es6.math.log2.js",
+            "size": 162,
+            "id": 271
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es6.math.sign.js",
+            "size": 126,
+            "id": 272
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es6.math.sinh.js",
+            "size": 454,
+            "id": 273
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es6.math.tanh.js",
+            "size": 317,
+            "id": 274
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es6.math.trunc.js",
+            "size": 181,
+            "id": 275
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es6.string.from-code-point.js",
+            "size": 865,
+            "id": 276
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es6.string.raw.js",
+            "size": 519,
+            "id": 277
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es6.string.trim.js",
+            "size": 167,
+            "id": 278
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es6.string.iterator.js",
+            "size": 531,
+            "id": 279
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es6.string.code-point-at.js",
+            "size": 249,
+            "id": 280
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es6.string.ends-with.js",
+            "size": 840,
+            "id": 281
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es6.string.includes.js",
+            "size": 479,
+            "id": 282
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es6.string.repeat.js",
+            "size": 156,
+            "id": 283
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es6.string.starts-with.js",
+            "size": 762,
+            "id": 284
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es6.string.anchor.js",
+            "size": 205,
+            "id": 285
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es6.string.big.js",
+            "size": 184,
+            "id": 286
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es6.string.blink.js",
+            "size": 192,
+            "id": 287
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es6.string.bold.js",
+            "size": 185,
+            "id": 288
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es6.string.fixed.js",
+            "size": 189,
+            "id": 289
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es6.string.fontcolor.js",
+            "size": 221,
+            "id": 290
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es6.string.fontsize.js",
+            "size": 214,
+            "id": 291
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es6.string.italics.js",
+            "size": 194,
+            "id": 292
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es6.string.link.js",
+            "size": 197,
+            "id": 293
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es6.string.small.js",
+            "size": 193,
+            "id": 294
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es6.string.strike.js",
+            "size": 197,
+            "id": 295
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es6.string.sub.js",
+            "size": 185,
+            "id": 296
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es6.string.sup.js",
+            "size": 185,
+            "id": 297
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es6.date.now.js",
+            "size": 154,
+            "id": 298
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es6.date.to-json.js",
+            "size": 562,
+            "id": 299
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es6.date.to-iso-string.js",
+            "size": 317,
+            "id": 300
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/_date-to-iso-string.js",
+            "size": 996,
+            "id": 301
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es6.date.to-string.js",
+            "size": 435,
+            "id": 302
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es6.date.to-primitive.js",
+            "size": 186,
+            "id": 303
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/_date-to-primitive.js",
+            "size": 317,
+            "id": 304
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es6.array.is-array.js",
+            "size": 145,
+            "id": 305
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es6.array.from.js",
+            "size": 1635,
+            "id": 306
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es6.array.of.js",
+            "size": 612,
+            "id": 307
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es6.array.join.js",
+            "size": 453,
+            "id": 308
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es6.array.slice.js",
+            "size": 929,
+            "id": 309
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es6.array.sort.js",
+            "size": 643,
+            "id": 310
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es6.array.for-each.js",
+            "size": 404,
+            "id": 311
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/_array-species-constructor.js",
+            "size": 475,
+            "id": 312
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es6.array.map.js",
+            "size": 359,
+            "id": 313
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es6.array.filter.js",
+            "size": 376,
+            "id": 314
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es6.array.some.js",
+            "size": 365,
+            "id": 315
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es6.array.every.js",
+            "size": 370,
+            "id": 316
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es6.array.reduce.js",
+            "size": 408,
+            "id": 317
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es6.array.reduce-right.js",
+            "size": 427,
+            "id": 318
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es6.array.index-of.js",
+            "size": 594,
+            "id": 319
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es6.array.last-index-of.js",
+            "size": 964,
+            "id": 320
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es6.array.copy-within.js",
+            "size": 237,
+            "id": 321
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es6.array.fill.js",
+            "size": 215,
+            "id": 322
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es6.array.find.js",
+            "size": 527,
+            "id": 323
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es6.array.find-index.js",
+            "size": 547,
+            "id": 324
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es6.array.species.js",
+            "size": 36,
+            "id": 325
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es6.regexp.constructor.js",
+            "size": 1608,
+            "id": 326
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es6.regexp.to-string.js",
+            "size": 826,
+            "id": 327
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es6.regexp.match.js",
+            "size": 385,
+            "id": 328
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es6.regexp.replace.js",
+            "size": 495,
+            "id": 329
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es6.regexp.search.js",
+            "size": 394,
+            "id": 330
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es6.regexp.split.js",
+            "size": 3397,
+            "id": 331
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es6.promise.js",
+            "size": 9435,
+            "id": 332
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es6.weak-set.js",
+            "size": 473,
+            "id": 333
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es6.typed.array-buffer.js",
+            "size": 1800,
+            "id": 334
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es6.typed.data-view.js",
+            "size": 160,
+            "id": 335
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es6.typed.int8-array.js",
+            "size": 169,
+            "id": 336
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es6.typed.uint8-array.js",
+            "size": 171,
+            "id": 337
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es6.typed.uint8-clamped-array.js",
+            "size": 184,
+            "id": 338
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es6.typed.int16-array.js",
+            "size": 171,
+            "id": 339
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es6.typed.uint16-array.js",
+            "size": 173,
+            "id": 340
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es6.typed.int32-array.js",
+            "size": 171,
+            "id": 341
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es6.typed.uint32-array.js",
+            "size": 173,
+            "id": 342
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es6.typed.float32-array.js",
+            "size": 175,
+            "id": 343
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es6.typed.float64-array.js",
+            "size": 175,
+            "id": 344
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es6.reflect.apply.js",
+            "size": 655,
+            "id": 345
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es6.reflect.construct.js",
+            "size": 1993,
+            "id": 346
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es6.reflect.define-property.js",
+            "size": 799,
+            "id": 347
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es6.reflect.delete-property.js",
+            "size": 404,
+            "id": 348
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es6.reflect.enumerate.js",
+            "size": 749,
+            "id": 349
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es6.reflect.get.js",
+            "size": 790,
+            "id": 350
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es6.reflect.get-own-property-descriptor.js",
+            "size": 354,
+            "id": 351
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es6.reflect.get-prototype-of.js",
+            "size": 290,
+            "id": 352
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es6.reflect.has.js",
+            "size": 197,
+            "id": 353
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es6.reflect.is-extensible.js",
+            "size": 325,
+            "id": 354
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es6.reflect.own-keys.js",
+            "size": 140,
+            "id": 355
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es6.reflect.prevent-extensions.js",
+            "size": 424,
+            "id": 356
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es6.reflect.set.js",
+            "size": 1155,
+            "id": 357
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es6.reflect.set-prototype-of.js",
+            "size": 382,
+            "id": 358
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es7.array.includes.js",
+            "size": 379,
+            "id": 359
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es7.array.flat-map.js",
+            "size": 740,
+            "id": 360
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es7.array.flatten.js",
+            "size": 745,
+            "id": 361
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es7.string.at.js",
+            "size": 239,
+            "id": 362
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es7.string.pad-start.js",
+            "size": 341,
+            "id": 363
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es7.string.pad-end.js",
+            "size": 338,
+            "id": 364
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es7.string.trim-left.js",
+            "size": 219,
+            "id": 365
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es7.string.trim-right.js",
+            "size": 219,
+            "id": 366
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es7.string.match-all.js",
+            "size": 1028,
+            "id": 367
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es7.symbol.async-iterator.js",
+            "size": 43,
+            "id": 368
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es7.symbol.observable.js",
+            "size": 40,
+            "id": 369
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es7.object.get-own-property-descriptors.js",
+            "size": 690,
+            "id": 370
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es7.object.values.js",
+            "size": 242,
+            "id": 371
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es7.object.entries.js",
+            "size": 245,
+            "id": 372
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es7.object.define-getter.js",
+            "size": 505,
+            "id": 373
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es7.object.define-setter.js",
+            "size": 505,
+            "id": 374
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es7.object.lookup-getter.js",
+            "size": 624,
+            "id": 375
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es7.object.lookup-setter.js",
+            "size": 624,
+            "id": 376
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es7.map.to-json.js",
+            "size": 188,
+            "id": 377
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es7.set.to-json.js",
+            "size": 188,
+            "id": 378
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es7.map.of.js",
+            "size": 101,
+            "id": 379
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es7.set.of.js",
+            "size": 101,
+            "id": 380
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es7.weak-map.of.js",
+            "size": 109,
+            "id": 381
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es7.weak-set.of.js",
+            "size": 109,
+            "id": 382
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es7.map.from.js",
+            "size": 105,
+            "id": 383
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es7.set.from.js",
+            "size": 105,
+            "id": 384
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es7.weak-map.from.js",
+            "size": 113,
+            "id": 385
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es7.weak-set.from.js",
+            "size": 113,
+            "id": 386
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es7.global.js",
+            "size": 134,
+            "id": 387
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es7.system.global.js",
+            "size": 144,
+            "id": 388
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es7.error.is-error.js",
+            "size": 217,
+            "id": 389
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es7.math.clamp.js",
+            "size": 221,
+            "id": 390
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es7.math.deg-per-rad.js",
+            "size": 153,
+            "id": 391
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es7.math.degrees.js",
+            "size": 236,
+            "id": 392
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es7.math.fscale.js",
+            "size": 332,
+            "id": 393
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es7.math.iaddh.js",
+            "size": 339,
+            "id": 394
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es7.math.isubh.js",
+            "size": 338,
+            "id": 395
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es7.math.imulh.js",
+            "size": 444,
+            "id": 396
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es7.math.rad-per-deg.js",
+            "size": 153,
+            "id": 397
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es7.math.radians.js",
+            "size": 236,
+            "id": 398
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es7.math.scale.js",
+            "size": 158,
+            "id": 399
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es7.math.umulh.js",
+            "size": 448,
+            "id": 400
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es7.math.signbit.js",
+            "size": 269,
+            "id": 401
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es7.promise.finally.js",
+            "size": 763,
+            "id": 402
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es7.promise.try.js",
+            "size": 477,
+            "id": 403
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es7.reflect.define-metadata.js",
+            "size": 363,
+            "id": 404
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es7.reflect.delete-metadata.js",
+            "size": 704,
+            "id": 405
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es7.reflect.get-metadata.js",
+            "size": 761,
+            "id": 406
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es7.reflect.get-metadata-keys.js",
+            "size": 783,
+            "id": 407
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es7.reflect.get-own-metadata.js",
+            "size": 384,
+            "id": 408
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es7.reflect.get-own-metadata-keys.js",
+            "size": 364,
+            "id": 409
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es7.reflect.has-metadata.js",
+            "size": 677,
+            "id": 410
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es7.reflect.has-own-metadata.js",
+            "size": 384,
+            "id": 411
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es7.reflect.metadata.js",
+            "size": 498,
+            "id": 412
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es7.asap.js",
+            "size": 442,
+            "id": 413
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/es7.observable.js",
+            "size": 5513,
+            "id": 414
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/web.timers.js",
+            "size": 771,
+            "id": 415
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/web.immediate.js",
+            "size": 162,
+            "id": 416
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/web.dom.iterable.js",
+            "size": 1810,
+            "id": 417
+          },
+          {
+            "name": "./node_modules/regenerator-runtime/runtime.js",
+            "size": 24431,
+            "id": 418
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/fn/regexp/escape.js",
+            "size": 108,
+            "id": 419
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/core.regexp.escape.js",
+            "size": 232,
+            "id": 420
+          },
+          {
+            "name": "./node_modules/babel-polyfill/node_modules/core-js/modules/_replacer.js",
+            "size": 234,
+            "id": 421
+          },
+          {
+            "name": "./node_modules/react/cjs/react.production.min.js",
+            "size": 5611,
+            "id": 422
+          },
+          {
+            "name": "./node_modules/react-dom/cjs/react-dom.production.min.js",
+            "size": 108200,
+            "id": 423
+          },
+          {
+            "name": "./node_modules/fbjs/lib/ExecutionEnvironment.js",
+            "size": 935,
+            "id": 424
+          },
+          {
+            "name": "./node_modules/fbjs/lib/EventListener.js",
+            "size": 2248,
+            "id": 425
+          },
+          {
+            "name": "./node_modules/fbjs/lib/shallowEqual.js",
+            "size": 1616,
+            "id": 426
+          },
+          {
+            "name": "./node_modules/fbjs/lib/containsNode.js",
+            "size": 923,
+            "id": 427
+          },
+          {
+            "name": "./node_modules/fbjs/lib/isTextNode.js",
+            "size": 479,
+            "id": 428
+          },
+          {
+            "name": "./node_modules/fbjs/lib/isNode.js",
+            "size": 702,
+            "id": 429
+          },
+          {
+            "name": "./node_modules/fbjs/lib/focusNode.js",
+            "size": 578,
+            "id": 430
+          },
+          {
+            "name": "./node_modules/fbjs/lib/getActiveElement.js",
+            "size": 912,
+            "id": 431
+          },
+          {
+            "name": "./node_modules/highlight.js/lib/languages ^.\\/(javascript|bash)$",
+            "size": 188,
+            "id": 432
+          },
+          {
+            "name": "./app/index.js",
+            "size": 925,
+            "id": 433
+          },
+          {
+            "name": "./node_modules/react-redux/es/components/Provider.js",
+            "size": 3073,
+            "id": 434
+          },
+          {
+            "name": "./node_modules/prop-types/factoryWithThrowingShims.js",
+            "size": 1492,
+            "id": 435
+          },
+          {
+            "name": "./node_modules/prop-types/lib/ReactPropTypesSecret.js",
+            "size": 314,
+            "id": 436
+          },
+          {
+            "name": "./node_modules/hoist-non-react-statics/index.js",
+            "size": 2136,
+            "id": 437
+          },
+          {
+            "name": "./node_modules/react-redux/es/utils/Subscription.js",
+            "size": 2643,
+            "id": 438
+          },
+          {
+            "name": "./node_modules/react-redux/es/connect/connect.js",
+            "size": 5344,
+            "id": 439
+          },
+          {
+            "name": "./node_modules/react-redux/es/utils/shallowEqual.js",
+            "size": 677,
+            "id": 440
+          },
+          {
+            "name": "./node_modules/react-redux/es/connect/mapDispatchToProps.js",
+            "size": 909,
+            "id": 441
+          },
+          {
+            "name": "./node_modules/lodash-es/_baseGetTag.js",
+            "size": 790,
+            "id": 442
+          },
+          {
+            "name": "./node_modules/lodash-es/_root.js",
+            "size": 298,
+            "id": 443
+          },
+          {
+            "name": "./node_modules/lodash-es/_freeGlobal.js",
+            "size": 171,
+            "id": 444
+          },
+          {
+            "name": "./node_modules/lodash-es/_getRawTag.js",
+            "size": 1137,
+            "id": 445
+          },
+          {
+            "name": "./node_modules/lodash-es/_objectToString.js",
+            "size": 563,
+            "id": 446
+          },
+          {
+            "name": "./node_modules/lodash-es/_getPrototype.js",
+            "size": 161,
+            "id": 447
+          },
+          {
+            "name": "./node_modules/lodash-es/_overArg.js",
+            "size": 380,
+            "id": 448
+          },
+          {
+            "name": "./node_modules/lodash-es/isObjectLike.js",
+            "size": 612,
+            "id": 449
+          },
+          {
+            "name": "./node_modules/symbol-observable/index.js",
+            "size": 41,
+            "id": 450
+          },
+          {
+            "name": "./node_modules/symbol-observable/lib/index.js",
+            "size": 661,
+            "id": 451
+          },
+          {
+            "name": "(webpack)/buildin/module.js",
+            "size": 517,
+            "id": 452
+          },
+          {
+            "name": "./node_modules/symbol-observable/lib/ponyfill.js",
+            "size": 449,
+            "id": 453
+          },
+          {
+            "name": "./node_modules/redux/es/combineReducers.js",
+            "size": 5862,
+            "id": 454
+          },
+          {
+            "name": "./node_modules/redux/es/bindActionCreators.js",
+            "size": 1975,
+            "id": 455
+          },
+          {
+            "name": "./node_modules/redux/es/applyMiddleware.js",
+            "size": 1805,
+            "id": 456
+          },
+          {
+            "name": "./node_modules/react-redux/es/connect/mapStateToProps.js",
+            "size": 507,
+            "id": 457
+          },
+          {
+            "name": "./node_modules/react-redux/es/connect/mergeProps.js",
+            "size": 1620,
+            "id": 458
+          },
+          {
+            "name": "./node_modules/react-redux/es/connect/selectorFactory.js",
+            "size": 4112,
+            "id": 459
+          },
+          {
+            "name": "./node_modules/react-redux/es/connect/verifySubselectors.js",
+            "size": 764,
+            "id": 460
+          },
+          {
+            "name": "./node_modules/react-router-redux/es/ConnectedRouter.js",
+            "size": 2617,
+            "id": 461
+          },
+          {
+            "name": "./node_modules/history/createMemoryHistory.js",
+            "size": 5816,
+            "id": 462
+          },
+          {
+            "name": "./node_modules/history/es/index.js",
+            "size": 460,
+            "id": 463
+          },
+          {
+            "name": "./node_modules/history/es/createBrowserHistory.js",
+            "size": 9230,
+            "id": 464
+          },
+          {
+            "name": "./node_modules/history/es/createHashHistory.js",
+            "size": 9382,
+            "id": 465
+          },
+          {
+            "name": "./node_modules/history/es/createMemoryHistory.js",
+            "size": 5394,
+            "id": 466
+          },
+          {
+            "name": "./node_modules/react-router/node_modules/path-to-regexp/index.js",
+            "size": 10809,
+            "id": 467
+          },
+          {
+            "name": "./node_modules/react-router/node_modules/isarray/index.js",
+            "size": 120,
+            "id": 468
+          },
+          {
+            "name": "./node_modules/react-router/node_modules/hoist-non-react-statics/index.js",
+            "size": 2001,
+            "id": 469
+          },
+          {
+            "name": "./node_modules/react-router-redux/es/middleware.js",
+            "size": 699,
+            "id": 470
+          },
+          {
+            "name": "./node_modules/kea/es/kea/connect/props.js",
+            "size": 1104,
+            "id": 471
+          },
+          {
+            "name": "./node_modules/kea/es/kea/connect/prop-types.js",
+            "size": 1601,
+            "id": 472
+          },
+          {
+            "name": "./node_modules/kea/es/kea/logic/reducer.js",
+            "size": 2483,
+            "id": 473
+          },
+          {
+            "name": "./node_modules/kea/es/kea/logic/selectors.js",
+            "size": 1188,
+            "id": 474
+          },
+          {
+            "name": "./node_modules/kea/es/kea/connect/actions.js",
+            "size": 698,
+            "id": 475
+          },
+          {
+            "name": "./node_modules/kea/es/utils/convert-constants.js",
+            "size": 237,
+            "id": 476
+          },
+          {
+            "name": "./node_modules/kea/es/utils/shallow-equal.js",
+            "size": 1031,
+            "id": 477
+          },
+          {
+            "name": "./node_modules/kea/es/kea/store/index.js",
+            "size": 1780,
+            "id": 478
+          },
+          {
+            "name": "./node_modules/kea-saga/es/index.js",
+            "size": 100,
+            "id": 479
+          },
+          {
+            "name": "./node_modules/kea-saga/es/saga/index.js",
+            "size": 5790,
+            "id": 480
+          },
+          {
+            "name": "./node_modules/core-js/library/fn/object/assign.js",
+            "size": 106,
+            "id": 481
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/es6.object.assign.js",
+            "size": 159,
+            "id": 482
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_ctx.js",
+            "size": 505,
+            "id": 483
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_a-function.js",
+            "size": 120,
+            "id": 484
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_hide.js",
+            "size": 288,
+            "id": 485
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_object-dp.js",
+            "size": 608,
+            "id": 486
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_an-object.js",
+            "size": 149,
+            "id": 487
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_ie8-dom-define.js",
+            "size": 192,
+            "id": 488
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_dom-create.js",
+            "size": 286,
+            "id": 489
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_to-primitive.js",
+            "size": 644,
+            "id": 490
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_property-desc.js",
+            "size": 183,
+            "id": 491
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_object-assign.js",
+            "size": 1161,
+            "id": 492
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_object-keys-internal.js",
+            "size": 546,
+            "id": 493
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_has.js",
+            "size": 117,
+            "id": 494
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_cof.js",
+            "size": 103,
+            "id": 495
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_array-includes.js",
+            "size": 788,
+            "id": 496
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_to-length.js",
+            "size": 217,
+            "id": 497
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_to-index.js",
+            "size": 230,
+            "id": 498
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_shared-key.js",
+            "size": 158,
+            "id": 499
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_shared.js",
+            "size": 198,
+            "id": 500
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_uid.js",
+            "size": 158,
+            "id": 501
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_enum-bug-keys.js",
+            "size": 159,
+            "id": 502
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_object-gops.js",
+            "size": 41,
+            "id": 503
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_object-pie.js",
+            "size": 36,
+            "id": 504
+          },
+          {
+            "name": "./node_modules/babel-runtime/node_modules/regenerator-runtime/runtime-module.js",
+            "size": 945,
+            "id": 505
+          },
+          {
+            "name": "./node_modules/babel-runtime/node_modules/regenerator-runtime/runtime.js",
+            "size": 24254,
+            "id": 506
+          },
+          {
+            "name": "./node_modules/core-js/library/fn/object/keys.js",
+            "size": 102,
+            "id": 507
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/es6.object.keys.js",
+            "size": 223,
+            "id": 508
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_object-sap.js",
+            "size": 368,
+            "id": 509
+          },
+          {
+            "name": "./node_modules/redux-saga/es/internal/sagaHelpers/takeEvery.js",
+            "size": 899,
+            "id": 510
+          },
+          {
+            "name": "./node_modules/redux-saga/es/internal/sagaHelpers/takeLatest.js",
+            "size": 1205,
+            "id": 511
+          },
+          {
+            "name": "./node_modules/redux-saga/es/internal/sagaHelpers/throttle.js",
+            "size": 1409,
+            "id": 512
+          },
+          {
+            "name": "./node_modules/redux-saga/es/internal/middleware.js",
+            "size": 3307,
+            "id": 513
+          },
+          {
+            "name": "./node_modules/redux-saga/es/utils.js",
+            "size": 215,
+            "id": 514
+          },
+          {
+            "name": "./node_modules/kea-saga/es/saga/get-connected.js",
+            "size": 856,
+            "id": 515
+          },
+          {
+            "name": "./node_modules/kea-saga/es/saga/inject-to-component.js",
+            "size": 5316,
+            "id": 516
+          },
+          {
+            "name": "./node_modules/kea-thunk/es/index.js",
+            "size": 2115,
+            "id": 517
+          },
+          {
+            "name": "./node_modules/redux-thunk/lib/index.js",
+            "size": 529,
+            "id": 518
+          },
+          {
+            "name": "./node_modules/kea-localstorage/es/index.js",
+            "size": 1582,
+            "id": 519
+          },
+          {
+            "name": "./app/scenes/index.js",
+            "size": 3918,
+            "id": 520
+          },
+          {
+            "name": "./app/scenes/styles.scss",
+            "size": 1196,
+            "id": 521
+          },
+          {
+            "name": "./node_modules/css-loader!./node_modules/postcss-loader/lib?{\"ident\":\"postcss\"}!./app/scenes/styles.scss",
+            "size": 2475,
+            "id": 522
+          },
+          {
+            "name": "./node_modules/style-loader/lib/urls.js",
+            "size": 3008,
+            "id": 523
+          },
+          {
+            "name": "./node_modules/react-router-dom/es/BrowserRouter.js",
+            "size": 2412,
+            "id": 524
+          },
+          {
+            "name": "./node_modules/react-router-dom/es/HashRouter.js",
+            "size": 2383,
+            "id": 525
+          },
+          {
+            "name": "./node_modules/history/createHashHistory.js",
+            "size": 10053,
+            "id": 526
+          },
+          {
+            "name": "./node_modules/react-router-dom/es/MemoryRouter.js",
+            "size": 149,
+            "id": 527
+          },
+          {
+            "name": "./node_modules/react-router-dom/es/NavLink.js",
+            "size": 2663,
+            "id": 528
+          },
+          {
+            "name": "./node_modules/react-router-dom/es/Prompt.js",
+            "size": 131,
+            "id": 529
+          },
+          {
+            "name": "./node_modules/react-router-dom/es/Redirect.js",
+            "size": 137,
+            "id": 530
+          },
+          {
+            "name": "./node_modules/react-router-dom/es/StaticRouter.js",
+            "size": 149,
+            "id": 531
+          },
+          {
+            "name": "./node_modules/react-router-dom/es/Switch.js",
+            "size": 131,
+            "id": 532
+          },
+          {
+            "name": "./node_modules/react-router-dom/es/matchPath.js",
+            "size": 140,
+            "id": 533
+          },
+          {
+            "name": "./node_modules/react-router-dom/es/withRouter.js",
+            "size": 143,
+            "id": 534
+          },
+          {
+            "name": "./app/components/header/index.js",
+            "size": 9474,
+            "id": 535
+          },
+          {
+            "name": "./app/components/header/styles.scss",
+            "size": 1217,
+            "id": 536
+          },
+          {
+            "name": "./node_modules/css-loader!./node_modules/postcss-loader/lib?{\"ident\":\"postcss\"}!./app/components/header/styles.scss",
+            "size": 3561,
+            "id": 537
+          },
+          {
+            "name": "./app/components/async/index.js",
+            "size": 4640,
+            "id": 538
+          },
+          {
+            "name": "./app/components/async/styles.scss",
+            "size": 1217,
+            "id": 539
+          },
+          {
+            "name": "./node_modules/css-loader!./node_modules/postcss-loader/lib?{\"ident\":\"postcss\"}!./app/components/async/styles.scss",
+            "size": 1976,
+            "id": 540
+          },
+          {
+            "name": "./app/index.html",
+            "size": 56,
+            "id": 541
+          }
+        ]
+      }
+    ]
+  }
+]
