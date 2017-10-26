@@ -23,7 +23,7 @@ export default class API extends Component {
         <div className='description'>
           <h2>Sagas</h2>
           <p>
-            Kea has first class support for sagas via the <code>kea-saga</code> plugin.
+            Kea has first class support for sagas via the <a href='https://github.com/keajs/kea-saga'><code>kea-saga</code></a> plugin.
           </p>
           <p>
             Read more about Sagas on the <a href='https://redux-saga.js.org/'>redux-saga</a> homepage.
@@ -35,7 +35,7 @@ export default class API extends Component {
         <div className='description'>
           <h2>Installation</h2>
           <p>
-            First install the <code>kea-saga</code> and <code>redux-saga</code> packages:
+            First install the <a href='https://github.com/keajs/kea-saga'><code>kea-saga</code></a> and <a href='https://github.com/redux-saga/redux-saga'><code>redux-saga</code></a> packages:
           </p>
           <Highlight className='bash'>{code.install}</Highlight>
           <p>

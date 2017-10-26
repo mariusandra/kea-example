@@ -17,13 +17,13 @@ export default class LocalStorage extends Component {
         <div className='description'>
           <h2>LocalStorage</h2>
           <p>
-            You may store the content of your reducers in LocalStorage with the <code>kea-localstorage</code> plugin.
+            You may store the content of your reducers in LocalStorage with the <a href='https://github.com/keajs/kea-localstorage'><code>kea-localstorage</code></a> plugin.
           </p>
         </div>
         <div className='description'>
           <h2>Installation</h2>
           <p>
-            First install the <code>kea-localstorage</code> package:
+            First install the <a href='https://github.com/keajs/kea-localstorage'><code>kea-localstorage</code></a> package:
           </p>
           <Highlight className='bash'>{code.install}</Highlight>
           <p>

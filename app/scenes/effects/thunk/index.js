@@ -22,7 +22,7 @@ export default class API extends Component {
         <div className='description'>
           <h2>Installation</h2>
           <p>
-            First install the <code>kea-thunk</code> and <code>redux-thunk</code> packages:
+            First install the <a href='https://github.com/keajs/kea-thunk'><code>kea-thunk</code></a> and <a href='https://github.com/gaearon/redux-thunk'><code>redux-thunk</code></a> packages:
           </p>
           <Highlight className='bash'>{code.install}</Highlight>
           <p>
