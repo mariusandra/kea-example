@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
+import { connect } from 'kea'
 import Highlight from '~/components/tags/highlight'
 import { Link } from 'react-router-dom'
+
+import featuresLogic from '../../guide/features-logic'
 
 const code = {
   install: require('raw-loader!./code/install.txt'),
@@ -16,8 +19,23 @@ const code = {
   keaWorkers: require('raw-loader!./code/kea-workers.txt')
 }
 
+@connect({
+  actions: [
+    featuresLogic, [
+      'toggleFeature'
+    ]
+  ],
+  props: [
+    featuresLogic, [
+      'features'
+    ]
+  ]
+})
 export default class API extends Component {
   render () {
+    const { features } = this.props
+    const { toggleFeature } = this.actions
+
     return (
       <div>
         <div className='description'>
@@ -39,17 +57,30 @@ export default class API extends Component {
           </p>
           <Highlight className='bash'>{code.install}</Highlight>
           <p>
-            Then import <code>sagaPlugin</code> from <code>kea-saga</code> in your <code>store.js</code> and add it to the plugins array
-            in <code>getStore()</code>
+            Then you have a few ways to install the plugin:
           </p>
           <Highlight className='javascript'>{code.import}</Highlight>
+          <p>
+            Use whichever way is most convenient for your setup.
+          </p>
+          <p>
+            Note that the <code>kea-saga</code> plugin needs to be installed globally as it needs to add its middleware to the store.
+            You can't use it as a local plugin inside <code>{'kea({})'}</code> calls.
+          </p>
           <p>
             If you have configured your store through <Link to='/api/store'><code>getStore()</code></Link>, you're all set!
           </p>
           <p>
-            If, however, you wish to configure your store manually, connect the saga middleware like so:
+            <button onClick={() => toggleFeature('sagaManualStore')}>I'm not using <code>getStore</code></button>
           </p>
-          <Highlight className='javascript'>{code.store}</Highlight>
+          {features.sagaManualStore ? (
+            <div className='extra-help'>
+              <p>
+                If, you wish to configure your store manually, connect the saga middleware like so:
+              </p>
+              <Highlight className='javascript'>{code.store}</Highlight>
+            </div>
+          ) : null}
         </div>
         <div className='description'>
           <h2>Usage</h2>

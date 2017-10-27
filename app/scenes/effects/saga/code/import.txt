@@ -1,7 +1,16 @@
+// the cleanest way
 import sagaPlugin from 'kea-saga'
+import { getStore } from 'kea'
 
 const store = getStore({
-  plugins: [
-    sagaPlugin
-  ]
+  plugins: [ sagaPlugin ]
 })
+
+// another way
+import sagaPlugin from 'kea-saga'
+import { activatePlugin } from 'kea'
+
+activatePlugin(sagaPlugin)
+
+// the shortest way
+import 'kea-saga/install'

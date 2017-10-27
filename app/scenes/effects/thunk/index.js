@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import Highlight from '~/components/tags/highlight'
 import { connect } from 'kea'
+import Highlight from '~/components/tags/highlight'
 import { Link } from 'react-router-dom'
 
 import featuresLogic from '../../guide/features-logic'
@@ -48,6 +48,9 @@ export default class API extends Component {
           </p>
           <Highlight className='javascript'>{code.import}</Highlight>
           <p>
+            Use whichever way is most convenient for your setup.
+          </p>
+          <p>
             Note that the <code>kea-thunk</code> plugin needs to be installed globally as it needs to add its middleware to the store.
             You can't use it as a local plugin inside <code>{'kea({})'}</code> calls.
           </p>
@@ -55,9 +58,9 @@ export default class API extends Component {
             If you have configured your store through <Link to='/api/store'><code>getStore()</code></Link>, you're all set!
           </p>
           <p>
-            <button onClick={() => toggleFeature('manualStore')}>I'm not using <code>getStore</code></button>
+            <button onClick={() => toggleFeature('thunkManualStore')}>I'm not using <code>getStore</code></button>
           </p>
-          {features.manualStore ? (
+          {features.thunkManualStore ? (
             <div className='extra-help'>
               <p>
                 If, you wish to configure your store manually, connect the thunk middleware like so:
