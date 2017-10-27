@@ -3639,23 +3639,23 @@ jws@^3.1.4:
     jwa "^1.1.4"
     safe-buffer "^5.0.1"
 
-kea-localstorage@^0.1.0:
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/kea-localstorage/-/kea-localstorage-0.1.0.tgz#678d6200dd79bbe6c69777d6459233ececb84bdd"
+kea-localstorage@^0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/kea-localstorage/-/kea-localstorage-0.1.2.tgz#2b614d9f11a504821a577d495017e90f8cd0d941"
 
-kea-saga@^0.3.0:
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/kea-saga/-/kea-saga-0.3.0.tgz#8ef3375df364a1ca8904504fe82d9c1dba8fc9a6"
+kea-saga@^0.3.2:
+  version "0.3.2"
+  resolved "https://registry.yarnpkg.com/kea-saga/-/kea-saga-0.3.2.tgz#402a7e304a63e88f28aedd2b59a1654206add1f0"
   dependencies:
     babel-runtime "^6.26.0"
 
-kea-thunk@^0.3.0:
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/kea-thunk/-/kea-thunk-0.3.0.tgz#dc59a19b4bc17f0c701d82f9c2c8681925c61b4a"
+kea-thunk@^0.3.2:
+  version "0.3.2"
+  resolved "https://registry.yarnpkg.com/kea-thunk/-/kea-thunk-0.3.2.tgz#d6c58c689fcc774a9c0a5610b17773d249f9f143"
 
-kea@^0.27.0:
-  version "0.27.0"
-  resolved "https://registry.yarnpkg.com/kea/-/kea-0.27.0.tgz#5004d6bcf855b8ef0ece1123b67980616c95f58c"
+kea@^0.27.2:
+  version "0.27.2"
+  resolved "https://registry.yarnpkg.com/kea/-/kea-0.27.2.tgz#745dea9686c9bc177e2c97143e222f570fda8c2b"
   dependencies:
     opencollective "^1.0.3"
 
