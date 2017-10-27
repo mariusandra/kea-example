@@ -1,9 +1,13 @@
 const logic = kea({
+  // path must be defined!
+  path: () => ['scenes', 'homepage', 'name'],
+
   actions: ({ constants }) => ({
     updateName: name => ({ name })
   }),
 
   reducers: ({ actions, constants }) => ({
+    // just add { persist: true }
     name: ['chirpy', PropTypes.string, { persist: true }, {
       [actions.updateName]: (state, payload) => payload.name
     }]

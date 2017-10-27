@@ -27,12 +27,14 @@ export default class LocalStorage extends Component {
           </p>
           <Highlight className='bash'>{code.install}</Highlight>
           <p>
-            Then import <code>localStoragePlugin</code> from <code>kea-localstorage</code> in your <code>store.js</code> and add it to the plugins array
-            in <code>getStore()</code>
+            Then you have a few ways to install the plugin globally for all logic stores:
           </p>
           <Highlight className='javascript'>{code.import}</Highlight>
           <p>
-            Alternatively you may skip installing it globally and only include in the logic stores that need this plugin
+            Use whichever way is most convenient for your setup.
+          </p>
+          <p>
+            Alternatively you may skip installing it globally and only include in the logic stores that need it
           </p>
           <Highlight className='javascript'>{code.local}</Highlight>
         </div>

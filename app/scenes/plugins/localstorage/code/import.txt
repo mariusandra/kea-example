@@ -1,7 +1,16 @@
-import localStoragePlugin from 'kea-thunk'
+// the cleanest way
+import localStoragePlugin from 'kea-localstorage'
+import { getStore } from 'kea'
 
 const store = getStore({
-  plugins: [
-    localStoragePlugin
-  ]
+  plugins: [ localStoragePlugin ]
 })
+
+// another way
+import localStoragePlugin from 'kea-localstorage'
+import { activatePlugin } from 'kea'
+
+activatePlugin(localStoragePlugin)
+
+// the shortest way
+import 'kea-localstorage/install'
