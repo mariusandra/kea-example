@@ -150,14 +150,12 @@ export default class HomepageScene extends Component {
             <p>
               They work just like in Redux:
             </p>
-            <p>
-              <ul>
-                <li>They are all pure functions (no side effects, same input = same output)</li>
-                <li><strong>Actions</strong> are functions which take an input and return a payload</li>
-                <li><strong>Reducers</strong> take actions as input and return new_data = old_data + payload</li>
-                <li><strong>Selectors</strong> take the input of multiple reducers and return a combined output</li>
-              </ul>
-            </p>
+            <ul>
+              <li>They are all pure functions (no side effects, same input = same output)</li>
+              <li><strong>Actions</strong> are functions which take an input and return a payload</li>
+              <li><strong>Reducers</strong> take actions as input and return new_data = old_data + payload</li>
+              <li><strong>Selectors</strong> take the input of multiple reducers and return a combined output</li>
+            </ul>
             <p>
               See here for a nice overview of how Redux
               works: <a href='https://medium.com/gitconnected/redux-logic-flow-crazy-simple-summary-35416eadabd8'>Redux Logic Flow — Crazy Simple Summary</a>
@@ -204,12 +202,10 @@ export default class HomepageScene extends Component {
             <p>
               You can also connect logic stores together, to e.g:
             </p>
-            <p>
-              <ul>
-                <li>... use actions from one logic store in the reducer of another.</li>
-                <li>... combine reducers from multiple logic stores into one selector.</li>
-              </ul>
-            </p>
+            <ul>
+              <li>... use actions from one logic store in the reducer of another.</li>
+              <li>... combine reducers from multiple logic stores into one selector.</li>
+            </ul>
           </div>
           <div className='code'>
             <Highlight className='javascript'>{code.how.connect}</Highlight>
