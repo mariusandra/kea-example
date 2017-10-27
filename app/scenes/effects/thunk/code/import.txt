@@ -1,7 +1,16 @@
+// the cleanest way
 import thunkPlugin from 'kea-thunk'
+import { getStore } from 'kea'
 
 const store = getStore({
-  plugins: [
-    thunkPlugin
-  ]
+  plugins: [ thunkPlugin ]
 })
+
+// another way
+import thunkPlugin from 'kea-thunk'
+import { activatePlugin } from 'kea'
+
+activatePlugin(thunkPlugin)
+
+// the shortest way
+import 'kea-thunk/install'
