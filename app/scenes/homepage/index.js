@@ -269,8 +269,12 @@ export default class HomepageScene extends Component {
             <div className='demo'>
               <ThunkCounter />
             </div>
-            <br />
-            Read the docs: <Link to='/effects/thunk'>kea-thunk</Link>
+            <p>
+              Read the docs: <Link to='/effects/thunk'>kea-thunk</Link>
+            </p>
+            <p>
+              Play with it in <a href='https://www.webpackbin.com/bins/-KxSPoMw6q-_lcXY8guq' target='_blank'>WebpackBin</a>
+            </p>
           </div>
         </div>
 
