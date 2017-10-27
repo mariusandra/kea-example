@@ -11,6 +11,9 @@ export default getStore({
   // additional reducers that your app uses
   reducers: {},
 
+  // preloaded state for redux
+  preloadedState: undefined,
+
   // middleware that gets passed to applyMiddleware(...middleware)
   middleware: [],
 
