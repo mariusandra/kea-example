@@ -88,7 +88,7 @@ export default class API extends Component {
             First, read the docs on the <a href='https://redux-saga.js.org/'>redux-saga</a> homepage to learn how sagas work.
           </p>
           <p>
-            Adding <code>kea-saga</code> will give your logic stores will get access to the
+            Adding <code>kea-saga</code> will give your logic stores access to the
             keys: <code>start</code>, <code>stop</code>, <code>takeEvery</code>, <code>takeLatest</code>, <code>workers</code>, <code>sagas</code>.
           </p>
 
