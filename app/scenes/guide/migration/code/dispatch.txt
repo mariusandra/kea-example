@@ -6,7 +6,7 @@ import doSomething from './actions/do-something'
 
 // just to get the dispatch
 @kea({})
-export deafult const MyComponent extends Component {
+export default const MyComponent extends Component {
   handleButton = () => {
     const { dispatch } = this.props
 

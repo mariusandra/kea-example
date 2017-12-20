@@ -27,6 +27,6 @@ import { SOME_ACTION } from './actions'
     }
   }
 })
-export deafult const MyComponent extends Component {
+export default const MyComponent extends Component {
   // ...
 }
