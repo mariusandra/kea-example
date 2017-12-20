@@ -145,6 +145,25 @@ export default class API extends Component {
           </p>
           <Highlight className='javascript'>{code.keaSagas}</Highlight>
         </div>
+        <div className='description'>
+          <h2>FAQ</h2>
+          <p>
+            <strong>My sagas won't start with my component!</strong>
+          </p>
+          <p>
+            <code>kea-saga</code> injects itself into your component's <code>componentDidMount</code> function and starts the sagas
+            before returning control to the original <code>componentDidMount</code>.
+          </p>
+          <p>
+            Because <a href='https://babeljs.io/repl/#?babili=false&browsers=&build=&builtIns=false&code_lz=MYGwhgzhAEDKD2BbApgFwBYEsB2BzaA3gFDTTDzYSoBOArsKvNdABQCUhJpZFE8IyAHQh4uFgHIqYaqhy5xbLgF8uXKdgAm0jQDFa2BpgqsOxbj0r8hIseIBG4BcqJdp1eAHc9B2cYC8JtB-AHyc5uSWAsKiEg5gcU6kKipEEXxRNiwIKBhyggAO7oyoAJ75Qupa1Lr6hhSKAPQN0AC0oQBmtb7YgQQpaVbRYtloWHgFRfCl5YJunt512I3NbdD6GsjtOMgaLgKo0Hw5Y_gB2MgecEijcuxERzfjldoL3XdEQA&debug=false&circleciRepo=&evaluate=true&lineWrap=false&presets=es2015%2Creact%2Cstage-2&prettier=false&targets=&version=6.26.0'>of the way</a> ES
+            classes work, if you define your <code>componentDidMount</code> as an arrow function (<code>{'componentDidMount = () => {}'}</code>), it
+            will only be declared after your class is instantiated and it will overwrite modifications by <code>kea-saga</code>.
+          </p>
+          <p>
+            Thus, at least for now, keep your <code>componentDidMount</code> as a regular function. See more details in <a href='https://github.com/keajs/kea-saga/issues/2'>this issue</a>.
+          </p>
+        </div>
+
       </div>
     )
   }
