@@ -49,7 +49,10 @@ export default class API extends Component {
 
         <h4>key: <code>(props) => 'key'</code></h4>
         <p>
-          If you wish, you may define a <code>key</code> that distinguishes instances of the component
+          If you wish, you may define a <code>key</code> that distinguishes instances of the component.
+        </p>
+        <p>
+          Read the <Link to='/guide/counter-dynamic'>dynamic counter guide</Link> guide to learn about in more depth!
         </p>
         <Highlight className='javascript'>{code.key}</Highlight>
 
