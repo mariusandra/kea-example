@@ -1,45 +1,60 @@
 import React, { Component } from 'react'
-import { kea } from 'kea'
+import { kea, connect } from 'kea'
 import PropTypes from 'prop-types'
 
-const Auth = kea({
+// create a dynamic logic store
+const mainLogic = kea({
+  key: (props) => props.id,
+  path: (key) => ['scenes', 'main', key],
   actions: () => ({
-    setUser: (user) => ({ user })
+    doit: true
   }),
   reducers: ({ actions }) => ({
-    user: [null, PropTypes.object, {
-      [actions.setUser]: (_, payload) => payload.user
-    }],
-    isLoggedIn: [false, PropTypes.bool, {
-      [actions.setUser]: () => true
+    done: [false, PropTypes.bool, {
+      [actions.doit]: () => true
     }]
   })
 })
 
-export const LoginGate = kea({
-  selectors: () => ({
-    isLoginPath: [
-      () => [() => window.location.pathname === '/login'],
-      isLoginPath => isLoginPath,
-      PropTypes.bool
-    ]
-  }),
-  connect: {
-    props: [
-      Auth, [
-        'isLoggedIn'
-      ]
-    ]
+// wrap it around a component
+@mainLogic
+class Form extends Component {
+  render () {
+    return <div>id: {this.props.id}, done: {this.props.done ? 'true' : 'false'}</div>
   }
-})(({ isLoginPath, isLoggedIn, children }) => <div>{isLoggedIn ? children : isLoginPath ? 'login page' : 'no login'}</div>)
+}
 
-export default class ThunkCounter extends Component {
+// create another helper that wants data from this dynamic logic store
+@connect({
+  actions: [
+    mainLogic, [
+      'doit'
+    ]
+  ],
+  props: [
+    mainLogic.withKey(params => params.id), [
+      'done'
+    ]
+  ]
+})
+class FormHelper extends Component {
   render () {
     return (
-      <div style={{textAlign: 'center'}}>
-        <LoginGate>
-          logged in
-        </LoginGate>
+      <div>
+        <p>helper id: {this.props.id}, done: {this.props.done ? 'true' : 'false'}</p>
+        <p><button onClick={this.actions.doit}>Do it!</button></p>
+      </div>
+    )
+  }
+}
+
+// main demo
+export default class Demo extends Component {
+  render () {
+    return (
+      <div>
+        <Form id={123} />
+        <FormHelper id={123} />
       </div>
     )
   }
