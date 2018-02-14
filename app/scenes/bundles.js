@@ -10,6 +10,7 @@ export default {
   guideSliders: async('GuideSliders', () => import(/* webpackChunkName: "guideSliders" */'./guide/sliders')),
   guideGithub: async('GuideGithub', () => import(/* webpackChunkName: "guideGithub" */'./guide/github')),
   guideConnected: async('GuideConnected', () => import(/* webpackChunkName: "guideConnected" */'./guide/connected')),
+  guideDynamicConnected: async('GuideDynamicConnected', () => import(/* webpackChunkName: "guideDynamicConnected" */'./guide/dynamic-connected')),
   guideConnectedServices: async('GuideConnectedServices', () => import(/* webpackChunkName: "guideConnectedServices" */'./guide/connected-services')),
   guideMigration: async('GuideMigration', () => import(/* webpackChunkName: "guideMigration" */'./guide/migration')),
   guideForms: async('GuideForms', () => import(/* webpackChunkName: "guideForms" */'./guide/forms')),

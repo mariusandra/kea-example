@@ -3,6 +3,7 @@ import { kea } from 'kea'
 import localStoragePlugin from 'kea-localstorage'
 
 import otherLogic from './other-logic.js'
+import dynamicLogic from './dynamic-logic.js'
 
 export default kea({
   plugins: [
@@ -22,6 +23,10 @@ export default kea({
         'firstProp',
         'secondProp as renamedProp',
         '* as allProps'
+      ],
+      // use Dynamic Logic
+      dynamicLogic.withKey(props => props.id), [
+        'dynamicProp as thatProp'
       ],
       // select from any redux tree node
       (state) => state.somethingThatResolvesToAnObject, [
