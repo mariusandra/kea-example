@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'kea'
 
 import menuLogic from '../menu/logic'
+import dynamicLogic from '../dynamic/logic'
 
 @connect({
   actions: [
@@ -13,17 +14,23 @@ import menuLogic from '../menu/logic'
   props: [
     menuLogic, [
       'isOpen as isMenuOpen'
+    ],
+    dynamicLogic.withKey(props => props.id), [
+      'dynamicProp as thatProp'
     ]
   ]
 
 })
 export default class MyComponent extends Component {
   render () {
-    const { isMenuOpen } = this.props
+    const { isMenuOpen, thatProp } = this.props
     const { openMenu, closeMenu } = this.actions
 
     return (
-      <button onClick={isMenuOpen ? closeMenu : openMenu}>Toggle menu</button>
+      <div>
+        {thatProp}
+        <button onClick={isMenuOpen ? closeMenu : openMenu}>Toggle menu</button>
+      </div>
     )
   }
 }

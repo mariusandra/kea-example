@@ -26,6 +26,7 @@ const menu = {
           { url: '/guide/sliders', title: 'Sliders', small: 'with kea-saga' },
           { url: '/guide/github', title: 'Github API', small: 'with kea-saga' },
           { url: '/guide/connected', title: 'Connected Logic' },
+          { url: '/guide/dynamic-connected', title: 'Dynamic Connected Logic' },
           { url: '/guide/forms', title: 'Forms', small: 'with kea-saga' },
           { url: '/guide/migration', title: 'Migrating Redux Apps' },
           { url: '/guide/testing', title: 'Testing' },

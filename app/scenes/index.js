@@ -26,6 +26,7 @@ export default () => (
       <Route path='/guide/sliders' component={bundles.guideSliders} />
       <Route path='/guide/github' component={bundles.guideGithub} />
       <Route path='/guide/connected' component={bundles.guideConnected} />
+      <Route path='/guide/dynamic-connected' component={bundles.guideDynamicConnected} />
       <Route path='/guide/connected-services' component={bundles.guideConnectedServices} />
       <Route path='/guide/migration' component={bundles.guideMigration} />
       <Route path='/guide/forms' component={bundles.guideForms} />

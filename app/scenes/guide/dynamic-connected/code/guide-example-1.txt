@@ -1,0 +1,7 @@
+@connect({
+  props: [
+    mainLogic.withKey(props => props.id), [
+      'done'
+    ]
+  ]
+})

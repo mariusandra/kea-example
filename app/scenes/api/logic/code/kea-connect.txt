@@ -13,6 +13,10 @@ connect: {
       'secondProp as renamedProp',
       '* as allProps'
     ],
+    // use Dynamic Logic
+    dynamicLogic.withKey(props => props.id), [
+      'dynamicProp as thatProp'
+    ],
     // select from any redux tree node
     (state) => state.somethingThatResolvesToAnObject, [
       'variable',
