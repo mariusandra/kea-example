@@ -1,3 +1,7 @@
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+import { kea, connect } from 'kea'
+
 // create a dynamic logic store
 const dynamicLogic = kea({
   key: (props) => props.id,

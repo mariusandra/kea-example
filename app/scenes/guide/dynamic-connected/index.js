@@ -1,11 +1,10 @@
-import './styles.scss'
-
 import React, { Component } from 'react'
 import { connect } from 'kea'
 import { Link } from 'react-router-dom'
 
-import featuresLogic from '../features-logic'
+import Demo from './demo'
 
+import featuresLogic from '../features-logic'
 import Highlight from '~/components/tags/highlight'
 
 const code = {
@@ -35,20 +34,34 @@ export default class ConnectedScene extends Component {
         <div className='description'>
           <h2>Dynamic Connected logic</h2>
           <p>
-            If you need to have dynamic components that also want to share data with other components you would need to connect this logic in a special way.
+            If you need dynamic components (with a <code>key</code>) that also share data with other components,
+            you will need to connect them in a special way.
           </p>
           <p>
-            You need to use the <code>withKey</code> method of the logic, like this:
+            You will need to use the <code>withKey(key)</code> method on the logic and pass it the <code>key</code> that
+            points to the part of the dynamic logic store that you want to access.
           </p>
           <Highlight className='javascript'>{code.guideExample1}</Highlight>
           <p>
-            The only difference with a regular connected component is that you need to specify the key to be passed to the logic.
-            In this example it's dynamically passed from the <code>id</code> prop.
+            The <code>key</code> can either be a regular string, number or oter literal... or you can pass a function
+            that calculates it from the props of the component you are connecting to.
+          </p>
+          <p>
+            In the last example we dynamically passed the key from the <code>id</code> prop.
           </p>
           <p>
             Here you can see a complete example:
           </p>
           <Highlight className='javascript'>{code.guideExample2}</Highlight>
+          <p>
+            And here you can see it in action:
+          </p>
+          <div className='demo'>
+            <Demo />
+          </div>
+          <p>
+            Next page: <Link to='/guide/forms'>Forms</Link>
+          </p>
         </div>
       </div>
     )

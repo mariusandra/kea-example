@@ -164,7 +164,7 @@ export default class ConnectedScene extends Component {
             If this is not redux-heaven, I don't know what is!
           </p>
           <p>
-            Next page: <Link to='/guide/forms'>Forms</Link>
+            Next page: <Link to='/guide/dynamic-connected'>Dynamic Connected Logic</Link>
           </p>
         </div>
       </div>
