@@ -8,9 +8,9 @@ const dynamicLogic = kea({
     doit: true
   }),
 
-  reducers: ({ actions }) => ({
+  reducers: ({ actions, key }) => ({
     done: [false, PropTypes.bool, {
-      [actions.doit]: () => true
+      [actions.doit]: (state, payload) => key === payload.key ? true : state
     }]
   })
 })
@@ -26,7 +26,7 @@ class OnlyData extends Component {
 // create another helper that wants data from this dynamic logic store
 @connect({
   actions: [
-    dynamicLogic, [
+    dynamicLogic.withKey(props => props.id), [
       'doit'
     ]
   ],
@@ -40,8 +40,8 @@ class DataWithButtion extends Component {
   render () {
     return (
       <div>
-        <p>DataWithButtion - id: {this.props.id}, done: {this.props.done ? 'true' : 'false'}</p>
-        <p><button onClick={this.actions.doit}>Do it!</button></p>
+        DataWithButtion - id: {this.props.id}, done: {this.props.done ? 'true' : 'false'}
+        <button onClick={this.actions.doit}>Do it!</button>
       </div>
     )
   }
@@ -52,8 +52,15 @@ export default class Demo extends Component {
   render () {
     return (
       <div>
-        <OnlyData id={123} />
-        <DataWithButtion id={123} />
+        <div style={{ border: '1px solid black', padding: 10 }}>
+          <OnlyData id={123} />
+          <DataWithButtion id={123} />
+        </div>
+        <br />
+        <div style={{ border: '1px solid black', padding: 10 }}>
+          <DataWithButtion id={999} />
+          <OnlyData id={999} />
+        </div>
       </div>
     )
   }

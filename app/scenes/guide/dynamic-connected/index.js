@@ -32,6 +32,10 @@ export default class ConnectedScene extends Component {
     return (
       <div className='connected-scene'>
         <div className='description'>
+          <p>
+            <strong style={{ color: 'red' }}>NB!</strong> Dynamic Connected Logics are a work in progress!
+            They work, but there are specific issues still left to fix. For more information, please follow <a href='https://github.com/keajs/kea/issues/72'>this issue</a>.
+          </p>
           <h2>Dynamic Connected logic</h2>
           <p>
             If you need dynamic components (with a <code>key</code>) that also share data with other components,
