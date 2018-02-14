@@ -2,7 +2,6 @@ const webpack = require('webpack')
 const path = require('path')
 
 const HappyPack = require('happypack')
-const WebpackMonitor = require('webpack-monitor')
 
 const nodeEnv = process.env.NODE_ENV || 'development'
 const isProd = nodeEnv === 'production'
@@ -102,21 +101,8 @@ var config = {
     new webpack.DefinePlugin({
       'process.env': { NODE_ENV: JSON.stringify(nodeEnv) }
     })
-  ].concat(isProd ? [
-    new WebpackMonitor({
-      capture: true, // -> default 'true'
-      target: '../monitor/myStatsStore.json', // default -> '../monitor/stats.json'
-      launch: false, // -> default 'false'
-      port: 2001 // default -> 8081
-    })
-  ] : [
-    new webpack.NamedModulesPlugin(),
-    new WebpackMonitor({
-      capture: false, // -> default 'true'
-      target: '../monitor/myStatsStore.json', // default -> '../monitor/stats.json'
-      launch: false, // -> default 'false'
-      port: 2001 // default -> 8081
-    })
+  ].concat(isProd ? [] : [
+    new webpack.NamedModulesPlugin()
   ]),
   devServer: {
     contentBase: './app'
