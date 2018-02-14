@@ -35,7 +35,7 @@ class OnlyData extends Component {
     ]
   ],
   props: [
-    dynamicLogic.withKey(params => params.id), [
+    dynamicLogic.withKey(props => props.id), [
       'done'
     ]
   ]
