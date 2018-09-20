@@ -55,10 +55,8 @@ export default class CounterDynamicScene extends Component {
           </p>
           <p>
             Note! You may also use <code>path</code> with non-dynamic components (like the <Link to='/guide/counter'>previous example</Link>) if you wish to specify
-            where they will store their data.
-          </p>
-          <p>
-            It makes your redux tree more readable and helps with debugging. In that case you have to skip the <code>key</code> line.
+            where they will store their data. Manually specifying a <code>path</code> makes your redux tree more readable and helps with debugging.
+            Obviously, if you will not use the <code>key</code> in your <code>path</code>, skip the <code>{'key: (props) => props.id'}</code> line.
           </p>
 
           <h2>2. Limiting the reducers</h2>
