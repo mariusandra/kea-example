@@ -1,4 +1,5 @@
-import { resetKeaCache, keaSaga, keaReducer } from 'kea'
+import { resetKeaCache, keaReducer } from 'kea'
+import { keaSaga } from 'kea-saga'
 import { createStore, applyMiddleware, combineReducers, compose } from 'redux'
 import createSagaMiddleware from 'redux-saga'
 
