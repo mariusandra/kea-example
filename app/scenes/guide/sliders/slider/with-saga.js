@@ -4,10 +4,9 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { kea } from 'kea'
 
-import { take, race, put } from 'redux-saga/effects'
+import { take, race, put, delay } from 'redux-saga/effects'
 
 import range from '~/utils/range'
-import delay from '~/utils/delay'
 
 import images from './images'
 

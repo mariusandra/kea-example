@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import { delay } from 'redux-saga'
+import { delay } from 'redux-saga/effects'
 
 import createForm from './create-form'
 

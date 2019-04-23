@@ -1,6 +1,6 @@
 import { createSaga } from 'kea'
 
-import delay from '~/utils/delay'
+import { delay } from 'redux-saga/effects'
 
 export default createSaga({
   start: function * () {

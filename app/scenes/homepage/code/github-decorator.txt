@@ -2,8 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { kea } from 'kea'
 
-import { put, call } from 'redux-saga/effects'
-import { delay } from 'redux-saga'
+import { put, call, delay } from 'redux-saga/effects'
 
 const API_URL = 'https://api.github.com'
 

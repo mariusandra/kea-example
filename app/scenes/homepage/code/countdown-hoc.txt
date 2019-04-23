@@ -2,8 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { kea } from 'kea'
 
-import delay from '~/utils/delay'
-import { put, cancelled } from 'redux-saga/effects'
+import { put, cancelled, delay } from 'redux-saga/effects'
 
 const countdownLogic = kea({
   actions: () => ({

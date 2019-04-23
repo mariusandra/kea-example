@@ -1,7 +1,6 @@
 // form.js
 
-import { put } from 'redux-saga/effects'
-import { delay } from 'redux-saga'
+import { put, delay } from 'redux-saga/effects'
 
 export default kea({
   // actions, reducers, ...

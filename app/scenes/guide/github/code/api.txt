@@ -1,4 +1,4 @@
-import { delay } from 'redux-saga'
+import { delay } from 'redux-saga/effects'
 
 const API_URL = 'https://api.github.com'
 
