@@ -28,7 +28,7 @@
     "firebase-hackernews": "^2.11.0",
     "highlight.js": "^9.12.0",
     "kea": "^1.0.0-beta.1",
-    "kea-localstorage": "^1.0.0-beta.0",
+    "kea-localstorage": "^1.0.0-beta.1",
     "kea-saga": "^1.0.0-beta.0",
     "kea-thunk": "^1.0.0-beta.0",
     "nprogress": "^0.2.0",
