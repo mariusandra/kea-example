@@ -3588,9 +3588,9 @@ jws@^3.1.4:
     jwa "^1.1.4"
     safe-buffer "^5.0.1"
 
-kea-localstorage@^0.2.0:
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/kea-localstorage/-/kea-localstorage-0.2.0.tgz#e7d41d4347e302ad18a98d8e6028ca2132127cf0"
+kea-localstorage@^1.0.0-beta.0:
+  version "1.0.0-beta.0"
+  resolved "https://registry.yarnpkg.com/kea-localstorage/-/kea-localstorage-1.0.0-beta.0.tgz#c131b1f3f36902d1c8fedfb499f3468729ebeaae"
 
 kea-saga@^1.0.0-beta.0:
   version "1.0.0-beta.0"
@@ -3598,9 +3598,9 @@ kea-saga@^1.0.0-beta.0:
   dependencies:
     babel-runtime "^6.26.0"
 
-kea-thunk@^0.3.2:
-  version "0.3.2"
-  resolved "https://registry.yarnpkg.com/kea-thunk/-/kea-thunk-0.3.2.tgz#d6c58c689fcc774a9c0a5610b17773d249f9f143"
+kea-thunk@^1.0.0-beta.0:
+  version "1.0.0-beta.0"
+  resolved "https://registry.yarnpkg.com/kea-thunk/-/kea-thunk-1.0.0-beta.0.tgz#6f00f4dee1bbd5910b43fa1bfaaef645655f171d"
 
 kea@^1.0.0-beta.1:
   version "1.0.0-beta.1"
