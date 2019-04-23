@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { kea } from 'kea'
-import { push } from 'react-router-redux'
+import { push } from 'connected-react-router'
 
 import doSomething from './actions/do-something'
 

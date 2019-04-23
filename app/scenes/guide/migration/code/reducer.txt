@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { kea } from 'kea'
-import { LOCATION_CHANGE } from 'react-router-redux'
+import { LOCATION_CHANGE } from 'connected-react-router'
 
 import { SOME_ACTION } from './actions'
 

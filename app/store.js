@@ -1,5 +1,5 @@
-import createHistory from 'history/createBrowserHistory'
-import { routerReducer, routerMiddleware } from 'react-router-redux'
+import { createBrowserHistory } from 'history'
+import { connectRouter, routerMiddleware } from 'connected-react-router'
 
 import { getStore } from 'kea'
 
@@ -7,14 +7,14 @@ import sagaPlugin from 'kea-saga'
 import thunkPlugin from 'kea-thunk'
 import localStoragePlugin from 'kea-localstorage'
 
-export const history = createHistory()
+export const history = createBrowserHistory()
 
 export const store = getStore({
   middleware: [
     routerMiddleware(history)
   ],
   reducers: {
-    router: routerReducer
+    router: connectRouter(history)
   },
   plugins: [
     sagaPlugin,
