@@ -2,9 +2,15 @@
 # yarn lockfile v1
 
 
-"@babel/runtime@^7.0.0", "@babel/runtime@^7.1.2", "@babel/runtime@^7.4.3":
+"@babel/runtime@^7.0.0", "@babel/runtime@^7.1.2":
   version "7.4.3"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.4.3.tgz#79888e452034223ad9609187a0ad1fe0d2ad4bdc"
+  dependencies:
+    regenerator-runtime "^0.13.2"
+
+"@babel/runtime@^7.4.5":
+  version "7.4.5"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.4.5.tgz#582bb531f5f9dc67d2fcb682979894f75e253f12"
   dependencies:
     regenerator-runtime "^0.13.2"
 
@@ -3588,23 +3594,23 @@ jws@^3.1.4:
     jwa "^1.1.4"
     safe-buffer "^5.0.1"
 
-kea-localstorage@^1.0.0-beta.1:
-  version "1.0.0-beta.1"
-  resolved "https://registry.yarnpkg.com/kea-localstorage/-/kea-localstorage-1.0.0-beta.1.tgz#3572a1dd3277278006dffb1da9e39e6296b057cc"
+kea-localstorage@^1.0.0-beta.5:
+  version "1.0.0-beta.5"
+  resolved "https://registry.yarnpkg.com/kea-localstorage/-/kea-localstorage-1.0.0-beta.5.tgz#f64cbba57a1f24c6deec05e29b8b24cf732d5658"
 
-kea-saga@^1.0.0-beta.0:
-  version "1.0.0-beta.0"
-  resolved "https://registry.yarnpkg.com/kea-saga/-/kea-saga-1.0.0-beta.0.tgz#7d2925862ecff0ec0107d479545cf42ce00a5509"
+kea-saga@^1.0.0-beta.6:
+  version "1.0.0-beta.6"
+  resolved "https://registry.yarnpkg.com/kea-saga/-/kea-saga-1.0.0-beta.6.tgz#c1cf451ea6d358ef8d002c1ddbec847e71c82ee6"
   dependencies:
     babel-runtime "^6.26.0"
 
-kea-thunk@^1.0.0-beta.0:
-  version "1.0.0-beta.0"
-  resolved "https://registry.yarnpkg.com/kea-thunk/-/kea-thunk-1.0.0-beta.0.tgz#6f00f4dee1bbd5910b43fa1bfaaef645655f171d"
+kea-thunk@^1.0.0-beta.3:
+  version "1.0.0-beta.3"
+  resolved "https://registry.yarnpkg.com/kea-thunk/-/kea-thunk-1.0.0-beta.3.tgz#73bc921e1f19632a50d1a23a59a37035617db5e3"
 
-kea@^1.0.0-beta.1:
-  version "1.0.0-beta.1"
-  resolved "https://registry.yarnpkg.com/kea/-/kea-1.0.0-beta.1.tgz#9fd904693f4bbc0537880cd07c5dd874e60bed85"
+kea@^1.0.0-beta.31:
+  version "1.0.0-beta.31"
+  resolved "https://registry.yarnpkg.com/kea/-/kea-1.0.0-beta.31.tgz#8ad874927cc202bde7de3170bfeaf01a1c722568"
   dependencies:
     opencollective "^1.0.3"
 
@@ -5008,11 +5014,11 @@ react-proxy@^1.1.7:
     lodash "^4.6.1"
     react-deep-force-update "^1.0.0"
 
-react-redux@^7.0.2:
-  version "7.0.2"
-  resolved "https://registry.yarnpkg.com/react-redux/-/react-redux-7.0.2.tgz#34b280a3482aaf60e7d4a504b1295165cbe6b86a"
+react-redux@^7.1.0:
+  version "7.1.0"
+  resolved "https://registry.yarnpkg.com/react-redux/-/react-redux-7.1.0.tgz#72af7cf490a74acdc516ea9c1dd80e25af9ea0b2"
   dependencies:
-    "@babel/runtime" "^7.4.3"
+    "@babel/runtime" "^7.4.5"
     hoist-non-react-statics "^3.3.0"
     invariant "^2.2.4"
     loose-envify "^1.4.0"
