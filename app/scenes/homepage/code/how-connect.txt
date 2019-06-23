@@ -1,27 +1,27 @@
-// features-logic.js
-import { kea } from 'kea'
-export default kea({ /* options from above */ })
-
-// index.js
 import { connect } from 'kea'
-import featuresLogic from 'features-logic'
+import logic from './logic'
+import otherLogic from './logic'
 
 @connect({
   actions: [
-    featuresLogic, [
+    logic, [
       'increment',
       'decrement'
+    ],
+    otherLogic, [
+      'refreshdata'
     ]
   ],
   props: [
-    featuresLogic, [
+    logic, [
       'counter',
       'doubleCounter'
     ]
   ]
 })
-export default class Counter extends Component {
-  render () {
-    return <div />
-  }
+function Counter ({ 
+  counter, doubleCounter, 
+  actions: { increment, decrement, refreshdata } 
+}) {
+  return <div />
 }

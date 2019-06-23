@@ -1,0 +1,35 @@
+const logic = kea({
+  actions: () => ({
+    increment: (amount) => ({ amount }),
+    decrement: (amount) => ({ amount })
+  }),
+
+  reducers: ({ actions }) => ({
+    counter: [0, PropTypes.number, {
+      [actions.increment]: (state, payload) => state + payload.amount,
+      [actions.decrement]: (state, payload) => state - payload.amount
+    }]
+  }),
+})
+
+const doubleLogic = kea({
+  connect: {
+    props: ['logic', ['counter']],
+    actions: ['logic', ['increment', 'decrement']]
+  }
+
+  reducers: ({ actions }) => ({
+    doubleCounter: [0, PropTypes.number, {
+      [actions.increment]: (state, payload) => state + payload.amount * 2,
+      [actions.decrement]: (state, payload) => state - payload.amount * 2
+    }]
+  }),
+
+  selectors: ({ selectors }) => ({
+    tripleCounter: [
+      () => [selectors.counter, selectors.doubleCounter],
+      (counter, doubleCounter) => counter + doubleCounter,
+      PropTypes.number
+    ]
+  })
+})

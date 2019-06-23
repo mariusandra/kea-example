@@ -1,0 +1,17 @@
+const logic = kea({ ... })
+
+function Counter() {
+  const { counter, doubleCounter } = useProps(logic)
+  const { increment, decrement } = useActions(logic)
+
+  return (
+    <div>
+      <p>Counter: {counter}</p>
+      <p>DoubleCounter: {doubleCounter}</p>
+      <p>
+        <button onClick={() => increment(1)}>+</button>
+        <button onClick={() => decrement(1)}>-</button>
+      </p>
+    </div>
+  )
+}

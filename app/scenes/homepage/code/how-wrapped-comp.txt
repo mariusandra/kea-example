@@ -1,4 +1,4 @@
-const logic = kea({ /* options from above */ })
+const logic = kea({ ... })
 
 class Counter extends Component {
   render () {

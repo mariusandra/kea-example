@@ -50,9 +50,13 @@ const code = {
   how: {
     logic: require('raw-loader!./code/how-logic.txt'),
     counter: require('raw-loader!./code/how-counter.txt'),
-    wrapped: require('raw-loader!./code/how-wrapped.txt'),
+    wrappedComp: require('raw-loader!./code/how-wrapped-comp.txt'),
+    wrappedFunc: require('raw-loader!./code/how-wrapped-func.txt'),
+    wrappedHook: require('raw-loader!./code/how-wrapped-hook.txt'),
     decorator: require('raw-loader!./code/how-decorator.txt'),
     connect: require('raw-loader!./code/how-connect.txt'),
+    connectKea: require('raw-loader!./code/how-connect-kea.txt'),
+    listeners: require('raw-loader!./code/how-listeners.txt'),
     thunks: require('raw-loader!./code/how-thunks.txt'),
     sagas: require('raw-loader!./code/how-sagas.txt')
   }
@@ -135,10 +139,10 @@ export default class HomepageScene extends Component {
         <div className='split'>
           <div className='wide-description'>
             <p>
-              In Kea, you define logic stores with the <code>{'kea({})'}</code> function.
+              In Kea, you create <strong>logic</strong> with the <code>{'kea({})'}</code> function.
             </p>
             <p>
-              Each logic store contains <code>actions</code>, <code>reducers</code> and <code>selectors</code>.
+              Each logic contains <code>actions</code>, <code>reducers</code> and <code>selectors</code>.
             </p>
           </div>
           <div className='code'>
@@ -153,12 +157,13 @@ export default class HomepageScene extends Component {
             <ul>
               <li>They are all pure functions (no side effects, same input = same output)</li>
               <li><strong>Actions</strong> are functions which take an input and return a payload</li>
-              <li><strong>Reducers</strong> take actions as input and return new_data = old_data + payload</li>
+              <li><strong>Reducers</strong> take actions as input and return newState = oldState + payload</li>
               <li><strong>Selectors</strong> take the input of multiple reducers and return a combined output</li>
             </ul>
             <p>
-              See here for a nice overview of how Redux
-              works: <a href='https://medium.com/gitconnected/redux-logic-flow-crazy-simple-summary-35416eadabd8'>Redux Logic Flow — Crazy Simple Summary</a>
+              If this is new to you, see here for a nice overview of how Redux works:
+              <br />
+              <a href='https://medium.com/gitconnected/redux-logic-flow-crazy-simple-summary-35416eadabd8'>Redux Logic Flow — Crazy Simple Summary</a>
             </p>
             <p>
               For example, to build a simple counter:
@@ -171,20 +176,40 @@ export default class HomepageScene extends Component {
         <div className='split'>
           <div className='wide-description'>
             <p>
-              The logic stores can either
+              To access this logic from React you either:
             </p>
             <p>
-              1) be wrapped around your component or pure function:
+              1) Use hooks:
             </p>
           </div>
           <div className='code'>
-            <Highlight className='javascript'>{code.how.wrapped}</Highlight>
+            <Highlight className='javascript'>{code.how.wrappedHook}</Highlight>
           </div>
         </div>
         <div className='split'>
           <div className='wide-description'>
             <p>
-              2) used as decorators:
+              2) Wrap it around your functional component:
+            </p>
+          </div>
+          <div className='code'>
+            <Highlight className='javascript'>{code.how.wrappedFunc}</Highlight>
+          </div>
+        </div>
+        <div className='split'>
+          <div className='wide-description'>
+            <p>
+              3) Wrap it around your Class component:
+            </p>
+          </div>
+          <div className='code'>
+            <Highlight className='javascript'>{code.how.wrappedComp}</Highlight>
+          </div>
+        </div>
+        <div className='split'>
+          <div className='wide-description'>
+            <p>
+              4) Use it as a (legacy) decorator:
             </p>
           </div>
           <div className='code'>
@@ -194,21 +219,29 @@ export default class HomepageScene extends Component {
         <div className='split'>
           <div className='wide-description'>
             <p>
-              or
+              5) Import and <code>connect</code> to selected props/actions from one or more logics.
             </p>
-            <p>
-              3) imported and then connected to.
-            </p>
-            <p>
-              You can also connect logic stores together, to e.g:
-            </p>
-            <ul>
-              <li>... use actions from one logic store in the reducer of another.</li>
-              <li>... combine reducers from multiple logic stores into one selector.</li>
-            </ul>
           </div>
           <div className='code'>
             <Highlight className='javascript'>{code.how.connect}</Highlight>
+          </div>
+        </div>
+        <div className='split'>
+          <div className='wide-description'>
+            <p>
+              You can also connect logic together, to for example:
+            </p>
+            <ul>
+              <li>use actions from one logic in the reducer of another.</li>
+              <li>combine reducers from multiple logics into one selector.</li>
+            </ul>
+            <p>
+              Also notice that we added PropTypes in this example. 
+              They will be automatically injected into your React components if defined.
+            </p>
+          </div>
+          <div className='code'>
+            <Highlight className='javascript'>{code.how.connectKea}</Highlight>
           </div>
         </div>
 
@@ -218,7 +251,11 @@ export default class HomepageScene extends Component {
               Eventually you'll need side effects. Then you have a choice.
             </p>
             <p>
-              You can use simple <Link to='/effects/thunk'>thunks</Link> via redux-thunk:
+              1) You can use <Link to='/effects/thunk'>thunks</Link> via kea-thunk.
+            </p>
+            <p>
+              Thunks are functions that can be called like actions, but instead of
+              dispatching they run custom code. Thus you can't use them in reducers.
             </p>
           </div>
           <div className='code'>
@@ -229,21 +266,40 @@ export default class HomepageScene extends Component {
         <div className='split'>
           <div className='wide-description'>
             <p>
-              .... or the more powerful <Link to='/effects/saga'>sagas</Link> via redux-saga.
+              2) You can use <Link to='/effects/listener'>listeners</Link> via kea-listeners:
             </p>
             <p>
-              (coming soon: <a href='https://github.com/keajs/kea/issues/40'>support for epics</a> with redux-observable)
+              Listeners run whenever the action they are listening to is dispatched.
+              They run after the action is dispatched.
+            </p>
+          </div>
+          <div className='code'>
+            <Highlight className='javascript'>{code.how.listeners}</Highlight>
+          </div>
+        </div>
+
+        <div className='split'>
+          <div className='wide-description'>
+            <p>
+              3) You can use <Link to='/effects/saga'>sagas</Link> via kea-saga.
             </p>
             <p>
-              Check out the examples below or <Link to='/guide/installation'>start reading the guide</Link> for more.
-            </p>
-            <p>
-              If you're already using Redux in your apps, it's <Link to='/guide/migration'>really easy to migrate</Link>.
+              Sagas enable really powerful effects, but come with a steeper learning curve.
+              Read the guide for more.
             </p>
           </div>
           <div className='code'>
             <Highlight className='javascript'>{code.how.sagas}</Highlight>
           </div>
+        </div>
+
+        <div className='description'>
+          <p>
+            Check out the examples below or <Link to='/guide/installation'>start reading the guide</Link> for more.
+          </p>
+          <p>
+            If you're already using Redux in your apps, it's <Link to='/guide/migration'>really easy to migrate</Link>.
+          </p>
         </div>
 
         <h2>Simple counter</h2>
@@ -319,7 +375,7 @@ export default class HomepageScene extends Component {
           </div>
         </div>
 
-        <h2>Connected logic stores</h2>
+        <h2>Connected logic</h2>
         <div className='split'>
           <div className='code'>
             <CodeStyleHighlight language='javascript' code={code.connected} />

@@ -10,6 +10,10 @@ a {
 	color: green;
 }
 
+p {
+	line-height: 1.5rem;
+}
+
 code {
 	background: #f8f8f8;
 	padding: 2px;
@@ -80,4 +84,8 @@ h2, h3 {
 			background: white;
 		}
 	}
+}
+
+li {
+	margin: 5px 0;
 }

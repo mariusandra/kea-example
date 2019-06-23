@@ -1,6 +1,12 @@
-@kea({ /* options from above */ })
-export default class Counter extends Component {
+@kea({ 
+  actions: () => ({ ... }),
+  reducers: () => ({ ... })
+})
+class Counter extends Component {
   render () {
-    return <div />
+    const { counter, doubleCounter } = this.props
+    const { increment, decrement } = this.actions
+
+    return <div>...</div>
   }
 }

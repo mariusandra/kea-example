@@ -1,0 +1,10 @@
+const logic = kea({ ... })
+
+function Counter ({ 
+  counter, doubleCounter, 
+  actions: { increment, decrement } 
+}) {
+  return <div>...</div>
+}
+
+export default logic(Counter)
