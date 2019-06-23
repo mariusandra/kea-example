@@ -48,6 +48,7 @@ const code = {
     functional: require('raw-loader!./code/connected-functional.txt'),
   },
   how: {
+    kea: require('raw-loader!./code/how-kea.txt'),
     logic: require('raw-loader!./code/how-logic.txt'),
     counter: require('raw-loader!./code/how-counter.txt'),
     wrappedComp: require('raw-loader!./code/how-wrapped-comp.txt'),
@@ -141,6 +142,13 @@ export default class HomepageScene extends Component {
             <p>
               In Kea, you create <strong>logic</strong> with the <code>{'kea({})'}</code> function.
             </p>
+          </div>
+          <div className='code'>
+            <Highlight className='javascript'>{code.how.kea}</Highlight>
+          </div>
+        </div>
+        <div className='split'>
+          <div className='wide-description'>
             <p>
               Each logic contains <code>actions</code>, <code>reducers</code> and <code>selectors</code>.
             </p>
@@ -156,8 +164,8 @@ export default class HomepageScene extends Component {
             </p>
             <ul>
               <li>They are all pure functions (no side effects, same input = same output)</li>
-              <li><strong>Actions</strong> are functions which take an input and return a payload</li>
-              <li><strong>Reducers</strong> take actions as input and return newState = oldState + payload</li>
+              <li><strong>Actions</strong> are functions which take an input and return a <code>payload</code></li>
+              <li><strong>Reducers</strong> take actions as input and return <code>newState = oldState + payload</code></li>
               <li><strong>Selectors</strong> take the input of multiple reducers and return a combined output</li>
             </ul>
             <p>
@@ -209,7 +217,7 @@ export default class HomepageScene extends Component {
         <div className='split'>
           <div className='wide-description'>
             <p>
-              4) Use it as a (legacy) decorator:
+              4) Use a (legacy) decorator:
             </p>
           </div>
           <div className='code'>
@@ -229,11 +237,11 @@ export default class HomepageScene extends Component {
         <div className='split'>
           <div className='wide-description'>
             <p>
-              You can also connect logic together, to for example:
+              You can also connect logic with one another, for example to:
             </p>
             <ul>
               <li>use actions from one logic in the reducer of another.</li>
-              <li>combine reducers from multiple logics into one selector.</li>
+              <li>combine reducers from multiple logic into one selector.</li>
             </ul>
             <p>
               Also notice that we added PropTypes in this example. 
@@ -248,14 +256,18 @@ export default class HomepageScene extends Component {
         <div className='split'>
           <div className='wide-description'>
             <p>
-              Eventually you'll need side effects. Then you have a choice.
+              Eventually you'll need side effects. For example to talk to your API. 
+              Then you have a choice.
             </p>
             <p>
               1) You can use <Link to='/effects/thunk'>thunks</Link> via kea-thunk.
             </p>
             <p>
               Thunks are functions that can be called like actions, but instead of
-              dispatching they run custom code. Thus you can't use them in reducers.
+              dispatching they run custom code.
+            </p>
+            <p>
+              Please note that since thunks are not real actions, you can't use them in reducers.
             </p>
           </div>
           <div className='code'>

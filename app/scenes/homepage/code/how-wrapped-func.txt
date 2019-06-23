@@ -1,9 +1,6 @@
 const logic = kea({ ... })
 
-function Counter ({ 
-  counter, doubleCounter, 
-  actions: { increment, decrement } 
-}) {
+function Counter ({ counter, actions: { increment, decrement } }) {
   return <div>...</div>
 }
 
