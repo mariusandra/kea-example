@@ -21,18 +21,19 @@ const logic = kea({
   })
 })
 
-const ThunkCounter = ({
-  counter,
-  actions: { increase, increaseAsync }
-}) =>
-  <div style={{textAlign: 'center'}}>
-    <div>{counter}</div>
-    {[0, 10, 100, 500, 1000, 2000].map(ms => (
-      <button key={ms}
-              onClick={() => ms === 0 ? increase() : increaseAsync(ms)}>
-        {ms}
-      </button>
-    ))}
-  </div>
+function ThunkCounter ({ counter, actions: { increase, increaseAsync } }) {
+  return (
+    <div style={{textAlign: 'center'}}>
+      <div>{counter}</div>
+      {[0, 10, 100, 500, 1000, 2000].map(ms => (
+        <button 
+          key={ms}
+          onClick={() => ms === 0 ? increase() : increaseAsync(ms)}>
+          {ms}
+        </button>
+      ))}
+    </div>
+  )
+}
 
 export default logic(ThunkCounter)

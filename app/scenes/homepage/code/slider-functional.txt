@@ -45,21 +45,23 @@ const sliderLogic = kea({
   }
 })
 
-const Slider = ({
-  currentSlide, currentImage,
-  actions: { updateSlide }
-}) =>
-  <div className='kea-slider'>
-    <img src={currentImage.src}
-         alt={`Image copyright by ${currentImage.author}`}
-         title={`Image copyright by ${currentImage.author}`} />
-    <div className='buttons'>
-      {range(images.length).map(i => (
-        <span key={i}
-              className={i === currentSlide ? 'selected' : ''}
-              onClick={() => updateSlide(i)} />
-      ))}
+function Slider ({ currentSlide, currentImage, actions: { updateSlide } }) {
+  return (
+    <div className='kea-slider'>
+      <img 
+        src={currentImage.src}
+        alt={`Image copyright by ${currentImage.author}`}
+        title={`Image copyright by ${currentImage.author}`} />
+      <div className='buttons'>
+        {range(images.length).map(i => (
+          <span 
+            key={i}
+            className={i === currentSlide ? 'selected' : ''}
+            onClick={() => updateSlide(i)} />
+        ))}
+      </div>
     </div>
-  </div>
+  )
+}
 
 export default sliderLogic(Slider)

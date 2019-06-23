@@ -24,15 +24,15 @@ const counterLogic = kea({
   })
 })
 
-const Counter = ({
-  counter, doubleCounter,
-  actions: { increment, decrement }
-}) =>
-  <div className='kea-counter'>
-    Count: {counter}<br />
-    Doublecount: {doubleCounter}<br />
-    <button onClick={() => increment(1)}>Increment</button>
-    <button onClick={() => decrement(1)}>Decrement</button>
-  </div>
+function Counter ({ counter, doubleCounter, actions: { increment, decrement } }) {
+  return (
+    <div className='kea-counter'>
+      Count: {counter}<br />
+      Doublecount: {doubleCounter}<br />
+      <button onClick={() => increment(1)}>Increment</button>
+      <button onClick={() => decrement(1)}>Decrement</button>
+    </div>
+  )
+}
 
 export default counterLogic(Counter)

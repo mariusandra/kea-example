@@ -41,18 +41,18 @@ const countdownLogic = kea({
   })
 })
 
-const Countdown = ({
-  counter, finished,
-  actions: { start }
-}) =>
-  <div className='kea-counter'>
-    Count: {counter}
-    <br /><br />
-    {finished
-      ? 'We made it until the end! finish() action triggered'
-      : 'Click start to trigger the finish() action in a few seconds'}
-    <br /><br />
-    <button onClick={() => start()}>Start</button>
-  </div>
+function Countdown ({ counter, finished, actions: { start } }) {
+  return (
+    <div className='kea-counter'>
+      Count: {counter}
+      <br /><br />
+      {finished
+        ? 'We made it until the end! finish() action triggered'
+        : 'Click start to trigger the finish() action in a few seconds'}
+      <br /><br />
+      <button onClick={() => start()}>Start</button>
+    </div>
+  )
+}
 
 export default countdownLogic(Countdown)
