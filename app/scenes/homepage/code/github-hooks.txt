@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { kea } from 'kea'
+import { kea, useActions, useProps } from 'kea'
 import { put, call, delay } from 'redux-saga/effects'
 import PropTypes from 'prop-types'
 
@@ -71,10 +71,12 @@ const githubLogic = kea({
   }
 })
 
-function Github ({
-  username, isLoading, repositories, sortedRepositories, error,
-  actions: { setUsername }
-}) {
+function Github () {
+  const { 
+    username, isLoading, repositories, sortedRepositories, error 
+  } = useProps(githubLogic)
+  const { setUsername } = useActions(githubLogic)
+
   return (
     <div className='example-github-scene'>
       <div style={{marginBottom: 20}}>
@@ -107,4 +109,4 @@ function Github ({
   )
 }
 
-export default githubLogic(Github)
+export default Github

@@ -1,10 +1,8 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
 import { kea } from 'kea'
+import { take, race, put, delay } from 'redux-saga/effects'
+import PropTypes from 'prop-types'
 
-import { take, race, put } from 'redux-saga/effects'
-
-import delay from '~/utils/delay' // promise-based timeout helper
 import range from '~/utils/range' // range(3) === [0, 1, 2]
 
 import images from './images'     // array of objects [{ src, author }, ...]
@@ -33,7 +31,7 @@ const sliderLogic = kea({
 
     while (true) {
       const { timeout } = yield race({
-        change: take(updateSlide.toString()),
+        change: take(updateSlide),
         timeout: delay(5000)
       })
 

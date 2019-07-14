@@ -21,31 +21,37 @@ const code = {
     decorator: require('raw-loader!./code/counter-decorator.txt'),
     hoc: require('raw-loader!./code/counter-hoc.txt'),
     functional: require('raw-loader!./code/counter-functional.txt'),
+    hooks: require('raw-loader!./code/counter-hooks.txt'),
   },
   thunk: {
     decorator: require('raw-loader!./code/thunk-decorator.txt'),
     hoc: require('raw-loader!./code/thunk-hoc.txt'),
     functional: require('raw-loader!./code/thunk-functional.txt'),
+    hooks: require('raw-loader!./code/thunk-hooks.txt'),
   },
   slider: {
     decorator: require('raw-loader!./code/slider-decorator.txt'),
     hoc: require('raw-loader!./code/slider-hoc.txt'),
     functional: require('raw-loader!./code/slider-functional.txt'),
+    hooks: require('raw-loader!./code/slider-hooks.txt'),
   },
   github: {
     decorator: require('raw-loader!./code/github-decorator.txt'),
     hoc: require('raw-loader!./code/github-hoc.txt'),
     functional: require('raw-loader!./code/github-functional.txt'),
+    hooks: require('raw-loader!./code/github-hooks.txt'),
   },
   countdown: {
     decorator: require('raw-loader!./code/countdown-decorator.txt'),
     hoc: require('raw-loader!./code/countdown-hoc.txt'),
     functional: require('raw-loader!./code/countdown-functional.txt'),
+    hooks: require('raw-loader!./code/countdown-hooks.txt'),
   },
   connected: {
     decorator: require('raw-loader!./code/connected-decorator.txt'),
     hoc: require('raw-loader!./code/connected-hoc.txt'),
     functional: require('raw-loader!./code/connected-functional.txt'),
+    hooks: require('raw-loader!./code/connected-hooks.txt'),
   },
   how: {
     kea: require('raw-loader!./code/how-kea.txt'),
@@ -140,7 +146,7 @@ export default class HomepageScene extends Component {
         <div className='split'>
           <div className='wide-description'>
             <p>
-              In Kea, you create <strong>logic</strong> with the <code>{'kea({})'}</code> function.
+              In Kea, you create <strong>logic</strong> from input with the <code>{'kea()'}</code> function.
             </p>
           </div>
           <div className='code'>
@@ -169,9 +175,7 @@ export default class HomepageScene extends Component {
               <li><strong>Selectors</strong> take the input of multiple reducers and return a combined output</li>
             </ul>
             <p>
-              If this is new to you, see here for a nice overview of how Redux works:
-              <br />
-              <a href='https://medium.com/gitconnected/redux-logic-flow-crazy-simple-summary-35416eadabd8'>Redux Logic Flow — Crazy Simple Summary</a>
+              If this is new to you, see <a href='https://medium.com/gitconnected/redux-logic-flow-crazy-simple-summary-35416eadabd8'>here</a> for a nice overview of how Redux works.
             </p>
             <p>
               For example, to build a simple counter:
@@ -227,7 +231,7 @@ export default class HomepageScene extends Component {
         <div className='split'>
           <div className='wide-description'>
             <p>
-              5) Import and <code>connect</code> to selected props/actions from one or more logics.
+              5) Wrap your components with <code>connect()</code> to fetch props and actions from multiple logics.
             </p>
           </div>
           <div className='code'>
@@ -245,7 +249,7 @@ export default class HomepageScene extends Component {
             </ul>
             <p>
               Also notice that we added PropTypes in this example. 
-              They will be automatically injected into your React components if defined.
+              They will be automatically injected into your wrapped React components if defined.
             </p>
           </div>
           <div className='code'>
@@ -260,7 +264,7 @@ export default class HomepageScene extends Component {
               Then you have a choice.
             </p>
             <p>
-              1) You can use <Link to='/effects/thunk'>thunks</Link> via kea-thunk.
+              1) You can use <Link to='/effects/thunk'>thunks</Link> via kea-thunk &amp; redux-thunk.
             </p>
             <p>
               Thunks are functions that can be called like actions, but instead of
@@ -281,8 +285,7 @@ export default class HomepageScene extends Component {
               2) You can use <Link to='/effects/listener'>listeners</Link> via kea-listeners:
             </p>
             <p>
-              Listeners run whenever the action they are listening to is dispatched.
-              They run after the action is dispatched.
+              Listeners run after the action they are listening to is dispatched.
             </p>
           </div>
           <div className='code'>
@@ -293,10 +296,17 @@ export default class HomepageScene extends Component {
         <div className='split'>
           <div className='wide-description'>
             <p>
-              3) You can use <Link to='/effects/saga'>sagas</Link> via kea-saga.
+              3) You can use <Link to='/effects/saga'>sagas</Link> via kea-saga &amp; redux-saga.
             </p>
             <p>
-              Sagas enable really powerful effects, but come with a steeper learning curve.
+              Sagas enable really powerful effects, but significantly increse your bundle size and have a steeper learning curve.
+            </p>
+            <p>
+              In addition to <code>takeEvery</code>, which works like kea-listeners, sagas give you
+              task cancellation (not possible with promises), race conditions and lots of other goodies. 
+              You can write complicated control flow routines using simple sequential code.
+            </p>
+            <p>
               Read the guide for more.
             </p>
           </div>
@@ -339,9 +349,6 @@ export default class HomepageScene extends Component {
             </div>
             <p>
               Read the docs: <Link to='/effects/thunk'>kea-thunk</Link>
-            </p>
-            <p>
-              Play with it in <a href='https://www.webpackbin.com/bins/-KxSPoMw6q-_lcXY8guq' target='_blank'>WebpackBin</a>
             </p>
           </div>
         </div>

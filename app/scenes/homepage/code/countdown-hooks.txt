@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { kea } from 'kea'
+import { kea, useActions, useProps } from 'kea'
 import { put, cancelled, delay } from 'redux-saga/effects'
 import PropTypes from 'prop-types'
 
@@ -39,23 +39,21 @@ const countdownLogic = kea({
   })
 })
 
-class Countdown extends Component {
-  render () {
-    const { counter, finished } = this.props
-    const { start } = this.actions
+function Countdown () {
+  const { counter, finished } = useProps(countdownLogic)
+  const { start } = useActions(countdownLogic)
 
-    return (
-      <div className='kea-counter'>
-        Count: {counter}
-        <br /><br />
-        {finished
-          ? 'We made it until the end! finish() action triggered'
-          : 'Click start to trigger the finish() action in a few seconds'}
-        <br /><br />
-        <button onClick={() => start()}>Start</button>
-      </div>
-    )
-  }
+  return (
+    <div className='kea-counter'>
+      Count: {counter}
+      <br /><br />
+      {finished
+        ? 'We made it until the end! finish() action triggered'
+        : 'Click start to trigger the finish() action in a few seconds'}
+      <br /><br />
+      <button onClick={() => start()}>Start</button>
+    </div>
+  )
 }
 
-export default countdownLogic(Countdown)
+export default Countdown

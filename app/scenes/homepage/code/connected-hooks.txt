@@ -21,7 +21,7 @@ export default kea({
 
 // index.js
 import React, { Component } from 'react'
-import { connect } from 'kea'
+import { useActions, useProps } from 'kea'
 
 import featuresLogic from '../features-logic'
 
@@ -38,7 +38,12 @@ const connectedLogic = connect({
   ]
 })
 
-function ConnectedToggle ({ features, actions: { toggleFeature } }) {
+function ConnectedToggle () {
+  // This example doesn't really apply to hooks...
+  // ... as we could have used useProps(featuresLogic) directly
+  const { features } = useProps(connectedLogic)
+  const { toggleFeature } = useActions(connectedLogic)
+
   return (
     <div>
       <p>{features.something ? 'Something enabled' : 'Something disabled'}</p>
@@ -47,4 +52,4 @@ function ConnectedToggle ({ features, actions: { toggleFeature } }) {
   )
 }
 
-export default connectedLogic(ConnectedToggle)
+export default ConnectedToggle

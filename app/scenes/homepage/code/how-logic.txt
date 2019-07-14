@@ -1,5 +1,5 @@
 const logic = kea({
-  actions: ({}) => ({ ... }),
+  actions: () => ({ ... }),
   reducers: ({ actions }) => ({ ... }),
   selectors: ({ selectors }) => ({ ... })
 })

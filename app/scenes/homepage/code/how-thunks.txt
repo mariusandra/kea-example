@@ -5,14 +5,15 @@ const incrementerLogic = kea({
     increase: true
   }),
   reducers: ({ actions }) => ({
-    counter: [0, PropTypes.number, {
+    counter: [0, {
       [actions.increase]: (state, payload) => state + 1
     }]
   }),
   thunks: ({ actions, dispatch, getState }) => ({
     increaseAsync: async (ms) => {
       await delay(ms)
-      await actions.increase()
+      actions.increase() // auto-dispatched
+      dispatch({ type: 'BASIC_REDUX_ACTION' })
     }
   })
 })

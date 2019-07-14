@@ -14,8 +14,8 @@ const logic = kea({
 
 const doubleLogic = kea({
   connect: {
-    props: ['logic', ['counter']],
-    actions: ['logic', ['increment', 'decrement']]
+    props: [logic, ['counter']],
+    actions: [logic, ['increment', 'decrement']]
   }
 
   reducers: ({ actions }) => ({

@@ -1,6 +1,6 @@
 // features-logic.js
-import PropTypes from 'prop-types'
 import { kea } from 'kea'
+import PropTypes from 'prop-types'
 
 export default kea({
   actions: () => ({

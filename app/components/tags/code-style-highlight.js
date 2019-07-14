@@ -6,9 +6,10 @@ import Highlight from './highlight'
 
 const logic = kea({
   constants: () => [
-    'decorator',
+    'hooks',
+    'functional',
     'hoc',
-    'functional'
+    'decorator',
   ],
 
   actions: () => ({
@@ -16,7 +17,7 @@ const logic = kea({
   }),
 
   reducers: ({ actions, constants }) => ({
-    codeStyle: [constants.decorator, PropTypes.string, { persist: true }, {
+    codeStyle: [constants.hooks, PropTypes.string, { persist: true }, {
       [actions.setCodeStyle]: (_, payload) => payload.codeStyle
     }]
   })
