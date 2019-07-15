@@ -3,20 +3,12 @@ import logic from './logic'
 import otherLogic from './logic'
 
 @connect({
-  actions: [
-    logic, [
-      'increment',
-      'decrement'
-    ],
-    otherLogic, [
-      'refreshdata'
-    ]
-  ],
   props: [
-    logic, [
-      'counter',
-      'doubleCounter'
-    ]
+    logic, ['counter', 'doubleCounter']
+  ],
+  actions: [
+    logic, ['increment', 'decrement'],
+    otherLogic, ['refreshdata']
   ]
 })
 function Counter ({ 

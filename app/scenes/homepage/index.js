@@ -79,7 +79,7 @@ export default class HomepageScene extends Component {
             <img src={logo} alt='' />
             <div className='text'>
               <h1>Kea</h1>
-              <strong>High level abstraction between <nobr>React and Redux</nobr></strong>
+              <strong>Data Layer for React</strong>
               <div className='links'>
                 <Link to='/guide/installation'>Get started</Link>
                 &nbsp;&nbsp;&nbsp;&nbsp;
@@ -93,60 +93,14 @@ export default class HomepageScene extends Component {
         <h2>What is Kea?</h2>
         <div className='description'>
           <p>
-            Kea is a state management library for React.
-            It <em>empowers</em> Redux, making it as easy to use as <code>setState</code> while
-            retaining composability and improving code clarity.
-          </p>
-          <ul>
-            <li>
-              <strong>100% Redux</strong>:
-              Built on top of <a href='http://redux.js.org/'>redux</a> and <a href='https://github.com/reactjs/reselect'>reselect</a>.
-            </li>
-            <li>
-              <strong>Side effect agnostic</strong>:
-              use <Link to='/effects/thunk'>thunks</Link> with redux-thunk, <Link to='/effects/saga'>sagas</Link> with redux-saga or (soon!) <a href='https://github.com/keajs/kea/issues/40'>epics</a> with redux-observable.
-            </li>
-            <li>
-              <strong>Wrappable</strong>:
-              Write logic alongside React components. Easier than <code>setState</code> and perfect for small components.
-            </li>
-            <li>
-              <strong>Connectable</strong>:
-              Pull in data and actions through ES6+ <Link to='/guide/connected'>imports</Link>. Built for large and ambitious apps.
-            </li>
-            <li>
-              <strong>No boilerplate</strong>:
-              Forget <code>mapStateToProps</code> and redundant constants. Only write code that matters!
-            </li>
-            <li>
-              <strong>No new concepts</strong>:
-              Use actions, reducers and selectors.
-              Gradually migrate <Link to='/guide/migration'>existing Redux applications</Link>.
-            </li>
-          </ul>
-          <p>
-            Compare it to other state management libraries: <a href='https://medium.com/@mariusandra/kea-vs-setstate-redux-mobx-dva-jumpstate-apollo-etc-4aa26ea11d02'>Kea vs setState, Redux, Mobx, Dva, JumpState, Apollo, etc.</a>
-          </p>
-        </div>
-        <h2>Thank you to our sponsors!</h2>
-        <div className='description'>
-          <p>
-            <a href='https://opencollective.com/kea/sponsor/0/website' target='_blank'><img src='https://opencollective.com/kea/sponsor/0/avatar.svg' /></a>
-            <a href='https://opencollective.com/kea/sponsor/1/website' target='_blank'><img src='https://opencollective.com/kea/sponsor/1/avatar.svg' /></a>
-            <a href='https://opencollective.com/kea/sponsor/2/website' target='_blank'><img src='https://opencollective.com/kea/sponsor/2/avatar.svg' /></a>
-          </p>
-          <p>
-            <a href='https://opencollective.com/kea#sponsor'>Support this project by becoming a sponsor</a>.
-          </p>
-          <p>
-            Your logo will show up here and in the <a href='https://github.com/keajs/kea' target='_blank'>README</a> with a link to your website.
+            Kea is a <em>batteries-included</em> and <em>battle-tested</em> high level abstraction between <nobr>React and Redux</nobr>.
           </p>
         </div>
         <h2>How does it work?</h2>
         <div className='split'>
           <div className='wide-description'>
             <p>
-              In Kea, you create <strong>logic</strong> from input with the <code>{'kea()'}</code> function.
+              In Kea, you create <code>logic</code> from input with the <code>{'kea()'}</code> function.
             </p>
           </div>
           <div className='code'>
@@ -169,14 +123,21 @@ export default class HomepageScene extends Component {
               They work just like in Redux:
             </p>
             <ul>
-              <li>They are all pure functions (no side effects, same input = same output)</li>
               <li><strong>Actions</strong> are functions which take an input and return a <code>payload</code></li>
               <li><strong>Reducers</strong> take actions as input and return <code>newState = oldState + payload</code></li>
-              <li><strong>Selectors</strong> take the input of multiple reducers and return a combined output</li>
+              <li><strong>Selectors</strong> take the input of one or more reducers and return a combined output</li>
             </ul>
             <p>
               If this is new to you, see <a href='https://medium.com/gitconnected/redux-logic-flow-crazy-simple-summary-35416eadabd8'>here</a> for a nice overview of how Redux works.
             </p>
+            <p>
+              You can only write <code>actions</code>, <code>reducers</code> and <code>selectors</code> as pure functions:
+            </p>
+            <ul>
+              <li>the same input always gives the same output</li>
+              <li>no side effects (API calls, etc)</li>
+              <li>values are immutable (unless you enable immer)</li>
+            </ul>
             <p>
               For example, to build a simple counter:
             </p>
@@ -188,7 +149,7 @@ export default class HomepageScene extends Component {
         <div className='split'>
           <div className='wide-description'>
             <p>
-              To access this logic from React you either:
+              To access the actions and the data from React you either:
             </p>
             <p>
               1) Use hooks:
@@ -233,6 +194,9 @@ export default class HomepageScene extends Component {
             <p>
               5) Wrap your components with <code>connect()</code> to fetch props and actions from multiple logics.
             </p>
+            <p>
+              This step is not needed if you use hooks.
+            </p>
           </div>
           <div className='code'>
             <Highlight className='javascript'>{code.how.connect}</Highlight>
@@ -264,7 +228,21 @@ export default class HomepageScene extends Component {
               Then you have a choice.
             </p>
             <p>
-              1) You can use <Link to='/effects/thunk'>thunks</Link> via kea-thunk &amp; redux-thunk.
+              1) You can use <Link to='/effects/listener'>listeners</Link> via kea-listeners:
+            </p>
+            <p>
+              Listeners are functions that run after the action they are listening to is dispatched.
+            </p>
+          </div>
+          <div className='code'>
+            <Highlight className='javascript'>{code.how.listeners}</Highlight>
+          </div>
+        </div>
+
+        <div className='split'>
+          <div className='wide-description'>
+            <p>
+              2) You can use <Link to='/effects/thunk'>thunks</Link> via kea-thunk &amp; redux-thunk.
             </p>
             <p>
               Thunks are functions that can be called like actions, but instead of
@@ -276,20 +254,6 @@ export default class HomepageScene extends Component {
           </div>
           <div className='code'>
             <Highlight className='javascript'>{code.how.thunks}</Highlight>
-          </div>
-        </div>
-
-        <div className='split'>
-          <div className='wide-description'>
-            <p>
-              2) You can use <Link to='/effects/listener'>listeners</Link> via kea-listeners:
-            </p>
-            <p>
-              Listeners run after the action they are listening to is dispatched.
-            </p>
-          </div>
-          <div className='code'>
-            <Highlight className='javascript'>{code.how.listeners}</Highlight>
           </div>
         </div>
 
@@ -323,6 +287,60 @@ export default class HomepageScene extends Component {
             If you're already using Redux in your apps, it's <Link to='/guide/migration'>really easy to migrate</Link>.
           </p>
         </div>
+
+        <h2>What makes it different?</h2>
+        <div className='description'>
+          <p>
+            Kea is a <em>batteries-included</em> and <em>battle-tested</em> High level abstraction between <nobr>React and Redux</nobr>.
+          </p>
+          <ul>
+            <li>
+              <strong>100% Redux</strong>:
+              Built on top of <a href='http://redux.js.org/'>redux</a> and <a href='https://github.com/reactjs/reselect'>reselect</a>.
+            </li>
+            <li>
+              <strong>Side effect agnostic</strong>:
+              Use <Link to='/effects/thunk'>thunks</Link> with redux-thunk, <Link to='/effects/saga'>sagas</Link> with redux-saga or listeners with kea-listeners.
+            </li>
+            <li>
+              <strong>Modern</strong>:
+              Store your data outside of components, use React hooks or wrapper functions to access it.
+            </li>
+            {/* <li>
+              <strong>Hookable</strong>:
+              Write logic alongside React components. Pull in data with hooks or wrap
+            </li>
+            <li>
+              <strong>Wrappable</strong>:
+              Write logic alongside React components. Easier than <code>setState</code> and perfect for small components.
+            </li>
+            <li>
+              <strong>Connectable</strong>:
+              Pull in data and actions through ES6+ <Link to='/guide/connected'>imports</Link>. Built for large and ambitious apps.
+            </li> */}
+            <li>
+              <strong>Extendable</strong>:
+              Extend the core functionality and abstract repetitive code with easy-to-write plugins.
+            </li>
+            <li>
+              <strong>Code-splittable</strong>:
+              Reducers mount automatically when requested by components. Forget manually maintaining a reducer tree.
+            </li>
+            <li>
+              <strong>No boilerplate</strong>:
+              Forget <code>mapStateToProps</code> and redundant constants. Only write code that matters!
+            </li>
+            <li>
+              <strong>No new concepts</strong>:
+              Use actions, reducers and selectors.
+              Gradually migrate <Link to='/guide/migration'>existing Redux applications</Link>.
+            </li>
+          </ul>
+          <p>
+            Compare it to other state management libraries: <a href='https://medium.com/@mariusandra/kea-vs-setstate-redux-mobx-dva-jumpstate-apollo-etc-4aa26ea11d02'>Kea vs setState, Redux, Mobx, Dva, JumpState, Apollo, etc.</a>
+          </p>
+        </div>
+
 
         <h2>Simple counter</h2>
         <div className='split'>
