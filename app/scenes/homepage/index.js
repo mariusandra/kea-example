@@ -79,7 +79,7 @@ export default class HomepageScene extends Component {
             <img src={logo} alt='' />
             <div className='text'>
               <h1>Kea</h1>
-              <strong>Data Layer for React</strong>
+              <strong>Data Layer for React. Powered by Redux.</strong>
               <div className='links'>
                 <Link to='/guide/installation'>Get started</Link>
                 &nbsp;&nbsp;&nbsp;&nbsp;
