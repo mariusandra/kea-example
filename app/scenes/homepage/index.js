@@ -62,16 +62,36 @@ const code = {
     wrappedHook: require('raw-loader!./code/how-wrapped-hook.txt'),
     decorator: require('raw-loader!./code/how-decorator.txt'),
     connect: require('raw-loader!./code/how-connect.txt'),
-    connectKea: require('raw-loader!./code/how-connect-kea.txt'),
+    connectKeaActions: require('raw-loader!./code/how-connect-kea-actions.txt'),
+    connectKeaValues: require('raw-loader!./code/how-connect-kea-values.txt'),
     listeners: require('raw-loader!./code/how-listeners.txt'),
     thunks: require('raw-loader!./code/how-thunks.txt'),
     sagas: require('raw-loader!./code/how-sagas.txt')
   }
 }
 
-@kea({})
+@kea({
+  actions: () => ({
+    setView: (key, id) => ({ key, id })
+  }),
+  reducers: ({ actions }) => ({
+    view: [{ react: 1, connectKea: 1, effects: 1 }, {
+      [actions.setView]: (state, payload) => ({ ...state, [payload.key]: payload.id })
+    }]
+  })
+})
 export default class HomepageScene extends Component {
+  renderViewLink (key, id, text) {
+    const { view } = this.props
+    const { setView } = this.actions
+
+    return (
+      <a href='#' onClick={(e) => { e.preventDefault(); setView(key, id) }} style={{ fontWeight: view[key] === id ? 'bold' : 'normal' }}>{text}</a>
+    )
+  }
+
   render () {
+    const { view } = this.props
     return (
       <div className='homepage-scene'>
         <div className='landing'>
@@ -90,10 +110,36 @@ export default class HomepageScene extends Component {
             </div>
           </div>
         </div>
+        <div className='description'>
+          <p>This documentation is for the 1.0 release. To see docs for 0.28, click here.</p>
+        </div>
+        <h2>Why Kea?</h2>
+        <div className='description'>
+          <p>
+            As your app grows beyond a few components, there comes a point when
+            you need to get serious about handling your data.
+          </p>
+          <p>
+            React's hooks and context APIs can ger you pretty far, but not yet all the way.
+            Eventually you will hit a wall and must implement a proper state management solution... like Redux, Mobx... or Kea.
+          </p>
+          <p>
+            
+          </p>
+        </div>
         <h2>What is Kea?</h2>
         <div className='description'>
           <p>
             Kea is a <em>batteries-included</em> and <em>battle-tested</em> high level abstraction between <nobr>React and Redux</nobr>.
+          </p>
+          <p>
+            When you have high level data that must be accessed from several independent components, store it in a logic.
+            Store the operations to manage it in the logic as well
+            Connect to this data from react components or other logics.
+            Build a data layer to complements react's render tree
+          </p>
+          <p>
+            As your app grows to contain data which must be 
           </p>
         </div>
         <h2>How does it work?</h2>
@@ -128,10 +174,7 @@ export default class HomepageScene extends Component {
               <li><strong>Selectors</strong> take the input of one or more reducers and return a combined output</li>
             </ul>
             <p>
-              If this is new to you, see <a href='https://medium.com/gitconnected/redux-logic-flow-crazy-simple-summary-35416eadabd8'>here</a> for a nice overview of how Redux works.
-            </p>
-            <p>
-              You can only write <code>actions</code>, <code>reducers</code> and <code>selectors</code> as pure functions:
+              You must write <code>actions</code>, <code>reducers</code> and <code>selectors</code> as pure functions:
             </p>
             <ul>
               <li>the same input always gives the same output</li>
@@ -139,7 +182,7 @@ export default class HomepageScene extends Component {
               <li>values are immutable (unless you enable immer)</li>
             </ul>
             <p>
-              For example, to build a simple counter:
+              If this is new to you, see <a href='https://medium.com/gitconnected/redux-logic-flow-crazy-simple-summary-35416eadabd8'>here</a> for a nice overview of how Redux works.
             </p>
           </div>
           <div className='code'>
@@ -149,57 +192,32 @@ export default class HomepageScene extends Component {
         <div className='split'>
           <div className='wide-description'>
             <p>
-              To access the actions and the data from React you either:
+              To access these actions and values from React you either:
             </p>
-            <p>
-              1) Use hooks:
-            </p>
+            <ol>
+              <li>
+                {this.renderViewLink('react', 1, <span>Use hooks</span>)}
+              </li>
+              <li>
+                {this.renderViewLink('react', 2, <span>Wrap it around your functional component</span>)}
+              </li>
+              <li>
+                {this.renderViewLink('react', 3, <span>Wrap it around your Class component</span>)}
+              </li>
+              <li>
+                {this.renderViewLink('react', 4, <span>Use a (legacy) decorator</span>)}
+              </li>
+              <li>
+                {this.renderViewLink('react', 5, <span>Use <code>connect()</code> to wrap actions and values from multiple logic around one component.</span>)}
+              </li>
+            </ol>
           </div>
           <div className='code'>
-            <Highlight className='javascript'>{code.how.wrappedHook}</Highlight>
-          </div>
-        </div>
-        <div className='split'>
-          <div className='wide-description'>
-            <p>
-              2) Wrap it around your functional component:
-            </p>
-          </div>
-          <div className='code'>
-            <Highlight className='javascript'>{code.how.wrappedFunc}</Highlight>
-          </div>
-        </div>
-        <div className='split'>
-          <div className='wide-description'>
-            <p>
-              3) Wrap it around your Class component:
-            </p>
-          </div>
-          <div className='code'>
-            <Highlight className='javascript'>{code.how.wrappedComp}</Highlight>
-          </div>
-        </div>
-        <div className='split'>
-          <div className='wide-description'>
-            <p>
-              4) Use a (legacy) decorator:
-            </p>
-          </div>
-          <div className='code'>
-            <Highlight className='javascript'>{code.how.decorator}</Highlight>
-          </div>
-        </div>
-        <div className='split'>
-          <div className='wide-description'>
-            <p>
-              5) Wrap your components with <code>connect()</code> to fetch props and actions from multiple logics.
-            </p>
-            <p>
-              This step is not needed if you use hooks.
-            </p>
-          </div>
-          <div className='code'>
-            <Highlight className='javascript'>{code.how.connect}</Highlight>
+            {view.react === 1 ? <Highlight className='javascript'>{code.how.wrappedHook}</Highlight> : null}
+            {view.react === 2 ? <Highlight className='javascript'>{code.how.wrappedFunc}</Highlight> : null}
+            {view.react === 3 ? <Highlight className='javascript'>{code.how.wrappedComp}</Highlight> : null}
+            {view.react === 4 ? <Highlight className='javascript'>{code.how.decorator}</Highlight> : null}
+            {view.react === 5 ? <Highlight className='javascript'>{code.how.connect}</Highlight> : null}
           </div>
         </div>
         <div className='split'>
@@ -207,17 +225,14 @@ export default class HomepageScene extends Component {
             <p>
               You can also connect logic with one another, for example to:
             </p>
-            <ul>
-              <li>use actions from one logic in the reducer of another.</li>
-              <li>combine reducers from multiple logic into one selector.</li>
-            </ul>
-            <p>
-              Also notice that we added PropTypes in this example. 
-              They will be automatically injected into your wrapped React components if defined.
-            </p>
+            <ol>
+              <li>{this.renderViewLink('connectKea', 1, <span>use actions from one logic in the reducer of another</span>)}</li>
+              <li>{this.renderViewLink('connectKea', 2, <span>use values from one logic in the selector of another</span>)}</li>
+            </ol>
           </div>
           <div className='code'>
-            <Highlight className='javascript'>{code.how.connectKea}</Highlight>
+            {view.connectKea === 1 ? <Highlight className='javascript'>{code.how.connectKeaActions}</Highlight> : null}
+            {view.connectKea === 2 ? <Highlight className='javascript'>{code.how.connectKeaValues}</Highlight> : null}
           </div>
         </div>
 
@@ -225,57 +240,48 @@ export default class HomepageScene extends Component {
           <div className='wide-description'>
             <p>
               Eventually you'll need side effects. For example to talk to your API. 
-              Then you have a choice.
+              Then you have a choice:
             </p>
-            <p>
-              1) You can use <Link to='/effects/listener'>listeners</Link> via kea-listeners:
-            </p>
-            <p>
-              Listeners are functions that run after the action they are listening to is dispatched.
-            </p>
+            <ol>
+              <li>
+                <p>
+                  {this.renderViewLink('effects', 1, <span>You can use listeners via kea-listeners</span>)}
+                </p>
+                {view.effects === 1 && <p>
+                  Listeners are functions that run after the action they are listening to is dispatched.
+                </p>}
+              </li>
+              <li>
+                <p>
+                  {this.renderViewLink('effects', 2, <span>You can use thunks via kea-thunk &amp; redux-thunk</span>)}
+                </p>
+                {view.effects === 2 && <p>
+                  Thunks are functions that can be called like actions, but instead of
+                  dispatching they run custom code.
+                </p>}
+                {view.effects === 2 && <p>
+                  Please note that since thunks are not real actions, you can't use them in reducers.
+                </p>}
+              </li>
+              <li>
+                <p>
+                  {this.renderViewLink('effects', 3, <span>You can use sagas via kea-saga &amp; redux-saga</span>)}
+                </p>
+                {view.effects === 3 && <p>
+                  Sagas enable really powerful effects, but significantly increse your bundle size (+20kb minified) and have a steep learning curve.
+                </p>}
+                {view.effects === 3 && <p>
+                  In addition to <code>takeEvery</code>, which works like kea-listeners, sagas give you
+                  task cancellation (not possible with promises), race conditions and lots of other goodies. 
+                  You can write complicated control flow routines using simple sequential code.
+                </p>}
+              </li>
+            </ol>
           </div>
           <div className='code'>
-            <Highlight className='javascript'>{code.how.listeners}</Highlight>
-          </div>
-        </div>
-
-        <div className='split'>
-          <div className='wide-description'>
-            <p>
-              2) You can use <Link to='/effects/thunk'>thunks</Link> via kea-thunk &amp; redux-thunk.
-            </p>
-            <p>
-              Thunks are functions that can be called like actions, but instead of
-              dispatching they run custom code.
-            </p>
-            <p>
-              Please note that since thunks are not real actions, you can't use them in reducers.
-            </p>
-          </div>
-          <div className='code'>
-            <Highlight className='javascript'>{code.how.thunks}</Highlight>
-          </div>
-        </div>
-
-        <div className='split'>
-          <div className='wide-description'>
-            <p>
-              3) You can use <Link to='/effects/saga'>sagas</Link> via kea-saga &amp; redux-saga.
-            </p>
-            <p>
-              Sagas enable really powerful effects, but significantly increse your bundle size and have a steeper learning curve.
-            </p>
-            <p>
-              In addition to <code>takeEvery</code>, which works like kea-listeners, sagas give you
-              task cancellation (not possible with promises), race conditions and lots of other goodies. 
-              You can write complicated control flow routines using simple sequential code.
-            </p>
-            <p>
-              Read the guide for more.
-            </p>
-          </div>
-          <div className='code'>
-            <Highlight className='javascript'>{code.how.sagas}</Highlight>
+            {view.effects === 1 ? <Highlight className='javascript'>{code.how.listeners}</Highlight> : null}
+            {view.effects === 2 ? <Highlight className='javascript'>{code.how.thunks}</Highlight> : null}
+            {view.effects === 3 ? <Highlight className='javascript'>{code.how.sagas}</Highlight> : null}
           </div>
         </div>
 

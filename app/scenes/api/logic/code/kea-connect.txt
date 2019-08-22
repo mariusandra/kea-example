@@ -7,7 +7,7 @@ connect: {
     ]
   ],
 
-  props: [
+  values: [
     otherLogic, [
       'firstProp',
       'secondProp as renamedProp',

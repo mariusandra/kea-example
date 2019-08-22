@@ -2,7 +2,7 @@ const routeSelector = (state) => state.router
 
 const logic = kea({
   connect: {
-    props: [
+    values: [
       routeSelector, [
         'location'
       ]

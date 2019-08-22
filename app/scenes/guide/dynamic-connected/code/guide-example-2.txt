@@ -30,7 +30,7 @@ class OnlyData extends Component {
       'doit'
     ]
   ],
-  props: [
+  values: [
     dynamicLogic.withKey(props => props.id), [
       'done'
     ]

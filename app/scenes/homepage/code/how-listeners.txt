@@ -1,21 +1,21 @@
-// NB! Work in progress, the code below will change
 const delay = ms => new Promise(resolve => window.setTimeout(resolve, ms))
 
 const incrementerLogic = kea({
   actions: () => ({
     increase: true,
-    increaseAsync: ms => ({ ms })
+    asyncIncrease: ms => ({ ms })
   }),
+
   reducers: ({ actions }) => ({
     counter: [0, {
       [actions.increase]: (state, payload) => state + 1
     }]
   }),
-  listeners: ({ actions }) => ({
-    [actions.increaseAsync]: async (payload, { dispatch }) => {
-      await delay(ms)
-      dispatch(actions.increase()) // no auto-dispatch yet
-      dispatch({ type: 'BASIC_REDUX_ACTION' })
+  
+  listeners: ({ actions, values, store }) => ({
+    [actions.asyncIncrease]: async (action) => {
+      await delay(action.payload.ms)
+      actions.increase()
     }
   })
 })

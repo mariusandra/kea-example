@@ -7,6 +7,15 @@ class Counter extends Component {
     const { counter, doubleCounter } = this.props
     const { increment, decrement } = this.actions
 
-    return <div>...</div>
+    return (
+      <div>
+        <p>Counter: {counter}</p>
+        <p>DoubleCounter: {doubleCounter}</p>
+        <p>
+          <button onClick={() => increment(1)}>+</button>
+          <button onClick={() => decrement(1)}>-</button>
+        </p>
+      </div>
+    )
   }
 }

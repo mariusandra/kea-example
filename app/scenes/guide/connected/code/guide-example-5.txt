@@ -10,7 +10,7 @@ import featuresLogic from '../features-logic'
         'toggleFeature'
       ]
     ],
-    props: [
+    values: [
       featuresLogic, [
         'features'
       ]

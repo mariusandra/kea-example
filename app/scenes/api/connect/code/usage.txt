@@ -11,7 +11,7 @@ import dynamicLogic from '../dynamic/logic'
       'closeMenu'
     ]
   ],
-  props: [
+  values: [
     menuLogic, [
       'isOpen as isMenuOpen'
     ],

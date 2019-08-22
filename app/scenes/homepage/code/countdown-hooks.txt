@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { kea, useActions, useProps } from 'kea'
+import { kea, useActions, useValues } from 'kea'
 import { put, cancelled, delay } from 'redux-saga/effects'
 import PropTypes from 'prop-types'
 
@@ -40,7 +40,7 @@ const countdownLogic = kea({
 })
 
 function Countdown () {
-  const { counter, finished } = useProps(countdownLogic)
+  const { counter, finished } = useValues(countdownLogic)
   const { start } = useActions(countdownLogic)
 
   return (

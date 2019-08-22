@@ -44,7 +44,7 @@ const sliderLogic = kea({
 })
 
 function Slider () {
-  const { currentSlide, currentImage } = useProps(sliderLogic)
+  const { currentSlide, currentImage } = useValues(sliderLogic)
   const { updateSlide } = useActions(sliderLogic)
   
   return (

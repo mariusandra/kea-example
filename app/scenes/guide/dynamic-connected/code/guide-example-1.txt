@@ -1,5 +1,5 @@
 @connect({
-  props: [
+  values: [
     // connecting to a regular logic store
     regularLogic, [
       'regularField'

@@ -1,66 +1,71 @@
 @import 'highlight.js/styles/github.css';
 
 body {
-	background: #ffffff;
-	margin: 0;
+  background: #ffffff;
+  margin: 0;
   font-family: 'Helvetica Neue', 'Arial', sans-serif;
 }
 
 a {
-	color: green;
+  color: green;
 }
 
 p {
-	line-height: 1.5rem;
+  line-height: 1.5rem;
+}
+
+li {
+  margin: 5px 0;
+  line-height: 1.5rem;
 }
 
 code {
-	background: #f8f8f8;
-	padding: 2px;
+  background: #f8f8f8;
+  padding: 2px;
 }
 
 .code {
-	text-align: left;
-	margin: 20px;
+  text-align: left;
+  margin: 20px;
 }
 
 .description {
-	text-align: left;
-	margin: 20px;
-	line-height: 22px;
+  text-align: left;
+  margin: 20px;
+  line-height: 22px;
 }
 
 .example {
-	margin: 20px;
+  margin: 20px;
 }
 
 h1, h2 {
-	font-weight: 400;
+  font-weight: 400;
 }
 
 h1, h2 {
-	border-bottom: 1px solid #ccc;
-	padding-bottom: 10px;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 10px;
 }
 
 h2, h3 {
-	margin-top: 40px;
+  margin-top: 40px;
 }
 
 .demo {
-	background: #f0f0f0;
-	padding: 20px;
-	margin: 20px 0;
+  background: #f0f0f0;
+  padding: 20px;
+  margin: 20px 0;
 }
 
 .extra-help {
-	background: #ffffdd;
-	padding: 20px;
-	margin: 20px 0;
+  background: #ffffdd;
+  padding: 20px;
+  margin: 20px 0;
 }
 
 .hljs {
-	line-height: 16px;
+  line-height: 16px;
 }
 
 .api-scene {
@@ -68,24 +73,20 @@ h2, h3 {
 }
 
 .code-style-bar {
-	background: #388e3c;
-	height: 24px;
-	button {
-		color: white;
-		background: none;
-		border: 1px solid #fff;
-		cursor: pointer;
-		height: 22px;
-		margin-top: 1px;
-		margin-left: 1px;
-		outline: none;
-		&.active {
-			color: #222;
-			background: white;
-		}
-	}
-}
-
-li {
-	margin: 5px 0;
+  background: #388e3c;
+  height: 24px;
+  button {
+    color: white;
+    background: none;
+    border: 1px solid #fff;
+    cursor: pointer;
+    height: 22px;
+    margin-top: 1px;
+    margin-left: 1px;
+    outline: none;
+    &.active {
+      color: #222;
+      background: white;
+    }
+  }
 }

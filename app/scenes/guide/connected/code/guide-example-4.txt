@@ -10,7 +10,7 @@ import someOtherLogic from '../some-other-logic'
       'toggleFeature'
     ]
   ],
-  props: [
+  values: [
     featuresLogic, [
       'features'
     ],

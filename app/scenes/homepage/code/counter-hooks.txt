@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { kea, useActions, useProps } from 'kea'
+import { kea, useActions, useValues } from 'kea'
 import PropTypes from 'prop-types'
 
 const counterLogic = kea({
@@ -25,7 +25,7 @@ const counterLogic = kea({
 })
 
 function Counter () {
-  const { counter, doubleCounter } = useProps(counterLogic)
+  const { counter, doubleCounter } = useValues(counterLogic)
   const { increment, decrement } = useActions(counterLogic)
 
   return (

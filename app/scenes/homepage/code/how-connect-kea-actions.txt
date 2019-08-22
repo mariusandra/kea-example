@@ -5,7 +5,7 @@ const logic = kea({
   }),
 
   reducers: ({ actions }) => ({
-    counter: [0, PropTypes.number, {
+    counter: [0, {
       [actions.increment]: (state, payload) => state + payload.amount,
       [actions.decrement]: (state, payload) => state - payload.amount
     }]
@@ -14,22 +14,14 @@ const logic = kea({
 
 const doubleLogic = kea({
   connect: {
-    props: [logic, ['counter']],
+    // reusing the same actions
     actions: [logic, ['increment', 'decrement']]
   }
 
   reducers: ({ actions }) => ({
-    doubleCounter: [0, PropTypes.number, {
+    doubleCounter: [0, {
       [actions.increment]: (state, payload) => state + payload.amount * 2,
       [actions.decrement]: (state, payload) => state - payload.amount * 2
     }]
-  }),
-
-  selectors: ({ selectors }) => ({
-    tripleCounter: [
-      () => [selectors.counter, selectors.doubleCounter],
-      (counter, doubleCounter) => counter + doubleCounter,
-      PropTypes.number
-    ]
   })
 })

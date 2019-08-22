@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { kea, useActions, useProps } from 'kea'
+import { kea, useActions, useValues } from 'kea'
 import PropTypes from 'prop-types'
 
 const delay = ms => new Promise(resolve => window.setTimeout(resolve, ms))
@@ -22,7 +22,7 @@ const logic = kea({
 })
 
 function ThunkCounter ({ counter, actions: { increase, increaseAsync } }) {
-  const { counter } = useProps(logic)
+  const { counter } = useValues(logic)
   const { increase, increaseAsync } = useActions(logic)
 
   return (

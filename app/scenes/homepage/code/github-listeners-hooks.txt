@@ -1,7 +1,5 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { kea, useActions, useValues } from 'kea'
-import { put, call, delay } from 'redux-saga/effects'
-import PropTypes from 'prop-types'
 
 const API_URL = 'https://api.github.com'
 
@@ -13,19 +11,19 @@ const githubLogic = kea({
   }),
 
   reducers: ({ actions }) => ({
-    username: ['keajs', PropTypes.string, {
+    username: ['keajs', {
       [actions.setUsername]: (_, payload) => payload.username
     }],
-    repositories: [[], PropTypes.array, {
+    repositories: [[], {
       [actions.setUsername]: () => [],
       [actions.setRepositories]: (_, payload) => payload.repositories
     }],
-    isLoading: [true, PropTypes.bool, {
+    isLoading: [true, {
       [actions.setUsername]: () => true,
       [actions.setRepositories]: () => false,
       [actions.setFetchError]: () => false
     }],
-    error: [null, PropTypes.string, {
+    error: [null, {
       [actions.setUsername]: () => null,
       [actions.setFetchError]: (_, payload) => payload.message
     }]
@@ -34,48 +32,46 @@ const githubLogic = kea({
   selectors: ({ selectors }) => ({
     sortedRepositories: [
       () => [selectors.repositories],
-      (repositories) => [...repositories].sort(
-                          (a, b) => b.stargazers_count - a.stargazers_count),
-      PropTypes.array
+      (repositories) => {
+        const sorter = (a, b) => b.stargazers_count - a.stargazers_count
+        return [...repositories].sort(sorter)
+      }
     ]
   }),
 
-  start: function * () {
-    const { setUsername } = this.actions
-    const username = yield this.get('username')
-    yield put(setUsername(username))
-  },
-
-  takeLatest: ({ actions, workers }) => ({
-    [actions.setUsername]: workers.fetchRepositories
-  }),
-
-  workers: {
-    * fetchRepositories (action) {
-      const { setRepositories, setFetchError } = this.actions
+  listeners: ({ actions, values }) => ({
+    [actions.setUsername]: async function (action, breakpoint) {
+      const { setRepositories, setFetchError } = actions
       const { username } = action.payload
 
-      yield delay(100) // debounce for 100ms
+      await breakpoint(100) // debounce for 100ms
 
       const url = `${API_URL}/users/${username}/repos?per_page=250`
-      const response = yield window.fetch(url)
+      const response = await window.fetch(url)
+
+      breakpoint() // break if action was called in the meanwhile
 
       if (response.status === 200) {
-        const json = yield response.json()
-        yield put(setRepositories(json))
+        const json = await response.json()
+        setRepositories(json)
       } else {
-        const json = yield response.json()
-        yield put(setFetchError(json.message))
+        const json = await response.json()
+        setFetchError(json.message)
       }
     }
-  }
+  })
 })
 
-function Github () {
+export default function Github () {
+  const { setUsername } = useActions(githubLogic)
   const { 
     username, isLoading, repositories, sortedRepositories, error 
   } = useValues(githubLogic)
-  const { setUsername } = useActions(githubLogic)
+
+  // set the username to the username on load, to trigger the fetching
+  useEffect(() => {
+    setUsername(username)
+  }, [])
 
   return (
     <div className='example-github-scene'>
@@ -108,5 +104,3 @@ function Github () {
     </div>
   )
 }
-
-export default Github

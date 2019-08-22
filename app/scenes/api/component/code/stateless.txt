@@ -13,7 +13,7 @@ export default kea({
         'importedAction1'
       ]
     ],
-    props: [
+    values: [
       otherLogic, [
         'importedProp1'
       ]

@@ -12,7 +12,7 @@ import form from './form'
       'submit'
     ]
   ],
-  props: [
+  values: [
     form, [
       'values',
       'isSubmitting',

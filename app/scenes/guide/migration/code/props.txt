@@ -5,7 +5,7 @@ import someLogic from './some-logic'
 const railsContext = (state) => state.rails
 
 @connect({
-  props: [
+  values: [
     someLogic, [
       'prop1',
       'prop2'
