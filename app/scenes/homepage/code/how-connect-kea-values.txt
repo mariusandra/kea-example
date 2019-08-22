@@ -14,6 +14,7 @@ const logic = kea({
 
 const doubleLogic = kea({
   connect: {
+    // linking to the counter from the other logic
     values: [logic, ['counter']]
   }
 

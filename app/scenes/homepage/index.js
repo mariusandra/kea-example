@@ -61,6 +61,7 @@ const code = {
     wrappedFunc: require('raw-loader!./code/how-wrapped-func.txt'),
     wrappedHook: require('raw-loader!./code/how-wrapped-hook.txt'),
     decorator: require('raw-loader!./code/how-decorator.txt'),
+    decoratorInline: require('raw-loader!./code/how-decorator-inline.txt'),
     connect: require('raw-loader!./code/how-connect.txt'),
     connectKeaActions: require('raw-loader!./code/how-connect-kea-actions.txt'),
     connectKeaValues: require('raw-loader!./code/how-connect-kea-values.txt'),
@@ -174,7 +175,7 @@ export default class HomepageScene extends Component {
               <li><strong>Selectors</strong> take the input of one or more reducers and return a combined output</li>
             </ul>
             <p>
-              You must write <code>actions</code>, <code>reducers</code> and <code>selectors</code> as pure functions:
+              They must all be pure functions:
             </p>
             <ul>
               <li>the same input always gives the same output</li>
@@ -208,7 +209,10 @@ export default class HomepageScene extends Component {
                 {this.renderViewLink('react', 4, <span>Use a (legacy) decorator</span>)}
               </li>
               <li>
-                {this.renderViewLink('react', 5, <span>Use <code>connect()</code> to wrap actions and values from multiple logic around one component.</span>)}
+                {this.renderViewLink('react', 5, <span>Use an inline (legacy) decorator</span>)}
+              </li>
+              <li>
+                {this.renderViewLink('react', 6, <span>Use <code>connect()</code> to wrap actions and values from multiple logic around one component.</span>)}
               </li>
             </ol>
           </div>
@@ -217,7 +221,8 @@ export default class HomepageScene extends Component {
             {view.react === 2 ? <Highlight className='javascript'>{code.how.wrappedFunc}</Highlight> : null}
             {view.react === 3 ? <Highlight className='javascript'>{code.how.wrappedComp}</Highlight> : null}
             {view.react === 4 ? <Highlight className='javascript'>{code.how.decorator}</Highlight> : null}
-            {view.react === 5 ? <Highlight className='javascript'>{code.how.connect}</Highlight> : null}
+            {view.react === 5 ? <Highlight className='javascript'>{code.how.decoratorInline}</Highlight> : null}
+            {view.react === 6 ? <Highlight className='javascript'>{code.how.connect}</Highlight> : null}
           </div>
         </div>
         <div className='split'>
@@ -226,8 +231,8 @@ export default class HomepageScene extends Component {
               You can also connect logic with one another, for example to:
             </p>
             <ol>
-              <li>{this.renderViewLink('connectKea', 1, <span>use actions from one logic in the reducer of another</span>)}</li>
-              <li>{this.renderViewLink('connectKea', 2, <span>use values from one logic in the selector of another</span>)}</li>
+              <li>{this.renderViewLink('connectKea', 1, <span>Use actions from one logic in the reducer of another</span>)}</li>
+              <li>{this.renderViewLink('connectKea', 2, <span>Use values from one logic in the selector of another</span>)}</li>
             </ol>
           </div>
           <div className='code'>

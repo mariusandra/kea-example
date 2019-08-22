@@ -3,7 +3,7 @@ const delay = ms => new Promise(resolve => window.setTimeout(resolve, ms))
 const incrementerLogic = kea({
   actions: () => ({
     increase: true,
-    asyncIncrease: ms => ({ ms })
+    increaseAsync: ms => ({ ms })
   }),
 
   reducers: ({ actions }) => ({
@@ -13,7 +13,7 @@ const incrementerLogic = kea({
   }),
   
   listeners: ({ actions, values, store }) => ({
-    [actions.asyncIncrease]: async (action) => {
+    [actions.increaseAsync]: async (action) => {
       await delay(action.payload.ms)
       actions.increase()
     }

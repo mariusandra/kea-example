@@ -12,7 +12,7 @@ const incrementerLogic = kea({
   }),
 
   thunks: ({ actions, dispatch, getState }) => ({
-    asyncIncrease: async (ms) => {
+    increaseAsync: async (ms) => {
       await delay(ms)
       actions.increase()
     }

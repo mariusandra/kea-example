@@ -1,4 +1,7 @@
-@logic
+@kea({ 
+  actions: () => ({ ... }),
+  reducers: () => ({ ... })
+})
 export default class Counter extends Component {
   render () {
     const { increment, decrement } = this.actions

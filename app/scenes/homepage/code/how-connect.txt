@@ -1,6 +1,6 @@
 import { connect } from 'kea'
 import logic from './logic'
-import otherLogic from './logic'
+import otherLogic from './other-logic'
 
 @connect({
   actions: [

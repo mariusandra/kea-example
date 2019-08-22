@@ -2,8 +2,8 @@ const logic = kea({ ... })
 
 class Counter extends Component {
   render () {
-    const { counter, doubleCounter } = this.props
     const { increment, decrement } = this.actions
+    const { counter, doubleCounter } = this.props
 
     return (
       <div>
