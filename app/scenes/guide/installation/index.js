@@ -38,7 +38,7 @@ export default class InstallationScene extends Component {
           <h4>1.2. Configure Redux</h4>
           <p>
             Then configure the <a href='https://github.com/reactjs/react-redux/blob/master/docs/api.md#provider-store'>Redux store</a>.
-            You may either do it <Link to='/api/store#manual'>manually</Link> or use the <code>getStore</code> helper.
+            You may either do it <Link to='/api/store'>manually</Link> or use the <code>getStore</code> helper.
             We recommend using the helper, as it will also configure any installed plugins (e.g. <Link to='/api/saga'>kea-saga</Link>).
             You may pass additional middleware and reducers as <Link to='/api/store'>options</Link>.
           </p>
