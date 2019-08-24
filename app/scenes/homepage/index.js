@@ -117,6 +117,9 @@ export default class HomepageScene extends Component {
         <h2>Why Kea?</h2>
         <div className='description'>
           <p>
+            <em>TODO: rewrite all of this and the next section</em>
+          </p>
+          <p>
             As your app grows beyond a few components, there comes a point when
             you need to get serious about handling your data.
           </p>
