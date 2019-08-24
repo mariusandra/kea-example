@@ -10,7 +10,7 @@ const menu = {
   homepage: {
     url: '/',
     paths: ['homepage'],
-    title: 'Home'
+    title: 'Kea 0.28'
   },
   guide: {
     url: '/guide',
