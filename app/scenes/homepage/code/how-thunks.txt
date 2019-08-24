@@ -11,10 +11,12 @@ const incrementerLogic = kea({
     }]
   }),
 
-  thunks: ({ actions, dispatch, getState }) => ({
+  thunks: ({ actions, values, dispatch, getState }) => ({
     increaseAsync: async (ms) => {
       await delay(ms)
       actions.increase()
+
+      console.log(`Current state: ${values.counter}`)
     }
   })
 })

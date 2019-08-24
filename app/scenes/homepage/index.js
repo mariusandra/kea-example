@@ -200,10 +200,10 @@ export default class HomepageScene extends Component {
                 {this.renderViewLink('react', 1, <span>Use hooks</span>)}
               </li>
               <li>
-                {this.renderViewLink('react', 2, <span>Wrap it around your functional component</span>)}
+                {this.renderViewLink('react', 2, <span>Wrap the <code>logic</code> around your functional component</span>)}
               </li>
               <li>
-                {this.renderViewLink('react', 3, <span>Wrap it around your Class component</span>)}
+                {this.renderViewLink('react', 3, <span>Wrap the <code>logic</code> around your Class component</span>)}
               </li>
               <li>
                 {this.renderViewLink('react', 4, <span>Use a (legacy) decorator</span>)}
@@ -273,11 +273,14 @@ export default class HomepageScene extends Component {
                   {this.renderViewLink('effects', 3, <span>You can use sagas via kea-saga &amp; redux-saga</span>)}
                 </p>
                 {view.effects === 3 && <p>
-                  Sagas enable really powerful effects, but significantly increse your bundle size (+20kb minified) and have a steep learning curve.
+                  <a href='https://redux-saga.js.org/'>Sagas</a> enable really powerful effects, but significantly increse your bundle size (+20kb minified) and have a steep learning curve.
+                </p>}
+                {view.effects === 3 && <p>
+                  They are essential in higly interactive applications, such as games, fleet tracking software, etc.
                 </p>}
                 {view.effects === 3 && <p>
                   In addition to <code>takeEvery</code>, which works like kea-listeners, sagas give you
-                  task cancellation (not possible with promises), race conditions and lots of other goodies. 
+                  task cancellation, parallel task execution, race condition solutions and lots of other goodies. 
                   You can write complicated control flow routines using simple sequential code.
                 </p>}
               </li>

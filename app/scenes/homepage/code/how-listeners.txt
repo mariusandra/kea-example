@@ -14,8 +14,12 @@ const incrementerLogic = kea({
   
   listeners: ({ actions, values, store }) => ({
     [actions.increaseAsync]: async (action) => {
-      await delay(action.payload.ms)
+      const { ms } = action.payload
+
+      await delay(ms)
       actions.increase()
+
+      console.log(`Current state: ${values.counter}`)
     }
   })
 })
