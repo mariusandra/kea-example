@@ -100,7 +100,8 @@ export default class HomepageScene extends Component {
             <img src={logo} alt='' />
             <div className='text'>
               <h1>Kea</h1>
-              <strong>Data Layer for React. Powered by Redux.</strong>
+              <strong style={{ display: 'block' }}>Data Layer for React.</strong>
+              <strong style={{ display: 'block' }}>Powered by Redux.</strong>
               <div className='links'>
                 <Link to='/guide/installation'>Get started</Link>
                 &nbsp;&nbsp;&nbsp;&nbsp;
@@ -215,7 +216,7 @@ export default class HomepageScene extends Component {
         <div className='split'>
           <div className='wide-description'>
             <p>
-              Eventually you'll need side effects. For example to talk to your API. 
+              Eventually you'll need side effects. For example to talk to your API.
               Then you have a choice:
             </p>
             <ol>
@@ -251,7 +252,7 @@ export default class HomepageScene extends Component {
                 </p>}
                 {view.effects === 3 && <p>
                   In addition to <code>takeEvery</code>, which works like kea-listeners, sagas give you
-                  task cancellation, parallel task execution, race condition solutions and lots of other goodies. 
+                  task cancellation, parallel task execution, race condition solutions and lots of other goodies.
                   You can write complicated control flow routines using simple sequential code.
                 </p>}
               </li>
