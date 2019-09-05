@@ -1,0 +1,23 @@
+kea({
+  actions: () => ({
+    openArticle: id => ({ id }),
+    closeArticle: true
+  }),
+
+  reducers: ({ actions }) => ({
+    article: [null, {
+      [actions.openArticle]: (_, payload) => payload.id,
+      [actions.closeArticle]: () => null
+    }]
+  })
+
+  actionToUrl: ({ actions }) => ({
+    [actions.openArticle]: ({ id }) => `/articles/${id}`,
+    [actions.closeArticle]: action => '/articles'
+  }),
+
+  urlToAction: ({ actions }) => ({
+    '/articles/:id': ({ id }) => actions.openArticle(id),
+    '/articles': () => actions.closeArticle()
+  })
+})

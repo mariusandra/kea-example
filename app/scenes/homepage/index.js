@@ -68,6 +68,10 @@ const code = {
     listeners: require('raw-loader!./code/how-listeners.txt'),
     thunks: require('raw-loader!./code/how-thunks.txt'),
     sagas: require('raw-loader!./code/how-sagas.txt')
+  },
+  plugins: {
+    dimensions: require('raw-loader!./code/plugins-dimensions.txt'),
+    router: require('raw-loader!./code/plugins-router.txt')
   }
 }
 
@@ -100,8 +104,7 @@ export default class HomepageScene extends Component {
             <img src={logo} alt='' />
             <div className='text'>
               <h1>Kea</h1>
-              <strong style={{ display: 'block' }}>Data Layer for React.</strong>
-              <strong style={{ display: 'block' }}>Powered by Redux.</strong>
+              <strong>Data Layer for React. Powered by Redux.</strong>
               <div className='links'>
                 <Link to='/guide/installation'>Get started</Link>
                 &nbsp;&nbsp;&nbsp;&nbsp;
@@ -142,20 +145,15 @@ export default class HomepageScene extends Component {
               They work just like in Redux:
             </p>
             <ul>
-              <li><strong>Actions</strong> are functions which take an input and return a <code>payload</code></li>
-              <li><strong>Reducers</strong> take actions as input and return <code>newState = oldState + payload</code></li>
-              <li><strong>Selectors</strong> take the input of one or more reducers and return a combined output</li>
+              <li><strong>Actions</strong> request changes in the system</li>
+              <li><strong>Reducers</strong> manage your data and change it in response to actions</li>
+              <li><strong>Selectors</strong> combine one or more reducers into a new output</li>
             </ul>
             <p>
-              They must all be pure functions:
+              They must all be pure functions and perform no side effects.
             </p>
-            <ul>
-              <li>the same input always gives the same output</li>
-              <li>no side effects (API calls, etc)</li>
-              <li>values are immutable (unless you enable immer)</li>
-            </ul>
             <p>
-              If this is new to you, see <a href='https://medium.com/gitconnected/redux-logic-flow-crazy-simple-summary-35416eadabd8'>here</a> for a nice overview of how Redux works.
+              If this is new to you, see <a href='https://medium.com/gitconnected/redux-logic-flow-crazy-simple-summary-35416eadabd8' target='_blank'>here</a> for a nice overview of how Redux works.
             </p>
           </div>
           <div className='code'>
@@ -200,23 +198,7 @@ export default class HomepageScene extends Component {
         <div className='split'>
           <div className='wide-description'>
             <p>
-              You can also connect logic with one another, for example to:
-            </p>
-            <ol>
-              <li>{this.renderViewLink('connectKea', 1, <span>Use actions from one logic in the reducer of another</span>)}</li>
-              <li>{this.renderViewLink('connectKea', 2, <span>Use values from one logic in the selector of another</span>)}</li>
-            </ol>
-          </div>
-          <div className='code'>
-            {view.connectKea === 1 ? <Highlight className='javascript'>{code.how.connectKeaActions}</Highlight> : null}
-            {view.connectKea === 2 ? <Highlight className='javascript'>{code.how.connectKeaValues}</Highlight> : null}
-          </div>
-        </div>
-
-        <div className='split'>
-          <div className='wide-description'>
-            <p>
-              Eventually you'll need side effects. For example to talk to your API.
+              Eventually you'll need side effects (e.g. to talk to your API).
               Then you have a choice:
             </p>
             <ol>
@@ -226,6 +208,9 @@ export default class HomepageScene extends Component {
                 </p>
                 {view.effects === 1 && <p>
                   Listeners are functions that run after the action they are listening to is dispatched.
+                </p>}
+                {view.effects === 1 && <p>
+                  They have built in support for cancellation and debouncing through breakpoints.
                 </p>}
               </li>
               <li>
@@ -245,15 +230,13 @@ export default class HomepageScene extends Component {
                   {this.renderViewLink('effects', 3, <span>You can use sagas via kea-saga &amp; redux-saga</span>)}
                 </p>
                 {view.effects === 3 && <p>
-                  <a href='https://redux-saga.js.org/'>Sagas</a> enable really powerful effects, but significantly increse your bundle size (+20kb minified) and have a steep learning curve.
+                  <a href='https://redux-saga.js.org/'>Sagas</a> enable really powerful effects, significantly increse your bundle size (+20kb minified) and have a steeper learning curve.
                 </p>}
                 {view.effects === 3 && <p>
                   They are essential in higly interactive applications, such as games, fleet tracking software, etc.
                 </p>}
                 {view.effects === 3 && <p>
-                  In addition to <code>takeEvery</code>, which works like kea-listeners, sagas give you
-                  task cancellation, parallel task execution, race condition solutions and lots of other goodies.
-                  You can write complicated control flow routines using simple sequential code.
+                  We recommend starting with listeners and when needed, rewriting your highly interacive parts to use sagas.
                 </p>}
               </li>
             </ol>
@@ -262,6 +245,63 @@ export default class HomepageScene extends Component {
             {view.effects === 1 ? <Highlight className='javascript'>{code.how.listeners}</Highlight> : null}
             {view.effects === 2 ? <Highlight className='javascript'>{code.how.thunks}</Highlight> : null}
             {view.effects === 3 ? <Highlight className='javascript'>{code.how.sagas}</Highlight> : null}
+          </div>
+        </div>
+
+
+        <h2>Any other neat tricks?</h2>
+
+        <div className='split'>
+          <div className='wide-description'>
+            <p>
+              There are many other plugins you can extend your logic with.
+            </p>
+            <p>
+              For examle <code>kea-dimensions</code>, which sets a reducer based on the screen dimensions:
+            </p>
+          </div>
+          <div className='code'>
+            <Highlight className='javascript'>{code.plugins.dimensions}</Highlight>
+          </div>
+        </div>
+
+        <div className='split'>
+          <div className='wide-description'>
+            <p>
+              Or <code>kea-router</code>, which dispatches actions in response to route changes:
+            </p>
+          </div>
+          <div className='code'>
+            <Highlight className='javascript'>{code.plugins.router}</Highlight>
+          </div>
+        </div>
+
+
+        <h2>What more can Kea do?</h2>
+
+        <div className='split'>
+          <div className='wide-description'>
+            <p>
+              You can also connect logic with one another, for example to:
+            </p>
+            <ol>
+              <li>{this.renderViewLink('connectKea', 1, <span>Use actions from one logic in the reducer of another</span>)}</li>
+              <li>{this.renderViewLink('connectKea', 2, <span>Use values from one logic in the selector of another</span>)}</li>
+            </ol>
+          </div>
+          <div className='code'>
+            {view.connectKea === 1 ? <Highlight className='javascript'>{code.how.connectKeaActions}</Highlight> : null}
+            {view.connectKea === 2 ? <Highlight className='javascript'>{code.how.connectKeaValues}</Highlight> : null}
+          </div>
+        </div>
+
+        <div className='split'>
+          <div className='wide-description'>
+            <p>
+              You can give your logic a <code>key</code> and have multiple copies of it.
+            </p>
+          </div>
+          <div className='code'>
           </div>
         </div>
 

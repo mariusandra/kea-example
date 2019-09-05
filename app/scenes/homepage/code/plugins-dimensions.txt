@@ -1,0 +1,18 @@
+import { useValues } from 'kea'
+
+const logic = kea({
+  dimensions: {
+    isSmallScreen: [false, window => window.innerWidth < 640],
+    isLargeScreen: [true, window => window.innerWidth >= 960]
+  },
+})
+
+const function Component () {
+  const { isSmallScreen } = useValues(logic)
+
+  if (isSmallScreen) {
+    return <strong>Hello</strong>
+  }
+
+  return <span>Hello</span>
+}

@@ -1,6 +1,6 @@
 const logic = kea({ ... })
 
-export default function Counter() {
+export default function Counter () {
   const { increment, decrement } = useActions(logic)
   const { counter, doubleCounter } = useValues(logic)
 

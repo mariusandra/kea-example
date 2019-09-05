@@ -1,22 +1,19 @@
-const delay = ms => new Promise(resolve => window.setTimeout(resolve, ms))
-
 const incrementerLogic = kea({
   actions: () => ({
     increase: true,
-    increaseAsync: ms => ({ ms })
+    debouncedIncrease: ms => ({ ms })
   }),
 
   reducers: ({ actions }) => ({
     counter: [0, {
-      [actions.increase]: (state, payload) => state + 1
+      [actions.increase]: state => state + 1
     }]
   }),
-  
-  listeners: ({ actions, values, store }) => ({
-    [actions.increaseAsync]: async (action) => {
-      const { ms } = action.payload
 
-      await delay(ms)
+  listeners: ({ actions, values, store }) => ({
+    [actions.debouncedIncrease]: async ({ ms }, breakpoint) => {
+      // return if the action was called again while sleeping
+      await breakpoint(ms)
       actions.increase()
 
       console.log(`Current state: ${values.counter}`)
