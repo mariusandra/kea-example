@@ -116,7 +116,58 @@ export default class HomepageScene extends Component {
           </div>
         </div>
         <div className='description'>
-          <p>This documentation is for the 1.0 release. To see docs for 0.28, click here.</p>
+          <p><strong>NB!</strong> This documentation is for the 1.0 release. To see docs for 0.28, click here.</p>
+        </div>
+        <h2>Why does this exist?</h2>
+        <div className='description'>
+          <p>
+            This project began when I started to use Redux in a React app in 201x.
+          </p>
+          <p>
+            After a while I noticed that I kept writing largely similar code over and over again. 
+          </p>
+          <p>
+            So I started to write functions to automatise these repetitive tasks.
+            Those grew into the first version of Kea: a loose collection of functions. (v0.1 in 20xx)
+          </p>
+          <p>
+            Those in turn grew into a unified high level abstraction over Redux. The helper functions from
+            v0.x morphed into a unified way to describe everything that could happen with your app state,
+            including side effects via plugins... v0.x to v0.y
+          </p>
+          <p>
+            That worked well. There were plenty of users and businesses who depended on kea to power their apps.
+            Several of them said very nice words about it.
+          </p>
+          <p>
+            Then I decided to complicate my life.
+          </p>
+          <p>
+            Recent changes in React and Redux combined with community feedback and unsolvable feature requests 
+            made me take a fresh look at what Kea was. It was time for a refactor...
+            Which turned into a rewrite... Which took on a life of its own... And then it kept expading... 
+            and expanding... and expanding... In features, test coverage and possibilities.
+          </p>
+          <p>
+            All of this while retaining the same bundle size as before (16kb minified -> 17kb minified).
+          </p>
+          <p>
+            After X months of labour over Y commits Kea 1.0 was born.
+          </p>
+          <p>
+            It's a complete rewrite of what came before, bringing Kea from abstraction to framework territory.
+          </p>
+        </div>
+        <h2>What is it now?</h2>
+        <div className='description'>
+          <p>          
+            Kea 1.0 complements React (the UI layer) by implementing a Data Layer that acts as the brains of
+            your application. Because it's standing on the work done by the react-redux team, there is seamless 
+            interoperability between both layers and plenty of nice features to make any developer happy.
+          </p>
+          <p>
+            ... to write ...
+          </p>
         </div>
         <h2>How does it work?</h2>
         <div className='split'>
@@ -124,13 +175,6 @@ export default class HomepageScene extends Component {
             <p>
               In Kea, you create <code>logic</code> from input with the <code>{'kea()'}</code> function.
             </p>
-          </div>
-          <div className='code'>
-            <Highlight className='javascript'>{code.how.kea}</Highlight>
-          </div>
-        </div>
-        <div className='split'>
-          <div className='wide-description'>
             <p>
               Each logic contains <code>actions</code>, <code>reducers</code> and <code>selectors</code>.
             </p>
