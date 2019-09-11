@@ -39,10 +39,15 @@ const githubLogic = kea({
     ]
   }),
 
-  listeners: ({ actions, values }) => ({
-    [actions.setUsername]: async function (action, breakpoint) {
+  events: ({ actions, values }) => ({
+    afterMount () {
+      actions.setUsername(values.username)
+    }
+  }),
+
+  listeners: ({ actions }) => ({
+    [actions.setUsername]: async function ({ username }, breakpoint) {
       const { setRepositories, setFetchError } = actions
-      const { username } = action.payload
 
       await breakpoint(100) // debounce for 100ms
 
@@ -64,20 +69,15 @@ const githubLogic = kea({
 
 export default function Github () {
   const { setUsername } = useActions(githubLogic)
-  const { 
-    username, isLoading, repositories, sortedRepositories, error 
+  const {
+    username, isLoading, repositories, sortedRepositories, error
   } = useValues(githubLogic)
-
-  // set the username to the username on load, to trigger the fetching
-  useEffect(() => {
-    setUsername(username)
-  }, [])
 
   return (
     <div className='example-github-scene'>
       <div style={{marginBottom: 20}}>
         <h1>Search for a github user</h1>
-        <input 
+        <input
           value={username}
           type='text'
           onChange={e => setUsername(e.target.value)} />

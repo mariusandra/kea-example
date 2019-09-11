@@ -1,6 +1,5 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { kea, useActions, useValues } from 'kea'
-import { put, call, delay } from 'redux-saga/effects'
 
 const API_URL = 'https://api.github.com'
 
@@ -33,40 +32,39 @@ const githubLogic = kea({
   selectors: ({ selectors }) => ({
     sortedRepositories: [
       () => [selectors.repositories],
-      (repositories) => [...repositories].sort(
-                          (a, b) => b.stargazers_count - a.stargazers_count)
+      (repositories) => {
+        const sorter = (a, b) => b.stargazers_count - a.stargazers_count
+        return [...repositories].sort(sorter)
+      }
     ]
   }),
 
-  start: function * () {
-    const { setUsername } = this.actions
-    const username = yield this.get('username')
-    yield put(setUsername(username))
-  },
-
-  takeLatest: ({ actions, workers }) => ({
-    [actions.setUsername]: workers.fetchRepositories
+  events: ({ actions, values }) => ({
+    afterMount () {
+      actions.setUsername(values.username)
+    }
   }),
 
-  workers: {
-    * fetchRepositories (action) {
-      const { setRepositories, setFetchError } = this.actions
-      const { username } = action.payload
+  listeners: ({ actions }) => ({
+    [actions.setUsername]: async function ({ username }, breakpoint) {
+      const { setRepositories, setFetchError } = actions
 
-      yield delay(100) // debounce for 100ms
+      await breakpoint(100) // debounce for 100ms
 
       const url = `${API_URL}/users/${username}/repos?per_page=250`
-      const response = yield window.fetch(url)
+      const response = await window.fetch(url)
+
+      breakpoint() // break if action was called in the meanwhile
 
       if (response.status === 200) {
-        const json = yield response.json()
-        yield put(setRepositories(json))
+        const json = await response.json()
+        setRepositories(json)
       } else {
-        const json = yield response.json()
-        yield put(setFetchError(json.message))
+        const json = await response.json()
+        setFetchError(json.message)
       }
     }
-  }
+  })
 })
 
 function Github () {

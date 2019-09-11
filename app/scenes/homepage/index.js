@@ -12,7 +12,7 @@ import logo from '~/assets/logo.svg'
 import Slider from '../guide/sliders/slider'
 import Counter from '../guide/counter/counter'
 import Countdown from '../guide/countdown/countdown'
-import Github from '../guide/github/github'
+import Github from '../guide/listeners/listeners-github'
 import ListenerCounter from '../guide/listeners/listeners-counter'
 
 const code = {
@@ -544,6 +544,20 @@ export default class HomepageScene extends Component {
           </div>
         </div>
 
+        <h2>Github <small>with <Link to='/effects/listeners'>listenerss</Link></small></h2>
+        <div className='split'>
+          <div className='code'>
+            <CodeStyleHighlight language='javascript' code={code.github} />
+          </div>
+          <div className='description'>
+            <div className='demo'>
+              <Github />
+            </div>
+            <br />
+            Read the guide: <Link to='/guide/github'>Github</Link>
+          </div>
+        </div>
+
         <h2>Slider <small>with <Link to='/effects/saga'>sagas</Link></small></h2>
         <div className='split'>
           <div className='code'>
@@ -555,20 +569,6 @@ export default class HomepageScene extends Component {
             </div>
             <br />
             Read the guide: <Link to='/guide/sliders'>Sliders</Link>
-          </div>
-        </div>
-
-        <h2>Github <small>with <Link to='/effects/saga'>sagas</Link></small></h2>
-        <div className='split'>
-          <div className='code'>
-            <CodeStyleHighlight language='javascript' code={code.github} />
-          </div>
-          <div className='description'>
-            <div className='demo'>
-              <Github />
-            </div>
-            <br />
-            Read the guide: <Link to='/guide/github'>Github</Link>
           </div>
         </div>
 

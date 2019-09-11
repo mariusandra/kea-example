@@ -27,7 +27,7 @@
     "es6-promise": "^4.1.1",
     "highlight.js": "^9.12.0",
     "kea": "^1.0.0-rc.10.2",
-    "kea-listeners": "^0.2.1",
+    "kea-listeners": "^0.2.2",
     "kea-localstorage": "^1.0.0-beta.6",
     "kea-saga": "^1.0.0-beta.9",
     "kea-thunk": "^1.0.0-beta.5",
