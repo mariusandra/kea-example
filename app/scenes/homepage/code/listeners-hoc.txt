@@ -38,7 +38,7 @@ class ListenerCounter extends Component () {
       <div style={{textAlign: 'center'}}>
         <div>{counter}</div>
         <div>
-          {[0, 10, 100, 500, 1000, 2000].map(ms => (
+          {[0, 10, 100, 250, 500, 1000, 2000].map(ms => (
             <button
               key={ms}
               onClick={() => ms === 0 ? increase() : increaseAsync(ms)}>
@@ -47,7 +47,7 @@ class ListenerCounter extends Component () {
           ))}
         </div>
         <div>
-          <button onClick={() => toggleDebounced}>
+          <button onClick={toggleDebounced}>
             {debounced ? '[x]' : '[ ]'} Debounced
           </button>
         </div>

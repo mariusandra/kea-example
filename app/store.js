@@ -6,6 +6,7 @@ import { resetContext, getContext } from 'kea'
 import sagaPlugin from 'kea-saga'
 import thunkPlugin from 'kea-thunk'
 import localStoragePlugin from 'kea-localstorage'
+import listenersPlugin from 'kea-listeners'
 
 export const history = createBrowserHistory()
 
@@ -21,7 +22,8 @@ resetContext({
   plugins: [
     sagaPlugin,
     thunkPlugin,
-    localStoragePlugin
+    localStoragePlugin,
+    listenersPlugin
   ]
 })
 

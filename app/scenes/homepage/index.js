@@ -13,7 +13,7 @@ import Slider from '../guide/sliders/slider'
 import Counter from '../guide/counter/counter'
 import Countdown from '../guide/countdown/countdown'
 import Github from '../guide/github/github'
-import ThunkCounter from '../guide/thunk/thunk-counter'
+import ListenerCounter from '../guide/listeners/listeners-counter'
 
 const code = {
   counter: {
@@ -536,7 +536,7 @@ export default class HomepageScene extends Component {
           </div>
           <div className='description'>
             <div className='demo'>
-              <ThunkCounter />
+              <ListenerCounter />
             </div>
             <p>
               Read the docs: <Link to='/effects/listeners'>kea-listeners</Link>

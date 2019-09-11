@@ -3287,6 +3287,11 @@ jsx-ast-utils@^2.0.0:
   dependencies:
     array-includes "^3.0.3"
 
+kea-listeners@^0.2.1:
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/kea-listeners/-/kea-listeners-0.2.1.tgz#7c7639a01d52cf42f3649cbb3482246e9270efd3"
+  integrity sha512-m2rWp+5nAAky6QeE3q+Sg1zTPpEQdeX3N5iSoevzr0fJlEQFnwe8HvvIQ9/OPpnTkLzYM7251w0k0DFl8mBF3A==
+
 kea-localstorage@^1.0.0-beta.6:
   version "1.0.0-beta.6"
   resolved "https://registry.yarnpkg.com/kea-localstorage/-/kea-localstorage-1.0.0-beta.6.tgz#bc74ec4ffbbbc9e45b8f006ae0f8220cc90b4227"
