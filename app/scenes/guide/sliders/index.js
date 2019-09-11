@@ -44,7 +44,13 @@ export default class SlidersScene extends Component {
     return (
       <div className='sliders-scene'>
         <div className='description'>
-          <h2>Example #3 - Sliders</h2>
+          <p>
+            <strong>
+              <span style={{ color: 'red' }}>TODO!</span> This example needs to be updated for Kea 1.0!
+            </strong>
+          </p>
+          <p>Everything below should still work, but might no longer be considered <em>best practice</em></p>
+          <h2>Example - Sliders</h2>
           <p>
             This example demonstrates side effects through sagas.
           </p>

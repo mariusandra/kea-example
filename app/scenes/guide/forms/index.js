@@ -51,7 +51,13 @@ export default class FormsScene extends Component {
     return (
       <div className='counter-singleton-scene'>
         <div className='description'>
-          <h2>Example #6 - Forms</h2>
+          <p>
+            <strong>
+              <span style={{ color: 'red' }}>TODO!</span> This example needs to be updated for Kea 1.0!
+            </strong>
+          </p>
+          <p>Everything below should still work, but might no longer be considered <em>best practice</em></p>
+          <h2>Example - Forms</h2>
           <p>
             Before Kea I used to dread forms in React. They would always require a lot of work to set up properly.
           </p>
