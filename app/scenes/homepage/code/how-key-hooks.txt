@@ -15,8 +15,8 @@ const logic = kea({
 })
 
 function Counter ({ id }) {
-  const { counter, doubleCounter } = useValues(counterLogic({ id }))
-  const { increment, decrement } = useActions(counterLogic({ id }))
+  const { counter, doubleCounter } = useValues(logic({ id }))
+  const { increment, decrement } = useActions(logic({ id }))
 
   return (
     <div>

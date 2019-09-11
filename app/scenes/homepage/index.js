@@ -150,7 +150,7 @@ export default class HomepageScene extends Component {
           </p>
           <p>
             Recent changes in React and React-Redux combined with community feedback through unsolvable feature requests
-            forced a fresh look at what Kea was and where it was heading. It was time for a refactor...
+            forced me to take a step back and have a fresh look at what was Kea and where was it heading. It was time for a refactor...
             Which turned into a rewrite... Which took on a life of its own... and kept <a href='https://github.com/keajs/kea/blob/master/docs/CHANGES-1.0.md'>expanding and expanding and expanding</a>.
           </p>
           <p>
@@ -168,7 +168,7 @@ export default class HomepageScene extends Component {
         <div className='description'>
           <p>
             Think of React as the <u>User Interface (UI) layer</u> of your application. It takes your application's
-            state and converts it info something the user can interact with.
+            state and converts it into something the user can interact with.
             It is <a href='https://2018.stateofjs.com/front-end-frameworks/overview/'>exceptionally good</a> at this.
           </p>
           <p>
@@ -176,14 +176,14 @@ export default class HomepageScene extends Component {
             to get you going (think <code>useState</code>), most apps eventually implement a dedicated state management solution.
           </p>
           <p>
-            Kea is one such solution. It adds a <u>Data Layer</u> to React's UI layer and acts as the brains of
+            Kea is one such solution. It adds a <u>Data Layer</u> to React's UI layer and acts as the brain of
             your application. There is seamless interoperability between both layers as we are standing on the
             great work done by the react-redux team.
           </p>
           <p>
             Kea, however, is more than just a state container.
             There are plenty of nice features to make any developer happy.
-            Read below to find out more!
+            Read on to find out more!
           </p>
         </div>
         <h2>How does it work?</h2>
@@ -319,7 +319,7 @@ export default class HomepageScene extends Component {
               Yes! There are many other plugins you can extend your logic with.
             </p>
             <p>
-              For examle <code>kea-dimensions</code>, which sets a value based on the screen dimensions:
+              For examle <code>kea-dimensions</code>, which sets a value based on the screen dimensions.
             </p>
           </div>
           <div className='code'>
@@ -330,7 +330,8 @@ export default class HomepageScene extends Component {
         <div className='split'>
           <div className='wide-description'>
             <p>
-              ... or <code><a href='https://github.com/keajs/kea-router'>kea-router</a></code>, which dispatches actions in response to URL changes.
+              ... or <code><a href='https://github.com/keajs/kea-router'>kea-router</a></code>, which dispatches actions in response to URL changes...
+              and changes the URL in response to dispatched actions.
             </p>
           </div>
           <div className='code'>
@@ -362,7 +363,7 @@ export default class HomepageScene extends Component {
               You can programmatically create logic.
             </p>
             <p>
-              This example function <code>createGetterSetterLogic</code> creates for for the arguments <code>{'{ foo: "bar", moo: "baz" }'}</code> logic:
+              This example function <code>createGetterSetterLogic(...)</code> creates for the options <code>{'{ foo: "bar", moo: "baz" }'}</code> logic:
             </p>
             <ol>
               <li>... with the actions <code>setFoo</code> and <code>setMoo</code></li>
@@ -415,7 +416,7 @@ export default class HomepageScene extends Component {
               <li>
                 {this.renderViewLink('key', 1, <span>Passed to the logic as arguments when using hooks</span>)}
                 {view.key === 1 ? <p>
-                  Use the format <code>{'useActions(logic(props))'}</code>
+                  Use the format: <code>{'useActions(logic(props))'}</code>
                 </p> : null}
               </li>
               <li>
@@ -451,6 +452,15 @@ export default class HomepageScene extends Component {
               <li>... and use <code>logic.values.something</code> to get the values</li>
               <li>... and access everything else that is defined on a built logic.</li>
             </ul>
+            <p>
+              If your logic uses a key, you must build it first:
+            </p>
+            <p>
+              <code>{'const builtLogic = logic({ id: 123 })'}</code>
+            </p>
+            <p>
+              And then call <code>builtLogic.mount()</code> to mount it.
+            </p>
           </div>
           <div className='code'>
             <Highlight className='javascript'>{code.how.mountLogic}</Highlight>
@@ -459,6 +469,9 @@ export default class HomepageScene extends Component {
 
         <div className='split'>
           <div className='wide-description'>
+            <p>
+              Events.
+            </p>
             <p>
               A logic has 4 events that you can hook into:
             </p>
@@ -490,11 +503,11 @@ export default class HomepageScene extends Component {
             <li><code>path</code> - to make it easier to debug</li>
             <li><code>constants</code> - for when you need a place to store enums</li>
             <li><code>actionCreators</code> - raw redux actions without dispatch</li>
-            <li><code>selectors</code> - raw reselect selectors</li>
-            <li><code>defaults</code> - set default values by selecting data from other logic</li>
-            <li><code>cache</code> - a transient object useful for storing random data on the logic (mostly useful for plugins)</li>
+            <li><code>selectors</code> - raw reselect selectors, abstracted away by <code>values</code>, but there if you need them</li>
+            <li><code>defaults</code> - set default values for reducers by selecting data from props or other logic</li>
+            <li><code>cache</code> - a transient object for storing temporary data in plugins</li>
             <li>how to create plugins</li>
-            <li>the kea context</li>
+            <li>the kea context and plugin contexts</li>
             <li>using props in selectors</li>
             <li>initialized vs built vs mounted logic</li>
           </ul>

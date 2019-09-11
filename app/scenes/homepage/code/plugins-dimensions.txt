@@ -11,8 +11,8 @@ const function Component () {
   const { isSmallScreen } = useValues(logic)
 
   if (isSmallScreen) {
-    return <strong>Hello</strong>
+    return <small>Hello Small World</small>
   }
 
-  return <span>Hello</span>
+  return <strong>Hello Big World</strong>
 }
