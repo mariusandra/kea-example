@@ -67,7 +67,13 @@ const code = {
     connectKeaValues: require('raw-loader!./code/how-connect-kea-values.txt'),
     listeners: require('raw-loader!./code/how-listeners.txt'),
     thunks: require('raw-loader!./code/how-thunks.txt'),
-    sagas: require('raw-loader!./code/how-sagas.txt')
+    sagas: require('raw-loader!./code/how-sagas.txt'),
+    mountLogic: require('raw-loader!./code/how-mount-logic.txt'),
+    create: require('raw-loader!./code/how-create.txt'),
+    extend: require('raw-loader!./code/how-extend.txt'),
+    keyHooks: require('raw-loader!./code/how-key-hooks.txt'),
+    keyComponent: require('raw-loader!./code/how-key-component.txt'),
+    events: require('raw-loader!./code/how-events.txt')
   },
   plugins: {
     dimensions: require('raw-loader!./code/plugins-dimensions.txt'),
@@ -80,7 +86,7 @@ const code = {
     setView: (key, id) => ({ key, id })
   }),
   reducers: ({ actions }) => ({
-    view: [{ react: 1, connectKea: 1, effects: 1 }, {
+    view: [{ react: 1, connectKea: 1, effects: 1, key: 1 }, {
       [actions.setView]: (state, payload) => ({ ...state, [payload.key]: payload.id })
     }]
   })
@@ -118,34 +124,34 @@ export default class HomepageScene extends Component {
         <div className='description'>
           <p><strong>NB!</strong> This documentation is for the 1.0 release. To see docs for 0.28, click here.</p>
         </div>
-        <h2>Why does Kea exist?</h2>
+        <h2>Why Kea?</h2>
         <div className='description'>
           <p>
-            The Kea project began when I first started to use Redux in a React app in 2015.
+            The Kea project began when I first started to use <a href='https://redux.js.org'>Redux</a> in a <a href='https://reactjs.org/'>React</a> app in 2015.
           </p>
           <p>
             Redux was fine, but I kept writing very similar code over and over again. Eventually I looked for ways to
-            simplify things. I wrote several helper functions that automatised most of these repetitive tasks. 
+            simplify things. I wrote several helper functions that automatised most of these repetitive tasks.
           </p>
           <p>
-            That loose collection of functions grew into the first public release of Kea: v0.1 at the start of 2016.
+            That loose collection of functions grew into the first public release of Kea, version 0.1 at the start of 2016.
           </p>
           <p>
-            Those in turn evolved into a unified <u>high level abstraction over Redux</u>. The helper functions from
-            v0.1 morphed into a standardised way to describe your app's state and all the logic that manipulates it, 
-            including side effects. (v0.1 to v0.28 over 3 years).
+            Those in turn evolved into a unified <u>high level abstraction over Redux</u>. The small helper functions
+            morphed into a standardised way to describe your app's state and all the logic that manipulates it,
+            including side effects. (versions 0.1 to 0.28 over 3 years).
           </p>
           <p>
             That worked well. There were plenty of users and businesses who depended on Kea to power their apps.
             Several of them said very nice things about it.
           </p>
           <p>
-            Then I decided to complicate my life.
+            Then things got complicated.
           </p>
           <p>
-            Recent changes in React and Redux combined with community feedback through unsolvable feature requests 
+            Recent changes in React and React-Redux combined with community feedback through unsolvable feature requests
             forced a fresh look at what Kea was and where it was heading. It was time for a refactor...
-            Which turned into a rewrite... Which took on a life of its own... and kept expanding and expanding and expanding.
+            Which turned into a rewrite... Which took on a life of its own... and kept <a href='https://github.com/keajs/kea/blob/master/docs/CHANGES-1.0.md'>expanding and expanding and expanding</a>.
           </p>
           <p>
             All of this while retaining the same bundle size as before (16kb minified -> 17kb minified).
@@ -154,7 +160,7 @@ export default class HomepageScene extends Component {
             After 5+ months of hard work over 300+ commits Kea 1.0 was born.
           </p>
           <p>
-            It's a complete rewrite of what came before, taking Kea from being just an abstraction over Redux into 
+            It's a complete rewrite of what came before, taking Kea from being just an abstraction over Redux into
             proper framework territory.
           </p>
         </div>
@@ -163,22 +169,21 @@ export default class HomepageScene extends Component {
           <p>
             Think of React as the <u>User Interface (UI) layer</u> of your application. It takes your application's
             state and converts it info something the user can interact with.
-          </p>
-          <p>
             It is <a href='https://2018.stateofjs.com/front-end-frameworks/overview/'>exceptionally good</a> at this.
+          </p>
+          <p>
             React, however, is unopinionated as to where you actually store this state. While it provides some primitives
-            to get you going, most apps eventually implement a dedicated state management solution.
+            to get you going (think <code>useState</code>), most apps eventually implement a dedicated state management solution.
           </p>
           <p>
-            Kea is one such solution. It complements React's UI layer with a <u>Data Layer</u> that acts as the brains of
-            your application. Since it's standing on the work done by the react-redux team, there is seamless 
-            interoperability between both layers and plenty of nice features to make any developer happy.
+            Kea is one such solution. It adds a <u>Data Layer</u> to React's UI layer and acts as the brains of
+            your application. There is seamless interoperability between both layers as we are standing on the
+            great work done by the react-redux team.
           </p>
           <p>
-            Kea, however, is more than just a state container. 
-          </p>
-          <p>
-            ... to write ...
+            Kea, however, is more than just a state container.
+            There are plenty of nice features to make any developer happy.
+            Read below to find out more!
           </p>
         </div>
         <h2>How does it work?</h2>
@@ -216,6 +221,7 @@ export default class HomepageScene extends Component {
             <Highlight className='javascript'>{code.how.counter}</Highlight>
           </div>
         </div>
+
         <div className='split'>
           <div className='wide-description'>
             <p>
@@ -239,6 +245,7 @@ export default class HomepageScene extends Component {
               </li>
               <li>
                 {this.renderViewLink('react', 6, <span>Use <code>connect()</code> to wrap actions and values from multiple logic around one component.</span>)}
+                {view.react === 6 ? <p>Good to know: <code>{'connect({})'}</code> is just a shorthand for <code>{'kea({ connect: {} })'}</code></p> : null}
               </li>
             </ol>
           </div>
@@ -263,7 +270,7 @@ export default class HomepageScene extends Component {
                   {this.renderViewLink('effects', 1, <span>You can use listeners via kea-listeners</span>)}
                 </p>
                 {view.effects === 1 && <p>
-                  Listeners are functions that run after the action they are listening to is dispatched.
+                  <a href='https://github.com/keajs/kea-listeners'>Listeners</a> are functions that run after the action they are listening to is dispatched.
                 </p>}
                 {view.effects === 1 && <p>
                   They have built in support for cancellation and debouncing through breakpoints.
@@ -274,7 +281,7 @@ export default class HomepageScene extends Component {
                   {this.renderViewLink('effects', 2, <span>You can use thunks via kea-thunk &amp; redux-thunk</span>)}
                 </p>
                 {view.effects === 2 && <p>
-                  Thunks are functions that can be called like actions, but instead of
+                  <a href='https://github.com/keajs/kea-thunk'>Thunks</a> are functions that can be called like actions, but instead of
                   dispatching they run custom code.
                 </p>}
                 {view.effects === 2 && <p>
@@ -286,7 +293,7 @@ export default class HomepageScene extends Component {
                   {this.renderViewLink('effects', 3, <span>You can use sagas via kea-saga &amp; redux-saga</span>)}
                 </p>
                 {view.effects === 3 && <p>
-                  <a href='https://redux-saga.js.org/'>Sagas</a> enable really powerful effects, significantly increse your bundle size (+20kb minified) and have a steeper learning curve.
+                  <a href='https://github.com/keajs/kea-saga'>Sagas</a> enable <a href='https://redux-saga.js.org/'>really powerful effects</a>, substantially increse your bundle size (+20kb minified) and have a steeper learning curve.
                 </p>}
                 {view.effects === 3 && <p>
                   They are essential in higly interactive applications, such as games, fleet tracking software, etc.
@@ -304,16 +311,15 @@ export default class HomepageScene extends Component {
           </div>
         </div>
 
-
-        <h2>Any other neat tricks?</h2>
+        <h2>Any other interesting plugins?</h2>
 
         <div className='split'>
           <div className='wide-description'>
             <p>
-              There are many other plugins you can extend your logic with.
+              Yes! There are many other plugins you can extend your logic with.
             </p>
             <p>
-              For examle <code>kea-dimensions</code>, which sets a reducer based on the screen dimensions:
+              For examle <code>kea-dimensions</code>, which sets a value based on the screen dimensions:
             </p>
           </div>
           <div className='code'>
@@ -324,7 +330,7 @@ export default class HomepageScene extends Component {
         <div className='split'>
           <div className='wide-description'>
             <p>
-              Or <code>kea-router</code>, which dispatches actions in response to route changes:
+              ... or <code><a href='https://github.com/keajs/kea-router'>kea-router</a></code>, which dispatches actions in response to URL changes.
             </p>
           </div>
           <div className='code'>
@@ -332,13 +338,12 @@ export default class HomepageScene extends Component {
           </div>
         </div>
 
-
         <h2>What more can Kea do?</h2>
 
         <div className='split'>
           <div className='wide-description'>
             <p>
-              You can also connect logic with one another, for example to:
+              You can connect logic with one another. For example to:
             </p>
             <ol>
               <li>{this.renderViewLink('connectKea', 1, <span>Use actions from one logic in the reducer of another</span>)}</li>
@@ -354,16 +359,150 @@ export default class HomepageScene extends Component {
         <div className='split'>
           <div className='wide-description'>
             <p>
-              You can give your logic a <code>key</code> and have multiple copies of it.
+              You can programmatically create logic.
+            </p>
+            <p>
+              This example function <code>createGetterSetterLogic</code> creates for for the arguments <code>{'{ foo: "bar", moo: "baz" }'}</code> logic:
+            </p>
+            <ol>
+              <li>... with the actions <code>setFoo</code> and <code>setMoo</code></li>
+              <li>... with reducers for <code>foo</code> and <code>moo</code> (defaulting to "bar" and "baz")</li>
+            </ol>
+            <p>
+              You can abstract away repetetive code like this.
+            </p>
+            <p>
+              See the chapter in the guide about <Link to='/guide/forms'>forms</Link> for one example of this approach.
             </p>
           </div>
           <div className='code'>
+            <Highlight className='javascript'>{code.how.create}</Highlight>
           </div>
         </div>
 
+        <div className='split'>
+          <div className='wide-description'>
+            <p>
+              You can extend already created logic through <code>{'logic.extend({})'}</code>
+            </p>
+            <p>
+              Inside <code>{'logic.extend({})'}</code> you use exactly the same syntax as in <code>{'kea({})'}</code>.
+            </p>
+            <p>
+              Split code out of <code>{'kea({})'}</code> blocks into functions that <code>extend</code> them with certain features.
+            </p>
+            <p>
+              When needed, further abstract these extensions into a plugin.
+            </p>
+          </div>
+          <div className='code'>
+            <Highlight className='javascript'>{code.how.extend}</Highlight>
+          </div>
+        </div>
+
+        <h2>Cool. Is that it?</h2>
+
+        <div className='split'>
+          <div className='wide-description'>
+            <p>No! There's a lot more Kea can do!</p>
+            <p>
+              For example, if you give your logic a <code>key</code>, you can have multiple independent copies of it.
+            </p>
+            <p>
+              The <code>key</code> is derived from <code>props</code>, which is either:
+            </p>
+            <ol>
+              <li>
+                {this.renderViewLink('key', 1, <span>Passed to the logic as arguments when using hooks</span>)}
+                {view.key === 1 ? <p>
+                  Use the format <code>{'useActions(logic(props))'}</code>
+                </p> : null}
+              </li>
+              <li>
+                {this.renderViewLink('key', 2, <span>Taken from your component's props</span>)}
+                {view.key === 2 ? <p>
+                  The keyed logic must wrap the component... or be <code>connect</code>ed to from a logic that wraps the component.
+                </p> : null}
+              </li>
+            </ol>
+            <p>
+              Imagine having multiple independent ['image galleries', 'todo items', 'text edit forms', ...] on one page with their own state and actions.
+            </p>
+          </div>
+          <div className='code'>
+            {view.key === 1 ? <Highlight className='javascript'>{code.how.keyHooks}</Highlight> : null}
+            {view.key === 2 ? <Highlight className='javascript'>{code.how.keyComponent}</Highlight> : null}
+          </div>
+        </div>
+
+        <div className='split'>
+          <div className='wide-description'>
+            <p>
+              When you use Kea with React, your <code>logic</code>'s reducers are automatically added to redux when your component renders
+              and removed when it's destroyed.
+            </p>
+            <p>
+              However, you can also interact with <code>logic</code> outside React if you mount it manually (or set <code>autoMount</code> to true
+              when initializing Kea).
+            </p>
+            <ul>
+              <li>Call <code>logic.mount()</code> to initialize the logic and connect it to redux.</li>
+              <li>Then call <code>logic.actions.doSomething()</code> to dispatch actions</li>
+              <li>... and use <code>logic.values.something</code> to get the values</li>
+              <li>... and access everything else that is defined on a built logic.</li>
+            </ul>
+          </div>
+          <div className='code'>
+            <Highlight className='javascript'>{code.how.mountLogic}</Highlight>
+          </div>
+        </div>
+
+        <div className='split'>
+          <div className='wide-description'>
+            <p>
+              A logic has 4 events that you can hook into:
+            </p>
+            <ul>
+              <li><code>beforeMount()</code> - runs before the logic is mounted</li>
+              <li><code>afterMount()</code> - runs after the logic was mounted</li>
+              <li><code>beforeUnmount()</code> - runs before the logic is unmounted</li>
+              <li><code>afterUnmount()</code> - runs after the logic was unmounted</li>
+            </ul>
+            <p>
+              We recommend keeping your events light and only dispatching actions from them.
+            </p>
+            <p>
+              These actions should then be caught by reducers or listeners which do whatever is needed.
+            </p>
+          </div>
+          <div className='code'>
+            <Highlight className='javascript'>{code.how.events}</Highlight>
+          </div>
+        </div>
+
+        <h2>Okay, that must be it with the features?</h2>
+
         <div className='description'>
           <p>
-            Check out the examples below or <Link to='/guide/installation'>start reading the guide</Link> for more.
+            Almost! There are few more concepts and keywords that we didn't cover yet:
+          </p>
+          <ul>
+            <li><code>path</code> - to make it easier to debug</li>
+            <li><code>constants</code> - for when you need a place to store enums</li>
+            <li><code>actionCreators</code> - raw redux actions without dispatch</li>
+            <li><code>selectors</code> - raw reselect selectors</li>
+            <li><code>defaults</code> - set default values by selecting data from other logic</li>
+            <li><code>cache</code> - a transient object useful for storing random data on the logic (mostly useful for plugins)</li>
+            <li>how to create plugins</li>
+            <li>the kea context</li>
+            <li>using props in selectors</li>
+            <li>initialized vs built vs mounted logic</li>
+          </ul>
+          <p>
+            ... to name a few.
+          </p>
+          <p>
+            Check out the examples below or <Link to='/guide/installation'>start reading the docs</Link> to learn more!
           </p>
           <p>
             If you're already using Redux in your apps, it's <Link to='/guide/migration'>really easy to migrate</Link>.

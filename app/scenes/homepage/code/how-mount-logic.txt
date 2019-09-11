@@ -1,0 +1,20 @@
+// create the counter logic from the examples above
+const logic = kea({ ... })
+
+// connect its reducers to redux
+const unmount = logic.mount()
+
+logic.values.counter
+// => 0
+
+logic.actions.increment()
+// => { type: 'increment ...', payload: { amount: 1 } }
+
+logic.values.counter
+// => 1
+
+// remove reducers from redux
+unmount()
+
+logic.values.counter
+// => throw new Error()!

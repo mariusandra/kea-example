@@ -1,0 +1,35 @@
+function capitalize(name) {
+  return name.charAt(0).toUpperCase() + name.slice(1).toLowerCase()
+}
+
+function createGetterSetterLogic (options) {
+  return kea({
+    actions: () => {
+      let actions = {}
+      Object.keys(options).forEach(key => {
+        actions[`set${capitalize(key)}`] = value => ({ [key]: value })
+      })
+      return actions
+    },
+    reducers: ({ actions }) => {
+      let reducers = {}
+      Object.keys(options).forEach(key => {
+        reducers[key] = [
+          options[key],
+          {
+            [actions[`set${capitalize(key)}`]]: (_, payload) => payload[key]
+          }
+        ]
+      })
+      return reducers
+    }
+  })
+}
+
+const logic = createGetterSetterLogic({
+  name: 'React',
+  description: 'Frontend bliss'
+})
+
+// logic.actions == { setName (value) {}, setDescription (value) {} }
+// logic.values == { name: ..., description: ... }

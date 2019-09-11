@@ -1,0 +1,40 @@
+@kea({
+  key: (props) => props.id,
+
+  actions: () => ({
+    increment: (amount = 1) => ({ amount }),
+    decrement: (amount = 1) => ({ amount })
+  }),
+
+  reducers: ({ actions, key, props }) => ({
+    counter: [0, {
+      [actions.increment]: (state, payload) => state + payload.amount,
+      [actions.decrement]: (state, payload) => state - payload.amount
+    }]
+  })
+})
+class Counter extends Component {
+  render () {
+    const { id, counter, doubleCounter } = this.props
+    const { increment, decrement } = this.actions
+
+    return (
+      <div>
+        Counter {id}: {counter}<br />
+        <button onClick={() => increment(1)}>Increment</button>
+        <button onClick={() => decrement(1)}>Decrement</button>
+      </div>
+    )
+  }
+}
+
+export default class Counters extends Component {
+  render {
+    return (
+      <>
+        <Counter id={1} />
+        <Counter id={2} />
+      </>
+    )
+  }
+}
