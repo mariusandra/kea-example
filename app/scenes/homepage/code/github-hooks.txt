@@ -56,11 +56,11 @@ const githubLogic = kea({
 
       breakpoint() // break if action was called in the meanwhile
 
+      const json = await response.json()
+
       if (response.status === 200) {
-        const json = await response.json()
         setRepositories(json)
       } else {
-        const json = await response.json()
         setFetchError(json.message)
       }
     }
