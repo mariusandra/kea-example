@@ -2,5 +2,6 @@ import thunkPlugin from 'kea-thunk'
 import { resetContext } from 'kea'
 
 resetContext({
+  createStore: true,
   plugins: [ thunkPlugin ]
 })

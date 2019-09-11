@@ -27,21 +27,14 @@ export default class LocalStorage extends Component {
           </p>
           <Highlight className='bash'>{code.install}</Highlight>
           <p>
-            Then you have a few ways to install the plugin globally for all logic stores:
+            Then install it:
           </p>
           <Highlight className='javascript'>{code.import}</Highlight>
-          <p>
-            Use whichever way is most convenient for your setup.
-          </p>
-          <p>
-            Alternatively you may skip installing it globally and only include in the logic stores that need it
-          </p>
-          <Highlight className='javascript'>{code.local}</Highlight>
         </div>
         <div className='description'>
           <h2>Usage</h2>
           <p>
-            To make a reducer persist in LocalStorage, your logic store <strong>must</strong> have a defined <code>path</code>.
+            <strong>NB!</strong> To make a reducer persist in LocalStorage, your logic store <strong>must</strong> have a defined <code>path</code>.
           </p>
           <p>
             Just add <code>{'{ persist: true }'}</code> as an option to your reducers, and it will be stored:
