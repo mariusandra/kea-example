@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { kea, useActions, useValues } from 'kea'
 
 const delay = ms => new Promise(resolve => window.setTimeout(resolve, ms))
