@@ -1,6 +1,6 @@
 import sagaPlugin from 'kea-saga'
 
-const store = getStore({
+resetContext({
   plugins: [
     sagaPlugin
   ]

@@ -8,7 +8,7 @@ const code = {
   installListeners: require('raw-loader!./code/install-listeners.txt'),
 }
 
-export default class SlidersScene extends Component {
+export default class ListenersComponent extends Component {
   render () {
     return (
       <div>

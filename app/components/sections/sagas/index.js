@@ -8,7 +8,7 @@ const code = {
   installSaga: require('raw-loader!./code/install-saga.txt'),
 }
 
-export default class SlidersScene extends Component {
+export default class SagasComponent extends Component {
   render () {
     return (
       <div>
@@ -18,8 +18,7 @@ export default class SlidersScene extends Component {
         </p>
         <Highlight className='bash'>{code.installSaga}</Highlight>
         <p>
-          Then import <code>sagaPlugin</code> from <code>kea-saga</code> in your <code>store.js</code> and add it to the plugins array
-          in <code>getStore()</code>
+          Then import <code>sagaPlugin</code> from <code>kea-saga</code> and add it to your <code>resetContext()</code>:
         </p>
         <Highlight className='javascript'>{code.importSaga}</Highlight>
         <p>
