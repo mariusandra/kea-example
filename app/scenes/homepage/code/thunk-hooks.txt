@@ -20,7 +20,7 @@ const logic = kea({
   })
 })
 
-function ThunkCounter ({ counter, actions: { increase, increaseAsync } }) {
+function ThunkCounter () {
   const { counter } = useValues(logic)
   const { increase, increaseAsync } = useActions(logic)
 

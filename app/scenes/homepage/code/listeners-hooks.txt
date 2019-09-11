@@ -1,0 +1,57 @@
+import React from 'react'
+import { kea, useActions, useValues } from 'kea'
+
+const delay = ms => new Promise(resolve => window.setTimeout(resolve, ms))
+
+const logic = kea({
+  actions: () => ({
+    increase: true,
+    increaseAsync: ms => ({ ms }),
+    toggleDebounced: true
+  }),
+  reducers: ({ actions }) => ({
+    counter: [0, {
+      [actions.increase]: state => state + 1
+    }],
+    debounced: [false, {
+      [actions.toggleDebounced]: state => !state
+    }]
+  }),
+  listeners: ({ actions, values }) => ({
+    [actions.increaseAsync]: async ({ ms }, breakpoint) => {
+      if (values.debounced) {
+        await breakpoint(ms) // breaks if called again while waiting
+      } else {
+        await delay(ms) // does not break
+      }
+      actions.increase()
+    }
+  })
+})
+
+function ListenerCounter () {
+  const { counter, debounced } = useValues(logic)
+  const { increase, increaseAsync, toggleDebounced } = useActions(logic)
+
+  return (
+    <div style={{textAlign: 'center'}}>
+      <div>{counter}</div>
+      <div>
+        {[0, 10, 100, 500, 1000, 2000].map(ms => (
+          <button
+            key={ms}
+            onClick={() => ms === 0 ? increase() : increaseAsync(ms)}>
+            {ms}
+          </button>
+        ))}
+      </div>
+      <div>
+        <button onClick={() => toggleDebounced}>
+          {debounced ? '[x]' : '[ ]'} Debounced
+        </button>
+      </div>
+    </div>
+  )
+}
+
+export default ListenerCounter

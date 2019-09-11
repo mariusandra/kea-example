@@ -14,7 +14,6 @@ import Counter from '../guide/counter/counter'
 import Countdown from '../guide/countdown/countdown'
 import Github from '../guide/github/github'
 import ThunkCounter from '../guide/thunk/thunk-counter'
-import ConnectedToggle from '../guide/connected/connected-toggle'
 
 const code = {
   counter: {
@@ -23,11 +22,11 @@ const code = {
     functional: require('raw-loader!./code/counter-functional.txt'),
     hooks: require('raw-loader!./code/counter-hooks.txt'),
   },
-  thunk: {
-    decorator: require('raw-loader!./code/thunk-decorator.txt'),
-    hoc: require('raw-loader!./code/thunk-hoc.txt'),
-    functional: require('raw-loader!./code/thunk-functional.txt'),
-    hooks: require('raw-loader!./code/thunk-hooks.txt'),
+  listeners: {
+    decorator: require('raw-loader!./code/listeners-decorator.txt'),
+    hoc: require('raw-loader!./code/listeners-hoc.txt'),
+    functional: require('raw-loader!./code/listeners-functional.txt'),
+    hooks: require('raw-loader!./code/listeners-hooks.txt'),
   },
   slider: {
     decorator: require('raw-loader!./code/slider-decorator.txt'),
@@ -530,17 +529,17 @@ export default class HomepageScene extends Component {
           </div>
         </div>
 
-        <h2>Delayed Counter <small>with <Link to='/effects/thunk'>thunks</Link></small></h2>
+        <h2>Delayed Counter <small>with <Link to='/effects/listeners'>listeners</Link></small></h2>
         <div className='split'>
           <div className='code'>
-            <CodeStyleHighlight language='javascript' code={code.thunk} />
+            <CodeStyleHighlight language='javascript' code={code.listeners} />
           </div>
           <div className='description'>
             <div className='demo'>
               <ThunkCounter />
             </div>
             <p>
-              Read the docs: <Link to='/effects/thunk'>kea-thunk</Link>
+              Read the docs: <Link to='/effects/listeners'>kea-listeners</Link>
             </p>
           </div>
         </div>
