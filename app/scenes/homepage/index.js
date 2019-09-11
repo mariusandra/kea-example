@@ -158,12 +158,24 @@ export default class HomepageScene extends Component {
             proper framework territory.
           </p>
         </div>
-        <h2>What is Kea now?</h2>
+        <h2>What is Kea?</h2>
         <div className='description'>
-          <p>          
-            Kea 1.0 complements React (the UI layer) by implementing a <u>Data Layer</u> that acts as the brains of
-            your application. Because it's standing on the work done by the react-redux team, there is seamless 
+          <p>
+            Think of React as the <u>User Interface (UI) layer</u> of your application. It takes your application's
+            state and converts it info something the user can interact with.
+          </p>
+          <p>
+            It is <a href='https://2018.stateofjs.com/front-end-frameworks/overview/'>exceptionally good</a> at this.
+            React, however, is unopinionated as to where you actually store this state. While it provides some primitives
+            to get you going, most apps eventually implement a dedicated state management solution.
+          </p>
+          <p>
+            Kea is one such solution. It complements React's UI layer with a <u>Data Layer</u> that acts as the brains of
+            your application. Since it's standing on the work done by the react-redux team, there is seamless 
             interoperability between both layers and plenty of nice features to make any developer happy.
+          </p>
+          <p>
+            Kea, however, is more than just a state container. 
           </p>
           <p>
             ... to write ...
