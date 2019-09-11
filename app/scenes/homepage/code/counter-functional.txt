@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { kea } from 'kea'
-import PropTypes from 'prop-types'
 
 const counterLogic = kea({
   actions: () => ({
@@ -9,7 +8,7 @@ const counterLogic = kea({
   }),
 
   reducers: ({ actions }) => ({
-    counter: [0, PropTypes.number, {
+    counter: [0, {
       [actions.increment]: (state, payload) => state + payload.amount,
       [actions.decrement]: (state, payload) => state - payload.amount
     }]
@@ -18,8 +17,7 @@ const counterLogic = kea({
   selectors: ({ selectors }) => ({
     doubleCounter: [
       () => [selectors.counter],
-      (counter) => counter * 2,
-      PropTypes.number
+      (counter) => counter * 2
     ]
   })
 })

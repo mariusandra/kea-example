@@ -47,12 +47,6 @@ const code = {
     functional: require('raw-loader!./code/countdown-functional.txt'),
     hooks: require('raw-loader!./code/countdown-hooks.txt'),
   },
-  connected: {
-    decorator: require('raw-loader!./code/connected-decorator.txt'),
-    hoc: require('raw-loader!./code/connected-hoc.txt'),
-    functional: require('raw-loader!./code/connected-functional.txt'),
-    hooks: require('raw-loader!./code/connected-hooks.txt'),
-  },
   how: {
     kea: require('raw-loader!./code/how-kea.txt'),
     logic: require('raw-loader!./code/how-logic.txt'),
@@ -591,22 +585,7 @@ export default class HomepageScene extends Component {
             <br />
           </div>
         </div>
-
-        <h2>Connected logic</h2>
-        <div className='split'>
-          <div className='code'>
-            <CodeStyleHighlight language='javascript' code={code.connected} />
-          </div>
-          <div className='description'>
-            <div className='demo'>
-              <ConnectedToggle />
-            </div>
-            <br />
-            Read the guide: <Link to='/guide/connected'>Connected</Link>
-          </div>
-        </div>
       </div>
     )
   }
 }
-

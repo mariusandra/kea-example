@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { kea } from 'kea'
-import PropTypes from 'prop-types'
+import  from 'prop-types'
 
 const delay = ms => new Promise(resolve => window.setTimeout(resolve, ms))
 
@@ -9,7 +9,7 @@ const logic = kea({
     increase: true
   }),
   reducers: ({ actions }) => ({
-    counter: [0, PropTypes.number, {
+    counter: [0, {
       [actions.increase]: (state, payload) => state + 1
     }]
   }),
@@ -26,7 +26,7 @@ function ThunkCounter ({ counter, actions: { increase, increaseAsync } }) {
     <div style={{textAlign: 'center'}}>
       <div>{counter}</div>
       {[0, 10, 100, 500, 1000, 2000].map(ms => (
-        <button 
+        <button
           key={ms}
           onClick={() => ms === 0 ? increase() : increaseAsync(ms)}>
           {ms}

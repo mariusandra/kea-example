@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { kea } from 'kea'
 import { take, race, put, delay } from 'redux-saga/effects'
-import PropTypes from 'prop-types'
 
 import range from '~/utils/range' // range(3) === [0, 1, 2]
 
@@ -13,7 +12,7 @@ const sliderLogic = kea({
   }),
 
   reducers: ({ actions, key }) => ({
-    currentSlide: [0, PropTypes.number, {
+    currentSlide: [0, {
       [actions.updateSlide]: (state, payload) => payload.index % images.length
     }]
   }),
@@ -21,8 +20,7 @@ const sliderLogic = kea({
   selectors: ({ selectors }) => ({
     currentImage: [
       () => [selectors.currentSlide],
-      (currentSlide) => images[currentSlide],
-      PropTypes.object
+      (currentSlide) => images[currentSlide]
     ]
   }),
 
@@ -46,13 +44,13 @@ const sliderLogic = kea({
 function Slider ({ currentSlide, currentImage, actions: { updateSlide } }) {
   return (
     <div className='kea-slider'>
-      <img 
+      <img
         src={currentImage.src}
         alt={`Image copyright by ${currentImage.author}`}
         title={`Image copyright by ${currentImage.author}`} />
       <div className='buttons'>
         {range(images.length).map(i => (
-          <span 
+          <span
             key={i}
             className={i === currentSlide ? 'selected' : ''}
             onClick={() => updateSlide(i)} />

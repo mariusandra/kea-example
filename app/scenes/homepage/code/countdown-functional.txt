@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { kea } from 'kea'
 import { put, cancelled, delay } from 'redux-saga/effects'
-import PropTypes from 'prop-types'
 
 const countdownLogic = kea({
   actions: () => ({
@@ -11,10 +10,10 @@ const countdownLogic = kea({
   }),
 
   reducers: ({ actions, key, props }) => ({
-    counter: [0, PropTypes.number, {
+    counter: [0, {
       [actions.setCounter]: (_, payload) => payload.counter
     }],
-    finished: [false, PropTypes.bool, {
+    finished: [false, {
       [actions.start]: () => false,
       [actions.finish]: () => true
     }]
