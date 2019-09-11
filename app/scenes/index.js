@@ -52,7 +52,6 @@ export default () => (
       <Route path='/examples' exact render={examplesRedirect} />
       <Route path='/examples/todos' component={bundles.examplesTodos} />
       <Route path='/examples/github' component={bundles.examplesGithub} />
-      <Route path='/examples/hackernews' component={bundles.examplesHackerNews} />
 
       <Route path='/playground' component={bundles.playground} />
     </div>
