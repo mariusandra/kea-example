@@ -30,6 +30,7 @@ const menu = {
       {
         title: 'Side effects',
         children: [
+          { url: '/effects/listeners', title: 'Listeners' },
           { url: '/effects/saga', title: 'Sagas' },
           { url: '/effects/thunk', title: 'Thunks' }
         ]
@@ -37,6 +38,7 @@ const menu = {
       {
         title: 'Plugins',
         children: [
+          { url: '/plugins/router', title: 'Router' },
           { url: '/plugins/localstorage', title: 'LocalStorage' }
         ]
       },

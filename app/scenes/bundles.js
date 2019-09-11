@@ -19,7 +19,9 @@ export default {
   apiReset: async('ApiReset', () => import(/* webpackChunkName: "apiReset" */'./api/reset')),
 
   pluginsLocalStorage: async('PluginsLocalStorage', () => import(/* webpackChunkName: "pluginsLocalStorage" */'./plugins/localstorage')),
+  pluginsRouter: async('PluginsRouter', () => import(/* webpackChunkName: "pluginsRouter" */'./plugins/router')),
 
+  effectsListeners: async('EffectsListeners', () => import(/* webpackChunkName: "effectsListeners" */'./effects/listeners')),
   effectsSaga: async('EffectsSaga', () => import(/* webpackChunkName: "effectsSaga" */'./effects/saga')),
   effectsThunk: async('EffectsThunk', () => import(/* webpackChunkName: "effectsThunk" */'./effects/thunk')),
 

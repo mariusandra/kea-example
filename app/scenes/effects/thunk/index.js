@@ -34,7 +34,7 @@ export default class API extends Component {
         <div className='description'>
           <h2>Thunks</h2>
           <p>
-            Thunks are the simplest ways to define side effects with Redux.
+            Thunks are simple ways to define side effects with Redux.
           </p>
         </div>
         <div className='description'>
@@ -44,30 +44,9 @@ export default class API extends Component {
           </p>
           <Highlight className='bash'>{code.install}</Highlight>
           <p>
-            Then you have a few ways to install the plugin:
+            Then you have install the plugin:
           </p>
           <Highlight className='javascript'>{code.import}</Highlight>
-          <p>
-            Use whichever way is most convenient for your setup.
-          </p>
-          <p>
-            Note that the <code>kea-thunk</code> plugin needs to be installed globally as it needs to add its middleware to the store.
-            You can't use it as a local plugin inside <code>{'kea({})'}</code> calls.
-          </p>
-          <p>
-            If you have configured your store through <Link to='/api/store'><code>getStore()</code></Link>, you're all set!
-          </p>
-          <p>
-            <button onClick={() => toggleFeature('thunkManualStore')}>I'm not using <code>getStore</code></button>
-          </p>
-          {features.thunkManualStore ? (
-            <div className='extra-help'>
-              <p>
-                If, you wish to configure your store manually, connect the thunk middleware like so:
-              </p>
-              <Highlight className='javascript'>{code.store}</Highlight>
-            </div>
-          ) : null}
         </div>
         <div className='description'>
           <h2>Usage</h2>

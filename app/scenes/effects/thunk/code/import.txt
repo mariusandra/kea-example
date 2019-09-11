@@ -1,16 +1,6 @@
-// the cleanest way
 import thunkPlugin from 'kea-thunk'
-import { getStore } from 'kea'
+import { resetContext } from 'kea'
 
-const store = getStore({
+resetContext({
   plugins: [ thunkPlugin ]
 })
-
-// another way
-import thunkPlugin from 'kea-thunk'
-import { activatePlugin } from 'kea'
-
-activatePlugin(thunkPlugin)
-
-// the shortest way
-import 'kea-thunk/install'

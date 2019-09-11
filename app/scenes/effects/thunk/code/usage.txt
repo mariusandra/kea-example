@@ -5,15 +5,15 @@ const logic = kea({
     updateName: name => ({ name })
   }),
 
-  thunks: ({ actions, get, fetch, dispatch, getState }) => ({
+  thunks: ({ actions, dispatch, getState }) => ({
     updateNameAsync: async name => {
       await delay(1000)            // standard promise
       await actions.anotherThunk() // another thunk action
       actions.updateName(name)     // not a thunk, so no async needed
       dispatch({ type: 'RANDOM_REDUX_ACTION' }) // random redux action
 
-      get('name') // 'chirpy'
-      fetch('name', 'otherKey') // { name: 'chirpy', otherKey: undefined }
+      console.log(values.name) // 'chirpy'
+      console.log(values.otherKey) // undefined
     },
     anotherThunk: async () => {
       // do something
@@ -21,7 +21,7 @@ const logic = kea({
   }),
 
   reducers: ({ actions, constants }) => ({
-    name: ['chirpy', PropTypes.string, {
+    name: ['chirpy', {
       [actions.updateName]: (state, payload) => payload.name
     }]
   })

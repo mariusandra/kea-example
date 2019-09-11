@@ -10,9 +10,8 @@ import bundles from './bundles'
 
 const guideRedirect = () => (<Redirect to='/guide/installation' />)
 const apiRedirect = () => (<Redirect to='/api/logic' />)
-const effectsRedirect = () => (<Redirect to='/effects/saga' />)
-const pluginsRedirect = () => (<Redirect to='/plugins/localstorage' />)
-const examplesRedirect = () => (<Redirect to='/examples/todos' />)
+const effectsRedirect = () => (<Redirect to='/effects/listeners' />)
+const pluginsRedirect = () => (<Redirect to='/plugins/router' />)
 
 export default () => (
   <WithHeader>
@@ -36,10 +35,12 @@ export default () => (
       <Route path='/api/reset' component={bundles.apiReset} />
 
       <Route path='/effects' exact render={effectsRedirect} />
+      <Route path='/effects/listeners' component={bundles.effectsListeners} />
       <Route path='/effects/saga' component={bundles.effectsSaga} />
       <Route path='/effects/thunk' component={bundles.effectsThunk} />
 
       <Route path='/plugins' exact render={pluginsRedirect} />
+      <Route path='/plugins/router' component={bundles.pluginsRouter} />
       <Route path='/plugins/localstorage' component={bundles.pluginsLocalStorage} />
 
       <Route path='/playground' component={bundles.playground} />
