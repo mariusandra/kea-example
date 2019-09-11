@@ -1,19 +1,28 @@
-// index.js
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux'; // <--- add this
-
+import { resetContext, getContext } from 'kea'; // <-- add this
+import { Provider } from 'react-redux'; // <---------- add this
 import './index.css';
-
-import store from './store'; // <--- add this BEFORE App
 import App from './App';
-import registerServiceWorker from './registerServiceWorker';
+import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(
-  <Provider store={store}> // <-- add this
+resetContext({ // <----------------------------------- add this
+  createStore: {
+    // additional options (e.g. middleware, reducers, ...)
+  },
+  plugins: [
+    // additional kea plugins
+  ]
+})
+
+ReactDOM.render( // <-------------------------- and update this
+  <Provider store={getContext().store}>
     <App />
   </Provider>,
   document.getElementById('root')
 );
 
-registerServiceWorker();
+// If you want your app to work offline and load faster, you can change
+// unregister() to register() below. Note this comes with some pitfalls.
+// Learn more about service workers: https://bit.ly/CRA-PWA
+serviceWorker.unregister();
