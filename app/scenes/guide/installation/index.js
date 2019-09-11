@@ -41,7 +41,7 @@ export default function InstallationScene () {
 
         <h2>Continue with the guide</h2>
 
-        Next page: <Link to='/guide/counter'>Counter</Link>
+        Next page: <Link to='/guide/counter'>Example: Github API</Link>
       </div>
     </div>
   )

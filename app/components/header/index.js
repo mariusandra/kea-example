@@ -21,12 +21,10 @@ const menu = {
         title: 'Guide',
         children: [
           { url: '/guide/installation', title: 'Installation' },
-          { url: '/guide/github', title: 'Github API', small: 'with kea-saga' },
-          { url: '/guide/forms', title: 'Forms', small: 'with kea-saga' },
-          { url: '/guide/sliders', title: 'Sliders', small: 'with kea-saga' },
-          { url: '/guide/migration', title: 'Migrating Redux Apps' },
-          // TODO: not yet ready
-          // { url: '/guide/connected-services', title: 'Connected Services' }
+          { url: '/guide/github', title: 'Example: Github API' },
+          { url: '/guide/forms', title: 'Example: Forms' },
+          { url: '/guide/sliders', title: 'Example: Sliders' },
+          { url: '/guide/migration', title: 'Migrating Redux Apps' }
         ]
       },
       {

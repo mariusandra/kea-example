@@ -1,0 +1,39 @@
+import React from 'react'
+import { kea, useActions, useValues } from 'kea'
+
+const counterLogic = kea({
+  actions: () => ({
+    increment: (amount) => ({ amount }),
+    decrement: (amount) => ({ amount })
+  }),
+
+  reducers: ({ actions }) => ({
+    counter: [0, {
+      [actions.increment]: (state, payload) => state + payload.amount,
+      [actions.decrement]: (state, payload) => state - payload.amount
+    }]
+  }),
+
+  selectors: ({ selectors }) => ({
+    doubleCounter: [
+      () => [selectors.counter],
+      (counter) => counter * 2
+    ]
+  })
+})
+
+function Counter () {
+  const { counter, doubleCounter } = useValues(counterLogic)
+  const { increment, decrement } = useActions(counterLogic)
+
+  return (
+    <div className='kea-counter'>
+      Count: {counter}<br />
+      Doublecount: {doubleCounter}<br />
+      <button onClick={() => increment(1)}>Increment</button>
+      <button onClick={() => decrement(1)}>Decrement</button>
+    </div>
+  )
+}
+
+export default Counter

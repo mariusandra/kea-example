@@ -10,10 +10,9 @@ import Highlight from '~/components/tags/highlight'
 import logo from '~/assets/logo.svg'
 
 import Slider from '../guide/sliders/slider'
-import Counter from '../guide/counter/counter'
-import Countdown from '../guide/countdown/countdown'
-import Github from '../guide/listeners/listeners-github'
-import ListenerCounter from '../guide/listeners/listeners-counter'
+import Counter from './widgets/counter'
+import Github from './widgets/github'
+import DelayedCoutner from './widgets/delayed-counter'
 
 const code = {
   counter: {
@@ -39,12 +38,6 @@ const code = {
     hoc: require('raw-loader!./code/github-hoc.txt'),
     functional: require('raw-loader!./code/github-functional.txt'),
     hooks: require('raw-loader!./code/github-hooks.txt'),
-  },
-  countdown: {
-    decorator: require('raw-loader!./code/countdown-decorator.txt'),
-    hoc: require('raw-loader!./code/countdown-hoc.txt'),
-    functional: require('raw-loader!./code/countdown-functional.txt'),
-    hooks: require('raw-loader!./code/countdown-hooks.txt'),
   },
   how: {
     kea: require('raw-loader!./code/how-kea.txt'),
@@ -524,8 +517,6 @@ export default class HomepageScene extends Component {
             <div className='demo'>
               <Counter />
             </div>
-            <br />
-            Read the guide: <Link to='/guide/counter'>Counter</Link>
           </div>
         </div>
 
@@ -536,10 +527,10 @@ export default class HomepageScene extends Component {
           </div>
           <div className='description'>
             <div className='demo'>
-              <ListenerCounter />
+              <DelayedCoutner />
             </div>
             <p>
-              Read the docs: <Link to='/effects/listeners'>kea-listeners</Link>
+              Read more about <Link to='/effects/listeners'>kea-listeners</Link>
             </p>
           </div>
         </div>
@@ -554,7 +545,7 @@ export default class HomepageScene extends Component {
               <Github />
             </div>
             <br />
-            Read the guide: <Link to='/guide/github'>Github</Link>
+            Read the guide: <Link to='/guide/github'>Github API</Link>
           </div>
         </div>
 
@@ -569,19 +560,6 @@ export default class HomepageScene extends Component {
             </div>
             <br />
             Read the guide: <Link to='/guide/sliders'>Sliders</Link>
-          </div>
-        </div>
-
-        <h2>Debounced countdown <small>with <Link to='/effects/saga'>kea-saga</Link></small></h2>
-        <div className='split'>
-          <div className='code'>
-            <CodeStyleHighlight language='javascript' code={code.countdown} />
-          </div>
-          <div className='description'>
-            <div className='demo'>
-              <Countdown />
-            </div>
-            <br />
           </div>
         </div>
       </div>
