@@ -4,8 +4,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { kea } from 'kea'
 
-import { put } from 'redux-saga/effects'
-import { delay } from 'redux-saga'
+import { put, delay } from 'redux-saga/effects'
 
 const BASE_URL = 'https://api.github.com'
 

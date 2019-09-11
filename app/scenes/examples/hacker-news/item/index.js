@@ -4,7 +4,7 @@ import { kea } from 'kea'
 import { put, call } from 'redux-saga/effects'
 import NProgress from 'nprogress'
 
-import { LOCATION_CHANGE } from 'react-router-redux'
+import { LOCATION_CHANGE } from 'connected-react-router'
 
 import hnAPI from '~/scenes/examples/hacker-news/utils/api'
 

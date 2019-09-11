@@ -1,7 +1,7 @@
 import { Provider } from 'react-redux'
 import ReactDOM from 'react-dom'
 import React from 'react'
-import { ConnectedRouter } from 'react-router-redux'
+import { ConnectedRouter } from 'connected-react-router'
 
 import { store, history } from './store'
 import App from './scenes/index'

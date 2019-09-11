@@ -5,11 +5,13 @@ import { kea } from 'kea'
 import Highlight from './highlight'
 
 const logic = kea({
+  path: () => ['kea', 'codeStyleHighlight'],
+
   constants: () => [
     'hooks',
     'functional',
     'hoc',
-    'decorator',
+    'decorator'
   ],
 
   actions: () => ({
