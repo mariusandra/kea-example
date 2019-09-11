@@ -45,7 +45,7 @@ export default class GithubScene extends Component {
     return (
       <div className='counter-singleton-scene'>
         <div className='description'>
-          <h2>Example #4 - Github</h2>
+          <h2>Example - Github</h2>
           <p>
             In this guide we are going to build a component that asks for an username
             and then fetches all the repositories for that user on Github.
@@ -188,9 +188,6 @@ export default class GithubScene extends Component {
             Github's API provides a way to ask for the next 100 results (the <a href='https://developer.github.com/v3/repos/#response'><code>Link</code> headers</a>), but as resolving this is
             outside the scope of this guide, it will be left as an exercise for the reader ;).
           </p>
-        </div>
-        <div className='description'>
-          Next page: <Link to='/guide/connected'>Connected logic</Link>
         </div>
       </div>
     )

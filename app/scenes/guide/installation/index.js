@@ -38,10 +38,6 @@ export default function InstallationScene () {
         <Highlight className='javascript'>{code.provider}</Highlight>
 
         <p>And you're done! Feel free to use <code>kea()</code> calls anywhere in your code!</p>
-
-        <h2>Continue with the guide</h2>
-
-        Next page: <Link to='/guide/counter'>Example: Github API</Link>
       </div>
     </div>
   )

@@ -51,14 +51,6 @@ export default class ConnectedScene extends Component {
           <p>
             The <Link to='/api/logic'>API docs</Link> describe what is available to import.
           </p>
-
-          <h2>Next steps</h2>
-          <p>
-            That's it for the guide!
-          </p>
-          <p>
-            Check out the <Link to='/examples/todos'>example applications</Link> or read the <Link to='/api/logic'>API docs</Link>.
-          </p>
         </div>
       </div>
     )

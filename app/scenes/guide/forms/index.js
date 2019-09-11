@@ -322,11 +322,6 @@ export default class FormsScene extends Component {
           <p>
             Happy hacking! :D
           </p>
-          <h2>Next steps</h2>
-          <p>
-            The last topic in this guide: <Link to='/guide/migration'>How to migrate existing Redux applications?</Link> or
-            read the <Link to='/api/logic'>API docs</Link>.
-          </p>
         </div>
       </div>
     )
