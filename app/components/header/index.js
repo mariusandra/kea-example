@@ -81,7 +81,7 @@ export default class Header extends Component {
               <Link key={key} to={menu[key].url} className={menu[key].paths.indexOf(selectedPage) >= 0 ? 'active' : ''}>{menu[key].title}</Link>
             ))}
             <a className='right' href='https://github.com/keajs/kea' target='_blank'><span className='long-text'>Github</span><span className='short-text'>GH</span></a>
-            <a className='opencollective' href='https://opencollective.com/kea' target='_blank'><span className='long-text'>OpenCollective</span><span className='short-text'>OC</span></a>
+            <a className='opencollective' href='https://opencollective.com/kea' target='_blank'><span className='long-text'>Support Kea</span><span className='short-text'>OC</span></a>
           </nav>
         </header>
         <main>
