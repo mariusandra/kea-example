@@ -21,16 +21,10 @@ const menu = {
         title: 'Guide',
         children: [
           { url: '/guide/installation', title: 'Installation' },
-          { url: '/guide/counter', title: 'Counter' },
-          { url: '/guide/counter-dynamic', title: 'Dynamic Counter' },
-          { url: '/guide/sliders', title: 'Sliders', small: 'with kea-saga' },
           { url: '/guide/github', title: 'Github API', small: 'with kea-saga' },
-          { url: '/guide/connected', title: 'Connected Logic' },
-          { url: '/guide/dynamic-connected', title: 'Dynamic Connected Logic' },
           { url: '/guide/forms', title: 'Forms', small: 'with kea-saga' },
+          { url: '/guide/sliders', title: 'Sliders', small: 'with kea-saga' },
           { url: '/guide/migration', title: 'Migrating Redux Apps' },
-          { url: '/guide/testing', title: 'Testing' },
-          { url: '/guide/faq', title: 'Frequently Asked Questions' }
           // TODO: not yet ready
           // { url: '/guide/connected-services', title: 'Connected Services' }
         ]

@@ -8,7 +8,7 @@ import NProgress from 'nprogress'
 import './styles.scss'
 
 class NProgressTag extends Component {
-  componentWillMount () {
+  componentDidMount () {
     NProgress.start()
   }
 
@@ -38,7 +38,7 @@ function asyncComponent (chunkName, getComponent) {
       Component: AsyncComponent.Component
     }
 
-    componentWillMount () {
+    componentDidMount () {
       if (this.state.Component === null) {
         AsyncComponent.loadComponent().then(Component => {
           if (this.mounted) {
@@ -46,9 +46,6 @@ function asyncComponent (chunkName, getComponent) {
           }
         })
       }
-    }
-
-    componentDidMount () {
       this.mounted = true
     }
 

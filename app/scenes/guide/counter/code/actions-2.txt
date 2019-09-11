@@ -1,3 +1,0 @@
-function increment (amount) {
-  return { amount: amount }
-}

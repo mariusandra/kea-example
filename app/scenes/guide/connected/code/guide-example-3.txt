@@ -1,9 +1,0 @@
-// index.js
-import React, { Component } from 'react'
-
-import featuresLogic from '../features-logic'
-
-@featuresLogic
-export default class CounterExampleScene extends Component {
-  // no change here
-}

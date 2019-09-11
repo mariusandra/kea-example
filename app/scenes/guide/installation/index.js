@@ -15,7 +15,7 @@ export default function InstallationScene () {
         <h2>Installation</h2>
         <p>
           Installing <code>kea</code> is rather straightforward. You need to add the <code>kea</code> package,
-          install any plugins, reset kea's context and wrap your app with react-redux's <code>{'<Provider />'}</code> tag.
+          reset kea's context and wrap your app with react-redux's <code>{'<Provider />'}</code> tag.
         </p>
 
         <h3>1. Install the packages</h3>

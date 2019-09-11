@@ -21,17 +21,10 @@ export default () => (
 
       <Route path='/guide' exact render={guideRedirect} />
       <Route path='/guide/installation' component={bundles.guideInstallation} />
-      <Route path='/guide/counter' component={bundles.guideCounter} />
-      <Route path='/guide/counter-dynamic' component={bundles.guideCounterDynamic} />
       <Route path='/guide/sliders' component={bundles.guideSliders} />
       <Route path='/guide/github' component={bundles.guideGithub} />
-      <Route path='/guide/connected' component={bundles.guideConnected} />
-      <Route path='/guide/dynamic-connected' component={bundles.guideDynamicConnected} />
-      <Route path='/guide/connected-services' component={bundles.guideConnectedServices} />
       <Route path='/guide/migration' component={bundles.guideMigration} />
       <Route path='/guide/forms' component={bundles.guideForms} />
-      <Route path='/guide/testing' component={bundles.guideTesting} />
-      <Route path='/guide/faq' component={bundles.guideFaq} />
 
       <Route path='/api' exact render={apiRedirect} />
       <Route path='/api/logic' component={bundles.apiLogic} />
