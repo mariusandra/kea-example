@@ -118,50 +118,50 @@ export default class HomepageScene extends Component {
         <div className='description'>
           <p><strong>NB!</strong> This documentation is for the 1.0 release. To see docs for 0.28, click here.</p>
         </div>
-        <h2>Why does this exist?</h2>
+        <h2>Why does Kea exist?</h2>
         <div className='description'>
           <p>
-            This project began when I started to use Redux in a React app in 201x.
+            The Kea project began when I first started to use Redux in a React app in 2015.
           </p>
           <p>
-            After a while I noticed that I kept writing largely similar code over and over again. 
+            Redux was fine, but I kept writing very similar code over and over again. Eventually I looked for ways to
+            simplify things. I wrote several helper functions that automatised most of these repetitive tasks. 
           </p>
           <p>
-            So I started to write functions to automatise these repetitive tasks.
-            Those grew into the first version of Kea: a loose collection of functions. (v0.1 in 20xx)
+            That loose collection of functions grew into the first public release of Kea: v0.1 at the start of 2016.
           </p>
           <p>
-            Those in turn grew into a unified high level abstraction over Redux. The helper functions from
-            v0.x morphed into a unified way to describe everything that could happen with your app state,
-            including side effects via plugins... v0.x to v0.y
+            Those in turn evolved into a unified <u>high level abstraction over Redux</u>. The helper functions from
+            v0.1 morphed into a standardised way to describe your app's state and all the logic that manipulates it, 
+            including side effects. (v0.1 to v0.28 over 3 years).
           </p>
           <p>
-            That worked well. There were plenty of users and businesses who depended on kea to power their apps.
-            Several of them said very nice words about it.
+            That worked well. There were plenty of users and businesses who depended on Kea to power their apps.
+            Several of them said very nice things about it.
           </p>
           <p>
             Then I decided to complicate my life.
           </p>
           <p>
-            Recent changes in React and Redux combined with community feedback and unsolvable feature requests 
-            made me take a fresh look at what Kea was. It was time for a refactor...
-            Which turned into a rewrite... Which took on a life of its own... And then it kept expading... 
-            and expanding... and expanding... In features, test coverage and possibilities.
+            Recent changes in React and Redux combined with community feedback through unsolvable feature requests 
+            forced a fresh look at what Kea was and where it was heading. It was time for a refactor...
+            Which turned into a rewrite... Which took on a life of its own... and kept expanding and expanding and expanding.
           </p>
           <p>
             All of this while retaining the same bundle size as before (16kb minified -> 17kb minified).
           </p>
           <p>
-            After X months of labour over Y commits Kea 1.0 was born.
+            After 5+ months of hard work over 300+ commits Kea 1.0 was born.
           </p>
           <p>
-            It's a complete rewrite of what came before, bringing Kea from abstraction to framework territory.
+            It's a complete rewrite of what came before, taking Kea from being just an abstraction over Redux into 
+            proper framework territory.
           </p>
         </div>
-        <h2>What is it now?</h2>
+        <h2>What is Kea now?</h2>
         <div className='description'>
           <p>          
-            Kea 1.0 complements React (the UI layer) by implementing a Data Layer that acts as the brains of
+            Kea 1.0 complements React (the UI layer) by implementing a <u>Data Layer</u> that acts as the brains of
             your application. Because it's standing on the work done by the react-redux team, there is seamless 
             interoperability between both layers and plenty of nice features to make any developer happy.
           </p>
