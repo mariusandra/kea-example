@@ -1,20 +1,12 @@
 // form.js
 
-import PropTypes from 'prop-types'
-import { delay } from 'redux-saga/effects'
-
 import createForm from './create-form'
 
+const delay = (ms) => new Promise(resolve => window.setTimeout(resolve, ms))
 const isEmailValid = (email) => /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/.test(email)
 const missingText = 'This field is required'
 
 export default createForm({
-  propTypes: {
-    name: PropTypes.string,
-    email: PropTypes.string,
-    message: PropTypes.string
-  },
-
   defaults: {
     name: 'John Doe',
     email: '',
@@ -27,9 +19,9 @@ export default createForm({
     message: !values.message ? missingText : null
   }),
 
-  submit: function * () {
+  submit: function () {
     // simulate a 1sec submission
-    yield delay(1000)
+    await delay(1000)
 
     // either return the response:
     // -> return { results: [] }
@@ -38,11 +30,11 @@ export default createForm({
     // -> throw 'Everything is broken!'
   },
 
-  success: function * (response) {
+  success: function (response) {
     window.alert('submit successful!', response)
   },
 
-  failure: function * (error) {
+  failure: function (error) {
     window.alert('submit error!', error.message)
   }
 })

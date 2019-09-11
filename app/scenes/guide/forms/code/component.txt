@@ -1,52 +1,36 @@
 // index.js
 
-import React, { Component } from 'react'
-import { connect } from 'kea'
+import React from 'react'
+import { useValues, useActions } from 'kea'
 
 import form from './form'
 
-@connect({
-  actions: [
-    form, [
-      'setValue',
-      'submit'
-    ]
-  ],
-  values: [
-    form, [
-      'values',
-      'isSubmitting'
-    ]
-  ]
-})
-export default class FormComponent extends Component {
-  render () {
-    const { isSubmitting, values } = this.props
-    const { submit, setValue } = this.actions
+export default function FormComponent () {
+  const { isSubmitting, values } = userValues(form)
+  const { submit, setValue } = userActions(form)
 
-    const { name, email, message } = values
+  const { name, email, message } = values
 
-    return (
-      <div>
-        <div className='form-field'>
-          <label>Name</label>
-          <input type='text' value={name} onChange={e => setValue('name', e.target.value)} />
-        </div>
-
-        <div className='form-field'>
-          <label>E-mail</label>
-          <input type='text' value={email} onChange={e => setValue('email', e.target.value)} />
-        </div>
-
-        <div className='form-field'>
-          <label className='block'>Message</label>
-          <textarea value={message} onChange={e => setValue('message', e.target.value)} />
-        </div>
-
-        <button disabled={isSubmitting} onClick={submit}>
-          {isSubmitting ? 'Submitting...' : 'Submit!'}
-        </button>
+  return (
+    <div>
+      <div className='form-field'>
+        <label>Name</label>
+        <input type='text' value={name} onChange={e => setValue('name', e.target.value)} />
       </div>
-    )
-  }
+
+      <div className='form-field'>
+        <label>E-mail</label>
+        <input type='text' value={email} onChange={e => setValue('email', e.target.value)} />
+      </div>
+
+      <div className='form-field'>
+        <label className='block'>Message</label>
+        <textarea value={message} onChange={e => setValue('message', e.target.value)} />
+      </div>
+
+      <button disabled={isSubmitting} onClick={submit}>
+        {isSubmitting ? 'Submitting...' : 'Submit!'}
+      </button>
+    </div>
+  )
 }
