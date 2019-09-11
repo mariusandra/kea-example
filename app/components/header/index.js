@@ -53,27 +53,8 @@ const menu = {
         ]
       }
     ]
-  },
-  examples: {
-    url: '/examples',
-    paths: ['examples'],
-    title: 'Examples',
-    children: [
-      {
-        title: 'Examples',
-        children: [
-          { url: '/examples/todos', title: 'TodoMVC', className: 'darker', source: 'https://github.com/keajs/kea-website/tree/master/app/scenes/examples/todos' },
-          { url: '/examples/github', title: 'Github', source: 'https://github.com/keajs/kea-website/blob/master/app/scenes/examples/github/index.js' }
-        ]
-      }
-    ]
   }
 }
-
-const darker = [
-  '/examples/todos'
-]
-
 @connect({
   props: [
     routeSelector, [
@@ -89,7 +70,6 @@ export default class Header extends Component {
     const selectedMenuKey = Object.keys(menu).filter(k => menu[k].paths.indexOf(selectedPage) >= 0)[0]
 
     const hasSidebar = selectedMenuKey && menu[selectedMenuKey] && menu[selectedMenuKey].children
-    const isDarker = darker.filter(route => pathname.indexOf(route) === 0).length > 0
 
     return (
       <div>
@@ -128,7 +108,7 @@ export default class Header extends Component {
                 </nav>
               </aside>
             ) : null}
-            <div className={`content ${hasSidebar ? 'with-sidebar' : 'without-sidebar'}${isDarker ? ' darker' : ''}`}>
+            <div className={`content ${hasSidebar ? 'with-sidebar' : 'without-sidebar'}`}>
               {this.props.children}
             </div>
           </section>
