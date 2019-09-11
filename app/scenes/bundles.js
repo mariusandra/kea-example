@@ -23,8 +23,5 @@ export default {
   effectsSaga: async('EffectsSaga', () => import(/* webpackChunkName: "effectsSaga" */'./effects/saga')),
   effectsThunk: async('EffectsThunk', () => import(/* webpackChunkName: "effectsThunk" */'./effects/thunk')),
 
-  examplesTodos: async('ExamplesTodos', () => import(/* webpackChunkName: "examplesTodos" */'./examples/todos')),
-  examplesGithub: async('ExamplesGithub', () => import(/* webpackChunkName: "examplesGithub" */'./examples/github')),
-
   playground: async('Playground', () => import(/* webpackChunkName: "playground" */'./playground'))
 }

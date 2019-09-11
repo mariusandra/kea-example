@@ -1,12 +1,9 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
 import { kea } from 'kea'
-
-import { put, call, delay } from 'redux-saga/effects'
 
 const API_URL = 'https://api.github.com'
 
-@kea({
+const logic = kea({
   actions: () => ({
     setUsername: (username) => ({ username }),
     setRepositories: (repositories) => ({ repositories }),
@@ -14,19 +11,19 @@ const API_URL = 'https://api.github.com'
   }),
 
   reducers: ({ actions }) => ({
-    username: ['keajs', PropTypes.string, {
+    username: ['keajs', {
       [actions.setUsername]: (_, payload) => payload.username
     }],
-    repositories: [[], PropTypes.array, {
+    repositories: [[], {
       [actions.setUsername]: () => [],
       [actions.setRepositories]: (_, payload) => payload.repositories
     }],
-    isLoading: [true, PropTypes.bool, {
+    isLoading: [true, {
       [actions.setUsername]: () => true,
       [actions.setRepositories]: () => false,
       [actions.setFetchError]: () => false
     }],
-    error: [null, PropTypes.string, {
+    error: [null, {
       [actions.setUsername]: () => null,
       [actions.setFetchError]: (_, payload) => payload.message
     }]
@@ -36,75 +33,63 @@ const API_URL = 'https://api.github.com'
     sortedRepositories: [
       () => [selectors.repositories],
       (repositories) => repositories.sort(
-                          (a, b) => b.stargazers_count - a.stargazers_count),
-      PropTypes.array
+                          (a, b) => b.stargazers_count - a.stargazers_count)
     ]
   }),
 
-  start: function * () {
-    const { setUsername } = this.actions
-    const username = yield this.get('username')
-    yield put(setUsername(username))
-  },
-
-  takeLatest: ({ actions, workers }) => ({
-    [actions.setUsername]: workers.fetchRepositories
-  }),
-
-  workers: {
-    * fetchRepositories (action) {
-      const { setRepositories, setFetchError } = this.actions
-      const { username } = action.payload
-
-      yield delay(100) // debounce for 100ms
+  listeners: ({ actions }) => ({
+    [actions.setUsername]: async ({ username }, breakpoint) => {
+      await breakpoint(300) // debounce for 300ms
 
       const url = `${API_URL}/users/${username}/repos?per_page=250`
-      const response = yield window.fetch(url)
+      const response = await window.fetch(url)
+
+      // break if the same action was dispatched again while we were fetching for fetch
+      breakpoint()
+
+      const json = await response.json()
 
       if (response.status === 200) {
-        const json = yield response.json()
-        yield put(setRepositories(json))
+        actions.setRepositories(json)         // <-- new
       } else {
-        const json = yield response.json()
-        yield put(setFetchError(json.message))
+        actions.setFetchError(json.message)   // <-- new
       }
     }
-  }
+  })
 })
-export default class ExampleGithubScene extends Component {
-  render () {
-    const { username, isLoading, repositories,
-            sortedRepositories, error } = this.props
-    const { setUsername } = this.actions
 
-    return (
-      <div className='example-github-scene'>
-        <div style={{marginBottom: 20}}>
-          <h1>Search for a github user</h1>
-          <input value={username}
-                 type='text'
-                 onChange={e => setUsername(e.target.value)} />
-        </div>
-        {isLoading ? (
-          <div>
-            Loading...
-          </div>
-        ) : repositories.length > 0 ? (
-          <div>
-            Found {repositories.length} repositories for user {username}!
-            {sortedRepositories.map(repo => (
-              <div key={repo.id}>
-                <a href={repo.html_url} target='_blank'>{repo.full_name}</a>
-                {' - '}{repo.stargazers_count} stars, {repo.forks} forks.
-              </div>
-            ))}
-          </div>
-        ) : (
-          <div>
-            {error ? `Error: ${error}` : 'No repositories found'}
-          </div>
-        )}
+function GithubScene {
+  const { username, isLoading, repositories,
+          sortedRepositories, error } = useValues(logic)
+  const { setUsername } = useActions(logic)
+
+  return (
+    <div className='example-github-scene'>
+      <div style={{marginBottom: 20}}>
+        <h1>Search for a github user</h1>
+        <input value={username}
+              type='text'
+              onChange={e => setUsername(e.target.value)} />
       </div>
-    )
-  }
+      {isLoading ? (
+        <div>
+          Loading...
+        </div>
+      ) : repositories.length > 0 ? (
+        <div>
+          Found {repositories.length} repositories for user {username}!
+          {sortedRepositories.map(repo => (
+            <div key={repo.id}>
+              <a href={repo.html_url} target='_blank'>{repo.full_name}</a>
+              {' - '}{repo.stargazers_count} stars, {repo.forks} forks.
+            </div>
+          ))}
+        </div>
+      ) : (
+        <div>
+          {error ? `Error: ${error}` : 'No repositories found'}
+        </div>
+      )}
+    </div>
+  )
 }

@@ -54,7 +54,7 @@ const githubLogic = kea({
       const url = `${API_URL}/users/${username}/repos?per_page=250`
       const response = await window.fetch(url)
 
-      breakpoint() // break if action was called in the meanwhile
+      breakpoint() // break if action was called while we were fetching
 
       const json = await response.json()
 

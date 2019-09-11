@@ -1,0 +1,8 @@
+import { resetContext } from 'kea'
+import listenersPlugin from 'kea-saga'
+
+resetContext({
+  plugins: [
+    listenersPlugin
+  ]
+})

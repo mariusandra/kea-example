@@ -1,0 +1,17 @@
+const logic = kea({
+  actions: () => ({
+    setUsername: (username) => ({ username })
+  }),
+
+  reducers: ({ actions }) => ({
+    username: ['keajs', {
+      [actions.setUsername]: (_, payload) => payload.username
+    }]
+  })
+
+  listeners: ({ actions }) => ({
+    [actions.setUsername]: ({ username }) => {
+      /// ...
+    }
+  })
+})

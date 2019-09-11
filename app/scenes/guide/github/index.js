@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 import Highlight from '~/components/tags/highlight'
 
-import SagaSection from '~/components/sections/sagas'
+import Listeners from '~/components/sections/listeners'
 
 import GithubFull from './github'
 import GithubInput from './github/input'
@@ -14,7 +14,7 @@ import featuresLogic from '../features-logic'
 
 const code = {
   input: require('raw-loader!./code/input.txt'),
-  takeLatest: require('raw-loader!./code/takelatest.txt'),
+  listeners: require('raw-loader!./code/listeners.txt'),
   api: require('raw-loader!./code/api.txt'),
   reducers: require('raw-loader!./code/reducers.txt'),
   api2: require('raw-loader!./code/api2.txt'),
@@ -25,27 +25,12 @@ const code = {
   full: require('raw-loader!./code/full.txt')
 }
 
-@connect({
-  actions: [
-    featuresLogic, [
-      'toggleFeature'
-    ]
-  ],
-  props: [
-    featuresLogic, [
-      'features'
-    ]
-  ]
-})
 export default class GithubScene extends Component {
   render () {
-    const { features } = this.props
-    const { toggleFeature } = this.actions
-
     return (
       <div className='counter-singleton-scene'>
         <div className='description'>
-          <h2>Example - Github</h2>
+          <h2>Example - Github API</h2>
           <p>
             In this guide we are going to build a component that asks for an username
             and then fetches all the repositories for that user on Github.
@@ -57,64 +42,30 @@ export default class GithubScene extends Component {
         </div>
 
         <div className='description'>
-          <SagaSection />
+          <Listeners />
         </div>
 
         <div className='description'>
           <h2>1. Input the username</h2>
           <p>Now that you have seen the end result, let's build it, piece by piece.</p>
-          <p>The first thing we want to do is to have an input element to enter the username.</p>
-          <p>If you have followed the other parts of this guide, you should know how to get this part working.</p>
-          <p>Hopefully after some tinkering you will come up with something like this:</p>
+          <p>The first thing we want to do is to have an input field to enter the username and store it in kea:</p>
           <Highlight className='javascript'>{code.input}</Highlight>
           <p>Live demo:</p>
           <div className='demo'>
             <GithubInput />
           </div>
-          <p>
-            You could probably have gotten as far with react's <code>setState</code>, but since we want to capture this
-            event, we'll go straight for the kea solution.
-          </p>
         </div>
         <div className='description'>
-          <h2>2. Capture <code>setUsername</code> and trigger an API call</h2>
-          <p>The next step is to intercept Redux and listen for each instance of the <code>setUsername</code> action being triggered.</p>
-          <p>We do this with the <code>takeLatest</code> option and a special worker function which does the API call.</p>
-
-          <button onClick={() => toggleFeature('takeBoth')}>{'takeLatest vs takeEvery?'}</button>
-
-          {features.takeBoth ? (
-            <div className='extra-help'>
-              <p>There are two helpers we can use: <code>takeLatest</code> and <code>takeEvery</code></p>
-              <p>What's the difference?</p>
-              <p>
-                It's simple: <code>takeEvery</code> runs the worker every time an action is called. <code>takeLatest</code> does
-                the same, but if a previous worker is still running, it will be cancelled and restarted.
-              </p>
-              <p>
-                In practice this means <code>takeLatest</code> let's us write code with less bugs: we will only handle the last API call that was made.
-              </p>
-              <p>
-                Otherwise, for example, there might be a race condition, where when typing "reactjs", the results for "reactj" will arrive after "reactjs"
-                and invalidate our state.
-              </p>
-              <p>
-                It's also super easy to implement debouncing and throttling when using <code>takeLatest</code>. We will do so in a short while.
-              </p>
-            </div>
-          ) : null}
-
-          <p>The code to hook them up would look something like this:</p>
-          <Highlight className='javascript'>{code.takeLatest}</Highlight>
+          <h2>2. Capture calls <code>setUsername</code> and trigger an API call</h2>
+          <p>The next step is to listen for the  <code>setUsername</code> action and run some code whenever it has been dispatched:</p>
+          <Highlight className='javascript'>{code.listeners}</Highlight>
         </div>
         <div className='description'>
           <h2>3. Trigger the actual call</h2>
-          <p>Now that we have a time and a place where we can make the API call, let's actually make it.</p>
-          <p>We will use the standard <code>Fetch</code> API for it.</p>
-          <p>The code for this, with an additional 100ms debounce, will look like this:</p>
+          <p>We must ask Github for data about this user.</p>
+          <p>For this we'll use the standard <code>window.Fetch</code> API. We also add 300 milliseconds
+          of debounce before actually making the call, to give the user time to add another keystroke:</p>
           <Highlight className='javascript'>{code.api}</Highlight>
-          <p>Note the <code>yield</code> statements that we use to synchronously resolve promises without any nested callbacks!</p>
-          <p>There are more details on <code>yield</code> and the code that you can use inside the workers in the <Link to='/guide/sliders'>sliders guide</Link>.</p>
         </div>
         <div className='description'>
           <h2>4. Store the response of the call</h2>
@@ -135,7 +86,6 @@ export default class GithubScene extends Component {
           <Highlight className='javascript'>{code.reducers}</Highlight>
           <p>Now we just need to call the right actions from the worker:</p>
           <Highlight className='javascript'>{code.api2}</Highlight>
-          <p>Note that we have to use the redux-saga <code>put</code> effect when dispatching the actions.</p>
         </div>
         <div className='description'>
           <h2>5. Display the result</h2>
@@ -146,37 +96,29 @@ export default class GithubScene extends Component {
             <GithubAlmost />
           </div>
           <p>It works! Almost...</p>
-          <p>What's still missing?</p>
-          <p>Well, for starters it would be nice if it would fetch all the respositories on page load.</p>
-          <p>Also, it would be great to sort the repositories by the number of stars</p>
         </div>
         <div className='description'>
           <h2>6. Last steps</h2>
-          <p>No problem, we can fix that!</p>
+          <p>What's still missing?</p>
+          <p>Well, for starters it would be nice if it would fetch all the respositories on page load.</p>
+          <p>Also, it would be great to sort the repositories by the number of stars</p>
+          <p>Let's fix these points!</p>
           <p>
-            First, to load the repositories on page load, we have two options, both requiring
-            the <code>start</code> function that is run when the component is mounted.
+            First, to load the repositories on page load, we can use kea's mount events and run an action whenever the logic is mounted:
           </p>
-          <p>Option #1 is to call the <code>fetchRepositories</code> worker directly using redux-saga's <code>call</code>:</p>
           <Highlight className='javascript'>{code.call}</Highlight>
-          <p>This works, but it feels kind of hacky. We're pretending to be an action that triggers the worker.</p>
-          <p>The other option is to go through redux and execute the <code>setUsername</code> action with the default username:</p>
-          <Highlight className='javascript'>{code.put}</Highlight>
-          <p>It feels cleaner, but there's still something weird with calling <code>setUsername</code> with the username that's already set.</p>
-          <p>In the end, both approaches get the job done, and it's up to you to figure out which makes more sense depening on your situation.</p>
-          <p>The second problem had to do with sorting the results.</p>
-          <p>For that we can create a selector that takes the <code>repositories</code> as input and outputs a sorted array:</p>
+
+          <p>To stort the results we can create a selector that takes <code>repositories</code> as input and outputs a sorted array:</p>
           <Highlight className='javascript'>{code.selector}</Highlight>
           <p>Now all that's left to do is to replace <code>repositories</code> with <code>sortedRepositories</code> in your component.</p>
           <p>
             Because the selectors are made with <code>reselect</code> under the hood, you can be sure that they will only be
-            recalculated (resorted in this case) when the original input (repositories) change.
+            recalculated (resorted in this case) when the original input (repositories) change, not between other renders.
           </p>
-          <p>That's much better than re-sorting them on every call to <code>render()</code>.</p>
         </div>
         <div className='description'>
           <h2>7. Final result</h2>
-          <p>Adding the finishing touches gives us this final result:</p>
+          <p>Adding the finishing touches gives us this final masterpiece:</p>
           <div className='demo'>
             <GithubFull />
           </div>

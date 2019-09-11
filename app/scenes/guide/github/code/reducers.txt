@@ -1,4 +1,4 @@
-@kea({
+const logic = kea({
   actions: () => ({
     setUsername: (username) => ({ username }),
     setRepositories: (repositories) => ({ repositories }),
@@ -6,21 +6,25 @@
   }),
 
   reducers: ({ actions }) => ({
-    username: ['keajs', PropTypes.string, {
+    username: ['keajs', {
       [actions.setUsername]: (_, payload) => payload.username
     }],
-    repositories: [[], PropTypes.array, {
+    repositories: [[], {
       [actions.setUsername]: () => [],
       [actions.setRepositories]: (_, payload) => payload.repositories
     }],
-    isLoading: [false, PropTypes.bool, {
+    isLoading: [false, {
       [actions.setUsername]: () => true,
       [actions.setRepositories]: () => false,
       [actions.setFetchError]: () => false
     }],
-    error: [null, PropTypes.string, {
+    error: [null, {
       [actions.setUsername]: () => null,
       [actions.setFetchError]: (_, payload) => payload.message
     }]
+  }),
+
+  listeners: ({ actions }) => ({
+    // ...
   })
 })

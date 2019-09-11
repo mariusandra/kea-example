@@ -1,8 +1,9 @@
-import { call } from 'redux-saga/effects'
+const logic = kea({
+  // listeners: ...
 
-@kea({
-  start: function * () {
-    const username = yield this.get('username')
-    yield call(this.workers.fetchRepositories, { payload: { username } })
-  }
+  events: ({ actions, values }) => ({
+    afterMount: () {
+      actions.setUsername(values.username)
+    }
+  })
 })

@@ -1,11 +1,11 @@
-@kea({
+const logic = kea({
+  // ...
   selectors: ({ selectors }) => ({
     sortedRepositories: [
       () => [selectors.repositories],
       (repositories) => {
         return repositories.sort((a, b) => b.stargazers_count - a.stargazers_count)
-      },
-      PropTypes.array
+      }
     ]
   })
 })

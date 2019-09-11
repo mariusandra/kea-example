@@ -1,28 +1,26 @@
-import { delay } from 'redux-saga/effects'
-
 const API_URL = 'https://api.github.com'
 
-@kea({
+const logic = kea({
   // ...
 
-  workers: {
-    * fetchRepositories (action) {
-      const { username } = action.payload
-
-      yield delay(100) // debounce for 100ms
+  listeners: ({ actions }) => ({
+    [actions.setUsername]: async ({ username }, breakpoint) => {
+      await breakpoint(300) // debounce for 300ms
 
       const url = `${API_URL}/users/${username}/repos?per_page=250`
-      const response = yield window.fetch(url)
+      const response = await window.fetch(url)
+
+      breakpoint() // break if action was dispatched again while we were fetching
+
+      const json = await response.json()
 
       if (response.status === 200) {
-        const json = yield response.json()
         // we have the repositories in `json`
         // what to do with them?
       } else {
-        const json = yield response.json()
-        // there's an error in `json.message`
+        // there is an error in `json.message`
         // what to do with it?
       }
     }
-  }
+  })
 })

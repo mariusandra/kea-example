@@ -42,10 +42,6 @@ export default () => (
       <Route path='/plugins' exact render={pluginsRedirect} />
       <Route path='/plugins/localstorage' component={bundles.pluginsLocalStorage} />
 
-      <Route path='/examples' exact render={examplesRedirect} />
-      <Route path='/examples/todos' component={bundles.examplesTodos} />
-      <Route path='/examples/github' component={bundles.examplesGithub} />
-
       <Route path='/playground' component={bundles.playground} />
     </div>
   </WithHeader>
