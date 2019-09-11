@@ -1,0 +1,25 @@
+import { connect } from 'kea'
+
+import someLogic from './some-logic'
+
+const railsContext = (state) => state.rails
+
+const logic = kea({
+  connect: {
+    values: [
+      someLogic, [ // <----- instead of logic like this
+        'prop1',
+        'prop2'
+      ],
+      state => state.rails, [ // <----- pass a selector
+        'i18nLocale',
+        'currentUserId'
+      ],
+      state => state.form.myForm, [
+        '* as myForm' // get everything as 'myForm'
+      ]
+    ]
+  }
+
+  // ...
+})

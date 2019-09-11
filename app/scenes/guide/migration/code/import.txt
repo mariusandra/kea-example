@@ -1,46 +1,33 @@
-// my-logic.js
-export default kea({
+const logic = kea({
   actions: () => ({
     addOne: true
   }),
   reducers: ({ actions }) => ({
-    myNumber: [0, PropTypes.number, {
+    myNumber: [0, {
       [actions.addOne]: (state) => state + 1
     }]
   }),
   selectors: ({ selectors }) => ({
     myNumberDouble: [
       () => [selectors.myNumber],
-      (myNumber) => myNumber * 2,
-      PropTypes.number
+      (myNumber) => myNumber * 2
     ]
   })
 })
 
-// component
-import TodoList from '../components/TodoList'
-import { toggleTodo } from '../actions'
+// the logic must be mounted before you can access its fields
+logic.mount()
 
-import myLogic from './my-logic'
+// call an action to add something
+logic.actions.addOne()
 
-const mapStateToProps = state => {
-  return {
-    todos: state => state.todos,
-    myNumber: myLogic.selectors.myNumber,
-    myNumberDouble: myLogic.selectors.myNumberDouble,
-  }
-}
+// create an action (returns the object { type: 'add one ...' })
+logic.actionCreators.addOne()
 
-const mapDispatchToProps = dispatch => {
-  return {
-    onTodoClick: id => dispatch(toggleTodo(id)),
-    onAddOneClick: () => dispatch(myLogic.actions.addOne())
-  }
-}
+// selectors for querying redux (state defaults to getState())
+logic.selectors.myNumber(state)
+logic.selectors.myNumberDouble(state)
 
-const ConnectedTodoList = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(TodoList)
-
-export default ConnectedTodoList
+// shorthand for selectors (implemented as getters)
+logic.values.myNumber
+logic.values.myNumberDouble

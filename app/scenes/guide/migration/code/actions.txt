@@ -1,0 +1,27 @@
+import { connect } from 'kea'
+
+import someLogic from './some-logic'
+
+const railsContext = (state) => state.rails
+
+const actionsCreators = {
+  doSomething: () => ({ type: 'DO_SOMETHING', payload: { } }),
+  otherAction: ({ id }) => ({ type: 'OTHER_ACTION', payload: { id } }),
+}
+
+const logic = kea({
+  connect: {
+    actions: [
+      someLogic, [ // <--------------- instead of logic like this
+        'action1',
+        'action2'
+      ],
+      actionsCreators, [ // <-- pass an object of action creators
+        'doSomething', // <------------ and select what is needed
+        'otherAction'
+      ]
+    ]
+  }
+
+  // ..
+})

@@ -1,32 +1,23 @@
-import React, { Component } from 'react'
 import { kea } from 'kea'
-import { LOCATION_CHANGE } from 'react-router-redux'
 
+import { LOCATION_CHANGE } from 'react-router-redux'
 import { SOME_ACTION } from './actions'
 
-@kea({
+const logic = kea({
   actions: () => ({
     doit: true
   }),
 
-  reducer: ({ actions }) => ({
-    myValue: [false, PropTypes.bool, {
+  reducers: ({ actions }) => ({
+    myValue: [false, {
       [SOME_ACTION]: () => false,
       [actions.doit]: () => true
     }]
   }),
 
-  takeEvery: ({ workers }) => ({
-    [LOCATION_CHANGE]: workers.urlToState
-  }),
-
-  workers: {
-    * urlToStateWorker (action) {
-      const { search, pathname } = action.payload
+  listeners: () => ({
+    [LOCATION_CHANGE]: (payload) => {
       // ...
     }
-  }
+  })
 })
-export default const MyComponent extends Component {
-  // ...
-}

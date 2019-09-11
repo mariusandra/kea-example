@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom'
 import Highlight from '~/components/tags/highlight'
 
 const code = {
-  props: require('raw-loader!./code/props.txt'),
-  dispatch: require('raw-loader!./code/dispatch.txt'),
+  values: require('raw-loader!./code/values.txt'),
+  actions: require('raw-loader!./code/actions.txt'),
   reducer: require('raw-loader!./code/reducer.txt'),
   import: require('raw-loader!./code/import.txt')
 }
@@ -20,32 +20,29 @@ export default class ConnectedScene extends Component {
             Since kea is just redux, it is very easy to connect it to an existing redux application.
           </p>
 
-          <h2>Reading external data</h2>
+          <h2>Reading non-Kea state</h2>
           <p>
-            You may pull in data from any part of the Redux tree with the Kea. For this you will
-            use either the <code>{'@connect({ props: [] })'}</code> helper or the <code>{'connect: { props: [] }'}</code> option
-            in the <code>{'@kea({})'}</code> function.
+            You may pull in data from any part of the Redux tree with the Kea through <code>{'kea({ connect: { ... } })'}</code>.
           </p>
           <p>
-            Instead of passing a kea logic store to <code>props</code> you just pass a selector. Like so:
+            Instead of passing a logic to fetch from, pass a selector:
           </p>
-          <Highlight className='javascript'>{code.props}</Highlight>
+          <Highlight className='javascript'>{code.values}</Highlight>
 
-          <h2>Using external actions</h2>
+          <h2>Using non-Kea actions</h2>
           <p>
-            Kea always adds <code>dispatch</code> as one of the props to your app, so you can easily
-            call actions that are defined elsewhere.
+            Similarly, use an object of action creators and select the ones you need:
           </p>
-          <Highlight className='javascript'>{code.dispatch}</Highlight>
+          <Highlight className='javascript'>{code.actions}</Highlight>
           <p>
             You may listen to other actions and either have them influence your reducers or run a saga when they happen.
-            Just replace <code>actions.something</code> with <code>MY_TYPE_CONSTANT</code>, like so:
+            Just replace <code>actions.something</code> with <code>ACTION_TYPE_CONSTANT</code>, like so:
           </p>
           <Highlight className='javascript'>{code.reducer}</Highlight>
 
           <h2>Using Kea actions and selectors elsewhere</h2>
           <p>
-            If the redux-only part of your app needs access to some props or actions from kea logic stores, you can import them like so:
+            If the redux-only part of your app needs access to some values or actions from kea logic stores, you can import them like so:
           </p>
           <Highlight className='javascript'>{code.import}</Highlight>
           <p>
