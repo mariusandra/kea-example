@@ -1,46 +1,77 @@
-// scenes/my-random-scene/logic.js
 import { kea } from 'kea'
-import localStoragePlugin from 'kea-localstorage'
+import PropTypes from 'prop-types'
 
-import otherLogic from './other-logic.js'
-import dynamicLogic from './dynamic-logic.js'
+import logicToMount from './logicToMount'
+import otherLogic from './other-logic'
+import logicWithKey from './logic-with-key'
 
-export default kea({
-  plugins: [
-    localStoragePlugin
-  ],
+const actionCreatorsObject = {
+  someAction: (id) => ({ type: 'bla', payload: { id } })
+}
 
-  connect: {
+const logic = kea({
+  // Connect to other logic or plain Redux and import its actions and values
+  // to be used inside this logic.
+  // connect can be a regular object (connect: {}) or a function that takes props
+  // as an input (connect: props => ({}))
+  connect: ({ id }) => ({
     actions: [
       otherLogic, [
+        // otherLogic.actions.firstAction --> logic.actions.firstAction
         'firstAction',
+        // otherLogic.actions.secondAction --> logic.actions.renamedAction
         'secondAction as renamedAction'
+      ],
+      actionCreatorsObject, [
+        // take someAction from a regular object and wrap it with dispatch()
+        'someAction'
       ]
     ],
 
     values: [
       otherLogic, [
+        // otherLogic.values.firstProp --> logic.values.firstProp
         'firstProp',
+        // otherLogic.values.secondProp --> logic.values.renamedProp
         'secondProp as renamedProp',
+        // { ...otherLogic.values } --> logic.values.allProps
         '* as allProps'
       ],
-      // use Dynamic Logic
-      dynamicLogic.withKey(props => props.id), [
+
+      // if a logic uses a key to initialize independent instances, pass some
+      // props to the logic you're connecting to
+      logicWithKey({ id }), [
         'dynamicProp as thatProp'
       ],
+
       // select from any redux tree node
-      (state) => state.somethingThatResolvesToAnObject, [
+      state => state.something.that.resolves.to.an.object, [
         'variable',
         'otherVariable'
       ]
-    ]
-  },
+    ],
 
+    // in case you want to connect a logic and mount it when this one gets mounted,
+    // without importing any values (for example to start some listeners, etc),
+    // then connect it like so:
+    logic: [logicToMount]
+  }),
+
+  // you may *optionally* name your logic and specify where it ends up in redux:
   path: () => ['scenes', 'myRandomScene', 'index'],
 
+  // if you wish to instantiate many independent copies of the same logic, use
+  // the key attribute and take the unique key from the props, then *optionally*
+  // pass it to the path
+  key: props => props.id,
+  path: key => ['scenes', 'myRandomScene', 'index', key],
+
+  // you can create constants that will be accessible later in the "constants"
+  // object in the format { STRING: 'STRING', OTHER_STRING: 'OTHER_STRING' }
   constants: () => ['STRING', 'OTHER_STRING'],
 
-  actions: ({ path, constants }) => ({
+  // there are a few ways to define your actions
+  actions: () => ({
     actionWithStaticPayload: 'payload value',
     anotherActionWithAStaticPayload: { thisIs: 'that' },
     simpleAction: true,
@@ -50,10 +81,43 @@ export default kea({
     actionWithObjectInput: ({ id, message }) => ({ id, message })
   }),
 
-  reducers: ({ actions, path, constants }) => ({
-    reducerKey: [defaultValue, propType, /* with localStoragePlugin: { persist: true }, */ {
-      // operations
-      [actions.simpleAction]: (state, payload) => state + payload.value // return the new state,
+  // Defaults are specified as the first parameter to the reducers.
+  // However you can have a separate "defaults" key that overrides that.
+  // Feel free to use selectors in any way you like in this object.
+  // Some examples follow:
+  defaults: {
+    reducerKey: 'yes please'
+  },
+
+  defaults: ({ selectors }) => ({
+    reducerKey: selectors.firstProp
+  }),
+
+  defaults: ({ selectors }) => state => ({
+    reducerKey: selectors.allProps(state).firstProp
+  }),
+
+  // Reducers store data in logic.
+  // You must specify the default value and any actions that change it.
+
+  // Optionally you can also give each reducer a PropType and it will be automatically
+  // injected into React class-based Components. This is not useful if you're using hooks.
+
+  // You can also give an options object as the last parameter before the actions.
+  // Some plugins (e.g. localStorage) use it to manipulate the reducers
+  reducers: ({ actions, constants, props, selectors }) => ({
+    reducerKey: ['defaultValue', /* PropTypes.string, */ /* { optoins }, */ {
+      // Each action gets 3 parameters: (state, payload, meta)
+      // - state = the current value in the reducer
+      // - payload = the action.payload
+      // - meta = optionally the action.meta value
+
+      // Reducers must NEVER modify the existing object
+      // DO __NOT__ DO THIS: (state, payload) => { state[payload.key] = payload.value }
+
+      // They must always return a new object:
+      // Do this: (state, payload) => ({ ...state, [payload.key]: payload.value })
+      [actions.simpleAction]: (state, payload) => state + payload.value, // return the new state,
       [actions.complexAction]: (state, payload) => {
         // do more things in the block
         return state + payload.value
@@ -61,31 +125,64 @@ export default kea({
       [actions.noStateUsed]: (_, payload) => payload.value,
       [actions.setToTrue]: () => true,
       [actions.clearSomething]: () => false,
-      "ANY_OTHER_ACTION_TYPE": (state, payload, meta) => 'do whatever you want'
+      'ANY_OTHER_ACTION_TYPE': (state, payload, meta) => 'do whatever you want'
     }],
 
+    // The defaults for reducers can come from props (if you're using a key and passing props)
+    defaultFromProps: [props.id, PropTypes.number, {
+      [actions.clearSomething]: () => constants.STRING,
+      [actions.someOtherAction]: (_, payload) => payload.value
+    }],
+
+    // ... or from a selector that you have connected to
+    defaultFromSelectors: [selectors.otherValable, PropTypes.number, {
+      [actions.clearSomething]: () => constants.STRING,
+      [actions.someOtherAction]: (_, payload) => payload.value
+    }],
+
+    // ... or from a constant
     constantDefault: [constants.OTHER_STRING, PropTypes.string, {
       [actions.clearSomething]: () => constants.STRING,
       [actions.someOtherAction]: (_, payload) => payload.value
     }]
   }),
 
-  selectors: ({ path, constants, actions, selectors }) => ({
-    selectorName: [
-      () => [selectors.inputSelector1, selectors.inputSelector2],
-      (input1, input2) => createOutput(input),
-      returnPropType
-    ],
-
+  // Selectors take the input of one or more selectors (created automatically for reducers)
+  // and return a combined output. Selectors are recalculated only if one of the inputs
+  // changes.
+  selectors: ({ selectors }) => ({
     computedValue: [
-      () => [selectors.reducerKey, selectors.constantDefault],
-      (reducerKey, constantDefault) => {
-        return complicatedOperation(reducerKey, constantDefault)
+      () => [
+        selectors.reducerKey,
+        selectors.constantDefault,
+        state => state.variable.from.redux,
+        (_, props) => props.id // you can access props like this
+      ],
+      (reducerKey, constantDefault, variable, id) => {
+        return expensiveComputation(reducerKey, constantDefault, variable, id)
       },
       PropTypes.object
     ]
+  }),
+
+  // Finally, you can hook into the moments when the logic is either
+  // mounted onto redux or unmounted from it:
+  events: ({ actions, values }) => ({
+    beforeMount () {
+      // values.reducerKey is a shorthand for selectors.reducerKey(state)
+      // It's actually a getter function that returns the value at this moment.
+      // Using "values.reducerKey" at a later state might return a different result.
+      if (values.reducerKey === 'defaultValue') {
+        actions.simpleAction()
+      }
+
+      // In case you want to capture a snapshot of the values as they currently are,
+      // never use the "values" object directly. Instead make a copy of its data:
+      // -> const params = { ...values }  // capture all of them
+      // -> const { reducerKey } = values // just capture one
+    },
+    afterMount () {},
+    beforeUnmount () {},
+    afterUnmount () {}
   })
 })
-
-// index.js
-import myRandomSceneLogic from 'scenes/my-random-scene/logic'

@@ -1,5 +1,0 @@
-// Input
-path: () => ['scenes', 'myRandomScene', 'logicMountPoint']
-
-// Output
-myRandomSceneLogic.path == ['scenes', 'myRandomScene', 'logicMountPoint']
