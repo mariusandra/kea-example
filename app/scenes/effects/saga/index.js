@@ -27,8 +27,13 @@ export default function Saga () {
           Read more about Sagas on the <a href='https://redux-saga.js.org/'>redux-saga</a> homepage.
         </p>
         <p>
-          If you're upgrading from 0.x, please <a href='https://github.com/keajs/kea-saga/blob/master/CHANGELOG.md#a-note-regarding-sagas-and-actions'>read this</a> regarding
-          the breaking change of automatically bound actions in Kea. If you have just <code>connect</code>ed to your actions, everything should work as it did before.
+          <strong>Breaking changes with 1.0!</strong> If
+          you're upgrading from 0.x, please <a href='https://github.com/keajs/kea-saga/blob/master/CHANGELOG.md#a-note-regarding-sagas-and-actions'>read this</a> regarding
+          the breaking change of automatically binding actions to dispatch in Kea. If you just <code>connect</code>ed to your actions or used local actions inside a logic,
+          everything should work as it did before as long as <code>useLegacyUnboundActions</code> is set to <code>true</code>.
+          However if you were using code like <code>{`yield put(otherImportedLogic.actions.doSomething())`}</code>, you need to pay attention, as those actions
+          will now dispatch twice. Replace <code>actions</code> with <code>actionCreators</code> in the above code... or
+          set <code>useLegacyUnboundActions</code> to <code>false</code> and get rid of <code>yield put()</code> entirely.
         </p>
       </div>
       <div className='description'>
