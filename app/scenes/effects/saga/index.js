@@ -26,6 +26,10 @@ export default function Saga () {
         <p>
           Read more about Sagas on the <a href='https://redux-saga.js.org/'>redux-saga</a> homepage.
         </p>
+        <p>
+          If you're upgrading from 0.x, please <a href='https://github.com/keajs/kea-saga/blob/master/CHANGELOG.md#a-note-regarding-sagas-and-actions'>read this</a> regarding
+          the breaking change of automatically bound actions in Kea. If you have just <code>connect</code>ed to your actions, everything should work as it did before.
+        </p>
       </div>
       <div className='description'>
         <h2>Installation</h2>

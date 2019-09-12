@@ -3304,11 +3304,6 @@ kea-saga@^1.0.0-beta.9:
   dependencies:
     babel-runtime "^6.26.0"
 
-kea-thunk@^1.0.0-beta.5:
-  version "1.0.0-beta.5"
-  resolved "https://registry.yarnpkg.com/kea-thunk/-/kea-thunk-1.0.0-beta.5.tgz#8af5b2c11fe89bc17f2a20c12808bc5c60a08f80"
-  integrity sha512-ymaYDEL5HpDr1bXzfOIEmek8woO0rf/M6yNlh23swHzK8PVKKZoNNzBcWepyXxW1AhOyujebqpFeu4T02/UzEQ==
-
 kea@^1.0.0-rc.10.2:
   version "1.0.0-rc.10.2"
   resolved "https://registry.yarnpkg.com/kea/-/kea-1.0.0-rc.10.2.tgz#969758afcac2068930ed7fd7becbb3b4a92778dd"
