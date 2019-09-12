@@ -1,0 +1,25 @@
+// this input:
+kea({
+  requests: () => ({
+    fetchArticle: (id) => api.fetchArticle(id)
+    fetchComments: (id) => api.fetchComments(id),
+    postComment: (id, comment) => api.postComment(id, comment)
+  })
+})
+
+// will be converted to this output:
+kea({
+  actions: () => ({
+    fetchArticle: (id) => ({ id }),
+    fetchArticleSuccess: (request, response) => ({ request, response }),
+    fetchArticleFailure: (error) => ({ error })
+
+    fetchComments: (id) => ({ id }),
+    fetchCommentsSuccess: (request, response) => ({ request, response }),
+    fetchCommentsFailure: (error) => ({ error })
+
+    postComment: (id, comment) => ({ id, comment }),
+    postCommentSuccess: (request, response) => ({ request, response }),
+    postCommentFailure: (error) => ({ error })
+  })
+})

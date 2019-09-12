@@ -1,0 +1,29 @@
+const requestsPlugin = (/* { options } */) => ({
+  // Required: name of the plugin
+  name: 'requests'
+
+  // default values for output in logic,
+  // also used to register keys that the plugin exports on the logic
+  defaults: () => ({
+  }),
+
+  // when are the build steps run
+  // (skip this and they are appended to the end)
+  buildOrder: {
+  },
+
+  // steps that are performed when building the logic
+  buildSteps: {
+  }
+
+  // various other events that the plugin can hook into
+  events: {
+  }
+})
+
+
+// later:
+resetContext({
+  createStore: true,
+  plugins: [ requestsPlugin ]
+})

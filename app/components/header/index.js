@@ -24,7 +24,8 @@ const menu = {
           { url: '/guide/github', title: 'Example: Github API' },
           { url: '/guide/forms', title: 'Example: Forms' },
           { url: '/guide/sliders', title: 'Example: Sliders' },
-          { url: '/guide/migration', title: 'Migrating Redux Apps' }
+          { url: '/guide/migration', title: 'Migrating Redux Apps' },
+          { url: '/guide/plugins', title: 'Writing Plugins' }
         ]
       },
       {

@@ -9,6 +9,7 @@ export default {
   guideGithub: async('GuideGithub', () => import(/* webpackChunkName: "guideGithub" */'./guide/github')),
   guideMigration: async('GuideMigration', () => import(/* webpackChunkName: "guideMigration" */'./guide/migration')),
   guideForms: async('GuideForms', () => import(/* webpackChunkName: "guideForms" */'./guide/forms')),
+  guidePlugins: async('GuidePlugins', () => import(/* webpackChunkName: "guidePlugins" */'./guide/plugins')),
 
   apiKea: async('ApiKea', () => import(/* webpackChunkName: "apiKea" */'./api/kea')),
   apiLogic: async('ApiLogic', () => import(/* webpackChunkName: "apiLogic" */'./api/logic')),

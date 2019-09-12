@@ -24,6 +24,7 @@ export default () => (
       <Route path='/guide/github' component={bundles.guideGithub} />
       <Route path='/guide/migration' component={bundles.guideMigration} />
       <Route path='/guide/forms' component={bundles.guideForms} />
+      <Route path='/guide/plugins' component={bundles.guidePlugins} />
 
       <Route path='/api' exact render={apiRedirect} />
       <Route path='/api/kea' component={bundles.apiKea} />
