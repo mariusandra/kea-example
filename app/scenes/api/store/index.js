@@ -17,7 +17,7 @@ export default class API extends Component {
           Get a redux store to use in your app, which is already configured to use all kea plugins.
         </p>
         <p>
-          You are always free to create the redux store yourself (see the <a href='#manual'>last section</a>),
+          You are always free to create the redux store yourself (see the last section,
           however in that case you must take care to connect all the installed plugins yourself.
         </p>
         <h3>Usage</h3>
