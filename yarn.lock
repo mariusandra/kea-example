@@ -3292,22 +3292,22 @@ kea-listeners@^0.2.2:
   resolved "https://registry.yarnpkg.com/kea-listeners/-/kea-listeners-0.2.2.tgz#25e2a8fe0d7177d47368379ff868feda96fd62be"
   integrity sha512-+V/ZfUrkeMDQVLlqghIiOhYY9+Djeaea+avpqqi6qzJTi1NHHHzBsHQN4TEgzvvy4q5ooJJrqTQntfh9Lwt6cA==
 
-kea-localstorage@^1.0.0-beta.6:
-  version "1.0.0-beta.6"
-  resolved "https://registry.yarnpkg.com/kea-localstorage/-/kea-localstorage-1.0.0-beta.6.tgz#bc74ec4ffbbbc9e45b8f006ae0f8220cc90b4227"
-  integrity sha512-y9tZvw70WZc5PWGB7ZvQCkXfgi1i9Fi/hgqCUNiZP4roqX6hW4ikpBACqYI1vWKEC7dTzNpSgbob28gw66VTkg==
+kea-localstorage@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/kea-localstorage/-/kea-localstorage-1.0.0.tgz#696c470646df0fd1cbf8381cce06df503f149db3"
+  integrity sha512-CksmAt7VWDrjwSFmse01+tZ8qqoTx2d3VoHlQGw02Q/sTrN/ZgNk1OyFMDUkidlTDDVc1GTECSLP2V3qp1wvQA==
 
-kea-saga@^1.0.0-beta.9:
-  version "1.0.0-beta.9"
-  resolved "https://registry.yarnpkg.com/kea-saga/-/kea-saga-1.0.0-beta.9.tgz#6ab5022bd6e3e550b449ad12fdfa6498d45d4170"
-  integrity sha512-VoXzGeDHrBYBegAwEv0LH9aw9tIYly1feeBnrkdcOkwvUnTCRN8UZN3D+eWbxG9nWrwmdadqJxjlFz2GAXqGIA==
+kea-saga@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/kea-saga/-/kea-saga-1.0.1.tgz#a795f210ac6d8b8aeb85fb3e448a032257c08aa7"
+  integrity sha512-bWAukfFSlvj1cPFASAh9a9I2aInbsdfRuJRyEYnL5YHkhV8IMF9en7m+GyxriSj+57k3vAKYdqR43e5rXFcNPw==
   dependencies:
     babel-runtime "^6.26.0"
 
-kea@^1.0.0-rc.10.2:
-  version "1.0.0-rc.10.2"
-  resolved "https://registry.yarnpkg.com/kea/-/kea-1.0.0-rc.10.2.tgz#969758afcac2068930ed7fd7becbb3b4a92778dd"
-  integrity sha512-wjW+2j/m8PmNY1CW7u9wvhBzfZW+54ZQ9qtGTqQJMAEkLfsC/XqHxTHtGuqH4GjBq5f2+788SpliVHRJU3HS6w==
+kea@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/kea/-/kea-1.0.0.tgz#892bb4c2b0a243f1b0c05af8fefba0612b501f7d"
+  integrity sha512-FM9lCwvfsPPQHTeIk4XQfKKLBPKKcEz3cKprZwwLHzWUnf2UxdjgiRPfLB5XvrtrmyyZVFR8cIpataCZ+gO6Aw==
 
 kind-of@^3.0.2:
   version "3.0.4"
