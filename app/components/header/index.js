@@ -51,6 +51,7 @@ const menu = {
           { url: '/api/logic', title: 'logic' },
           { url: '/api/connect', title: 'connect' },
           { url: '/api/action', title: 'createAction' },
+          { url: '/api/plugins', title: 'Plugins' },
         ]
       }
     ]

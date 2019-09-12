@@ -32,6 +32,7 @@ export default () => (
       <Route path='/api/connect' component={bundles.apiConnect} />
       <Route path='/api/context' component={bundles.apiContext} />
       <Route path='/api/action' component={bundles.apiAction} />
+      <Route path='/api/plugins' component={bundles.apiPlugins} />
 
       <Route path='/effects' exact render={effectsRedirect} />
       <Route path='/effects/listeners' component={bundles.effectsListeners} />

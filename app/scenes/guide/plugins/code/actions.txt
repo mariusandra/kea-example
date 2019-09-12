@@ -1,0 +1,24 @@
+const requestsPlugin = (/* { options } */) => ({
+  name: 'requests'
+
+  events: {
+    afterLogic (logic, input) {
+      // skip if there are no requests in the input
+      if (!input.requests) {
+        return
+      }
+
+      // run the requests function with the already created logic as an input,
+      // so it can do ({ actions, ... }) => ({ ... })
+      const requests = input.requests(logic)
+
+      // TODO: convert requests into newActions
+      let newActions = {}
+
+      // extend the logic with these actions
+      logic.extend({
+        actions: () => newActions
+      })
+    }
+  }
+})
