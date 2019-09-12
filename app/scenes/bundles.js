@@ -14,7 +14,7 @@ export default {
   apiLogic: async('ApiLogic', () => import(/* webpackChunkName: "apiLogic" */'./api/logic')),
   apiConnect: async('ApiConnect', () => import(/* webpackChunkName: "apiConnect" */'./api/connect')),
   apiReducer: async('ApiReducer', () => import(/* webpackChunkName: "apiReducer" */'./api/reducer')),
-  apiStore: async('ApiStore', () => import(/* webpackChunkName: "apiStore" */'./api/store')),
+  apiContext: async('ApiContext', () => import(/* webpackChunkName: "apiContext" */'./api/context')),
   apiAction: async('ApiAction', () => import(/* webpackChunkName: "apiAction" */'./api/action')),
   apiReset: async('ApiReset', () => import(/* webpackChunkName: "apiReset" */'./api/reset')),
 

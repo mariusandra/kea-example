@@ -1,0 +1,46 @@
+import { getContext } from 'kea'
+
+getContext() == {
+  plugins: {
+    activated: [],
+    buildOrder: [],
+    buildSteps: {},
+    events: {},
+    logicFields: {},
+    contexts: {}
+  },
+
+  input: {
+    inlinePathCreators: new Map(),
+    inlinePathCounter: 0,
+    defaults: undefined
+  },
+
+  build: {
+    cache: {}
+  },
+
+  mount: {
+    counter: {},
+    mounted: {}
+  },
+
+  reducers: {
+    tree: {},
+    roots: {},
+    combined: undefined
+  },
+
+  store: undefined, // you can get a copy of redux's store from here
+
+  options: {
+    debug: false,
+    autoMount: false,
+    proxyFields: true,
+    flatDefaults: false,
+    attachStrategy: 'dispatch',
+    detachStrategy: 'dispatch',
+
+    ...otherOptions
+  }
+}

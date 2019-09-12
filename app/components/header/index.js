@@ -48,7 +48,8 @@ const menu = {
           { url: '/api/kea', title: 'kea' },
           { url: '/api/logic', title: 'logic' },
           { url: '/api/connect', title: 'connect' },
-          { url: '/api/store', title: 'getStore' },
+          { url: '/api/context', title: 'context' },
+
           { url: '/api/reducer', title: 'keaReducer' },
           { url: '/api/action', title: 'createAction' },
           { url: '/api/reset', title: 'resetKeaCache' }
