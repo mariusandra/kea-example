@@ -1,0 +1,24 @@
+// create a logic
+const logic = kea({
+  actions: () => ({
+    doSomething: true,
+  }),
+
+  reducers: () => ({
+    myValue: ['yes']
+  })
+})
+
+logic.extend({
+  actions: () => ({
+    doSomethingElse: true,
+  }),
+
+  reducers: () => ({
+    anotherValue: ['no']
+  })
+})
+
+// Now you can use both:
+Object.keys(logic.build().actions) == ['doSomething', 'doSomethingElse']
+Object.keys(logic.build().selectors) == ['myValue', 'anotherValue']

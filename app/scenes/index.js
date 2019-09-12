@@ -26,8 +26,8 @@ export default () => (
       <Route path='/guide/forms' component={bundles.guideForms} />
 
       <Route path='/api' exact render={apiRedirect} />
+      <Route path='/api/kea' component={bundles.apiKea} />
       <Route path='/api/logic' component={bundles.apiLogic} />
-      <Route path='/api/component' component={bundles.apiComponent} />
       <Route path='/api/connect' component={bundles.apiConnect} />
       <Route path='/api/reducer' component={bundles.apiReducer} />
       <Route path='/api/store' component={bundles.apiStore} />

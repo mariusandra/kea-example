@@ -45,8 +45,8 @@ const menu = {
       {
         title: 'API',
         children: [
-          { url: '/api/logic', title: 'kea(options)' },
-          { url: '/api/component', title: 'kea(options)(Component)' },
+          { url: '/api/kea', title: 'kea(options)' },
+          { url: '/api/logic', title: 'logic' },
           { url: '/api/connect', title: 'connect(options)' },
           { url: '/api/store', title: 'getStore' },
           { url: '/api/reducer', title: 'keaReducer' },

@@ -1,0 +1,30 @@
+const logic = kea({})
+
+// When you call logic.mount(), we actually send it through .build():
+logic.mount() == logic.build().mount()
+
+// With logic with keys, this is true:
+logic(props).mount() == logic.build(props).mount()
+
+// In any case, logic.mount() connects this logic to Redux
+// and also mounts all other connected logic.
+// It returns a function, which when called will unmount the logic from the store:
+const unmount = logic.mount()
+
+logic.actions.doSomething()
+console.log(logic.values.myValue)
+
+unmount()
+
+// Alternatively, pass a callback to execute its contents and unmount automatically
+logic.mount(builtLogic => {
+  builtLogic.actions.doSomething()
+  console.log(builtLogic.values.myValue)
+})
+
+// The callback can also be async
+logic.mount(async builtLogic => {
+  const response = await window.fetch('/api/give-me-all-your-data')
+  builtLogic.actions.doSomething(await response.json())
+  console.log(builtLogic.values.myValue)
+})

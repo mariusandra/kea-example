@@ -1,0 +1,36 @@
+// create a logic
+const logic = kea({
+  key: props => props.id,
+
+  constants: () => ['SOMETHING'],
+
+  actions: () => ({
+    doSomething: true,
+  }),
+
+  reducers: () => ({
+    myValue: ['yes']
+  })
+})
+
+// get a built copy
+const builtLogic = logic.build({ id: 10 })
+
+// you may now access all the properties
+// ... keeping in mind it's not yet mounted
+
+// action creator (returns object { type: 'do something', payload: {} })
+builtLogic.actionCreators.doSomething()
+
+// bound actions. dispatches the created action automatically
+// probably not useful if the logic is not mounted
+builtLogic.actions.doSomething()
+
+// get the contants
+buildLogic.constants == { SOMETHING: 'SOMETHING' }
+
+// a disconnected selector, will probably throw when called
+buildLogic.selectors.myValue(state)
+
+// this will throw since the logic is not mounted
+buildLogic.values.myValue

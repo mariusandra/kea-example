@@ -10,8 +10,8 @@ export default {
   guideMigration: async('GuideMigration', () => import(/* webpackChunkName: "guideMigration" */'./guide/migration')),
   guideForms: async('GuideForms', () => import(/* webpackChunkName: "guideForms" */'./guide/forms')),
 
+  apiKea: async('ApiKea', () => import(/* webpackChunkName: "apiKea" */'./api/kea')),
   apiLogic: async('ApiLogic', () => import(/* webpackChunkName: "apiLogic" */'./api/logic')),
-  apiComponent: async('ApiComponent', () => import(/* webpackChunkName: "apiComponent" */'./api/component')),
   apiConnect: async('ApiConnect', () => import(/* webpackChunkName: "apiConnect" */'./api/connect')),
   apiReducer: async('ApiReducer', () => import(/* webpackChunkName: "apiReducer" */'./api/reducer')),
   apiStore: async('ApiStore', () => import(/* webpackChunkName: "apiStore" */'./api/store')),

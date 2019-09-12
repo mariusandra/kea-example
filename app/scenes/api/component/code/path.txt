@@ -1,1 +1,0 @@
-path: (key) => ['scenes', 'homepage', 'sliders', key]

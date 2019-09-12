@@ -1,0 +1,5 @@
+const logic = kea({})
+
+logic()          --> logic.build()
+logic(props)     --> logic.build(props)
+logic(Component) --> logic.wrap(Component)

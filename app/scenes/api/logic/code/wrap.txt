@@ -1,0 +1,34 @@
+const logic = kea({
+  actions: () => ({
+    doSomething: true,
+    doSomethingElse: true,
+  }),
+  reduceres: () => ({
+    firstOne: ['defaultValue'],
+    secondOne: ['defaultValue']
+  })
+})
+
+// with function components
+
+function MyComponent ({ firstOne, secondOne, actions: { doSomething, doSomethingElse } }) {
+  // ...
+}
+
+const ConnectedComponent = logic(MyComponent)
+
+
+// with class components
+
+class MyClassComponent extends Component {
+  render () {
+    const { firstOne, secondOne } = this.props
+
+    // NB! this.actions is a shorthand for this.props.actions
+    const { doSomething, doSomethingElse } = this.actions
+
+    return <div />
+  }
+}
+
+const ConnectedClassComponent = logic(MyClassComponent)
