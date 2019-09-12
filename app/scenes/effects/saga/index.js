@@ -38,7 +38,7 @@ export default function Saga () {
         </p>
         <Highlight className='bash'>{code.install}</Highlight>
         <p>
-          Then you to install the plugin:
+          Then you install the plugin:
         </p>
         <Highlight className='javascript'>{code.import}</Highlight>
       </div>
