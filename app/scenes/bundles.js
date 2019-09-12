@@ -13,10 +13,8 @@ export default {
   apiKea: async('ApiKea', () => import(/* webpackChunkName: "apiKea" */'./api/kea')),
   apiLogic: async('ApiLogic', () => import(/* webpackChunkName: "apiLogic" */'./api/logic')),
   apiConnect: async('ApiConnect', () => import(/* webpackChunkName: "apiConnect" */'./api/connect')),
-  apiReducer: async('ApiReducer', () => import(/* webpackChunkName: "apiReducer" */'./api/reducer')),
   apiContext: async('ApiContext', () => import(/* webpackChunkName: "apiContext" */'./api/context')),
   apiAction: async('ApiAction', () => import(/* webpackChunkName: "apiAction" */'./api/action')),
-  apiReset: async('ApiReset', () => import(/* webpackChunkName: "apiReset" */'./api/reset')),
 
   pluginsLocalStorage: async('PluginsLocalStorage', () => import(/* webpackChunkName: "pluginsLocalStorage" */'./plugins/localstorage')),
   pluginsRouter: async('PluginsRouter', () => import(/* webpackChunkName: "pluginsRouter" */'./plugins/router')),

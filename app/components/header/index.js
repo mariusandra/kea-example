@@ -45,14 +45,11 @@ const menu = {
       {
         title: 'API',
         children: [
+          { url: '/api/context', title: 'context' },
           { url: '/api/kea', title: 'kea' },
           { url: '/api/logic', title: 'logic' },
           { url: '/api/connect', title: 'connect' },
-          { url: '/api/context', title: 'context' },
-
-          { url: '/api/reducer', title: 'keaReducer' },
           { url: '/api/action', title: 'createAction' },
-          { url: '/api/reset', title: 'resetKeaCache' }
         ]
       }
     ]

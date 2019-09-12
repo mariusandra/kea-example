@@ -29,10 +29,8 @@ export default () => (
       <Route path='/api/kea' component={bundles.apiKea} />
       <Route path='/api/logic' component={bundles.apiLogic} />
       <Route path='/api/connect' component={bundles.apiConnect} />
-      <Route path='/api/reducer' component={bundles.apiReducer} />
       <Route path='/api/context' component={bundles.apiContext} />
       <Route path='/api/action' component={bundles.apiAction} />
-      <Route path='/api/reset' component={bundles.apiReset} />
 
       <Route path='/effects' exact render={effectsRedirect} />
       <Route path='/effects/listeners' component={bundles.effectsListeners} />
