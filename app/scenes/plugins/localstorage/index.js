@@ -7,7 +7,8 @@ const code = {
   install: require('raw-loader!./code/install.txt'),
   import: require('raw-loader!./code/import.txt'),
   local: require('raw-loader!./code/local.txt'),
-  usage: require('raw-loader!./code/usage.txt')
+  usage: require('raw-loader!./code/usage.txt'),
+  config: require('raw-loader!./code/config.txt')
 }
 
 export default function LocalStorage () {
@@ -29,7 +30,12 @@ export default function LocalStorage () {
         Then install the plugin:
         </p>
         <Highlight className='javascript'>{code.import}</Highlight>
+
+        <h2>Configuration options</h2>
+        <p>The plugin takes the following options:</p>
+        <Highlight className='bash'>{code.config}</Highlight>
       </div>
+
       <div className='description'>
         <h2>Usage</h2>
         <p>

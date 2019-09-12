@@ -26,7 +26,7 @@ export default resetContext({
     // middleware that gets passed to applyMiddleware(...middleware)
     middleware: [],
 
-    // the compose function, defaults to the one from redux-devtools-extension or redux's own compose
+    // the compose function, defaults to the one from redux-devtools-extension or compose from redux
     compose: composeWithDevTools || compose,
 
     // gets passed to compose(middleware, ...enhancers)(createStore)

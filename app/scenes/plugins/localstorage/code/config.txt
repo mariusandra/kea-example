@@ -1,0 +1,10 @@
+localStoragePlugin({
+  // in case you want to replace this, e.g. for tests or non browser environments
+  storageEngine: window.localStorage,
+
+  // added before all paths in localStorage keys
+  prefix: 'example',
+
+  // to change the symbol that concats path parts
+  separator: '_'
+})

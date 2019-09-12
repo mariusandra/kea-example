@@ -10,6 +10,10 @@ const logic = kea({
     // just add { persist: true }
     name: ['chirpy', { persist: true }, {
       [actions.updateName]: (state, payload) => payload.name
+    }],
+    // you may override the prefix and separator keys
+    name: ['chirpy', { persist: true, prefix: 'example', separator: '_' }, {
+      [actions.updateName]: (state, payload) => payload.name
     }]
   })
 })
