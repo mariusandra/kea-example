@@ -13,6 +13,9 @@ export default class API extends Component {
         <p>
           Shorthand for <code>{'kea({ connect: options })'}</code>
         </p>
+        <p>
+          It's very handy for connecting actions and values to class components.
+        </p>
         <h3>Usage</h3>
         <Highlight className='javascript'>{code.usage}</Highlight>
       </div>
