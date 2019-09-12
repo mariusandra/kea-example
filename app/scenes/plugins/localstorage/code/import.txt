@@ -1,4 +1,3 @@
-// the cleanest way
 import localStoragePlugin from 'kea-localstorage'
 import { resetContext } from 'kea'
 

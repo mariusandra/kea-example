@@ -1,0 +1,5 @@
+# if you're using yarn
+yarn add kea-router
+
+# if you're using npm
+npm install --save kea-router

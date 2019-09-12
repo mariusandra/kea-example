@@ -1,0 +1,7 @@
+import listenersPlugin from 'kea-listeners'
+import { resetContext } from 'kea'
+
+resetContext({
+  createStore: true,
+  plugins: [ listenersPlugin ]
+})

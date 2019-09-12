@@ -15,19 +15,23 @@ const logic = kea({
   })
 })
 
-// the logic must be mounted before you can access its fields
+// The logic must be mounted before you can access its fields
+// This is done automatically when a React component is using it.
+
+// If you're using Kea outside React, call logic.mount() manually to have
+// access to all the fields below.
 logic.mount()
 
-// call an action to add something
+// Call an action to add something
 logic.actions.addOne()
 
-// create an action (returns the object { type: 'add one ...' })
+// Create an action (returns the object { type: 'add one ...', payload: {} })
 logic.actionCreators.addOne()
 
-// selectors for querying redux (state defaults to getState())
+// Reselect selectors for querying redux (state defaults to getState())
 logic.selectors.myNumber(state)
 logic.selectors.myNumberDouble(state)
 
-// shorthand for selectors (implemented as getters)
+// Shorthand for selectors (implemented as getters)
 logic.values.myNumber
 logic.values.myNumberDouble

@@ -38,6 +38,17 @@ export default function InstallationScene () {
         <Highlight className='javascript'>{code.provider}</Highlight>
 
         <p>And you're done! Feel free to use <code>kea()</code> calls anywhere in your code!</p>
+
+        <h4>A note about call order</h4>
+
+        <p>
+          In versions of Kea before 1.0, you had to run the setup code before any call to <code>{'kea({})'}</code> was made.
+          This is no longer the case. Each call to <code>{'kea({})'}</code> lazily loads the logic and builds it only when requested,
+          either when mounted onto a React component or instructed to do so manually (via <code>logic.build()</code> and/or <code>logic.mount()</code>).
+        </p>
+        <p>
+          Calling <code>resetContext()</code> always clears all initialised logic and reverts your app to a clean state.
+        </p>
       </div>
     </div>
   )

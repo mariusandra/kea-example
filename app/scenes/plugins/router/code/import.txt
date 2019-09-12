@@ -1,0 +1,7 @@
+import { routerPlugin ] from 'kea-router'
+import { resetContext } from 'kea'
+
+resetContext({
+  createStore: true,
+  plugins: [ routerPlugin({ /* options */ }) ]
+})

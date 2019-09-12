@@ -1,0 +1,16 @@
+routerPlugin({
+  // The browser History API or something that mocks it
+  // Defaults to window.history in the browser and a mock memoryHistory otherwise
+  history: window.history,
+
+  // An object with the keys { pathname, search, hash } used to
+  // get the current location. Defaults to window.location in the browser and
+  // an empty object otherwise.
+  location: window.location,
+
+  // If there is a difference between the path in the browser and the path in
+  // your routes, use these functions to clear it up.
+  // For example to have the same app on many subfolders in one the site.
+  pathFromRoutesToWindow: path => '/subfolder' + path,
+  pathFromWindowToRoutes: path => path.replace(/^\/subfolder/, '')
+})
