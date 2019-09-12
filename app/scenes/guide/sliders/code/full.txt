@@ -21,11 +21,9 @@ import images from './images'
     updateSlide: index => ({ index })
   }),
 
-  reducers: ({ actions, key, props }) => ({
+  reducers: ({ actions, props }) => ({
     currentSlide: [props.initialSlide || 0, PropTypes.number, {
-      [actions.updateSlide]: (state, payload) => {
-        return payload.key === key ? payload.index % images.length : state
-      }
+      [actions.updateSlide]: (state, payload) => payload.index % images.length
     }]
   }),
 
@@ -39,7 +37,7 @@ import images from './images'
 
   // This saga is run when the component is mounted.
   // The function is a regular redux-saga worker that has access to:
-  // 1) this.actions, 2) this.key and 3) this.props
+  // 1) this.actions, 2) this.props
   //
   // Read the redux-saga documentation to understand the different
   // functions like: race(), put(), take(), etc
@@ -51,10 +49,8 @@ import images from './images'
 
     while (true) {
       // wait until the updateSlide() action is triggered or a 5sec timeout occurs
-      // to ignore actions from other slider instances we must also match the key
       const { timeout } = yield race({
-        change: take(action => action.type === updateSlide.toString() &&
-                               action.payload.key === this.key),
+        change: take(updateSlide),
         timeout: delay(5000)
       })
 
@@ -84,11 +80,7 @@ import images from './images'
   // it's recommended to group all the logic under the workers: {} object.
   workers: {
     updateSlide: function * (action) {
-      // check if it was this component that triggered the action
-      if (action.payload.key === this.key) {
-        console.log('slide update triggered', action.payload.key, this.key, this.props.id)
-        // console.log(action, this)
-      }
+      console.log('slide update triggered', this.props.id)
     }
   }
 })

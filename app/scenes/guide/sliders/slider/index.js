@@ -20,9 +20,9 @@ import images from './images'
     updateSlide: index => ({ index })
   }),
 
-  reducers: ({ actions, key, props }) => ({
+  reducers: ({ actions, props }) => ({
     currentSlide: [props.initialSlide || 0, PropTypes.number, {
-      [actions.updateSlide]: (state, payload) => payload.key === key ? payload.index % images.length : state
+      [actions.updateSlide]: (_, payload) => payload.index % images.length
     }]
   }),
 
@@ -42,7 +42,7 @@ import images from './images'
 
     while (true) {
       const { timeout } = yield race({
-        change: take(action => action.type === updateSlide.toString() && action.payload.key === this.key),
+        change: take(updateSlide),
         timeout: delay(5000)
       })
 
@@ -63,10 +63,7 @@ import images from './images'
 
   workers: {
     updateSlide: function * (action) {
-      if (action.payload.key === this.key) {
-        console.log('slide update triggered', action.payload.key, this.key, this.props.id)
-        // console.log(action, this)
-      }
+      console.log('slide update triggered', this.props.id)
     }
   }
 })
