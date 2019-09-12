@@ -305,7 +305,8 @@ export default class HomepageScene extends Component {
               Yes! There are many other plugins you can extend your logic with.
             </p>
             <p>
-              For examle <code>kea-dimensions</code>, which sets a value based on the screen dimensions.
+              For example <code><a href='https://gist.github.com/mariusandra/ed989e0a362cb9beb30526abf85b1021'>kea-dimensions</a></code>,
+              which sets a value based on the screen dimensions.
             </p>
           </div>
           <div className='code'>
