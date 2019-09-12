@@ -101,6 +101,9 @@ export default class Header extends Component {
 
     return (
       <div>
+        <div style={{ background: '#bf1515', color: 'white', padding: '6px 10px' }}>
+          This documentation is for the old Kea 0.28. To see the latest docs for 1.0, <a href='https://kea.js.org/' style={{ color: 'yellow' }}>click here!</a>
+        </div>
         <header className='body-header'>
           <nav className='first-level'>
             {Object.keys(menu).map(key => (
