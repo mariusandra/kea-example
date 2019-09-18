@@ -17,6 +17,7 @@ export default {
   apiContext: async('ApiContext', () => import(/* webpackChunkName: "apiContext" */'./api/context')),
   apiAction: async('ApiAction', () => import(/* webpackChunkName: "apiAction" */'./api/action')),
   apiPlugins: async('ApiPlugins', () => import(/* webpackChunkName: "apiPlugins" */'./api/plugins')),
+  apiHooks: async('ApiHooks', () => import(/* webpackChunkName: "apiHooks" */'./api/hooks')),
 
   pluginsLocalStorage: async('PluginsLocalStorage', () => import(/* webpackChunkName: "pluginsLocalStorage" */'./plugins/localstorage')),
   pluginsRouter: async('PluginsRouter', () => import(/* webpackChunkName: "pluginsRouter" */'./plugins/router')),

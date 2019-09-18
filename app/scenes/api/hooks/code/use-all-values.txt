@@ -1,0 +1,9 @@
+import { kea, useAllValues } from 'kea'
+
+const logic = kea({ ... })
+
+function MyComponent () {
+  const props = useAllValues(logic)
+
+  return <div>{props.counter} * 2 = {props.doubleCounter}</div>
+}

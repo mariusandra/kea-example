@@ -46,12 +46,13 @@ const menu = {
       {
         title: 'API',
         children: [
-          { url: '/api/context', title: 'context' },
-          { url: '/api/kea', title: 'kea' },
-          { url: '/api/logic', title: 'logic' },
-          { url: '/api/connect', title: 'connect' },
-          { url: '/api/action', title: 'createAction' },
+          { url: '/api/context', title: 'Context' },
+          { url: '/api/kea', title: 'Kea' },
+          { url: '/api/logic', title: 'Logic' },
+          { url: '/api/hooks', title: 'Hooks' },
           { url: '/api/plugins', title: 'Plugins' },
+          { url: '/api/connect', title: 'Connect' },
+          { url: '/api/action', title: 'CreateAction' }
         ]
       }
     ]

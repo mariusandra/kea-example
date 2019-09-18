@@ -9,7 +9,7 @@ import WithHeader from '~/components/header'
 import bundles from './bundles'
 
 const guideRedirect = () => (<Redirect to='/guide/installation' />)
-const apiRedirect = () => (<Redirect to='/api/logic' />)
+const apiRedirect = () => (<Redirect to='/api/kea' />)
 const effectsRedirect = () => (<Redirect to='/effects/listeners' />)
 const pluginsRedirect = () => (<Redirect to='/plugins/router' />)
 
@@ -33,6 +33,7 @@ export default () => (
       <Route path='/api/context' component={bundles.apiContext} />
       <Route path='/api/action' component={bundles.apiAction} />
       <Route path='/api/plugins' component={bundles.apiPlugins} />
+      <Route path='/api/hooks' component={bundles.apiHooks} />
 
       <Route path='/effects' exact render={effectsRedirect} />
       <Route path='/effects/listeners' component={bundles.effectsListeners} />

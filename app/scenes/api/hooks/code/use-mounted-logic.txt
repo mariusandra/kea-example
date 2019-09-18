@@ -1,0 +1,9 @@
+import { kea, useMountedLogic } from 'kea'
+
+const logic = kea({ ... })
+
+function MyComponent () {
+  useMountedLogic(logic)
+
+  return <div>Logic is now mounted!</div>
+}

@@ -1,0 +1,9 @@
+import { kea, useActions } from 'kea'
+
+const logic = kea({ ... })
+
+function MyComponent () {
+  const { increment } = useActions(logic)
+
+  return <button onClick={increment}>Increment</button>
+}
