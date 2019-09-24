@@ -13,8 +13,7 @@ const logic = kea({
   })
 })
 
-fucntion Github () {
-  render () {
+function Github () {
     const { username } = useValues(logic)
     const { setUsername } = useActions(logic)
 
@@ -32,5 +31,4 @@ fucntion Github () {
         </div>
       </div>
     )
-  }
 }
