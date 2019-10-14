@@ -28,7 +28,7 @@ const delay = ms => new Promise(resolve => window.setTimeout(resolve, ms))
     }
   })
 })
-export default class ListenerCounter extends Component () {
+export default class ListenerCounter extends Component {
   render {
     const { counter, debounced } = this.props
     const { increase, increaseAsync, toggleDebounced } = this.actions
