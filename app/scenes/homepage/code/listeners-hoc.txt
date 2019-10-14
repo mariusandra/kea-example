@@ -29,7 +29,7 @@ const logic = kea({
   })
 })
 
-class ListenerCounter extends Component () {
+class ListenerCounter extends Component {
   render {
     const { counter, debounced } = this.props
     const { increase, increaseAsync, toggleDebounced } = this.actions
