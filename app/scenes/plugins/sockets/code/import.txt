@@ -1,0 +1,8 @@
+import socketPlugin from 'kea-socket.io';
+// thunk or saga plugin needed to emit socket.io events
+import thunkPlugin from 'kea-thunk';
+import { resetContext } from 'kea';
+
+resetContext({
+  plugins: [thunkPlugin, socketPlugin]
+});

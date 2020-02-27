@@ -21,6 +21,7 @@ export default {
 
   pluginsLocalStorage: async('PluginsLocalStorage', () => import(/* webpackChunkName: "pluginsLocalStorage" */'./plugins/localstorage')),
   pluginsRouter: async('PluginsRouter', () => import(/* webpackChunkName: "pluginsRouter" */'./plugins/router')),
+  pluginsSockets: async('PluginsSockets', () => import(/* webpackChunkName: "pluginsSockets" */'./plugins/sockets')),
 
   effectsListeners: async('EffectsListeners', () => import(/* webpackChunkName: "effectsListeners" */'./effects/listeners')),
   effectsSaga: async('EffectsSaga', () => import(/* webpackChunkName: "effectsSaga" */'./effects/saga')),

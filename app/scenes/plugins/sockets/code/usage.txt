@@ -1,0 +1,30 @@
+const someLogic = kea({
+  path: () => ['scenes', 'something', 'foobar'],
+
+  actions: () => ({
+    socket_testEvent: ({ payload }) => payload,
+    change: (value) => ({ value })
+  }),
+
+  reducers: ({ actions }) => ({
+    persistedValue: [
+      0,
+      PropTypes.number,
+      { persist: true },
+      {
+        [actions.change]: (_, payload) => payload.value
+      }
+    ]
+  }),
+  thunks: ({ emitters, emitterActions }) => ({
+    testEmit: () => {
+      // emit event to socket with default nsp ('/')
+      emitters.default.emit('message', 'hello world');
+      emitterActions.disconnectAll();
+    },
+    socket_anotherTestEvent: ({ payload }) => {
+      // this is data from socket event
+      console.log(payload);
+    }
+  })
+});
