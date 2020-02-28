@@ -40,7 +40,8 @@ const menu = {
         title: 'Plugins',
         children: [
           { url: '/plugins/router', title: 'Router' },
-          { url: '/plugins/localstorage', title: 'LocalStorage' }
+          { url: '/plugins/localstorage', title: 'LocalStorage' },
+          { url: '/plugins/sockets', title: 'WebSockets' }
         ]
       },
       {
