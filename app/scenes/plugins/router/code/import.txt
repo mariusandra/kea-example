@@ -1,4 +1,4 @@
-import { routerPlugin ] from 'kea-router'
+import { routerPlugin } from 'kea-router'
 import { resetContext } from 'kea'
 
 resetContext({
