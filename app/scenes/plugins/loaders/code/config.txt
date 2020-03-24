@@ -1,0 +1,9 @@
+loadersPlugin({
+  // Called when the listener throws an error
+  // Feel free to alert the user in a nicer way,
+  // for example by displaying a notification.
+  // Also connect this to your bug tracking software.
+  onError ({ logic, error, reducerKey, actionKey }) {
+    console.error(`Error in ${actionKey} for ${reducerKey}:`, error)
+  }
+})

@@ -1,0 +1,5 @@
+# if you're using yarn
+yarn add kea-loaders kea-listeners
+
+# if you're using npm
+npm install --save kea-loaders kea-listeners

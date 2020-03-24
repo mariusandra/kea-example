@@ -1,0 +1,63 @@
+
+export const projectLogic = kea({
+  key: props => props.id,
+
+  loaders: ({ values, props }) => ({
+    project: {
+      loadProject: async () => projectsService.get(props.id),
+    },
+
+    // the above code creates these actions:
+    // - loadProject: true
+    // - loadProjectSuccess: project => ({ project })
+    // - loadProjectFailure: error => ({ error })
+
+    // ... and these reducers:
+    // - project (whatever the loadProject loader returns)
+    // - projectLoading (true or false)
+
+    apiKeys: {
+      loadApiKeys: async () => apiKeysService.find({ query: { projectId: props.id } }),
+      createApiKey: async () => {
+        const apiKey = await apiKeysService.create({ projectId: props.id })
+        return [...(values.apiKeys || []), apiKey]
+      },
+    },
+
+    // the above code creates these actions:
+    // - loadApiKeys: true
+    // - loadApiKeysSuccess: apiKeys => ({ apiKeys })
+    // - loadApiKeysFailure: error => ({ error })
+    // - createApiKey: true
+    // - createApiKeySuccess: apiKeys => ({ apiKeys })
+    // - createApiKeyFailure: error => ({ error })
+
+    // ... and these reducers:
+    // - apiKeys (whatever the loadProject loader returns)
+    // - apiKeysLoading (true or false)
+  })
+
+  // start the loaders after mounting the logic
+  events: ({ actions }) => ({
+    afterMount: () => {
+      actions.loadProject()
+      actions.loadApiKeys()
+    },
+  }),
+})
+
+
+// must be called projectLogic({ id })
+function Project ({ id }) {
+  const { project, projectUsers, apiKeys } = useValues(projectLogic({ id }))
+
+  return (
+    <div>
+      {!project ? ( // project === null if not loaded (or use projectLoading)
+        <div>Loading project</div>
+      ) : (
+        <div>Project: {project.id}</div>
+      )}
+    </div>
+  )
+}

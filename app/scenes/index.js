@@ -41,8 +41,9 @@ export default () => (
       <Route path='/effects/thunk' component={bundles.effectsThunk} />
 
       <Route path='/plugins' exact render={pluginsRedirect} />
-      <Route path='/plugins/router' component={bundles.pluginsRouter} />
+      <Route path='/plugins/loaders' component={bundles.pluginsLoaders} />
       <Route path='/plugins/localstorage' component={bundles.pluginsLocalStorage} />
+      <Route path='/plugins/router' component={bundles.pluginsRouter} />
       <Route path='/plugins/sockets' component={bundles.pluginsSockets} />
 
       <Route path='/playground' component={bundles.playground} />

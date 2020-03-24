@@ -39,8 +39,9 @@ const menu = {
       {
         title: 'Plugins',
         children: [
-          { url: '/plugins/router', title: 'Router' },
+          { url: '/plugins/loaders', title: 'Loaders' },
           { url: '/plugins/localstorage', title: 'LocalStorage' },
+          { url: '/plugins/router', title: 'Router' },
           { url: '/plugins/sockets', title: 'WebSockets' }
         ]
       },
