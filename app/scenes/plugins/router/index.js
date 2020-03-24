@@ -34,23 +34,23 @@ export default function Router () {
 
         <h2>Configuration options</h2>
         <p>The plugin takes the following options:</p>
-        <Highlight className='bash'>{code.config}</Highlight>
+        <Highlight className='javascript'>{code.config}</Highlight>
 
         <h2>Sample usage</h2>
         <p>Use <code>actionToUrl</code> to change the URL in response to actions and <code>urlToAction</code> to dispatch actions when the route changes</p>
-        <Highlight className='bash'>{code.usageUrlAction}</Highlight>
+        <Highlight className='javascript'>{code.usageUrlAction}</Highlight>
 
         <p>Import <code>router</code> to control the router directly</p>
-        <Highlight className='bash'>{code.usagePathname}</Highlight>
+        <Highlight className='javascript'>{code.usagePathname}</Highlight>
 
         <p>Create an <code>A</code> tag to make linking easier</p>
-        <Highlight className='bash'>{code.usageLink}</Highlight>
+        <Highlight className='javascript'>{code.usageLink}</Highlight>
 
         <p>Listen to the <code>locationChanged</code> action to react to URL changes manually</p>
-        <Highlight className='bash'>{code.usageListener}</Highlight>
+        <Highlight className='javascript'>{code.usageListener}</Highlight>
 
         <p>Here's sample code for a global scene router</p>
-        <Highlight className='bash'>{code.usageScenes}</Highlight>
+        <Highlight className='javascript'>{code.usageScenes}</Highlight>
 
       </div>
     </div>
