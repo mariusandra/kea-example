@@ -18,8 +18,10 @@ export default function Router () {
       <div className='description'>
         <h2>Router</h2>
         <p>
-          Please help write this section or read more
-          about <a href='https://github.com/keajs/kea-router'><code>kea-router</code></a> on github!
+          The <code>kea-router</code> plugin provides a nice wrapper around <code>window.History</code> and helps manage
+          the URL in your application. Use it to listen to route changes or change the URL yourself. There are a few
+          helpers (<code>actionToUrl</code> and <code>urlToAction</code>) that help track the URL changes, or
+          access the <code>router</code> directly to manually control the browser history object.
         </p>
 
         <h2>Installation</h2>
