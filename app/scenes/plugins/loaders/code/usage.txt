@@ -1,14 +1,15 @@
+import { kea } from 'kea'
 
 export const projectLogic = kea({
   key: props => props.id,
 
   loaders: ({ values, props }) => ({
     project: {
-      loadProject: async () => projectsService.get(props.id),
+      loadProject: async (id = props.id) => projectsService.get(id),
     },
 
     // the above code creates these actions:
-    // - loadProject: true
+    // - loadProject: params => params
     // - loadProjectSuccess: project => ({ project })
     // - loadProjectFailure: error => ({ error })
 
@@ -46,18 +47,27 @@ export const projectLogic = kea({
   }),
 })
 
-
-// must be called projectLogic({ id })
-function Project ({ id }) {
-  const { project, projectUsers, apiKeys } = useValues(projectLogic({ id }))
+export function Project ({ id }) {
+  const { project, projectLoading } = useValues(projectLogic({ id }))
+  const { loadProject } = useActions(projectLogic({ id }))
 
   return (
     <div>
-      {!project ? ( // project === null if not loaded (or use projectLoading)
+      {projectLoading ? (
         <div>Loading project</div>
-      ) : (
+      ) : project ? (
         <div>Project: {project.id}</div>
+      ) : (
+        <div>No project found!</div>
       )}
+
+      <button onClick={() => loadProject(id)}>Reload project</button>
+
+      <button onClick={() => loadApiKeys()}>Load API keys</button>
+      {/* In case your loader function takes no arguments, we recommend */}
+      {/* passing onClick={() => loadProject()} in the click handler.   */}
+      {/* Using just onClick={loadProject} will pass the click event as */}
+      {/* a param to the action and that may cause unexpected issues... */}
     </div>
   )
 }
