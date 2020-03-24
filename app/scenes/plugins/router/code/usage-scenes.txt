@@ -1,0 +1,63 @@
+import React, { lazy, useMemo } from 'react'
+import { router } from 'kea-router'
+
+export const scenes = {
+  'dashboard': () => import(/* webpackChunkName: 'dashboard' */'./dashboard/DashboardScene'),
+  'login': () => import(/* webpackChunkName: 'login' */'./login/LoginScene'),
+  'projects': () => import(/* webpackChunkName: 'projects' */'./projects/ProjectsScene'),
+}
+
+export const routes = {
+  '/': 'dashboard',
+  '/login': 'login',
+  '/projects': 'projects',
+  '/projects/:id', 'projects'
+}
+
+export const sceneLogic = kea({
+  actions: () => ({
+    setScene: (scene, params) => ({ scene, params })
+  }),
+  reducers: ({ actions }) => ({
+    scene: [null, {
+      [actions.setScene]: (_, payload) => payload.scene
+    }],
+    params: [{}, {
+      [actions.setScene]: (_, payload) => payload.params || {}
+    }]
+  }),
+  urlToAction: ({ actions }) => {
+    const mapping = {}
+    for (const [paths, scene] of Object.entries(routes)) {
+      for (const path of paths.split('|')) {
+        mapping[path] = params => actions.setScene(scene, params)
+      }
+    }
+    return mapping
+  }
+})
+
+export function Layout({ children }) {
+  return (
+    <div className='layout'>
+      <div className='menu'>...</div>
+      <div className='content'>{children}</div>
+    </div>
+  )
+}
+
+export function Scenes() {
+  const { scene, params } = useValues(sceneLogic)
+
+  const Scene = useMemo(() => {
+    return scenes[scene] ? lazy(scenes[scene]) : () => <div>404</div>
+  }, [scene])
+
+  return (
+    <Layout>
+      <Suspense fallback={() => <div>Loading...</div>}>
+        <Scene {...params} />
+      </Suspense>
+    </Layout>
+  )
+}

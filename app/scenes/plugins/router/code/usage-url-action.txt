@@ -1,0 +1,28 @@
+import { kea } from 'kea'
+
+export const articlesLogic = kea({
+  // define the actions from below
+  actions: () => ({ ... }),
+
+  // define article = { id, ... }
+  reducers: () => ({ ... }),
+
+  actionToUrl: ({ actions, values }) => ({
+    [actions.openList]: ({ id }) => `/articles`,
+    [actions.openArticle]: ({ id }) => `/articles/${id}`,
+    [actions.openComments]: () => `/articles/${values.article.id}/comments`,
+    [actions.closeComments]: () => `/articles/${values.article.id}`
+  }),
+
+  urlToAction: ({ actions }) => ({
+    '/articles': () => actions.openList(),
+    '/articles/:id(/:extra)': ({ id, extra }) => {
+      actions.openArticle(id)
+      if (extra === 'comments') {
+        actions.openComments()
+      } else {
+        actions.closeComments()
+      }
+    },
+  })
+})

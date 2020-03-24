@@ -1,0 +1,15 @@
+import React from 'react'
+import { useActions, useValues } from 'kea'
+import { router } from 'kea-router'
+
+export function MyComponent () {
+  const { push, replace } = useActions(router)
+  const { location: { pathname, search, hash } } = useValues(router)
+
+  return (
+    <div>
+      {pathname === '/setup' ? <Setup /> : <Dashboard />}
+      <button onclick={() => push('/setup')}>Open Setup</button>
+    </div>
+  )
+}

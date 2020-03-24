@@ -1,0 +1,10 @@
+import { kea } from 'kea'
+import { router } from 'kea-router'
+
+const otherLogic = kea({
+  listeners: () => ({
+    [router.actions.locationChanged]: ({ pathname, search, hash, method }) => {
+      console.log({ pathname, search })
+    }
+  })
+})

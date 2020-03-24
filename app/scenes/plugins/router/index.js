@@ -2,7 +2,11 @@ import React from 'react'
 import Highlight from '~/components/tags/highlight'
 
 const code = {
-  usage: require('raw-loader!./code/usage.txt'),
+  usageUrlAction: require('raw-loader!./code/usage-url-action.txt'),
+  usageListener: require('raw-loader!./code/usage-listener.txt'),
+  usageLink: require('raw-loader!./code/usage-link.txt'),
+  usagePathname: require('raw-loader!./code/usage-pathname.txt'),
+  usageScenes: require('raw-loader!./code/usage-scenes.txt'),
   import: require('raw-loader!./code/import.txt'),
   install: require('raw-loader!./code/install.txt'),
   config: require('raw-loader!./code/config.txt'),
@@ -33,7 +37,21 @@ export default function Router () {
         <Highlight className='bash'>{code.config}</Highlight>
 
         <h2>Sample usage</h2>
-        <Highlight className='bash'>{code.usage}</Highlight>
+        <p>Use <code>actionToUrl</code> to change the URL in response to actions and <code>urlToAction</code> to dispatch actions when the route changes</p>
+        <Highlight className='bash'>{code.usageUrlAction}</Highlight>
+
+        <p>Import <code>router</code> to control the router directly</p>
+        <Highlight className='bash'>{code.usagePathname}</Highlight>
+
+        <p>Create an <code>A</code> tag to make linking easier</p>
+        <Highlight className='bash'>{code.usageLink}</Highlight>
+
+        <p>Listen to the <code>locationChanged</code> action to react to URL changes manually</p>
+        <Highlight className='bash'>{code.usageListener}</Highlight>
+
+        <p>Here's sample code for a global scene router</p>
+        <Highlight className='bash'>{code.usageScenes}</Highlight>
+
       </div>
     </div>
   )
