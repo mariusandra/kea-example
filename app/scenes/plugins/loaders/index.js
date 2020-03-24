@@ -22,7 +22,7 @@ export default function Loaders () {
           3) an action to handle errors<br/>
           4) a reducer to store the data<br/>
           5) a reducer to store the loading state<br />
-          6) a listener (or a saga) to actually call <code>fetch</code>
+          6) a listener to make the request and return the data
         </p>
         <p>
           The <code>kea-loaderes</code> plugin abstracts this pattern into a system of loaders.
