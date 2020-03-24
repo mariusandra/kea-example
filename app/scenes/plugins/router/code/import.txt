@@ -1,7 +1,8 @@
 import { routerPlugin } from 'kea-router'
+import listenersPlugin from 'kea-listeners'
 import { resetContext } from 'kea'
 
 resetContext({
   createStore: true,
-  plugins: [ routerPlugin({ /* options */ }) ]
+  plugins: [ routerPlugin({ /* options */ }), listenersPlugin ]
 })

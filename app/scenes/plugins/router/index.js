@@ -20,7 +20,7 @@ export default function Router () {
 
         <h2>Installation</h2>
         <p>
-          First install the <a href='https://github.com/keajs/kea-router'><code>kea-router</code></a> package:
+          First install the <a href='https://github.com/keajs/kea-router'><code>kea-router</code></a> and <a href='https://github.com/keajs/kea-listeners'><code>kea-listeners</code></a> packages:
         </p>
         <Highlight className='bash'>{code.install}</Highlight>
         <p>

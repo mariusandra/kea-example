@@ -1,5 +1,5 @@
 # if you're using yarn
-yarn add kea-router
+yarn add kea-router kea-listeners
 
 # if you're using npm
-npm install --save kea-router
+npm install --save kea-router kea-listeners

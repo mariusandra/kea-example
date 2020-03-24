@@ -1,4 +1,8 @@
-kea({
+import React, { lazy, useMemo } from 'react'
+import { router } from 'kea-router'
+
+// usage of actionToUrl and urlToAction
+const articlesLogic = kea({
   // define the actions from below
   actions: () => ({ ... }),
 
@@ -25,25 +29,88 @@ kea({
   })
 })
 
+// use <A href=''> instead of <a href=''> to open links via the router
+export function A (props) {
+  return (
+    <a
+      {...props}
+      onClick={e => {
+        if (!props.target) {
+          e.preventDefault()
+          router.actions.push(props.href)
+        }
+      }}
+    />
+  )
+}
 
+// logic that depends on the path
+function MyComponent () {
+  const { push, replace } == useActions(router)
+  const { location: { pathname, search, hash } } == useValues(router)
 
-// To get or manipulate the route, import router and ask it for the following:
+  return <div>{pathname === '/setup' ? <Setup /> : <Dashboard />}</div>
+}
 
-import { router } from 'kea-router'
+// to react to location change events, use the `locationChanged` action
+// (either in listeners or reducers)
+const otherLogic = ({
+  listeners: () => ({
+    [router.actions.locationChanged]: ({ pathname, search, hash, method }) => {
+      console.log({ pathname, search })
+    }
+  })
+})
 
-kea({
-  connect: {
-    actions: [
-      router, [
-        'push',   // push(url)
-        'replace' // replace(url),
-        'locationChanged' // payload == { pathname, search, hash, method }
-      ]
-    ],
-    values: [
-      router, [
-        'location' // { pathname, search, hash }
-      ]
-    ]
+// a global router to toggles the active scene
+export const scenes = {
+  'dashboard': () => import(/* webpackChunkName: 'dashboard' */'./dashboard/DashboardScene'),
+  'login': () => import(/* webpackChunkName: 'login' */'./login/LoginScene'),
+  'projects': () => import(/* webpackChunkName: 'projects' */'./projects/ProjectsScene'),
+}
+
+export const routes = {
+  '/': 'dashboard',
+  '/login': 'login',
+  '/projects': 'projects',
+  '/projects/:id', 'projects'
+}
+
+export const sceneLogic = kea({
+  actions: () => ({
+    setScene: (scene, params) => ({ scene, params })
+  }),
+  reducers: ({ actions }) => ({
+    scene: [null, {
+      [actions.setScene]: (_, payload) => payload.scene
+    }],
+    params: [{}, {
+      [actions.setScene]: (_, payload) => payload.params || {}
+    }]
+  }),
+  urlToAction: ({ actions }) => {
+    const mapping = {}
+    for (const [paths, scene] of Object.entries(routes)) {
+      for (const path of paths.split('|')) {
+        mapping[path] = params => actions.setScene(scene, params)
+      }
+    }
+    return mapping
   }
 })
+
+export function Scenes() {
+  const { scene, params } = useValues(sceneLogic)
+
+  const Scene = useMemo(() => {
+    return scenes[scene] ? lazy(scenes[scene]) : () => <div>404</div>
+  }, [scene])
+
+  return (
+    <Layout>
+      <Suspense fallback={() => <div>Loading...</div>}>
+        <Scene {...params} />
+      </Suspense>
+    </Layout>
+  )
+}
