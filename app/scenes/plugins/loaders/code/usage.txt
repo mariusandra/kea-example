@@ -18,6 +18,7 @@ export const projectLogic = kea({
     // - projectLoading (true or false)
 
     apiKeys: {
+      __default: [], // instead of null
       loadApiKeys: async () => apiKeysService.find({ query: { projectId: props.id } }),
       createApiKey: async () => {
         const apiKey = await apiKeysService.create({ projectId: props.id })
