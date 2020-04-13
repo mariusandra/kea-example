@@ -17,14 +17,13 @@ export const projectLogic = kea({
     // - project (whatever the loadProject loader returns)
     // - projectLoading (true or false)
 
-    apiKeys: {
-      __default: [], // instead of null
+    apiKeys: [[], { // default to [] instead of null
       loadApiKeys: async () => apiKeysService.find({ query: { projectId: props.id } }),
       createApiKey: async () => {
         const apiKey = await apiKeysService.create({ projectId: props.id })
         return [...(values.apiKeys || []), apiKey]
       },
-    },
+    }],
 
     // the above code creates these actions:
     // - loadApiKeys: true
